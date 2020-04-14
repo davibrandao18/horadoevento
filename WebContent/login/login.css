@@ -1,68 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');	
 
-* {
-    font-family: 'Share Tech Mono', monospace;
-    margin: 0;
-    padding: 0;
-}
+* {	
+    font-family: 'Share Tech Mono', monospace;	
+    margin: 0;	
+    padding: 0;	
+}	
 
+.cover{	
+    position: fixed;	
+    width: 100vw;	
+    height: 100vh;	
+    background-color: #C3BEC0;	
+    display: flex;	
+    justify-content: center;	
+    align-items: center;	
+}	
 
-.cover{
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: #C3BEC0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.cover div {	
+    text-align: center;	
+}	
 
-.cover div article {
-    max-width: 40vw;
-    height: auto;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: #E39F91;
-    color: #000;
-    display: block;
-}
+.cover img {	
+    width: 150px;	
+    height: 150px;	
+    border-radius: 50%;	
+    background: #fff;	
+}	
 
-.cover div div {
-    padding: 80px 0 0 0;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-}
+.cover form {	
+    display: grid;	
+}	
 
-a button {
-    width: 120px;
-    height: 30px;
-    color: #000;
-    border: 0;
-    border-radius: 10px;
-}
+.cover form input {	
+    width: 200px;	
+    height: 30px;	
+    padding: 5px 10px;	
+    margin: 5px 0;	
+    border-radius: 10px;	
+    border: 1px solid #afafaf;	
+}	
 
-#btn-login {
-    background-color: #fff;
-    position: fixed;
-    top: 40px;
-    right: 40px;
-    z-index: 999;
-}
-
-#btn-cadastro {
-    background-color: #E3D37F;
-}
-
-#btn-start {
-    background-color: #DA6B4E;
-}
-
-#btn-empresa {
-    background-color: #fff;
-    border: 2px solid #000;
-    padding: 2px 5px;
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
+.cover form div button {	
+    width: 220px;	
+    height: 30px;	
+    margin-top: 10px;	
+    color: #000;	
+    border: 0;	
+    border-radius: 10px;	
+    background-color: #E39F91;	
 }
