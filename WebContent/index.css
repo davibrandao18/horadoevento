@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: 'Press Start 2P', cursive;
     margin: 0;
     padding: 0;
 }
@@ -40,6 +40,7 @@ a button {
     color: #000;
     border: 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #btn-login {
