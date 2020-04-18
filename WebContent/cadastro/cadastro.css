@@ -1,0 +1,47 @@
+button {
+	cursor: pointer;
+}
+
+.cover{	
+    position: fixed;	
+    width: 100vw;	
+    height: 100vh;	
+    background-color: #C3BEC0;	
+    display: flex;	
+    justify-content: center;	
+    align-items: center;	
+}	
+
+.cover div {
+    text-align: center;	
+}	
+
+.cover img {	
+    width: 150px;	
+    height: 150px;	
+    border-radius: 50%;	
+    background: #fff;	
+}	
+
+.cover form {	
+    display: grid;	
+}	
+
+.cover form input {	
+    width: 200px;	
+    height: 30px;	
+    padding: 5px 10px;	
+    margin: 5px 0;	
+    border-radius: 10px;	
+    border: 1px solid #afafaf;	
+}	
+
+.cover form div button {	
+    width: 220px;	
+    height: 30px;	
+    margin-top: 10px;	
+    color: #000;	
+    border: 0;	
+    border-radius: 10px;	
+    background-color: #E39F91;	
+}
