@@ -20,7 +20,7 @@ public class UsuarioService {
 	 */
 	public void criar(Usuario usuario) {
 		dao.inserirUsuario(usuario);
-		System.out.println("Deu certo a exclusao");
+		System.out.println("Deu certo a inclusao");
 	}
 	
 	
@@ -59,7 +59,7 @@ public class UsuarioService {
 	
 	
 	/**
-	 * Metodo responsavel por chamar usuarios semelhantes com base no nome
+	 * Metodo responsavel por listar usuarios com usernames semelhantes
 	 * @since 0.1
 	 * @param username
 	 * @return
