@@ -1,9 +1,3 @@
-@charset "UTF-8";
+body { background-color: #C8D5C0; }      /* SUBSTITUIR por imagem */
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-* {
-    font-family: 'Press Start 2P', cursive;
-    margin: 0;
-    padding: 0;
-}
+H4 { text-align: center; margin: 40px 0 0 0;}
