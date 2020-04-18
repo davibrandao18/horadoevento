@@ -12,7 +12,7 @@ public class TagUsuario {
 	
 	private int id;
 	private Tag tag;
-	private Usuario user; // --> /!\ verificar necessidade com o Igor
+	private Usuario user;
 	
 	/**
 	 * Void constructor

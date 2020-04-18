@@ -2,18 +2,18 @@ package model;
 
 import java.util.ArrayList;
 import java.io.File;
-import model.Empresa;
 
 /**
  * Classe que representa um Usuario
  * 
  * @author Davi Fonseca
  * @version 2.0
- * @since 1.0 -> desde qual vers�o esta classe est� no projeto
+ * @since 1.0 -> desde qual versao esta classe est� no projeto
  *
  */
-public class Usuario {
+public class Usuario  implements java.io.Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private String cpf;
 	private String userName;
 	private String nome;
@@ -22,7 +22,7 @@ public class Usuario {
 	private String linkedin;
 	private ArrayList<TagUsuario> colecaoTags;
 	private ArrayList<Certificado> colecaoCertificados;
-	private ArrayList<Empresa> colecaoEmpresas;
+	private ArrayList<EmpresaUsuario> colecaoEmpresas;
 	private File foto;
 	
 	/**
@@ -48,7 +48,7 @@ public class Usuario {
 	 */
 	public Usuario(String cpf, String userName, String nome, String email, String senha, String linkedin,
 			ArrayList<TagUsuario> colecaoTags, ArrayList<Certificado> colecaoCertificados,
-			ArrayList<Empresa> colecaoEmpresas, File foto) {
+			ArrayList<EmpresaUsuario> colecaoEmpresas, File foto) {
 		this.cpf = cpf;
 		this.userName = userName;
 		this.nome = nome;
@@ -212,7 +212,7 @@ public class Usuario {
 	/**
 	 * @return the colecaoEmpresas
 	 */
-	public ArrayList<Empresa> getColecaoEmpresas() {
+	public ArrayList<EmpresaUsuario> getColecaoEmpresas() {
 		return colecaoEmpresas;
 	}
 
@@ -221,7 +221,7 @@ public class Usuario {
 	/**
 	 * @param colecaoEmpresas the colecaoEmpresas to set
 	 */
-	public void setColecaoEmpresas(ArrayList<Empresa> colecaoEmpresas) {
+	public void setColecaoEmpresas(ArrayList<EmpresaUsuario> colecaoEmpresas) {
 		this.colecaoEmpresas = colecaoEmpresas;
 	}
 
