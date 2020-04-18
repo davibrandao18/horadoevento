@@ -70,16 +70,16 @@ public class UsuarioDao {
 	/**
 	 * Metodo para consultar usuarios:
 	 * @author Davi Fonseca
-	 * @since 0.1
-	 * @param String user -. username
+	 * @since 0.2
+	 * @param String usercpf -> cpf
 	 */
-	public Usuario consultarUsuario(String user) {
+	public Usuario consultarUsuario(String usercpf) {
 		String sqlConsu = "SELECT * FROM usuario"
 				+"WHERE username = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlConsu);) {
-			pst.setString(1,user);
+			pst.setString(1,usercpf);
 			
 			//quando precisa de retorno do banco "ResultSet"//
 			ResultSet resultado = pst.executeQuery();
@@ -94,7 +94,7 @@ public class UsuarioDao {
 				String email = resultado.getString("email");
 				String senha = resultado.getString("senha");
 				String linkedin = resultado.getString("linkedin");
-				File foto = recuperarImagem(user);
+				File foto = recuperarImagem(usercpf);
 				
 				usuario.setCpf(cpf);
 				usuario.setUserName(username);
@@ -111,7 +111,44 @@ public class UsuarioDao {
 			ex.printStackTrace();
 		}
 		return null;
+	}
+	
+	
+	/**
+	 * Metodo de listagem de usuarios semelhantes
+	 * @author Maicon Souza
+	 * @since
+	 * @param String nome
+	 * @return arraylist de usuarios
+	 */
+	public ArrayList<Usuario> listarUsuario(String username) {
+		String sqlSelect = "SELECT * FROM usuario"
+				+"WHERE username = ?";
+
+		ArrayList<Usuario> listaUsuario = new ArrayList<>();
 		
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+			pst.setString(1,username);
+			
+			//quando precisa de retorno do banco "ResultSet"//
+			ResultSet resultado = pst.executeQuery();
+			
+			Usuario usuario = null;
+			
+			while(resultado.next()) {
+				
+				usuario = consultarUsuario(resultado.getString("cpf"));
+				listaUsuario.add(usuario);
+			}
+			
+			return listaUsuario;
+		
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	
@@ -147,7 +184,6 @@ public class UsuarioDao {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
 		}
-			
 	}
 	
 	
