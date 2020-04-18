@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
  * 
  * @author Davi Fonseca
  * @version 1.0
- * @since 2.0 -> desde qual vers�o esta classe est� no projeto
+ * @since 2.0 -> desde qual versao a classe esta no projeto
  *
  */
 public class Certificado {
@@ -28,6 +28,7 @@ public class Certificado {
 	 * @param id
 	 * @param user
 	 * @param evento
+	 * @param quantidadeHoras
 	 */
 	public Certificado(int id, Usuario user, Evento evento, GregorianCalendar quantidadeHoras) {
 		this.id = id;
@@ -93,6 +94,19 @@ public class Certificado {
 	public void setQuantidadeHoras(GregorianCalendar quantidadeHoras) {
 		this.quantidadeHoras = quantidadeHoras;
 	}
+	
+	/**
+     * 
+     * @param valorSql data coletada do banco de dados
+     * @return data em formato GregorianCalendar
+     */
+    public GregorianCalendar toGregorian(java.sql.Date valorSql) {
+    	GregorianCalendar valorGregorian = new GregorianCalendar();
+    	valorGregorian.setTimeInMillis(valorSql.getTime());
+    	
+    	return valorGregorian;
+    }
+	
 	
 	// To String //
 	
