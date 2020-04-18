@@ -20,7 +20,7 @@ public class UsuarioService {
 	 */
 	public void criar(Usuario usuario) {
 		dao.inserirUsuario(usuario);
-		System.out.println("Deu certo a exclus�o");
+		System.out.println("Deu certo a exclusao");
 	}
 	
 	
@@ -31,7 +31,7 @@ public class UsuarioService {
 	 */
 	public void atualizar(Usuario usuario){
 		dao.atualizarUsuario(usuario.getCpf(), usuario.getUserName(), usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getLinkedin());
-		System.out.println("Deu certo a atualiza��o ! /n"+usuario.toString());
+		System.out.println("Deu certo a atualizacao ! /n"+usuario.toString());
 	}
 	
 	
@@ -43,7 +43,7 @@ public class UsuarioService {
 	 */
 	public void excluir(String username, String cpf){
 		dao.deletarUsuario(username, cpf);
-		System.out.println("Deu certo a exclus�o");
+		System.out.println("Deu certo a exclusao");
 	}
 	
 	
