@@ -17,15 +17,15 @@ import model.TagUsuario;
 public class UsuarioDao {
 	
 	/**
-	 * Metodo de insercao de usurio no Banco de dados
-	 *  @author Davi Fonseca
-	 *  
+	 * Metodo de insercao de usuario no Banco de dados
+	 * @author Davi Fonseca
+	 * @since 0.1
 	 * @param Usuario usuario
 	 */
 	public void inserirUsuario(Usuario usuario) {
 		String sqlInsert = "INSERT INTO usuario"
-				+"(cpf,username,nome,email,senha,linklinkedin,foto)"
-				+"VALUES (?,?,?,?,?,?,?)";
+				+"(cpf,username,nome,email,senha,linkedin)"
+				+"VALUES (?,?,?,?,?,?)";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
@@ -66,16 +66,16 @@ public class UsuarioDao {
 		
 	}
 	
+	
 	/**
-	 * Metodo para consoltar usuarios:
+	 * Metodo para consultar usuarios:
 	 * @author Davi Fonseca
-	 * 
+	 * @since 0.1
 	 * @param String user -. username
 	 */
 	public Usuario consultarUsuario(String user) {
 		String sqlConsu = "SELECT * FROM usuario"
-				+"WHERE username = ?"
-				+"VALUES (?,?,?,?,?,?,?)";
+				+"WHERE username = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlConsu);) {
@@ -85,7 +85,7 @@ public class UsuarioDao {
 			ResultSet resultado = pst.executeQuery();
 			
 			Usuario usuario = null;
-			//+"(cpf,username,nome,email,senha,linklinkedin,foto)"
+			//+"(cpf,username,nome,email,senha,linkedin,foto)"
 			if (resultado.next()){
 				usuario = new Usuario();
 				String cpf = resultado.getString("cpf");
@@ -114,18 +114,19 @@ public class UsuarioDao {
 		
 	}
 	
+	
 	/**
-	 * Metodo para alteração de imagem:
+	 * Metodo para alteracao de imagem:
 	 * @author Davi Fonseca
-	 * 
+	 * @since 0.1
 	 * @param File foto
 	 * @param String username
 	 */
 	public void inserirImagem(File foto, String username) {
 			
 		//Preparando a String para insercao:
-		String sqlUpdate = "Update usuario SET foto ="
-				+ "? WHERE username = ?";
+		String sqlUpdate = "UPDATE usuario SET foto = ?"
+				+ "WHERE username = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
@@ -133,7 +134,7 @@ public class UsuarioDao {
 			//criando fluxo de manipulacao de arquivo
 			FileInputStream inputStream = new FileInputStream(foto);
 			
-			pst.setBinaryStream(1,				//Posição do Sql
+			pst.setBinaryStream(1,				//Posicao do Sql
 					(InputStream) inputStream,	//Fluxo de informacao
 					(int) (foto.length())		//Quantidade de bytes
 					);
@@ -149,10 +150,11 @@ public class UsuarioDao {
 			
 	}
 	
+	
 	/**
-	 * Método para recuperar imagem do banco de dados de acordo com o apelido.
+	 * Metodo para recuperar imagem do banco de dados de acordo com o apelido.
 	 * @author Davi Fonseca
-	 * 
+	 * @since 0.1
 	 * @param String username
 	 */
 	public File recuperarImagem(String username) {
@@ -168,9 +170,9 @@ public class UsuarioDao {
 			pst.setString(1, username);
 			
 			ResultSet resultado = pst.executeQuery();
-			// Arquivo onde a imagem será armazenada no disco:
+			// Arquivo onde a imagem sera armazenada no disco:
 			File file = new File(username +".jpg");
-			// Objeto para tratar saída de dados para um arquivo:
+			// Objeto para tratar saida de dados para um arquivo:
 			FileOutputStream output = new FileOutputStream(file);
 			
 			// Verificando se encontrou registro para o select:
@@ -179,15 +181,15 @@ public class UsuarioDao {
 				InputStream input = resultado.getBinaryStream("foto");
 				// Preparando um vetor de bytes para enviar para o arquivo:
 		        byte[] buffer = new byte[1024];
-		        // Enquanto existir conteúdo no fluxo de dados, continua:
+		        // Enquanto existir conteï¿½do no fluxo de dados, continua:
 		        while (input.read(buffer) > 0) {
-		        	// Escreve o conteúdo no arquivo de destino no disco:
+		        	// Escreve o conteï¿½do no arquivo de destino no disco:
 		            output.write(buffer);
 		        }
 				// Fechando a entrada:
 		        input.close();
 			}
-			// Encerra a saída:
+			// Encerra a saida:
 			output.close();
 			resultado.close();
 			return file;
@@ -198,10 +200,11 @@ public class UsuarioDao {
 		return null;
 	}
 	
+	
 	/**
 	 * Metodo para atualizar usuario no bd
 	 * @author Davi Fonseca
-	 * 
+	 * @since 0.1
 	 * @param cpf
 	 * @param username
 	 * @param nome
@@ -213,7 +216,7 @@ public class UsuarioDao {
 	public void atualizarUsuario(String cpf, String username, String nome, String email, String senha, String linkedin) {
 		
 		/**
-		 * Criando a String de atualização
+		 * Criando a String de atualizacao
 		 */
 		String atualizar = "UPDATE usuario SET cpf = ?, username = ?, nome = ?, email = ?, senha = ?, linkedin = ? WHERE username = ?";
 		
@@ -235,16 +238,17 @@ public class UsuarioDao {
 		}
 	}
 	
+	
 	/**
 	 * Metodo para deletar usuario no bd
 	 * @author Davi Fonseca
-	 * 
+	 * @since 0.1
 	 * @param username
 	 * @param cpf
 	 */
 	public void deletarUsuario(String username, String cpf) {
 		
-		//Preparando a String para atualização:
+		//Preparando a String para atualizacao:
 		String deletar = "DELETE FROM usuario WHERE username = ? && cpf = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
@@ -261,7 +265,5 @@ public class UsuarioDao {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
 		}
-		
 	}
-
 }
