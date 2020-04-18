@@ -60,6 +60,7 @@ a button {
 }
 
 #btn-empresa {
+    height: 35px;
     background-color: #fff;
     border: 2px solid #000;
     padding: 2px 5px;

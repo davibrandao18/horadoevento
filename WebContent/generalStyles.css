@@ -90,7 +90,6 @@ footer {
 	display: flex;
 	align-items: center;
 	padding: 10px 1% 10px 1%;
-	margin-top: 80px;
 	background-color: #d94e4e;
 }
 
@@ -126,11 +125,14 @@ footer #smiggle {
 	text-align: end;
 }
 
-footer #smiggle #dialog{
-	background-color: #fff;
-	border: 2px solid #000;
-	padding: 2px 5px;
-	margin-bottom: 84px;
+#petDialog{
+	margin-top: 80px;
+	height: 35px;
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 2px 5px;
+    float: right;
+    margin-right: 100px;
 }
 
 
