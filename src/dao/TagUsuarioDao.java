@@ -14,17 +14,13 @@ public class TagUsuarioDao {
 	 */
 	public void criarTagUsuario(TagUsuario tagUsr) {
 		String sqlInsert = "INSERT INTO usuario"
-				+"(cpf,username,nome,email,senha,linklinkedin,foto)"
-				+"VALUES (?,?,?,?,?,?,?)";
+				+"(fk_id_tag, fk_cpf_usuario)"
+				+"VALUES (?, ?)";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
-			/**pst.setString(1,tagUsr.getCpf());
-			pst.setString(2,tagUsr.getUserName());
-			pst.setString(3,tagUsr.getNome());
-			pst.setString(4,tagUsr.getEmail());
-			pst.setString(5,tagUsr.getSenha());
-			pst.setString(6,tagUsr.getLinkedin());**/
+			pst.setInt(1,tagUsr.getTag().getId());
+			pst.setString(2,tagUsr.getUser().getCpf());
 			
 			
 		} catch (SQLException ex) {
