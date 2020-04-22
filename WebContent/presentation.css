@@ -1,17 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-* {
-    font-family: 'Press Start 2P', cursive;
-    margin: 0;
-    padding: 0;
-}
-
+body { background-image: url("./assets/backgrounds/city.svg"); }
 
 .cover{
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: #C3BEC0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,12 +27,13 @@
 }
 
 a button {
-    width: 120px;
+    width: 160px;
     height: 30px;
     color: #000;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
+    text-align: center;
 }
 
 #btn-login {
@@ -57,14 +50,4 @@ a button {
 
 #btn-start {
     background-color: #DA6B4E;
-}
-
-#btn-empresa {
-    height: 35px;
-    background-color: #fff;
-    border: 2px solid #000;
-    padding: 2px 5px;
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
 }
