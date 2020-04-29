@@ -224,12 +224,14 @@ button { outline: none; }
 	right: 0;
 }
 
-.simpleFooter button {
+.simpleFooter a {
 	margin: 0 -30px 0 0;
+	padding: 10px;
 }
 
 .simpleFooter p {
-	margin-top: -32px;
+	margin-top: -33px;
+	margin-left: 15px;
 }
 
 
