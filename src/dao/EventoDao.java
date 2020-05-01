@@ -47,7 +47,7 @@ public class EventoDao {
 			pst.setString(8, evento.getEmpresa().getCnpj());
 			
 			pst.execute();
-			System.out.println(":: Evento " +evento.getTitulo() +" criado com sucesso");
+			System.out.println("dao:: Evento " +evento.getTitulo() +" criado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -179,7 +179,7 @@ public class EventoDao {
 			pst.setString(8, evento.getEmpresa().getCnpj());
 			
 			pst.executeUpdate();
-			System.out.println(":: Evento atualizado com sucesso");
+			System.out.println("dao:: Evento atualizado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -198,7 +198,7 @@ public class EventoDao {
 				PreparedStatement pst = conectar.prepareStatement(sqlDelete);) {
 			pst.execute();
 			
-			System.out.println(":: Evento deletado com sucesso");
+			System.out.println("dao:: Evento deletado com sucesso");
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
