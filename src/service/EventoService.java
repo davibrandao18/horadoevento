@@ -5,6 +5,12 @@ import java.sql.SQLException;
 import dao.EventoDao;
 import model.Evento;
 
+/**
+ * Classe que representa um evento
+ * @author maicon
+ * @version 1.0
+ *
+ */
 public class EventoService {
 
 	private EventoDao dao = new EventoDao();
