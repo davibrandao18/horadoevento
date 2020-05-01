@@ -15,7 +15,7 @@ public class Evento {
 	private int id;
 	private String titulo;
 	private String descricao;
-	private GregorianCalendar data;
+	private GregorianCalendar dataHora;
 	private String localizacao;
 	private String duracao;
 	private int quantidadeVagas;
@@ -32,7 +32,7 @@ public class Evento {
 	 * @param id
 	 * @param titulo
 	 * @param descricao
-	 * @param data
+	 * @param dataHora
 	 * @param localizacao
 	 * @param duracao
 	 * @param quantidadeVagas
@@ -40,13 +40,13 @@ public class Evento {
 	 * @param colecaoTags
 	 * @param empresa
 	 */
-	public Evento(int id, String titulo, String descricao, GregorianCalendar data, String localizacao, String duracao,
+	public Evento(int id, String titulo, String descricao, GregorianCalendar dataHora, String localizacao, String duracao,
 			int quantidadeVagas, String palestrante, ArrayList<TagUsuario> colecaoTags, Empresa empresa) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
-		this.data = data;
+		this.dataHora = dataHora;
 		this.localizacao = localizacao;
 		this.duracao = duracao;
 		this.quantidadeVagas = quantidadeVagas;
@@ -100,17 +100,17 @@ public class Evento {
 	}
 
 	/**
-	 * @return the data
+	 * @return the dataHora
 	 */
-	public GregorianCalendar getData() {
-		return data;
+	public GregorianCalendar getDataHora() {
+		return dataHora;
 	}
 
 	/**
-	 * @param data the data to set
+	 * @param dataHora the dataHora to set
 	 */
-	public void setData(GregorianCalendar data) {
-		this.data = data;
+	public void setDataHora(GregorianCalendar dataHora) {
+		this.dataHora = dataHora;
 	}
 
 	/**
@@ -202,7 +202,7 @@ public class Evento {
 		return "Evento {ID=" + getId() 
 				+ ", Titulo=" + getTitulo()
 				+ ", Descricao=" + getDescricao()
-				+ ", Data=" + getData()
+				+ ", dataHora=" + getDataHora()
 				+ ", Localizacao=" + getLocalizacao()
 				+ ", Duracao="+ getDuracao() 
 				+ ", Quantidade Vagas=" + getQuantidadeVagas()
@@ -212,6 +212,12 @@ public class Evento {
 				+ "}";
 	}
 
+	public GregorianCalendar toGregorian(java.sql.Date valorSql) {
+    	GregorianCalendar valorGregorian = new GregorianCalendar();
+    	valorGregorian.setTimeInMillis(valorSql.getTime());
+    	
+    	return valorGregorian;
+    }
 	
 	
 	
