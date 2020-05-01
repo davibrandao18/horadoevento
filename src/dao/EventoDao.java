@@ -26,7 +26,7 @@ import service.EmpresaService;
 public class EventoDao {
 	
 	/**
-	 * Criação de um novo evento
+	 * Criacao de um novo evento
 	 * @param evento
 	 * @throws SQLException
 	 */
@@ -160,7 +160,7 @@ public class EventoDao {
 	
 	
 	/**
-	 * Atualização de um evento existente
+	 * Atualiza�ao de um evento existente
 	 * @param evento
 	 * @throws SQLException
 	 */

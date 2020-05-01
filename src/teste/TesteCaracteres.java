@@ -2,5 +2,5 @@ package teste;
 
 public class TesteCaracteres {
 	
-	// áááááaá´aáaááá´aaááááa ÀÀAÀÀAÀAAÀAÀÀÀAÀAAAA
+	//n�o a��o usu�rio �ndice �
 }
