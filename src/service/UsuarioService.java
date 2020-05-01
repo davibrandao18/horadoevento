@@ -65,6 +65,6 @@ public class UsuarioService {
 	 * @return
 	 */
 	public ArrayList<Usuario> listar(String username) {
-		return dao.listarUsuario(username);
+		return dao.listarUsuarios(username);
 	}
 }
