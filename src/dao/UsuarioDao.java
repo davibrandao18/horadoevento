@@ -14,11 +14,17 @@ import model.Certificado;
 import model.EmpresaUsuario;
 import model.TagUsuario;
 
+/**
+ * Data Acess Object para o Usuario
+ * 
+ * @author Davi Fonseca
+ * @version 0.1
+ * @since 0.1
+ */
 public class UsuarioDao {
 	
 	/**
 	 * Metodo de insercao de usuario no Banco de dados
-	 * @author Davi Fonseca
 	 * @since 0.1
 	 * @param Usuario usuario
 	 */

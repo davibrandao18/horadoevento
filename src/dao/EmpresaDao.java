@@ -19,8 +19,8 @@ public class EmpresaDao {
 	 */
 	public void inserirEmpresa(Empresa empresa) {
 		String sqlInsert = "INSERT INTO empresa"
-				+"(cnpj,username,nome,cidade,pais,senha,email,linkedin)"
-				+"VALUES (?,?,?,?,?,?,?,?)";
+				+"(cnpj,username,nome,cidade,estado,pais,senha,email,linkedin)"
+				+"VALUES (?,?,?,?,?,?,?,?,?)";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
@@ -28,10 +28,12 @@ public class EmpresaDao {
 			pst.setString(2,empresa.getUserName());
 			pst.setString(3,empresa.getNome());
 			pst.setString(4,empresa.getCidade());
-			pst.setString(4,empresa.getPais());
-			pst.setString(5,empresa.getSenha());
-			pst.setString(6,empresa.getEmail());
-			pst.setString(7,empresa.getLinkedin());
+			pst.setString(5,empresa.getPais());
+			pst.setString(6,empresa.getEstado());
+			pst.setString(7,empresa.getSenha());
+			pst.setString(8,empresa.getEmail());
+			pst.setString(9,empresa.getLinkedin());
+			//TODO FOTO
 			
 			pst.execute();
 			System.out.println("empresa inserida com sucesso!");

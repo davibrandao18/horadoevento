@@ -15,6 +15,7 @@ public class Empresa {
 	private String userName;
 	private String nome;
 	private String cidade;
+	private String estado;
 	private String pais;
 	private String senha;
 	private String email;
@@ -39,13 +40,14 @@ public class Empresa {
 	 * @param linkedin
 	 * @param foto
 	 */
-	public Empresa(String cnpj, String userName, String nome, String cidade, String pais, String senha, String email,
+	public Empresa(String cnpj, String userName, String nome, String cidade, String estado, String pais, String senha, String email,
 			String linkedin, File foto) {
 		super();
 		this.cnpj = cnpj;
 		this.userName = userName;
 		this.nome = nome;
 		this.cidade = cidade;
+		this.estado = estado;
 		this.pais = pais;
 		this.senha = senha;
 		this.email = email;
@@ -109,6 +111,20 @@ public class Empresa {
 	 */
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	/**
+	 * @return the estado
+	 */
+	public String getEstado() {
+		return estado;
+	}
+
+	/**
+	 * @param estado the estado to set
+	 */
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	/**
@@ -186,7 +202,8 @@ public class Empresa {
 		return "Empresa {CNPJ=" + this.cnpj 
 				+ ", userName=" + this.userName 
 				+ ", nome=" + this.nome 
-				+ ", cidade=" + this.cidade 
+				+ ", cidade=" + this.cidade
+				+ ", estado=" + this.estado
 				+ ", pais=" + this.pais 
 				+ ", senha=" + this.senha 
 				+ ", email=" + this.email 
