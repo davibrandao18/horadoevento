@@ -121,35 +121,26 @@ public class UsuarioDao {
 	
 	
 	/**
-	 * Metodo de listagem de usuarios semelhantes
+	 * Metodo de listagem de usuarios semelhantes utilizando o username
 	 * @author Maicon Souza
 	 * @since
 	 * @param String nome
 	 * @return arraylist de usuarios
 	 */
-	public ArrayList<Usuario> listarUsuario(String username) {
-		String sqlSelect = "SELECT * FROM usuario"
-				+"WHERE username = ?";
+	public ArrayList<Usuario> listarUsuarios(String username) {
+		String sqlSelect = "SELECT * FROM usuario WHERE username LIKE '%" +username +"%'";
 
 		ArrayList<Usuario> listaUsuario = new ArrayList<>();
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
-			pst.setString(1,username);
 			
-			//quando precisa de retorno do banco "ResultSet"//
 			ResultSet resultado = pst.executeQuery();
 			
-			Usuario usuario = null;
-			
-			while(resultado.next()) {
-				
-				usuario = consultarUsuario(resultado.getString("cpf"));
-				listaUsuario.add(usuario);
-			}
-			
+			while(resultado.next())
+				listaUsuario.add(consultarUsuario(resultado.getString("cpf")));
+
 			return listaUsuario;
-		
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
