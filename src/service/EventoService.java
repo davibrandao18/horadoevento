@@ -84,5 +84,4 @@ public class EventoService {
 			ex.printStackTrace();
 		}
 	}
-	
 }
