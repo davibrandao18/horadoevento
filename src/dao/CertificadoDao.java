@@ -83,7 +83,7 @@ public class CertificadoDao {
 				UsuarioService usuarioService = new UsuarioService();
 				certificado.setUser(usuarioService.carregar(cpfUsuario));
 				
-				EventoSerdvice eventoService = new EventoService();
+				EventoService eventoService = new EventoService();
 				certificado.setEvento(eventoService.carregar(evento));
 				
 				
@@ -131,7 +131,7 @@ public class CertificadoDao {
 	public void atualizarCertificado(Certificado certificado) {
 	
 		/**
-		 * Criando a String de atualização
+		 * Criando a String de atualizaï¿½ï¿½o
 		 */
 		String atualizar = "UPDATE certificado SET fk_usuario_cpf = ?, fk_evento_id = ?, quantidade_horas = ? WHERE id = ?";
 		
