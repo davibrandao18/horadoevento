@@ -246,25 +246,24 @@ public class UsuarioDao {
 	 * @param linkedin
 	 * @throws SQLException
 	 */
-	public void atualizarUsuario(String cpf, String username, String nome, String email, String senha, String linkedin) {
+	public void atualizarUsuario(Usuario user) {
 		
 		/**
 		 * Criando a String de atualizacao
 		 */
-		String atualizar = "UPDATE usuario SET cpf = ?, username = ?, nome = ?, email = ?, senha = ?, linkedin = ? WHERE username = '"+username+"'";
+		String atualizar = "UPDATE usuario SET cpf = ?, username = ?, nome = ?, email = ?, senha = ?, linkedin = ? WHERE username = '"+user.getUserName()+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(atualizar)) {
 			
-			pst.setString(1, cpf);
-			pst.setString(2, username);
-			pst.setString(3, nome);
-			pst.setString(4, email);
-			pst.setString(5, senha);
-			pst.setString(6, linkedin);
+			pst.setString(1, user.getCpf());
+			pst.setString(2, user.getUserName());
+			pst.setString(3, user.getNome());
+			pst.setString(4, user.getEmail());
+			pst.setString(5, user.getSenha());
+			pst.setString(6, user.getLinkedin());
 			
 			pst.executeUpdate();
-			System.out.println("Dados atualizados com sucesso");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
