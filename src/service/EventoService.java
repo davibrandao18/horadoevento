@@ -37,7 +37,7 @@ public class EventoService {
 	public void atualizar(Evento evento) throws SQLException {
 		try {
 			dao.atualizarEvento(evento);
-			System.out.println("service:: Evento atualizado com sucesso");
+			System.out.println("service: Evento atualizado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -51,7 +51,7 @@ public class EventoService {
 	public void excluir(int id) throws SQLException {
 		try {
 			dao.deletarEvento(id);
-			System.out.println("service:: Evento deletado com sucesso");
+			System.out.println("service: Evento deletado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -62,13 +62,15 @@ public class EventoService {
 	 * @param id
 	 * @throws SQLException
 	 */
-	public void carregar(int id) throws SQLException {
+	public Evento carregar(int id) throws SQLException {
 		try {
-			dao.consultarEvento(id);
-			System.out.println("service:: Evento carregado com sucesso");
+			Evento ev = dao.consultarEvento(id);
+			System.out.println("service: Evento carregado com sucesso"+ev.toString());
+			return ev ;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+		return null;
 	}
 	
 	/**
