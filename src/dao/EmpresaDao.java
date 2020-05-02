@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.Empresa;
+
 public class EmpresaDao {
 	
 	/**
@@ -91,6 +93,34 @@ public class EmpresaDao {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+		return null;
+	}
+	
+	/**
+	 * Metodo de listagem de empresas semelhantes utilizando o username
+	 * @author Davi Fonseca
+	 * @since
+	 * @param String username
+	 * @return arraylist de empresass
+	 */
+	public ArrayList<Empresa> listarEmpresas(String username) {
+		String sqlSelect = "SELECT * FROM empresa WHERE username LIKE '%" +username +"%'";
+
+		ArrayList<Empresa> listaEmpresa = new ArrayList<>();
+		
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+			
+			ResultSet resultado = pst.executeQuery();
+			
+			while(resultado.next())
+				listaEmpresa.add(consultarEmpresa(resultado.getString("username")));
+
+			return listaEmpresa;
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		
 		return null;
 	}
 	
@@ -186,7 +216,7 @@ public class EmpresaDao {
 
 	/**
 	 * Metodo para atualizar os dados da empresa
-	 * @author Maicon Souza
+	 * @author Maicon Souza e Davi fonseca
 	 * @since
 	 * @param cnpj
 	 * @param username
@@ -197,21 +227,23 @@ public class EmpresaDao {
 	 * @param email
 	 * @param linkedin
 	 */
-	public void atualizarEmpresa(String cnpj, String username, String nome, String cidade, String pais, String senha, String email, String linkedin) {
+	public void atualizarEmpresa(Empresa empresa) {
 		
-		String atualizar = "UPDATE empresa SET cnpj = ?, username = ?, nome = ?, cidade = ?, pais = ?, senha = ?, email = ?, linkedin = ? WHERE username = ?";
+		String atualizar = "UPDATE empresa SET cnpj = ?, username = ?, nome = ?, cidade = ?, estado = ?, pais = ?, senha = ?, email = ?, linkedin = ? WHERE username = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(atualizar)) {
 			
-			pst.setString(1, cnpj);
-			pst.setString(2, username);
-			pst.setString(3, nome);
-			pst.setString(4, cidade);
-			pst.setString(5, pais);
-			pst.setString(6, email);
-			pst.setString(7, senha);
-			pst.setString(8, linkedin);
+			pst.setString(1, empresa.getCnpj());
+			pst.setString(2, empresa.getUserName());
+			pst.setString(3, empresa.getNome());
+			pst.setString(4, empresa.getCidade());
+			pst.setString(5, empresa.getEstado());
+			pst.setString(6, empresa.getPais());
+			pst.setString(7, empresa.getSenha());
+			pst.setString(8, empresa.getEmail());
+			pst.setString(9, empresa.getLinkedin());
+			pst.setString(10, empresa.getUserName());
 
 			pst.executeUpdate();
 			System.out.println("Dados atualizados com sucesso");
@@ -224,12 +256,12 @@ public class EmpresaDao {
 	
 	/**
 	 * Metodo para deletar uma empresa do banco de dados
-	 * @author Maicon Souza
+	 * @author Maicon Souza e Davi Fonseca
 	 * @since
 	 * @param username
 	 * @param cnpj
 	 */
-	public void deletarUsuario(String username, String cnpj) {
+	public void deletarEmpresa(String username, String cnpj) {
 		
 		//Preparando a String para atualizacao:
 		String deletar = "DELETE FROM empresa WHERE username = ? && cnpj = ?";
