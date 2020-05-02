@@ -28,7 +28,7 @@ public class CertificadoDao {
 	 */
 	public void criarCertificado(Certificado certificado) {
 		String sqlInsert = "INSERT INTO certificado"
-				+"(fk_usuario_cpf, fk_evento_id, quantidade_horas )"
+				+"(fk_usuario_cpf, fk_evento_id, quantidade_minutos )"
 				+"VALUES (?,?,?)";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
@@ -37,7 +37,7 @@ public class CertificadoDao {
 			pst.setString(1,certificado.getUser().getCpf());
 			pst.setInt(2,certificado.getEvento().getId());
 			
-			java.sql.Date quantidadeHoras = new Date(certificado.getQuantidadeHoras().getInstance().getTimeInMillis()); // /!\
+			java.sql.Date quantidadeHoras = new Date(certificado.getQuantidadeHoras().getTimeInMillis());
 			pst.setDate(3,quantidadeHoras);
 			
 			pst.execute();
@@ -74,7 +74,7 @@ public class CertificadoDao {
 			if (resultado.next()) {				
 				String cpfUsuario = resultado.getString("fk_usuario_cpf");
 				int evento = resultado.getInt("fk_evento_id");
-				java.sql.Date qtdHoras = resultado.getDate("quantidade_horas");
+				java.sql.Date qtdHoras = resultado.getDate("quantidade_minutos");
 				
 				Certificado certificado = new Certificado();
 				certificado.setId(id);
@@ -125,7 +125,7 @@ public class CertificadoDao {
 	 * @param certificado
 	 */
 	public void atualizarCertificado(Certificado certificado) {
-		String atualizar = "UPDATE certificado SET fk_usuario_cpf = ?, fk_evento_id = ?, quantidade_horas = ? WHERE id = ?";
+		String atualizar = "UPDATE certificado SET fk_usuario_cpf = ?, fk_evento_id = ?, quantidade_minutos = ? WHERE id = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(atualizar)) {
