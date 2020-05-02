@@ -33,7 +33,7 @@ public class EventoDao {
 		
 		try(Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
-			pst.setDate(1, new Date(evento.getDataHora().getInstance().getTimeInMillis())); // /!\
+			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis()));
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
 			pst.setString(4, evento.getDuracao());
@@ -156,7 +156,7 @@ public class EventoDao {
 	
 	
 	/**
-	 * Atualizaçao de um evento existente
+	 * Atualizaï¿½ao de um evento existente
 	 * @param evento
 	 * @throws SQLException
 	 */
@@ -165,7 +165,7 @@ public class EventoDao {
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
-			pst.setDate(1, new Date(evento.getDataHora().getInstance().getTimeInMillis())); // /!\
+			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis())); // /!\
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
 			pst.setString(4, evento.getDuracao());
