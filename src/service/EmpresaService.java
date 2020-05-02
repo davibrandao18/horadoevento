@@ -17,7 +17,7 @@ public class EmpresaService {
 	private EmpresaDao dao = new EmpresaDao();
 	
 	/**
-	 * Metodo responsavel por chamar o empresa DAO
+	 * Metodo responsavel por chamar o cricao no DAO
 	 * @since
 	 * @param empresa
 	 */
@@ -28,7 +28,7 @@ public class EmpresaService {
 	
 	
 	/**
-	 * Metodo responsavel por chamar o atualizar DAO
+	 * Metodo responsavel por chamar o atualizazao no DAO
 	 * @since
 	 * @param empresa
 	 */
@@ -39,7 +39,7 @@ public class EmpresaService {
 	
 	
 	/**
-	 * Metodo responsavel por chamar o excluir DAO
+	 * Metodo responsavel por chamar o exclusao no DAO
 	 * @since
 	 * @param username
 	 * @param String username, String cnpj

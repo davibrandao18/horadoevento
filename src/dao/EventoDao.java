@@ -1,6 +1,5 @@
 package dao;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -8,18 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.cj.protocol.Resultset;
-
 import model.Empresa;
 import model.Evento;
-import model.Usuario;
 
 import service.EmpresaService;
 
 /**
  * Data Acess Object para o Evento
  * 
- * @author Maicon Souza
+ * @author Maicon Souza e Davi Fonseca
  * @version
  * @since 
  */
@@ -82,7 +78,7 @@ public class EventoDao {
 				EmpresaService es = new EmpresaService();
 				Empresa empresa = new Empresa();
 				
-				empresa = es.consultar(result.getString("fk_empresa_cnpj"));
+				empresa = es.carregar(result.getString("fk_empresa_cnpj"));
 				
 				evento.setEmpresa(empresa);
 				
@@ -121,7 +117,7 @@ public class EventoDao {
 				evento.setTitulo(result.getString("titulo"));
 				
 				EmpresaService es = new EmpresaService();
-				evento.setEmpresa(es.consultar(cnpj));
+				evento.setEmpresa(es.carregar(cnpj));
 				
 				return evento;
 			}
@@ -169,7 +165,7 @@ public class EventoDao {
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
-			pst.setDate(1, new Date(evento.getDataHora().getInstance().getTimeInMillis()));
+			pst.setDate(1, new Date(evento.getDataHora().getInstance().getTimeInMillis())); // /!\
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
 			pst.setString(4, evento.getDuracao());

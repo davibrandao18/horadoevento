@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Evento;
+
 import model.TagEvento;
-import model.TagUsuario;
+
+import service.TagService;
+import service.EventoService;
 
 /**
  * Data Acess Object para o TagEventoDao
@@ -72,7 +74,7 @@ public class TagEventoDao {
 	 * Metodo para deletar registro de tag_evento no Banco de dados
 	 * @param id
 	 */
-	public void deletarEmpresaUsuario(int id){
+	public void deletarTagEvento(int id){
 		String deletar = "DELETE FROM tag_evento WHERE id = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
@@ -93,7 +95,7 @@ public class TagEventoDao {
 	 * Metodo para atualizar registro de tag_evento no Banco de dados
 	 * @param tagUsuario
 	 */
-	public void atualizarEmpresaUsuario(TagEvento tagEvento){
+	public void atualizarTagEvento(TagEvento tagEvento){
 		String atualizar = "UPDATE tag_evento SET fk_tag_id = ?, fk_evento_id = ? WHERE id = "+tagEvento.getId();
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
