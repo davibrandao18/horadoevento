@@ -5,9 +5,11 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import model.Certificado;
-import model.Usuario;
+
 import service.UsuarioService;
+import service.EventoService;
 
 /**
  * Data Acess Object para o certificado
@@ -35,7 +37,7 @@ public class CertificadoDao {
 			pst.setString(1,certificado.getUser().getCpf());
 			pst.setInt(2,certificado.getEvento().getId());
 			
-			java.sql.Date quantidadeHoras = new Date(certificado.getQuantidadeHoras().getInstance().getTimeInMillis());
+			java.sql.Date quantidadeHoras = new Date(certificado.getQuantidadeHoras().getInstance().getTimeInMillis()); // /!\
 			pst.setDate(3,quantidadeHoras);
 			
 			pst.execute();
@@ -69,15 +71,12 @@ public class CertificadoDao {
 			//quando precisa de retorno do banco "ResultSet"//
 			ResultSet resultado = pst.executeQuery();
 			
-			Certificado certificado = null;
-			
-			if (resultado.next()) {
-				certificado = new Certificado();
-				int idCertificado = resultado.getInt("id");
+			if (resultado.next()) {				
 				String cpfUsuario = resultado.getString("fk_usuario_cpf");
 				int evento = resultado.getInt("fk_evento_id");
 				java.sql.Date qtdHoras = resultado.getDate("quantidade_horas");
 				
+				Certificado certificado = new Certificado();
 				certificado.setId(id);
 				
 				UsuarioService usuarioService = new UsuarioService();
@@ -92,7 +91,6 @@ public class CertificadoDao {
 				return certificado;
 			}
 		} catch (SQLException ex) {	
-			//Imprimindo a pilha de erros
 			ex.printStackTrace();
 		}
 		
@@ -108,12 +106,10 @@ public class CertificadoDao {
 	public void deletarCertificado(int id) {
 			
 		//Preparando a String para deletar:
-		String deletar = "DELETE FROM certificado WHERE id = ?";
+		String deletar = "DELETE FROM certificado WHERE id = "+id;
 				
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(deletar)) {
-						
-			pst.setInt(1, id);
 			
 			pst.execute();
 					
@@ -129,10 +125,6 @@ public class CertificadoDao {
 	 * @param certificado
 	 */
 	public void atualizarCertificado(Certificado certificado) {
-	
-		/**
-		 * Criando a String de atualiza��o
-		 */
 		String atualizar = "UPDATE certificado SET fk_usuario_cpf = ?, fk_evento_id = ?, quantidade_horas = ? WHERE id = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
