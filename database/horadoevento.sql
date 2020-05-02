@@ -71,7 +71,7 @@ CREATE TABLE certificado(
 	id serial,
     fk_usuario_cpf varchar(11),
     fk_evento_id bigint unsigned,
-    quantidade_horas time,
+    quantidade_minutos int,
     foreign key (fk_usuario_cpf) references usuario(cpf),
     foreign key (fk_evento_id) references evento(id)
 );
