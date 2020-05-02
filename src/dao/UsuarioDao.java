@@ -122,9 +122,9 @@ public class UsuarioDao {
 	
 	/**
 	 * Metodo de listagem de usuarios semelhantes utilizando o username
-	 * @author Maicon Souza
+	 * @author Maicon Souza e Davi Fonseca
 	 * @since
-	 * @param String nome
+	 * @param String username
 	 * @return arraylist de usuarios
 	 */
 	public ArrayList<Usuario> listarUsuarios(String username) {

@@ -4,7 +4,12 @@ import model.Usuario;
 import java.util.ArrayList;
 import dao.UsuarioDao;
 
-
+/**
+ * Classe responsável por chamar as DAO's de Usuario
+ * @author Davi Fonseca
+ * @version 0.3
+ * @since 0.1
+ */
 public class UsuarioService {
 	
 	/**
