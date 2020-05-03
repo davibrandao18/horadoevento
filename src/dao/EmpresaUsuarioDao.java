@@ -21,7 +21,7 @@ public class EmpresaUsuarioDao {
 	 * Metodo de insercao de registro EmpresaUsuario no Banco de dados
 	 * @param EmpresaUsuario empresaUsr
 	 */
-	public void criarEmpresaUsuario(EmpresaUsuario empresaUsr) {
+	public void inserirEmpresaUsuario(EmpresaUsuario empresaUsr) {
 		String sqlInsert = "INSERT INTO empresa_usuario"
 				+"(fk_usuario_cpf,fk_empresa_cnpj)"
 				+"VALUES (?,?)";

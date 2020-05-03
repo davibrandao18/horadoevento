@@ -1,7 +1,7 @@
 package service;
 
 import dao.EmpresaUsuarioDao;
-import model.TagEvento;
+import model.EmpresaUsuario;
 
 public class EmpresaUsuarioService {
 	
@@ -12,12 +12,12 @@ public class EmpresaUsuarioService {
 	EmpresaUsuarioDao dao = new EmpresaUsuarioDao();
 	
 	/**
-	 * Metodo responsavel por chamar o tagEvento DAO
+	 * Metodo responsavel por chamar o empresaUsuario DAO
 	 * @since
-	 * @param tagEvento
+	 * @param empresaUsuario
 	 */
-	public void criar(TagEvento tagEvento) {
-		dao.inserirTagEvento(tagEvento);
+	public void criar(EmpresaUsuario empresaUsuario) {
+		dao.inserirEmpresaUsuario(empresaUsuario);
 		System.out.println("Deu certo a inclusao");
 	}
 	
@@ -25,11 +25,11 @@ public class EmpresaUsuarioService {
 	/**
 	 * Metodo responsavel por chamar o atualizar DAO
 	 * @since
-	 * @param tagEvento
+	 * @param empresaUsuario
 	 */
-	public void atualizar(TagEvento tagEvento){
-		dao.atualizarTagEvento(tagEvento);
-		System.out.println("Deu certo a atualizacao ! /n"+tagEvento.toString());
+	public void atualizar(EmpresaUsuario empresaUsuario){
+		dao.atualizarEmpresaUsuario(empresaUsuario);
+		System.out.println("Deu certo a atualizacao ! /n"+empresaUsuario.toString());
 	}
 	
 	
@@ -40,29 +40,29 @@ public class EmpresaUsuarioService {
 	 * @param int id, 
 	 */
 	public void excluir(int id){
-		dao.deletarTagEvento(id);
+		dao.deletarEmpresaUsuario(id);
 		System.out.println("Deu certo a exclusao");
 	}
 	
 	
 	/**
-	 * Metodo responsavel por chamar a consulta de tagEvento do DAO
+	 * Metodo responsavel por chamar a consulta de empresaUsuario do DAO
 	 * @since
 	 * @param id
 	 * @return
 	 */
-	public TagEvento carregar(int id){
-		return dao.consultarTagEvento(id);
+	public EmpresaUsuario carregar(int id){
+		return dao.consultarEmpresaUsuario(id);
 	}
 	
 	
 	/**
-	 * Metodo responsavel por listar TagEventos com ids semelhantes
+	 * Metodo responsavel por listar EmpresaUsuarios com ids semelhantes
 	 * @since 0.1
 	 * @param id
-	 * @return ArrayList TagEvento
-	public ArrayList<TagEvento> listar(int id) {
-		return dao.listarTagEventos(id);
+	 * @return ArrayList EmpresaUsuario
+	public ArrayList<EmpresaUsuario> listar(int id) {
+		return dao.listarEmpresaUsuarios(id);
 	}*/
 	
 }
