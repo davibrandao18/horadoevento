@@ -21,27 +21,29 @@
         
         <a href="/" class="btnBack"> <img src="../assets/icons/arrowBefore.svg"> </a>
         
-        <form action="Cadastro.do" method="post">
-            <label>Nome:</label>	
-            <input name="nome" type="text">
+        <span class="disclaimer" id="centerText">Todos os campos são de preenchimento obrigatório</span>
+        
+        <form action="Cadastro.do" method="post" class="form">
+            <label class="labels">Nome:</label>	
+            <input name="nome" type="text" class="inputs">
             
-            <label>CPF:</label>
-            <input name="cpf"  type="text">	
+            <label class="labels">CPF:</label>
+            <input name="cpf"  type="text" class="inputs">	
             
-            <label>Nome de usuário:</label>
-            <input name="username" type="text">	
+            <label class="labels">Nome de usuário:</label>
+            <input name="username" type="text" class="inputs">	
             
-            <label>E-mail:</label>
-            <input name="email" type="email">
+            <label class="labels">E-mail:</label>
+            <input name="email" type="email" class="inputs">
             
-            <label>Senha:</label>
-            <input name="senha" placeholder="senha" type="password">	
+            <label class="labels">Senha:</label>
+            <input name="senha" placeholder="senha" type="password" class="inputs">	
             
-            <label>Foto:</label>
-            <input name="foto" type="file">
+            <label class="labels">Foto:</label>
+            <input name="foto" type="file" class="botaoFoto">
             
-            <label>LINKEDIN:</label>
-            <button type="button">Conecte-se com o LinkedIn</button>
+            <label class="labels">LINKEDIN:</label>
+            <input name="linkedin" placeholder="Coloque aqui o link para sua página do LinkedIn" class="inputs">
             <div>	
                 <button type="submit" class="redButton">Continue ></button>	
             </div>	
