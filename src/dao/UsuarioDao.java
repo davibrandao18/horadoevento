@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Usuario;
+import service.TagUsuarioService;
 import model.Certificado;
 import model.EmpresaUsuario;
 import model.TagUsuario;
@@ -44,9 +45,9 @@ public class UsuarioDao {
 			
 			usuario.getColecaoTags();
 			ArrayList<TagUsuario> colecaoTags = usuario.getColecaoTags();
-			TagUsuarioDao tagUsrDao = new TagUsuarioDao();
+			TagUsuarioService tus = new TagUsuarioService();
 			colecaoTags.forEach( i -> {
-				tagUsrDao.criarTagUsuario(i);
+				tus.criarTagUsuario(i);
 			});
 			
 			usuario.getColecaoCertificados();
@@ -60,7 +61,7 @@ public class UsuarioDao {
 			ArrayList<EmpresaUsuario> colecaoEmpresas = usuario.getColecaoEmpresas();
 			EmpresaUsuarioDao empresaUserDao = new EmpresaUsuarioDao();
 			colecaoEmpresas.forEach( i -> {
-				empresaUserDao.criarEmpresaUsuario(i);
+				empresaUserDao.inserirEmpresaUsuario(i);
 			});
 			
 			pst.execute();

@@ -21,7 +21,7 @@ public class TagUsuarioDao {
 	 * Metodo de insercao de registro Tag_usuario no Banco de dados
 	 * @param TagUsuario tagUsr
 	 */
-	public void criarTagUsuario(TagUsuario tagUsr) {
+	public void inserirTagUsuario(TagUsuario tagUsr) {
 		String sqlInsert = "INSERT INTO tag_usuario"
 				+"(fk_tag_id, fk_usuario_cpf)"
 				+"VALUES (?,?)";
@@ -43,7 +43,7 @@ public class TagUsuarioDao {
 	 * @param id
 	 * @return
 	 */
-	public TagUsuario consultarEmpresaUsuario(int id){
+	public TagUsuario consultarTagUsuario(int id){
 		String sqlConsu = "SELECT * FROM tag_usuario"
 				+"WHERE id = ?";
 		
@@ -81,7 +81,7 @@ public class TagUsuarioDao {
 	 * Metodo para deletar registro de Tag_usuario no Banco de dados
 	 * @param id
 	 */
-	public void deletarEmpresaUsuario(int id){
+	public void deletarTagUsuario(int id){
 		String deletar = "DELETE FROM tag_usuario WHERE id = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
@@ -102,7 +102,7 @@ public class TagUsuarioDao {
 	 * Metodo para atualizar registro de Tag_usuario no Banco de dados
 	 * @param empresaUsr
 	 */
-	public void atualizarEmpresaUsuario(TagUsuario tagUsuario){
+	public void atualizarTagUsuario(TagUsuario tagUsuario){
 		String atualizar = "UPDATE tag_usuario SET fk_tag_id = ?, fk_usuario_cpf = ? WHERE id = "+tagUsuario.getId();
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
