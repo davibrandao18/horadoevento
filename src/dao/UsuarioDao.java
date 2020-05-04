@@ -82,13 +82,13 @@ public class UsuarioDao {
 	 * @since 0.2
 	 * @param String usercpf -> cpf
 	 */
-	public Usuario consultarUsuario(String usercpf) {
+	public Usuario consultarUsuario(String username) {
 		String sqlConsu = "SELECT * FROM usuario"
 				+"WHERE username = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlConsu);) {
-			pst.setString(1,usercpf);
+			pst.setString(1,username);
 			
 			//quando precisa de retorno do banco "ResultSet"//
 			ResultSet resultado = pst.executeQuery();
@@ -98,12 +98,11 @@ public class UsuarioDao {
 			if (resultado.next()){
 				usuario = new Usuario();
 				String cpf = resultado.getString("cpf");
-				String username = resultado.getString("username");
 				String nome = resultado.getString("nome");
 				String email = resultado.getString("email");
 				String senha = resultado.getString("senha");
 				String linkedin = resultado.getString("linkedin");
-				File foto = recuperarImagem(usercpf);
+				File foto = recuperarImagem(username);
 				
 				usuario.setCpf(cpf);
 				usuario.setUserName(username);

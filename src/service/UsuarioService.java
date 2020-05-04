@@ -61,8 +61,8 @@ public class UsuarioService {
 	 * @param username
 	 * @return
 	 */
-	public Usuario carregar(String cpf){
-		return dao.consultarUsuario(cpf);
+	public Usuario carregar(String username){
+		return dao.consultarUsuario(username);
 	}
 	
 	
