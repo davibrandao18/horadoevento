@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+html {
+	--bg: rgba(255, 255, 255, 0);
+	--yellowCard: rgba(242, 210, 114, 0.8);
+	--redCard: rgba(217, 79, 50, 0.8);
+}
+
 * {
     font-family: 'Press Start 2P', cursive;
     margin: 0;
@@ -15,7 +21,7 @@ body {
 button { outline: none; }
 
 .bodyContent {
-	background-color: rgba(255, 255, 255, 0);
+	background-color: var(--bg);
 }
 
 
@@ -157,6 +163,8 @@ button { outline: none; }
 	margin-top: 80px;
     margin-right: 110px;
 	float: right;
+	text-decoration: none;
+	color: #000;
 }
 
 .helperDialog p {
@@ -203,11 +211,11 @@ button { outline: none; }
 }
 
 .redButtons button {
-    background-color: #d95032;
+    background-color: var(--redCard);
 }
 
 .yellowButtons button {
-    background-color: #f2d272;
+    background-color: var(--yellowCard);
 }
 
 .cardGroup button small {
