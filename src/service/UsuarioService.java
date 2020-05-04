@@ -1,6 +1,8 @@
 package service;
 
 import model.Usuario;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import dao.UsuarioDao;
 
@@ -22,6 +24,7 @@ public class UsuarioService {
 	 * Metodo responsavel por chamar o inserir DAO
 	 * @since
 	 * @param usuario
+	 * @throws FileNotFoundException 
 	 */
 	public void criar(Usuario usuario) {
 		dao.inserirUsuario(usuario);
