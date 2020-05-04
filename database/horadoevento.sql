@@ -9,7 +9,7 @@ CREATE TABLE usuario(
     email varchar(100) unique not null,
     senha varchar(100) not null,
     linkedin varchar(100),
-    foto longblob not null
+    foto longblob
 );
 
 CREATE TABLE empresa(
@@ -22,7 +22,7 @@ CREATE TABLE empresa(
     senha varchar(100) unique not null,
     email varchar(100) unique not null,
     linkedin varchar(100),
-    foto longblob not null
+    foto longblob
 );
 
 CREATE TABLE tag(
