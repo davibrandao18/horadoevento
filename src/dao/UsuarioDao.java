@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Usuario;
+import service.CertificadoService;
+import service.EmpresaUsuarioService;
 import service.TagUsuarioService;
 import model.Certificado;
 import model.EmpresaUsuario;
@@ -47,21 +49,21 @@ public class UsuarioDao {
 			ArrayList<TagUsuario> colecaoTags = usuario.getColecaoTags();
 			TagUsuarioService tus = new TagUsuarioService();
 			colecaoTags.forEach( i -> {
-				tus.criarTagUsuario(i);
+				tus.criar(i);
 			});
 			
 			usuario.getColecaoCertificados();
 			ArrayList<Certificado> colecaoCertificados = usuario.getColecaoCertificados();
-			CertificadoDao certificadoDao = new CertificadoDao();
+			CertificadoService cs = new CertificadoService();
 			colecaoCertificados.forEach( i -> {
-				certificadoDao.criarCertificado(i);;
+				cs.criar(i);;
 			});
 			
 			usuario.getColecaoEmpresas();
 			ArrayList<EmpresaUsuario> colecaoEmpresas = usuario.getColecaoEmpresas();
-			EmpresaUsuarioDao empresaUserDao = new EmpresaUsuarioDao();
+			EmpresaUsuarioService eus = new EmpresaUsuarioService();
 			colecaoEmpresas.forEach( i -> {
-				empresaUserDao.inserirEmpresaUsuario(i);
+				eus.criar(i);
 			});
 			
 			pst.execute();
