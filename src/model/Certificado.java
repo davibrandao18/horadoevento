@@ -3,8 +3,6 @@
  */
 package model;
 
-import java.util.GregorianCalendar;
-
 /**
  * Classe que representa um Certificado
  * 
@@ -17,7 +15,7 @@ public class Certificado {
 	private int id;
 	private Usuario user;
 	private Evento evento;
-	private GregorianCalendar quantidadeHoras; // --> /!\ verificar como fazer isso com o Igor
+	private int quantidadeMinutos;
 	
 	/**
 	 * 
@@ -28,13 +26,13 @@ public class Certificado {
 	 * @param id
 	 * @param user
 	 * @param evento
-	 * @param quantidadeHoras
+	 * @param quantidadeMinutos
 	 */
-	public Certificado(int id, Usuario user, Evento evento, GregorianCalendar quantidadeHoras) {
+	public Certificado(int id, Usuario user, Evento evento, int quantidadeMinutos) {
 		this.id = id;
 		this.user = user;
 		this.evento = evento;
-		this.quantidadeHoras = quantidadeHoras;
+		this.quantidadeMinutos = quantidadeMinutos;
 	}
 	
 	// Getters e Setters //
@@ -82,38 +80,25 @@ public class Certificado {
 	}
 	
 	/**
-	 * @return the quantidadeHoras
+	 * @return the quantidadeMinutos
 	 */
-	public GregorianCalendar getQuantidadeHoras() {
-		return quantidadeHoras;
+	public int getQuantidadeMinutos() {
+		return quantidadeMinutos;
 	}
 
 	/**
-	 * @param quantidadeHoras the quantidadeHoras to set
+	 * @param quantidadeMinutos the quantidadeMinutos to set
 	 */
-	public void setQuantidadeHoras(GregorianCalendar quantidadeHoras) {
-		this.quantidadeHoras = quantidadeHoras;
+	public void setQuantidadeMinutos(int quantidadeMinutos) {
+		this.quantidadeMinutos = quantidadeMinutos;
 	}
-	
-	/**
-     * 
-     * @param valorSql data coletada do banco de dados
-     * @return data em formato GregorianCalendar
-     */
-    public GregorianCalendar toGregorian(java.sql.Date valorSql) {
-    	GregorianCalendar valorGregorian = new GregorianCalendar();
-    	valorGregorian.setTimeInMillis(valorSql.getTime());
-    	
-    	return valorGregorian;
-    }
-	
 	
 	// To String //
 	
 	@Override
 	public String toString() {
 		return "Certificado {Id=" + getId() + ", User=" + getUser() + ", Evento=" + getEvento()
-				+ ", Quantidade Horas=" + getQuantidadeHoras() + "}";
+				+ ", Quantidade Minutos=" + getQuantidadeMinutos() + "}";
 	}
 	
 	

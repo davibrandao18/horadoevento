@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,9 +35,7 @@ public class CertificadoDao {
 			
 			pst.setString(1,certificado.getUser().getCpf());
 			pst.setInt(2,certificado.getEvento().getId());
-			
-			java.sql.Date quantidadeHoras = new Date(certificado.getQuantidadeHoras().getTimeInMillis());
-			pst.setDate(3,quantidadeHoras);
+			pst.setInt(3,certificado.getQuantidadeMinutos());
 			
 			pst.execute();
 			
@@ -74,7 +71,7 @@ public class CertificadoDao {
 			if (resultado.next()) {				
 				String cpfUsuario = resultado.getString("fk_usuario_cpf");
 				int evento = resultado.getInt("fk_evento_id");
-				java.sql.Date qtdHoras = resultado.getDate("quantidade_minutos");
+				int qtdMinutos = resultado.getInt("quantidade_minutos");
 				
 				Certificado certificado = new Certificado();
 				certificado.setId(id);
@@ -85,8 +82,7 @@ public class CertificadoDao {
 				EventoService eventoService = new EventoService();
 				certificado.setEvento(eventoService.carregar(evento));
 				
-				
-				certificado.setQuantidadeHoras(certificado.toGregorian(qtdHoras));
+				certificado.setQuantidadeMinutos(qtdMinutos);
 				
 				return certificado;
 			}
