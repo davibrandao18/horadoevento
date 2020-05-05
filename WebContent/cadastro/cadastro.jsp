@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"%> 
 
 <!DOCTYPE html>	
 <html lang="pt-br">
     <head>
-    <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">	
         <title>Hora do CADASTRO</title>
         <link rel="shortcut icon" href="../assets/icons/HDE_transparent.png" />
@@ -23,7 +22,7 @@
             <label>CPF:</label>
             <input name="cpf"  type="text">	
             
-            <label>Nome de usu√°rio:</label>
+            <label>Nome de usu·rio:</label>
             <input name="username" type="text">	
             
             <label>E-mail:</label>
@@ -32,8 +31,8 @@
             <label>Senha:</label>
             <input name="senha" placeholder="senha" type="password">	
             
-            <label>Foto:</label>
-            <input name="foto" type="file">
+            <label>Linkedin:</label>
+            <input name="linkedin" placeholder="ex: https://linkedin.com/in/username" type="text">
             <div>	
                 <button type="submit" class="redButton">Continue ></button>	
             </div>	
