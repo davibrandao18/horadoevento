@@ -13,6 +13,11 @@
 		<div class="bodyContent">
 			<jsp:include page="../../components/navbar/full-navbar.html" flush="false" />
 			
+			<div class="toggle">
+				<input id="switch" type="checkbox" name="theme">
+				<label for="switch">Toggle</label>
+			</div>
+			
 			<h4>Missões mais populares</h4>
 	
 			<div class="carousel">
@@ -24,7 +29,7 @@
 	
 			<h4>Missões que combinam com você</h4>
 	
-			<div class="cardGroup yellowButtons">
+			<div class="cardGroup primary-cards">
 				<button>
 					NOME BEM GRANDE
 					<br> <small>[data] | [hora]</small>
@@ -45,7 +50,7 @@
 	
 			<h4>Categorias sugeridas</h4>
 	
-			<div class="cardGroup redButtons">
+			<div class="cardGroup secondary-cards">
 				<button>
 					NOME BEM GRANDE
 				</button>
@@ -83,5 +88,37 @@
 				</div>
 			</footer>
 		</div>
+		
+		<script>
+			const html = document.querySelector("html")
+			const checkbox = document.querySelector("input[name=theme]")
+			
+			const getStyle = (element, style) => {
+				window
+					.getComputedStyle(element)
+					.getPropertyValue(style) 
+			}
+			
+			const initialColors = {
+				bg: getStyle(html, "--bg"),
+				primaryCards: getStyle(html, "--primary-cards"),
+				secondaryCards: getStyle(html, "--secondary-cards")
+			}
+			
+			const darkMode = {
+				bg: "#333333",
+				primaryCards: "#434343",
+				secondaryCards: "#3664FF"
+			}
+			
+			const changeColors = (colors) => {
+				
+			}
+			
+			
+			checkbox.addEventListener("change", ({target}) => {
+					target.checked ? changeColors() : changeColors()
+			})
+		</script>
     </body>
 </html>
