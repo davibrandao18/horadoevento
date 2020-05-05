@@ -33,8 +33,8 @@ public class UsuarioDao {
 	 */
 	public void inserirUsuario(Usuario usuario) {
 		String sqlInsert = "INSERT INTO usuario"
-				+"(cpf,username,nome,email,senha,linkedin)"
-				+"VALUES (?,?,?,?,?,?)";
+				+"(cpf,username,nome,email,senha,linkedin,foto)"
+				+"VALUES (?,?,?,?,?,?,null)";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
@@ -45,6 +45,8 @@ public class UsuarioDao {
 			pst.setString(5,usuario.getSenha());
 			pst.setString(6,usuario.getLinkedin());
 			
+			
+			/*
 			usuario.getColecaoTags();
 			ArrayList<TagUsuario> colecaoTags = usuario.getColecaoTags();
 			TagUsuarioService tus = new TagUsuarioService();
@@ -64,9 +66,9 @@ public class UsuarioDao {
 			EmpresaUsuarioService eus = new EmpresaUsuarioService();
 			colecaoEmpresas.forEach( i -> {
 				eus.criar(i);
-			});
+			});*/
 			
-			pst.execute();
+			pst.execute();			
 			System.out.println("Usuario inseridos com sucesso");
 			
 		} catch (SQLException ex) {
