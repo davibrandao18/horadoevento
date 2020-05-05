@@ -2,6 +2,7 @@ package service;
 
 import model.Usuario;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import dao.UsuarioDao;
@@ -74,5 +75,11 @@ public class UsuarioService {
 	 */
 	public ArrayList<Usuario> listar(String username) {
 		return dao.listarUsuarios(username);
+	}
+	
+	
+	public void criarImagem(File foto, String username) {
+		dao.inserirImagem(foto, username);
+		System.out.println("service: foto inserida com sucesso!");
 	}
 }
