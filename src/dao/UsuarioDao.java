@@ -9,13 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Usuario;
-import service.CertificadoService;
-import service.EmpresaUsuarioService;
-import service.TagUsuarioService;
-import model.Certificado;
-import model.EmpresaUsuario;
-import model.TagUsuario;
+import model.Usuario;;
 
 /**
  * Data Acess Object para o Usuario
@@ -82,23 +76,18 @@ public class UsuarioDao {
 	 * Metodo para consultar usuarios:
 	 * @author Davi Fonseca
 	 * @since 0.2
-	 * @param String usercpf -> cpf
+	 * @param String username;
 	 */
 	public Usuario consultarUsuario(String username) {
-		String sqlConsu = "SELECT * FROM usuario"
-				+"WHERE username = ?";
+		String consulta = "SELECT * FROM usuario WHERE username='"+username+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
-				PreparedStatement pst = conectar.prepareStatement(sqlConsu);) {
-			pst.setString(1,username);
+				PreparedStatement pst = conectar.prepareStatement(consulta);) {
 			
-			//quando precisa de retorno do banco "ResultSet"//
 			ResultSet resultado = pst.executeQuery();
 			
-			Usuario usuario = null;
-			//+"(cpf,username,nome,email,senha,linkedin,foto)"
 			if (resultado.next()){
-				usuario = new Usuario();
+				Usuario usuario = new Usuario();
 				String cpf = resultado.getString("cpf");
 				String nome = resultado.getString("nome");
 				String email = resultado.getString("email");
@@ -112,7 +101,7 @@ public class UsuarioDao {
 				usuario.setEmail(email);
 				usuario.setSenha(senha);
 				usuario.setLinkedin(linkedin);
-				usuario.setFoto(foto); 
+				usuario.setFoto(foto);
 				
 				return usuario;
 			}

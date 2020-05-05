@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"%>
+<!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,8 +16,8 @@
             <div>
                 <img src="https://static3.tcdn.com.br/img/img_prod/460977/boneco_bb8_12_cm_star_wars_despertar_da_forca_ep_7_the_force_awekens_hasbro_31877_1_20180406124654.jpg" alt="iconeTeste">
 
-                <form action="/Login.do" method="post">
-                    <input name="username" placeholder="nome de usuÃ¡rio" type="text">
+                <form action="Login.do" method="post">
+                    <input name="username" placeholder="nome de usuário" type="text">
                     <input name="senha" placeholder="senha" type="password">
                     <div>
                         <button type="submit">Login</button>
