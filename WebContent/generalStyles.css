@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html {
-	--bg: rgba(255, 255, 255, 0);
-	--yellowCard: rgba(242, 210, 114, 0.8);
-	--redCard: rgba(217, 79, 50, 0.8);
+	--bg: none;
+	--primary-card: #f2d272cc;
+	--secondary-card: #d94f32cc;
 }
 
 * {
@@ -210,12 +210,12 @@ button { outline: none; }
 	text-align: start;
 }
 
-.redButtons button {
-    background-color: var(--redCard);
+.primary-cards button {
+    background-color: var(--primary-card);
 }
 
-.yellowButtons button {
-    background-color: var(--yellowCard);
+.secondary-cards button {
+    background-color: var(--secondary-card);
 }
 
 .cardGroup button small {
