@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +12,16 @@ import model.Usuario;
 import service.UsuarioService;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class Atualizar
  */
-@WebServlet("/login/Login.do")
-public class Login extends HttpServlet {
+@WebServlet("/perfil/Atualizar.do")
+public class Atualizar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public Atualizar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,28 +37,21 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		UsuarioService us = new UsuarioService();
-		Usuario user = new Usuario();
-
+		HttpSession sessao = request.getSession();
+		Usuario user = (Usuario) sessao.getAttribute("sessao_user");
 		
-		try {
-			user = us.carregar(request.getParameter("username"));
-		} catch (Exception e){
-			response.sendRedirect("./login.jsp");
-		}
+		user.getCpf();
+		user.getUserName();
+		user.setNome(request.getParameter("nome"));
+		user.setEmail(request.getParameter("email"));
+		user.setSenha(request.getParameter("senha"));
+		user.setLinkedin(request.getParameter("linkedin"));
+		//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 		
-		if (request.getParameter("senha").equals(user.getSenha())) {
-			HttpSession sessao = request.getSession();
-			sessao.setAttribute("sessao_user", user);
-			response.sendRedirect("/horadoevento/home/member/index.jsp");
-		} else {
-			response.sendRedirect("./login.jsp");
-		}
+		us.atualizar(user);
 		
-		System.out.println("Servidor: Fim login");
-		
-		
+		sessao.setAttribute("sessao_user", user);
+		response.sendRedirect("/horadoevento/home/member/index.jsp");
 	}
-
 }

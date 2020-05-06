@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
+
 import model.Usuario;;
 
 /**
@@ -61,9 +63,12 @@ public class UsuarioDao {
 			colecaoEmpresas.forEach( i -> {
 				eus.criar(i);
 			});*/
+
+			pst.execute();
 			
-			pst.execute();			
 			System.out.println("Usuario inseridos com sucesso");
+			
+			imagemRandomica(usuario.getUserName());
 			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -170,6 +175,8 @@ public class UsuarioDao {
 			//Enviando um comando para o MySQL
 			pst.execute();
 			
+			System.out.println("foi a foto hem papai");
+			
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
@@ -226,17 +233,24 @@ public class UsuarioDao {
 		return null;
 	}
 	
+	/**
+	 * Metodo para gerar imagem randomica
+	 * @param apelido
+	 */
+	public void imagemRandomica(String apelido) {
+		//instância um objeto da classe Random usando o construtor padrão
+        Random gerador = new Random();
+        //" + gerador.nextInt(3) +"
+
+		inserirImagem(new File("../../../WebContent/assets/logo/default250.png"), apelido);
+	}
+	
 	
 	/**
 	 * Metodo para atualizar usuario no bd
 	 * @author Davi Fonseca
 	 * @since 0.1
-	 * @param cpf
-	 * @param username
-	 * @param nome
-	 * @param email
-	 * @param senha
-	 * @param linkedin
+	 * @param user
 	 * @throws SQLException
 	 */
 	public void atualizarUsuario(Usuario user) {
@@ -244,7 +258,7 @@ public class UsuarioDao {
 		/**
 		 * Criando a String de atualizacao
 		 */
-		String atualizar = "UPDATE usuario SET cpf = ?, username = ?, nome = ?, email = ?, senha = ?, linkedin = ? WHERE username = '"+user.getUserName()+"'";
+		String atualizar = "UPDATE usuario SET cpf = ?, username = ?, nome = ?, email = ?, senha = ?, linkedin = ? WHERE username='"+user.getUserName()+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(atualizar)) {
