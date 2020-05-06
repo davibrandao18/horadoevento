@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.http.HttpSession, model.Usuario" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -10,13 +11,19 @@
     </head>
     
     <body>
+    	<%
+    		HttpSession sessao = request.getSession();
+    		Usuario user = (Usuario) sessao.getAttribute("sessao_user");
+    	%>
 		<div class="bodyContent">
-			<jsp:include page="../../components/navbar/full-navbar.html" flush="false" />
+			<jsp:include page="../../components/navbar/full-navbar.jsp" flush="true" />
 			
 			<div class="toggle">
 				<input id="switch" type="checkbox" name="theme">
 				<label for="switch">Toggle</label>
 			</div>
+			
+			<h2>Saudações, <%= user.getNome() %></h2>
 			
 			<h4>Missões mais populares</h4>
 	
