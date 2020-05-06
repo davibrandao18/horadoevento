@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Empresa;
 import model.Usuario;
+import service.EmpresaService;
 import service.UsuarioService;
 
 /**
@@ -23,7 +25,6 @@ public class Atualizar extends HttpServlet {
      */
     public Atualizar() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -37,21 +38,47 @@ public class Atualizar extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EmpresaService es = new EmpresaService();
 		UsuarioService us = new UsuarioService();
+		Empresa empresa = new Empresa();
+		Usuario usuario = new Usuario();
 		HttpSession sessao = request.getSession();
-		Usuario user = (Usuario) sessao.getAttribute("sessao_user");
 		
-		user.getCpf();
-		user.getUserName();
-		user.setNome(request.getParameter("nome"));
-		user.setEmail(request.getParameter("email"));
-		user.setSenha(request.getParameter("senha"));
-		user.setLinkedin(request.getParameter("linkedin"));
-		//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 		
-		us.atualizar(user);
-		
-		sessao.setAttribute("sessao_user", user);
-		response.sendRedirect("/horadoevento/home/member/index.jsp");
+		switch (request.getParameter("entidade")) {
+			case "usuario": {
+				usuario.getCpf();
+				usuario.getUserName();
+				usuario.setNome(request.getParameter("nome"));
+				usuario.setEmail(request.getParameter("email"));
+				usuario.setSenha(request.getParameter("senha"));
+				usuario.setLinkedin(request.getParameter("linkedin"));
+				//TODO foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
+				
+				us.atualizar(usuario);
+				
+				sessao.setAttribute("sessao_user", usuario);
+				response.sendRedirect("/horadoevento/home/member/");
+				break;
+			}
+			case "empresa": {
+				empresa.getCnpj();
+				empresa.getUserName();
+				empresa.setNome(request.getParameter("nome"));
+				empresa.setCidade(request.getParameter("cidade"));
+				empresa.setEstado(request.getParameter("estado"));
+				empresa.setPais(request.getParameter("pais"));
+				empresa.setSenha(request.getParameter("senha"));
+				empresa.setEmail(request.getParameter("email"));
+				empresa.setLinkedin(request.getParameter("linkedin"));
+				//TODO foto
+				
+				es.atualizar(empresa);
+				
+				sessao.setAttribute("sessao_user", empresa);
+				response.sendRedirect("/horadoevento/dashboard-empresa/");
+				break;
+			}
+		}
 	}
 }
