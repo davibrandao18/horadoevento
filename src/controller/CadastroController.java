@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.Empresa;
 import model.Usuario;
+import service.EmpresaService;
 import service.UsuarioService;
 
 /**
@@ -38,36 +41,47 @@ public class CadastroController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario usuario = new Usuario();
+		response.getWriter().print("CARREGANDO");
+		
 		UsuarioService us = new UsuarioService();
+		EmpresaService es = new EmpresaService();
+		Usuario usuario = new Usuario();
+		Empresa empresa = new Empresa();
 		
-		
-		String nome = request.getParameter("nome");
-		String cpf = request.getParameter("cpf");
-		String username = request.getParameter("username");
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
-		String linkedin = request.getParameter("linkedin");
-		//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
-		
-		System.out.println(nome + cpf + username + email + senha + linkedin);
-		
-		usuario.setNome(nome);
-		usuario.setCpf(cpf);
-		usuario.setUserName(username);
-		usuario.setEmail(email);
-		usuario.setSenha(senha);
-		usuario.setLinkedin(linkedin);
-		//usuario.setFoto(foto);
-		
-		System.out.println("GET USUARIO:" + usuario.getNome());
-		
-		us.criar(usuario);
-		//us.criarImagem(usuario.getFoto(), usuario.getUserName());
-		
-		
-		System.out.println("CRIADO");
-		
-		
+		switch (request.getParameter("entidade")) {
+			case "usuario": {
+				usuario.setNome(request.getParameter("nome"));
+				usuario.setCpf(request.getParameter("cpf"));
+				usuario.setUserName(request.getParameter("username"));
+				usuario.setEmail(request.getParameter("email"));
+				usuario.setSenha(request.getParameter("senha"));
+				usuario.setLinkedin(request.getParameter("linkedin"));
+				//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
+				//usuario.setFoto(foto);
+				
+				System.out.println(usuario.toString());
+				
+				us.criar(usuario);
+				//us.criarImagem(usuario.getFoto(), usuario.getUserName());
+				break;
+			}
+			case "empresa": {
+				empresa.setCnpj(request.getParameter("cnpj"));
+				empresa.setUserName(request.getParameter("username"));
+				empresa.setNome(request.getParameter("nome"));
+				empresa.setCidade(request.getParameter("cidade"));
+				empresa.setEstado(request.getParameter("estado"));
+				empresa.setPais(request.getParameter("pais"));
+				empresa.setSenha(request.getParameter("senha"));
+				empresa.setEmail(request.getParameter("email"));
+				empresa.setLinkedin(request.getParameter("linkedin"));
+				
+				System.out.println(empresa.toString());
+				
+				es.criar(empresa);
+				break;
+			}
+		}
+		response.sendRedirect("/horadoevento/login/login.jsp");
 	}
 }
