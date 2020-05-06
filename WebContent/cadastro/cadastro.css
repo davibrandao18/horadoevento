@@ -3,3 +3,7 @@ body { background-image: url("../assets/backgrounds/city.svg"); }
 .bodyContent {
     display: block;
 }
+
+#formEmpresa {
+	display: none;
+}
