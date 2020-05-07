@@ -40,18 +40,17 @@ public class Atualizar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EmpresaService es = new EmpresaService();
 		UsuarioService us = new UsuarioService();
-		Empresa empresa = new Empresa();
-		Usuario usuario = new Usuario();
-		HttpSession sessao = request.getSession();
 		
+		HttpSession sessao = request.getSession();
 		
 		switch (request.getParameter("entidade")) {
 			case "usuario": {
+				Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
 				usuario.getCpf();
 				usuario.getUserName();
 				usuario.setNome(request.getParameter("nome"));
 				usuario.setEmail(request.getParameter("email"));
-				usuario.setSenha(request.getParameter("senha"));
+				usuario.getSenha(); //TODO alterar senha
 				usuario.setLinkedin(request.getParameter("linkedin"));
 				//TODO foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 				
@@ -62,16 +61,17 @@ public class Atualizar extends HttpServlet {
 				break;
 			}
 			case "empresa": {
+				Empresa empresa = (Empresa) sessao.getAttribute("sessao_user");
 				empresa.getCnpj();
 				empresa.getUserName();
 				empresa.setNome(request.getParameter("nome"));
 				empresa.setCidade(request.getParameter("cidade"));
 				empresa.setEstado(request.getParameter("estado"));
 				empresa.setPais(request.getParameter("pais"));
-				empresa.setSenha(request.getParameter("senha"));
+				empresa.getSenha(); //TODO alterar senha
 				empresa.setEmail(request.getParameter("email"));
 				empresa.setLinkedin(request.getParameter("linkedin"));
-				//TODO foto
+				//TODO foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 				
 				es.atualizar(empresa);
 				

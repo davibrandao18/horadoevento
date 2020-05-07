@@ -18,23 +18,31 @@
    		
         <div class="cover">
             <div>
-            	<form action="Logout.do" method="get">
+            	<form action="../Logout.do" method="get">
             		<button type="submit">Sair</button>
             	</form> <br>
-                <form action="Atualizar.do" method="post">
+                <form action="../Atualizar.do" method="post">
                 	<!-- /!\ tem que deixar o cara carragar a foto que ele quer -->
-                	<label>CPF:</label>
-                	<input name="cpf" value="<%= user.getCpf()%>" type="text" readonly disabled> <br>
+                	<%!//TODO foto /!\%>
+                	<label>CNPJ:</label>
+                	<input name="cpf" value="<%= empresa.getCnpj()%>" type="text" readonly disabled> <br>
                 	<label>UserName:</label>
-                    <input name="username" value="<%= user.getUserName()%>" type="text" readonly disabled> <br> <!-- /!\ como pegar  o atributo-->
+                    <input name="username" value="<%= empresa.getUserName()%>" type="text" readonly disabled> <br> <!-- /!\ como pegar  o atributo-->
                     <label>Nome:</label>
-                    <input name="nome" value="<%= user.getNome()%>" type="text"> <br>
+                    <input name="nome" value="<%= empresa.getNome()%>" type="text"> <br>
+                    <label>Cidade:</label>
+                    <input name="cidade" value="<%= empresa.getCidade()%>" type="text"> <br>
+                    <label>Estado:</label>
+                    <input name="estado" value="<%= empresa.getEstado()%>" type="text"> <br>
+                    <label>Pais:</label>
+                    <input name="pais" value="<%= empresa.getPais()%>" type="text"> <br>
                     <label>E-mail:</label>
-                    <input name="email" value="<%= user.getEmail()%>" type="text"> <br>
+                    <input name="email" value="<%= empresa.getEmail()%>" type="text"> <br>
                     <label>Senha:</label>
-                    <input name="senha" value="<%= user.getSenha()%>" type="password"> <br>
+                    <input name="senha" value="<%= empresa.getSenha()%>" type="password"> <br>
                     <label>Linkedin:</label>
-                    <input name="linkedin" value="<%= user.getLinkedin()%>" type="text"> <br>
+                    <input name="linkedin" value="<%= empresa.getLinkedin()%>" type="text"> <br>
+                    <input type='hidden' value='empresa' name='entidade'>
                     <div>
                     	<button type="button" onclick="history.go(-1)">Cancelar</button>
                         <button type="submit">Atualizar</button>

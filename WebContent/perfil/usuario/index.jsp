@@ -18,11 +18,12 @@
    		
         <div class="cover">
             <div>
-            	<form action="Logout.do" method="get">
+            	<form action="../Logout.do" method="get">
             		<button type="submit">Sair</button>
             	</form> <br>
-                <form action="Atualizar.do" method="post">
+                <form action="../Atualizar.do" method="post">
                 	<!-- /!\ tem que deixar o cara carragar a foto que ele quer -->
+                	<%!//TODO foto /!\%>
                 	<label>CPF:</label>
                 	<input name="cpf" value="<%= user.getCpf()%>" type="text" readonly disabled> <br>
                 	<label>UserName:</label>
@@ -35,6 +36,7 @@
                     <input name="senha" value="<%= user.getSenha()%>" type="password"> <br>
                     <label>Linkedin:</label>
                     <input name="linkedin" value="<%= user.getLinkedin()%>" type="text"> <br>
+                    <input type='hidden' value='usuario' name='entidade'>
                     <div>
                     	<button type="button" onclick="history.go(-1)">Cancelar</button>
                         <button type="submit">Atualizar</button>
