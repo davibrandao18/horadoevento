@@ -52,41 +52,38 @@ public class EmpresaDao {
 	 * @since 0.1
 	 * @param String usern -> username
 	 */
-	public Empresa consultarEmpresa(String usern) {
-		String sqlSelect = "SELECT * FROM empresa"
-				+"WHERE username = ?";
+	public Empresa consultarEmpresa(String username) {
+		String sqlSelect = "SELECT * FROM empresa WHERE username='"+username+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
-			pst.setString(1,usern);
 			
-			// Retorno do banco
 			ResultSet resultado = pst.executeQuery();
 			
-			Empresa empresa = null;
-			//+"(cpf,username,nome,email,senha,linkedin,foto)"
 			if (resultado.next()){
-				empresa = new Empresa();
+				Empresa empresa = new Empresa();
 				String cnpj = resultado.getString("cnpj");
-				String username = resultado.getString("username");
 				String nome = resultado.getString("nome");
 				String cidade = resultado.getString("cidade");
+				String estado = resultado.getString("estado");
 				String pais = resultado.getString("pais");
 				String senha = resultado.getString("senha");
 				String email = resultado.getString("email");
 				String linkedin = resultado.getString("linkedin");
-				File foto = recuperarImagem(usern);
+				//TODO File foto = recuperarImagem(usern); /!\ ERRO
 				
 				empresa.setCnpj(cnpj);
 				empresa.setUserName(username);
 				empresa.setNome(nome);
 				empresa.setCidade(cidade);
+				empresa.setEstado(estado);
 				empresa.setPais(pais);
 				empresa.setSenha(senha);
 				empresa.setEmail(email);
 				empresa.setLinkedin(linkedin);
-				empresa.setFoto(foto);
+				//TODO empresa.setFoto(foto); /!\ ERRO
 				
+				System.out.println("dao:: " +empresa.toString());
 				return empresa;
 			}
 			

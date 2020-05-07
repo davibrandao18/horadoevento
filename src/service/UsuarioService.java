@@ -1,6 +1,9 @@
 package service;
 
 import model.Usuario;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import dao.UsuarioDao;
 
@@ -22,6 +25,7 @@ public class UsuarioService {
 	 * Metodo responsavel por chamar o inserir DAO
 	 * @since
 	 * @param usuario
+	 * @throws FileNotFoundException 
 	 */
 	public void criar(Usuario usuario) {
 		dao.inserirUsuario(usuario);
@@ -36,7 +40,7 @@ public class UsuarioService {
 	 */
 	public void atualizar(Usuario usuario){
 		dao.atualizarUsuario(usuario);
-		System.out.println("Deu certo a atualizacao ! /n"+usuario.toString());
+		System.out.println("Deu certo a atualizacao ! \n"+usuario.toString());
 	}
 	
 	
@@ -58,8 +62,8 @@ public class UsuarioService {
 	 * @param username
 	 * @return
 	 */
-	public Usuario carregar(String cpf){
-		return dao.consultarUsuario(cpf);
+	public Usuario carregar(String username){
+		return dao.consultarUsuario(username);
 	}
 	
 	
@@ -71,5 +75,11 @@ public class UsuarioService {
 	 */
 	public ArrayList<Usuario> listar(String username) {
 		return dao.listarUsuarios(username);
+	}
+	
+	
+	public void criarImagem(File foto, String username) {
+		dao.inserirImagem(foto, username);
+		System.out.println("service: foto inserida com sucesso!");
 	}
 }

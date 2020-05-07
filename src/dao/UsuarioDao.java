@@ -9,13 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Usuario;
-import service.CertificadoService;
-import service.EmpresaUsuarioService;
-import service.TagUsuarioService;
-import model.Certificado;
-import model.EmpresaUsuario;
-import model.TagUsuario;
+import java.util.Random;
+
+import model.Usuario;;
 
 /**
  * Data Acess Object para o Usuario
@@ -33,8 +29,8 @@ public class UsuarioDao {
 	 */
 	public void inserirUsuario(Usuario usuario) {
 		String sqlInsert = "INSERT INTO usuario"
-				+"(cpf,username,nome,email,senha,linkedin)"
-				+"VALUES (?,?,?,?,?,?)";
+				+"(cpf,username,nome,email,senha,linkedin,foto)"
+				+"VALUES (?,?,?,?,?,?,null)";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
@@ -45,6 +41,8 @@ public class UsuarioDao {
 			pst.setString(5,usuario.getSenha());
 			pst.setString(6,usuario.getLinkedin());
 			
+			
+			/*
 			usuario.getColecaoTags();
 			ArrayList<TagUsuario> colecaoTags = usuario.getColecaoTags();
 			TagUsuarioService tus = new TagUsuarioService();
@@ -64,10 +62,13 @@ public class UsuarioDao {
 			EmpresaUsuarioService eus = new EmpresaUsuarioService();
 			colecaoEmpresas.forEach( i -> {
 				eus.criar(i);
-			});
-			
+			});*/
+
 			pst.execute();
+			
 			System.out.println("Usuario inseridos com sucesso");
+			
+			imagemRandomica(usuario.getUserName());
 			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -80,30 +81,24 @@ public class UsuarioDao {
 	 * Metodo para consultar usuarios:
 	 * @author Davi Fonseca
 	 * @since 0.2
-	 * @param String usercpf -> cpf
+	 * @param String username;
 	 */
-	public Usuario consultarUsuario(String usercpf) {
-		String sqlConsu = "SELECT * FROM usuario"
-				+"WHERE username = ?";
+	public Usuario consultarUsuario(String username) {
+		String consulta = "SELECT * FROM usuario WHERE username='"+username+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
-				PreparedStatement pst = conectar.prepareStatement(sqlConsu);) {
-			pst.setString(1,usercpf);
+				PreparedStatement pst = conectar.prepareStatement(consulta);) {
 			
-			//quando precisa de retorno do banco "ResultSet"//
 			ResultSet resultado = pst.executeQuery();
 			
-			Usuario usuario = null;
-			//+"(cpf,username,nome,email,senha,linkedin,foto)"
 			if (resultado.next()){
-				usuario = new Usuario();
+				Usuario usuario = new Usuario();
 				String cpf = resultado.getString("cpf");
-				String username = resultado.getString("username");
 				String nome = resultado.getString("nome");
 				String email = resultado.getString("email");
 				String senha = resultado.getString("senha");
 				String linkedin = resultado.getString("linkedin");
-				File foto = recuperarImagem(usercpf);
+				File foto = recuperarImagem(username);
 				
 				usuario.setCpf(cpf);
 				usuario.setUserName(username);
@@ -111,7 +106,7 @@ public class UsuarioDao {
 				usuario.setEmail(email);
 				usuario.setSenha(senha);
 				usuario.setLinkedin(linkedin);
-				usuario.setFoto(foto); 
+				usuario.setFoto(foto);
 				
 				return usuario;
 			}
@@ -180,6 +175,8 @@ public class UsuarioDao {
 			//Enviando um comando para o MySQL
 			pst.execute();
 			
+			System.out.println("foi a foto hem papai");
+			
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
@@ -236,17 +233,24 @@ public class UsuarioDao {
 		return null;
 	}
 	
+	/**
+	 * Metodo para gerar imagem randomica
+	 * @param apelido
+	 */
+	public void imagemRandomica(String apelido) {
+		//instância um objeto da classe Random usando o construtor padrão
+        Random gerador = new Random();
+        //" + gerador.nextInt(3) +"
+
+		inserirImagem(new File("../../../WebContent/assets/logo/default250.png"), apelido);
+	}
+	
 	
 	/**
 	 * Metodo para atualizar usuario no bd
 	 * @author Davi Fonseca
 	 * @since 0.1
-	 * @param cpf
-	 * @param username
-	 * @param nome
-	 * @param email
-	 * @param senha
-	 * @param linkedin
+	 * @param user
 	 * @throws SQLException
 	 */
 	public void atualizarUsuario(Usuario user) {
@@ -254,7 +258,7 @@ public class UsuarioDao {
 		/**
 		 * Criando a String de atualizacao
 		 */
-		String atualizar = "UPDATE usuario SET cpf = ?, username = ?, nome = ?, email = ?, senha = ?, linkedin = ? WHERE username = '"+user.getUserName()+"'";
+		String atualizar = "UPDATE usuario SET cpf = ?, username = ?, nome = ?, email = ?, senha = ?, linkedin = ? WHERE username='"+user.getUserName()+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(atualizar)) {
