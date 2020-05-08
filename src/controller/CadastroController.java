@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.Empresa;
 import model.Usuario;
@@ -41,31 +40,27 @@ public class CadastroController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().print("CARREGANDO");
-		
-		UsuarioService us = new UsuarioService();
-		EmpresaService es = new EmpresaService();
-		Usuario usuario = new Usuario();
-		Empresa empresa = new Empresa();
-		
 		switch (request.getParameter("entidade")) {
 			case "usuario": {
+				UsuarioService us = new UsuarioService();
+				Usuario usuario = new Usuario();
 				usuario.setNome(request.getParameter("nome"));
 				usuario.setCpf(request.getParameter("cpf"));
 				usuario.setUserName(request.getParameter("username"));
 				usuario.setEmail(request.getParameter("email"));
 				usuario.setSenha(request.getParameter("senha"));
 				usuario.setLinkedin(request.getParameter("linkedin"));
+				//TODO foto
 				//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 				//usuario.setFoto(foto);
 				
-				System.out.println(usuario.toString());
-				
 				us.criar(usuario);
-				//us.criarImagem(usuario.getFoto(), usuario.getUserName());
+				//TODO us.criarFoto();
 				break;
 			}
 			case "empresa": {
+				EmpresaService es = new EmpresaService();
+				Empresa empresa = new Empresa();
 				empresa.setCnpj(request.getParameter("cnpj"));
 				empresa.setUserName(request.getParameter("username"));
 				empresa.setNome(request.getParameter("nome"));
@@ -75,10 +70,10 @@ public class CadastroController extends HttpServlet {
 				empresa.setSenha(request.getParameter("senha"));
 				empresa.setEmail(request.getParameter("email"));
 				empresa.setLinkedin(request.getParameter("linkedin"));
-				
-				System.out.println(empresa.toString());
+				//TODO foto
 				
 				es.criar(empresa);
+				//TODO es.criarFoto();
 				break;
 			}
 		}

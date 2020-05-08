@@ -26,7 +26,6 @@ public class Login extends HttpServlet {
      */
     public Login() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -40,18 +39,16 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		UsuarioService us = new UsuarioService();
-		EmpresaService es = new EmpresaService();
-		Usuario user = new Usuario();
-		Empresa empresa = new Empresa();
 		HttpSession sessao = request.getSession();
 		
 		switch (request.getParameter("entidade")) {
 			case "usuario": {
+				UsuarioService us = new UsuarioService();
+				Usuario user = new Usuario();
+				
 				try {
 					user = us.carregar(request.getParameter("username"));
-				} catch (Exception e){
+				} catch (Exception e) {
 					response.sendRedirect("./login.jsp");
 				}
 				
@@ -65,6 +62,9 @@ public class Login extends HttpServlet {
 				break;
 			}
 			case "empresa": {
+				EmpresaService es = new EmpresaService();
+				Empresa empresa = new Empresa();
+				
 				try {
 					empresa = es.carregar(request.getParameter("username"));
 				} catch (Exception e){
@@ -81,10 +81,5 @@ public class Login extends HttpServlet {
 				break;
 			}
 		}
-		
-		System.out.println("Servidor: Fim login");
-		
-		
 	}
-
 }

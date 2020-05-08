@@ -38,13 +38,12 @@ public class Atualizar extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EmpresaService es = new EmpresaService();
-		UsuarioService us = new UsuarioService();
 		
 		HttpSession sessao = request.getSession();
 		
 		switch (request.getParameter("entidade")) {
 			case "usuario": {
+				UsuarioService us = new UsuarioService();
 				Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
 				usuario.getCpf();
 				usuario.getUserName();
@@ -61,6 +60,7 @@ public class Atualizar extends HttpServlet {
 				break;
 			}
 			case "empresa": {
+				EmpresaService es = new EmpresaService();
 				Empresa empresa = (Empresa) sessao.getAttribute("sessao_user");
 				empresa.getCnpj();
 				empresa.getUserName();
@@ -71,7 +71,7 @@ public class Atualizar extends HttpServlet {
 				empresa.getSenha(); //TODO alterar senha
 				empresa.setEmail(request.getParameter("email"));
 				empresa.setLinkedin(request.getParameter("linkedin"));
-				//TODO foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
+				//TODO foto
 				
 				es.atualizar(empresa);
 				
