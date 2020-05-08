@@ -4,11 +4,12 @@
 
 <nav class="navbar">
 	<div id="searchArea">
-		<form action="Search.do" method="POST">
+		<form action="/horadoevento/perfil/Perfil.do" method="POST">
 			<button type="submit">
 				<img src="/horadoevento/assets/icons/search.svg">
 			</button>
-			<input id="searchBox" placeholder="Busque eventos e empresas aqui!" type="text"/>
+			<input type='hidden' value='usuario' name='entidade'> <!-- CAMPO FIXO TEMPORARIAMENTE SÓ PARA TESTES -->
+			<input id="searchBox" name="username" placeholder="Busque eventos e empresas aqui!" type="text"/>
 		</form>
 	</div>
 	<div id="centerText">
