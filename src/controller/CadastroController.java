@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 //import java.io.File;
 import java.io.IOException;
 
@@ -42,9 +43,13 @@ public class CadastroController extends HttpServlet {
 				usuario.setEmail(request.getParameter("email"));
 				usuario.setSenha(request.getParameter("senha"));
 				usuario.setLinkedin(request.getParameter("linkedin"));
-				//TODO foto
-				//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
-				//usuario.setFoto(foto);
+				String appPath = request.getServletContext().getRealPath("");
+				String foto = appPath+File.separator+"assets/logo/default250.png";
+				File fotoF = new File(foto);
+				usuario.setFoto(fotoF);
+				
+				System.out.println(fotoF.exists());
+				
 				
 				
 				

@@ -30,7 +30,7 @@ public class UsuarioDao {
 	public void inserirUsuario(Usuario usuario) {
 		String sqlInsert = "INSERT INTO usuario"
 				+"(cpf,username,nome,email,senha,linkedin,foto)"
-				+"VALUES (?,?,?,?,?,?,null)";
+				+"VALUES (?,?,?,?,?,?,?)";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
@@ -237,12 +237,12 @@ public class UsuarioDao {
 	 * Metodo para gerar imagem randomica
 	 * @param apelido
 	 */
-	public void imagemRandomica(String apelido) {
+	public void imagemRandomica(String apelido, File foto) {
 		//instância um objeto da classe Random usando o construtor padrão
         Random gerador = new Random();
         //" + gerador.nextInt(3) +"
 
-		inserirImagem(new File("../../../WebContent/assets/logo/default250.png"), apelido);
+		inserirImagem(foto, apelido);
 	}
 	
 	

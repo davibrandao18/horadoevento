@@ -10,6 +10,8 @@ import service.UsuarioService;
  */
 public class ValidaUsuario {
 	 
+	//TODO return arraylist
+	
 	/**
 	  * @param username
 	  * @param cpf
