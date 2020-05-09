@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=iso-8859-1"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
 <!DOCTYPE html>	
 <html>
@@ -10,43 +10,51 @@
         <link rel="stylesheet" href="../cadastro.css">		
     </head>
 
-    <body style="padding: 0 150px 0 150px; display: block;">
-    	<jsp:include page="/components/navbar/simple-navbar.html" flush="false" />
+	<body>
+        <jsp:include page="/components/navbar/simple-navbar.html" flush="false" />
         
-        <a href="/horadoevento/inicio/" class="btnBack"> <img src="../../assets/icons/arrowBefore.svg"> </a>
+        <a href="/" class="btnBack"> <img src="../../assets/icons/arrowBefore.svg"> </a>
+        
+        <span class="disclaimer" id="centerText">Todos os campos são de preenchimento obrigatório</span>
+        
+        <form action="Cadastro.do" method="post" class="form">
+            <label class="labels">CNPJ:</label>
+            <input name="cnpj"  type="text" class="inputs">	
+            
+            <label class="labels">APELIDO:</label>
+            <input name="username" type="text" class="inputs">	
+            
+            <label class="labels">NOME:</label>	
+            <input name="nome" type="text" class="inputs">
+            
+            <label class="labels">CIDADE:</label>
+            <input name="cidade" type="text" class="inputs">
+            
+            <label class="labels">ESTADO:</label>
+            <input name="estado" type="text" class="inputs">
+            
+            <label class="labels">PAÍS:</label>
+            <input name="pais" type="text" class="inputs">
 
-        <form action="/horadoevento/cadastro/Cadastro.do" method="post" style="display: grid;">
-            <input type='hidden' value='empresa' name='entidade'>
-
-            <label>CNPJ:</label>	
-            <input name="cnpj" type="text">
-           
-            <label>Apelido:</label>
-            <input name="username" type="text">	
+            <label class="labels">EMAIL:</label>
+            <input name="email" type="email" class="inputs">
             
-            <label>Nome:</label>	
-            <input name="nome" type="text">
+            <label class="labels">SENHA:</label>
+            <input name="senha" placeholder=" Senha" type="password" class="inputs">	
             
-            <label>Cidade:</label>	
-            <input name="cidade" type="text">
+            <label class="labels">LINKEDIN:</label>
+            <input name="linkedin" placeholder=" Coloque aqui o link para sua página do LinkedIn" class="inputs" id="linkedinInput">
             
-            <label>Estado:</label>	
-            <input name="estado" type="text">
             
-            <label>País:</label>	
-            <input name="pais" type="text">
+            <label class="labels">FOTO:</label>
+            <div class="botaoFoto">
+                <label class="botaoLabel" id="itemBotao">Selecione o arquivo</label>
+                <input name="foto" type="file" id="itemBotao" class="fileField">
+            </div>
             
-            <label>Senha:</label>
-            <input name="senha" placeholder="senha" type="password">
-            
-            <label>E-mail:</label>
-            <input name="email" type="email">
-            
-            <label>Linkedin:</label>
-            <input name="linkedin" placeholder="ex: https://linkedin.com/in/username" type="text">
             <div>	
                 <button type="submit" class="redButton">Continue ></button>	
             </div>	
         </form>
-    </body>	
+    </body>
 </html>

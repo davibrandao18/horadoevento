@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
         <link rel="stylesheet" href="/horadoevento/generalStyles.css">
+        <link rel="stylesheet" href="../perfil.css">
     </head>
     
     <body>

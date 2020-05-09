@@ -1,4 +1,4 @@
-body { background-image: url("../assets/backgrounds/city.svg"); }
+body { background-image: url("/horadoevento/assets/backgrounds/city-crop_edited_edited2.jpg"); }
 
 .cover{
     position: fixed;
@@ -14,9 +14,16 @@ body { background-image: url("../assets/backgrounds/city.svg"); }
     height: auto;
     padding: 20px;
     border-radius: 15px;
-    background-color: #E39F91;
+    background-color: rgba(227, 159, 145, 0.9);
     color: #000;
     display: block;
+    transition: .3s all;
+    line-height: 20px;
+}
+
+.cover div article:hover {
+	background-color: rgb(227, 159, 145);
+    transition: .3s all;
 }
 
 .cover div div {
@@ -34,20 +41,19 @@ a button {
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
+    background-color: #fff;
+    border: 1px solid black;
+    transition: .3s all;
 }
 
 #btn-login {
-    background-color: #fff;
     position: fixed;
-    top: 40px;
-    right: 40px;
+    top: 30px;
+    right: 30px;
     z-index: 999;
 }
 
-#btn-cadastro {
-    background-color: #E3D37F;
-}
-
-#btn-start {
-    background-color: #DA6B4E;
+#btn-login:hover, #btn-cadastro:hover, #btn-start:hover {
+	background-color: rgba(255, 255, 255, 0.7);
+    transition: .3s all;
 }

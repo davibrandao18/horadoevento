@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
 		<link rel="stylesheet" href="/horadoevento/components/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../generalStyles.css">
-        <link rel="stylesheet" href="./member.css">
+        <link rel="stylesheet" href="../home.css">
     </head>
     
     <body>
