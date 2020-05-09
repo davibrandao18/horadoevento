@@ -1,7 +1,32 @@
 package teste;
 
-public class Validacao {
+import model.Usuario;
+import service.UsuarioService;
 
+public class ValidaUsuario {
+	 
+	/**
+	  * @param username
+	  * @param cpf
+	  * @param senha
+	  * @return
+	  */
+	public static boolean validacao(String username, String cpf, String senha) {
+		return (usernameDisponivel(username) && validaSenha(senha, username) && validaCpf(cpf));
+	}
+	
+	
+	/**
+	 * 
+	 * @param username
+	 * @return
+	 */
+	public static boolean usernameDisponivel(String username) {
+		UsuarioService us = new UsuarioService();
+		Usuario user = us.carregar(username);
+		return (user.equals(null));
+	}
+	
 	/**
 	 * Verifica se a senha possui ao menos uma letra e um numero
 	 * @param senha
@@ -44,12 +69,12 @@ public class Validacao {
 	
 	
 	/**
-	 * Verifica se um email e valido
-	 * @param email
-	 * @return true, caso o email seja valido
+	 * Verifica se um cpf e "valido"
+	 * @param cpf
+	 * @return true, caso o cpf seja valido
 	 */
-	public static boolean validaEmail(String email) {
-		return email.contains("@");
+	public static boolean validaCpf(String cpf) {
+		return (cpf.length() == 11);
 	}
 	
 	

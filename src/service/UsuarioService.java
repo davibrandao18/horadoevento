@@ -1,6 +1,7 @@
 package service;
 
 import model.Usuario;
+import teste.ValidaUsuario;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,9 +28,14 @@ public class UsuarioService {
 	 * @param usuario
 	 * @throws FileNotFoundException 
 	 */
-	public void criar(Usuario usuario) {
-		dao.inserirUsuario(usuario);
-		System.out.println("Deu certo a inclusao");
+	public boolean criar(Usuario usuario) {
+		if (ValidaUsuario.validacao(usuario.getUserName(), usuario.getCpf(), usuario.getSenha()) == true) {
+			dao.inserirUsuario(usuario);
+			System.out.println("Deu certo a inclusao");
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	

@@ -20,14 +20,6 @@ import service.UsuarioService;
 @WebServlet("/cadastro/Cadastro.do")
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CadastroController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -54,7 +46,10 @@ public class CadastroController extends HttpServlet {
 				//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 				//usuario.setFoto(foto);
 				
-				us.criar(usuario);
+				if (us.criar(usuario) != true) {
+					request.setAttribute("novo_login", false);
+					request.getRequestDispatcher("/horadoevento/cadastro/usuario/index.jsp");
+				}
 				//TODO us.criarFoto();
 				break;
 			}
