@@ -1,23 +1,23 @@
 package teste;
 
-import model.Usuario;
-import service.UsuarioService;
+import model.Empresa;
+import service.EmpresaService;
 
 /**
- * 
- * @author maiconspa
+ * Valida as informações para cadastrar uma nova empresa
+ * @author Maicon Souza
  *
  */
-public class ValidaUsuario {
+public class ValidaEmpresa {
 	 
 	/**
 	  * @param username
-	  * @param cpf
+	  * @param cnpj
 	  * @param senha
 	  * @return
 	  */
-	public static boolean validacao(String username, String cpf, String senha) {
-		return (usernameDisponivel(username) && validaSenha(senha, username) && validaCpf(cpf));
+	public static boolean validacao(String username, String cnpj, String senha) {
+		return (usernameDisponivel(username) && validaSenha(senha, username) && validaCnpj(cnpj));
 	}
 	
 	
@@ -26,9 +26,9 @@ public class ValidaUsuario {
 	 * @return
 	 */
 	public static boolean usernameDisponivel(String username) {
-		UsuarioService us = new UsuarioService();
-		Usuario user = us.carregar(username);
-		return user==null;
+		EmpresaService es = new EmpresaService();
+		Empresa empresa = es.carregar(username);
+		return empresa==null;
 	}
 	
 	/**
@@ -51,10 +51,10 @@ public class ValidaUsuario {
 	
 	
 	/**
-	 * Verifica se existe o nome de usuario na senha
+	 * Verifica se existe o nome de Empresa na senha
 	 * @param senha
 	 * @param username
-	 * @return true, caso nao exista nome de usuario na senha
+	 * @return true, caso nao exista nome de Empresa na senha
 	 */
 	public static boolean usernameNaSenha(String senha, String username) {
 		return !senha.contains(username);
@@ -76,8 +76,8 @@ public class ValidaUsuario {
 	 * @param cpf
 	 * @return true, caso o cpf seja valido
 	 */
-	public static boolean validaCpf(String cpf) {
-		return (cpf.length() == 11);
+	public static boolean validaCnpj(String cnpj) {
+		return (cnpj.length() == 11);
 	}
 	
 	

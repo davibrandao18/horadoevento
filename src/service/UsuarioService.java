@@ -11,7 +11,7 @@ import dao.UsuarioDao;
 /**
  * Classe responsável por chamar as DAO's de Usuario
  * @author Davi Fonseca
- * @version 0.3
+ * @version 0.4
  * @since 0.1
  */
 public class UsuarioService {
@@ -33,9 +33,8 @@ public class UsuarioService {
 			dao.inserirUsuario(usuario);
 			System.out.println("Deu certo a inclusao");
 			return true;
-		} else {
+		} else
 			return false;
-		}
 	}
 	
 	

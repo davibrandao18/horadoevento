@@ -46,9 +46,13 @@ public class CadastroController extends HttpServlet {
 				//File foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 				//usuario.setFoto(foto);
 				
-				if (us.criar(usuario) != true) {
+				
+				
+				if (us.criar(usuario) == false) {
 					request.setAttribute("novo_login", false);
-					request.getRequestDispatcher("/horadoevento/cadastro/usuario/index.jsp");
+					request.getRequestDispatcher("usuario/index.jsp").forward(request, response);
+				} else {
+					response.sendRedirect("/horadoevento/login/login.jsp");
 				}
 				//TODO us.criarFoto();
 				break;
@@ -67,11 +71,15 @@ public class CadastroController extends HttpServlet {
 				empresa.setLinkedin(request.getParameter("linkedin"));
 				//TODO foto
 				
-				es.criar(empresa);
+				if (es.criar(empresa) == false) {
+					request.setAttribute("novo_login", false);
+					request.getRequestDispatcher("empresa/index.jsp").forward(request, response);
+				} else {
+					response.sendRedirect("/horadoevento/login/login.jsp");
+				}
 				//TODO es.criarFoto();
 				break;
 			}
 		}
-		response.sendRedirect("/horadoevento/login/login.jsp");
 	}
 }

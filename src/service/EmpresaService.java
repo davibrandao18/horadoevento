@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import dao.EmpresaDao;
 
 import model.Empresa;
+import teste.ValidaEmpresa;
 
 /**
  * Classe responsável por chamar as DAO's de Empresa
  * @author Davi Fonseca
- * @version 0.1
+ * @version 0.2
  * @since 0.1
  */
 public class EmpresaService {
@@ -18,12 +19,17 @@ public class EmpresaService {
 	
 	/**
 	 * Metodo responsavel por chamar o cricao no DAO
+	 * @version 0.2
 	 * @since
 	 * @param empresa
 	 */
-	public void criar(Empresa empresa) {
-		dao.inserirEmpresa(empresa);
-		System.out.println("Deu certo a inclusao");
+	public boolean criar(Empresa empresa) {
+		if (ValidaEmpresa.validacao(empresa.getUserName(), empresa.getCnpj(), empresa.getSenha()) == true) {
+			dao.inserirEmpresa(empresa);
+			System.out.println("Deu certo a inclusao");
+			return true;
+		} else
+			return false;
 	}
 	
 	
