@@ -2,7 +2,7 @@
 <%@ page import="javax.servlet.http.HttpSession" %>
 <% HttpSession sessao = request.getSession(); %>
 
-<nav class="navbar">
+<nav class="navHde">
 	<div id="searchArea">
 		<form action="/horadoevento/perfil/Perfil.do" method="POST">
 			<button type="submit">

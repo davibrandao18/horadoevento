@@ -13,7 +13,6 @@
         <div class="cover">
             <input type="button" value="Voltar" href="/begin/">
             <div>
-                <img src="https://static3.tcdn.com.br/img/img_prod/460977/boneco_bb8_12_cm_star_wars_despertar_da_forca_ep_7_the_force_awekens_hasbro_31877_1_20180406124654.jpg" alt="iconeTeste">
 
                 <form action="Login.do" method="post">
                     <p>Selecione o seu perfil:</p>

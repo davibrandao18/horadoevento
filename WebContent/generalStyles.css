@@ -25,7 +25,7 @@ button { outline: none; }
 }
 
 
-.navbar {
+.navHde {
 	background-color: #f2937e;
 	height: 50px;
 	width: 100%;
@@ -36,21 +36,21 @@ button { outline: none; }
 	align-items: center;
 }
 
-.navbar div {
+.navbarHDE div {
 	width: 32%;
 	height: 30px;
 	margin: 0;
 	padding: 0;
 }
 
-.navbar div form {
+.navbarHDE div form {
 	height: 100%;
 	align-items: center;
 	background-color: #fff;
 	display: flex;
 }
 
-.navbar div form button {
+.navbarHDE div form button {
 	height: 30px;
 	border: none;
 	padding-left: 10px;
@@ -58,7 +58,7 @@ button { outline: none; }
 	background-color: #fff;
 }
 
-.navbar div form input {
+.navbarHDE div form input {
 	width: 100%;
 	height: 24px;
 	margin: 0;
@@ -68,7 +68,7 @@ button { outline: none; }
 	font-size: 12px;
 }
 
-.navbar div form input:active, .navbar div form input:focus {
+.navbarHDE div form input:active, .navbarHDE div form input:focus {
 	color: #000;
 	outline: none;
 }
@@ -97,8 +97,8 @@ button { outline: none; }
 }
 
 
-/* NAVBAR SIMPLES, SOMENTE COM O TITULO PRINCIPAL E AMPULHETA */
-.simpleNavbar {
+/* navbarHDE SIMPLES, SOMENTE COM O TITULO PRINCIPAL E AMPULHETA */
+.simplenavbarHDE {
 	width: 100%;
 	padding: 10px;
 	background-color: transparent;
@@ -191,7 +191,7 @@ button { outline: none; }
 }
 
 
-/* CARTÕES */
+/* CARTÃ•ES */
 .cardGroup {
     width: 80%;
     display: flex;
@@ -223,7 +223,7 @@ button { outline: none; }
 }
 
 
-/* FOOTER SIMPLES COM HELPER E DIÁLOGO */
+/* FOOTER SIMPLES COM HELPER E DIÃ�LOGO */
 .simpleFooter {
 	width: 400px;
 	display: flex;
@@ -243,7 +243,7 @@ button { outline: none; }
 }
 
 
-/* BOTÃO DE VOLTAR */
+/* BOTÃƒO DE VOLTAR */
 .btnBack {
 	width: 40px;
 	height: 40px;
@@ -257,4 +257,23 @@ button { outline: none; }
 
 .btnBack img {
 	width: 40px;
+}
+
+.hdeTitulo-desktop {
+	display: block !important;
+}
+
+.hdeTitulo-mobile {
+	display: none !important;
+}
+
+@media only screen and (max-width: 1100px) {
+	.hdeTitulo-desktop {
+		display: none !important;
+	}
+	
+	.hdeTitulo-mobile {
+		display: block !important;
+	}
+}
 }
