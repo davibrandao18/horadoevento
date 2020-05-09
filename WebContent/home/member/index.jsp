@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.HttpSession, model.Usuario" %>
+<%
+	HttpSession sessao = request.getSession();
+	Usuario user = (Usuario) sessao.getAttribute("sessao_user");
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -12,17 +17,9 @@
     </head>
     
     <body>
-    	<%
-    		HttpSession sessao = request.getSession();
-    		Usuario user = (Usuario) sessao.getAttribute("sessao_user");
-    	%>
-		<div class="bodyContent">
-			<jsp:include page="../../components/navbar/full-navbar.jsp" flush="true" />
-			
-			<div class="toggle">
-				<input id="switch" type="checkbox" name="theme">
-				<label for="switch">Toggle</label>
-			</div>
+    	<jsp:include page="../../components/navbar/full-nav.jsp" flush="true" />
+		
+		<div class="bodyCover">
 			
 			<h2>Saudações, <%= user.getNome() %></h2>
 			
@@ -39,97 +36,53 @@
 	
 			<div class="cardGroup primary-cards">
 				<button>
-					NOME BEM GRANDE
-					<br> <small>[data] | [hora]</small>
+					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
 				</button>
 				<button>
-					NOME BEM GRANDE
-					<br> <small>[data] | [hora]</small>
+					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
 				</button>
 				<button>
-					NOME BEM GRANDE
-					<br> <small>[data] | [hora]</small>
+					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
 				</button>
 				<button>
-					NOME BEM GRANDE
-					<br> <small>[data] | [hora]</small>
+					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
 				</button>
 			</div>
 	
 			<h4>Categorias sugeridas</h4>
 	
 			<div class="cardGroup secondary-cards">
-				<button>
-					NOME BEM GRANDE
-				</button>
-				<button>
-					NOME BEM GRANDE
-				</button>
-				<button>
-					NOME BEM GRANDE
-				</button>
-				<button>
-					NOME BEM GRANDE
-				</button>
+				<button> NOME BEM GRANDE </button>
+				<button> NOME BEM GRANDE </button>
+				<button> NOME BEM GRANDE </button>
+				<button> NOME BEM GRANDE </button>
 			</div>
-	
-	
-			<button class="helperDialog">
-				<img src="../../assets/icons/dialog.svg">
-				<p>Precisa de ajuda?</p>
-			</button>
-			
-			<footer class="fullFooter">
-				<div>
-					<p>Acompanhe suas empresas favoritas</p>
-				</div>
-				<div id="companies">
-					<button id="btnCompany"> <img src=""> </button>
-					<button id="btnCompany"> <img src=""> </button>
-					<button id="btnCompany"> <img src=""> </button>
-					<button id="btnAddCompany"> <!-- ESSE BOTÃO COM ESSE TAMANHO DE FONTE, BUGA OS OUTROS -->
-						+
-					</button>
-				</div>
-				<div id="helper">
-					<img src="../../assets/icons/helperCabeca.svg">
-				</div>
-			</footer>
 		</div>
 		
-		<script>
-			const html = document.querySelector("html")
-			const checkbox = document.querySelector("input[name=theme]")
-			
-			const getStyle = (element, style) => {
-				window
-					.getComputedStyle(element)
-					.getPropertyValue(style) 
-			}
-			
-			const initialColors = {
-				bg: getStyle(html, "--bg"),
-				primaryCards: getStyle(html, "--primary-cards"),
-				secondaryCards: getStyle(html, "--secondary-cards")
-			}
-			
-			const darkMode = {
-				bg: "#333333",
-				primaryCards: "#434343",
-				secondaryCards: "#3664FF"
-			}
-			
-			const changeColors = (colors) => {
-				
-			}
-			
-			
-			checkbox.addEventListener("change", ({target}) => {
-					target.checked ? changeColors() : changeColors()
-			})
-		</script>
 		
+		<button class="helperDialog">
+			<img src="../../assets/icons/dialog.svg">
+			<p>Precisa de ajuda?</p>
+		</button>
 		
+		<footer class="fullFooter">
+			<div>
+				<p>Acompanhe suas empresas favoritas</p>
+			</div>
+			<div id="companies">
+				<button id="btnCompany"> <img src=""> </button>
+				<button id="btnCompany"> <img src=""> </button>
+				<button id="btnCompany"> <img src=""> </button>
+				<button id="btnAddCompany"> <!-- ESSE BOTÃO COM ESSE TAMANHO DE FONTE, BUGA OS OUTROS -->
+					+
+				</button>
+			</div>
+			<div id="helper">
+				<img src="../../assets/icons/helperCabeca.svg">
+			</div>
+		</footer>
+		
+		<script type="text/javascript" src="/horadoevento/components/theme-switcher/theme-switcher.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
     </body>

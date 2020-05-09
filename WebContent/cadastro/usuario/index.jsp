@@ -5,20 +5,23 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">	
         <title>Hora do cadastro</title>
-        <link rel="shortcut icon" href="../../assets/icons/HDE_transparent.png" />
-        <link rel="stylesheet" href="../../generalStyles.css">
-        <link rel="stylesheet" href="../cadastro.css">		
+        <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
+        <link rel="stylesheet" href="/horadoevento/generalStyles.css">
+        <link rel="stylesheet" href="/horadoevento/cadastro/cadastro.css">		
     </head>
 
     <body style="padding: 0 150px 0 150px; display: block;">
     	<jsp:include page="/components/navbar/simple-navbar.html" flush="false" />
         
-        <a href="/horadoevento/inicio/" class="btnBack"> <img src="../../assets/icons/arrowBefore.svg"> </a>
+        <a href="/horadoevento/inicio/" class="btnBack"> <img src="/horadoevento/assets/icons/arrowBefore.svg"> </a>
         
 		<% 
 			boolean v = (request.getAttribute("novo_login")== null)? true : false; 
 			String color = (v)?"black" : "red";
+			
 		%>
+		
+		<%!//TODO dados inserios anteriormente %>
 		
 		<p style="border : solid 1px <%=color%>">
 			Olá eu sou goku ! Preencha tudo certo que vai dar bom ! Cpf lala, Username lala, bejos
@@ -28,7 +31,7 @@
             <input type='hidden' value='usuario' name='entidade'>
 
             <label>Nome:</label>	
-            <input name="nome" type="text" required>
+            <input name="nome" type="text" value="" required>
             
             <label>CPF:</label>
             <input name="cpf"  type="text" required>	
