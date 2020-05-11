@@ -83,3 +83,7 @@ CREATE TABLE empresa_usuario(
     foreign key (fk_usuario_cpf) references usuario(cpf),
     foreign key (fk_empresa_cnpj) references empresa(cnpj)
 );
+
+USE horadoevento;
+
+Select* from usuario;
