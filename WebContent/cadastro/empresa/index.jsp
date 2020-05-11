@@ -13,7 +13,9 @@
 	<body>
         <jsp:include page="/components/navbar/simple-navbar.html" flush="false" />
         
-        <a href="/" class="btnBack"> <img src="../../assets/icons/arrowBefore.svg"> </a>
+        <!-- <a href="/" class="btnBack"> <img src="../../assets/icons/arrowBefore.svg"> </a> -->
+        <%!//TODO Otimizei o item de voltar a página porém se remover a tag <a> o css não é aplicado, favor verificar ! deixei o código anterior comentado %>
+        <button type="button" onclick="history.go(-1)"> <a href="#" class="btnBack"> <img src="../../assets/icons/arrowBefore.svg"> </a> </button>
         
         <span class="disclaimer" id="centerText">Todos os campos são de preenchimento obrigatório</span>
         
