@@ -1,4 +1,10 @@
-body { background-image: url("../assets/backgrounds/city.svg"); }
+body {
+	background-color: #7196cb;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment : fixed;
+	background-image: url("/horadoevento/assets/backgrounds/city.jpg");
+}
 
 form{
     display: flex;

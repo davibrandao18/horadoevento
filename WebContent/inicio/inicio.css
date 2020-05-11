@@ -1,59 +1,7 @@
-body { background-image: url("/horadoevento/assets/backgrounds/city-crop_edited_edited2.jpg"); }
-
-.cover{
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cover div article {
-    max-width: 40vw;
-    height: auto;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: rgba(227, 159, 145, 0.9);
-    color: #000;
-    display: block;
-    transition: .3s all;
-    line-height: 20px;
-}
-
-.cover div article:hover {
-	background-color: rgb(227, 159, 145);
-    transition: .3s all;
-}
-
-.cover div div {
-    padding: 80px 0 0 0;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-a button {
-    width: 160px;
-    height: 30px;
-    color: #000;
-    border: 0;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid black;
-    transition: .3s all;
-}
-
-#btn-login {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    z-index: 999;
-}
-
-#btn-login:hover, #btn-cadastro:hover, #btn-start:hover {
-	background-color: rgba(255, 255, 255, 0.7);
-    transition: .3s all;
+body {
+	background-color: #7196cb;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment : fixed;
+	background-image: url("/horadoevento/assets/backgrounds/city.jpg");
 }
