@@ -23,12 +23,12 @@
             		<button type="submit">Sair</button>
             	</form> <br>
                 <form action="../Atualizar.do" method="post">
-                	<!-- /!\ tem que deixar o cara carragar a foto que ele quer -->
+   
                 	<%!//TODO foto /!\%>
                 	<label>CPF:</label>
                 	<input name="cpf" value="<%= user.getCpf()%>" type="text" readonly disabled> <br>
                 	<label>UserName:</label>
-                    <input name="username" value="<%= user.getUserName()%>" type="text" readonly disabled> <br> <!-- /!\ como pegar  o atributo-->
+                    <input name="username" value="<%= user.getUserName()%>" type="text" readonly disabled> <br>
                     <label>Nome:</label>
                     <input name="nome" value="<%= user.getNome()%>" type="text"> <br>
                     <label>E-mail:</label>
@@ -38,11 +38,19 @@
                     <label>Linkedin:</label>
                     <input name="linkedin" value="<%= user.getLinkedin()%>" type="text"> <br>
                     <input type='hidden' value='usuario' name='entidade'>
-                    <div>
-                    	<button type="button" onclick="history.go(-1)">Cancelar</button>
-                        <button type="submit">Atualizar</button>
-                    </div>
-                </form>
+
+                    <button type="submit">Atualizar Dados</button>
+               </form>
+               <img src="tmp1\wtpwebapps\horadoevento\\uploadFiles" <%= user.getFoto()%>><%! //TODO caminho sla %>
+               <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
+					<div class="botaoFoto">
+						<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField" /> <br />
+						<input type="submit" value="Atualizar foto" />
+					</div>
+			   </form>
+               
+                <button type="button" onclick="history.go(-1)">Cancelar</button>
+            
             </div>
         </div>
         
