@@ -68,7 +68,7 @@ public class UsuarioDao {
 			
 			System.out.println("Usuario inseridos com sucesso");
 			
-			imagemRandomica(usuario.getUserName());
+			imagemRandomica(usuario.getUserName(),usuario.getFoto());
 			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -191,9 +191,6 @@ public class UsuarioDao {
 	 * @param String username
 	 */
 	public File recuperarImagem(String username) {
-		
-		
-        // Criando o SQL de consulta:
 		String selectImg = "SELECT foto FROM usuario WHERE username = ?";
 		
 		try {
@@ -216,7 +213,7 @@ public class UsuarioDao {
 		        byte[] buffer = new byte[1024];
 		        // Enquanto existir conteï¿½do no fluxo de dados, continua:
 		        while (input.read(buffer) > 0) {
-		        	// Escreve o conteï¿½do no arquivo de destino no disco:
+		        	// Escreve o conteudo no arquivo de destino no disco:
 		            output.write(buffer);
 		        }
 				// Fechando a entrada:
@@ -239,7 +236,7 @@ public class UsuarioDao {
 	 */
 	public void imagemRandomica(String apelido, File foto) {
 		//instância um objeto da classe Random usando o construtor padrão
-        Random gerador = new Random();
+       // Random gerador = new Random();
         //" + gerador.nextInt(3) +"
 
 		inserirImagem(foto, apelido);
