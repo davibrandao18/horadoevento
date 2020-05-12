@@ -17,7 +17,7 @@
     </head>
     
     <body>
-    	<jsp:include page="../../components/navbar/full-nav.jsp" flush="true" />
+    	<jsp:include page="/components/navbar/full.jsp" flush="true" />
 		
 		<div class="bodyCover">
 			
