@@ -21,25 +21,39 @@
 	  		</a>
 		</nav>
 
-        <div class="container p-4 bg-hde rounded">
+        <div class="container p-4 bg-hde rounded" id="textoPrincipal">
 			Bem vindo(a)!
-			<br> <br> O Hora do Evento é uma plataforma que vai ajudar sua empresa a moldar o(a)s novo(a)s profissionais do mercado com o seu mindset. Crie eventos: sejam cursos, workshops, oficinas ou palestras, cadastre eles na plataforma e nós vamos utilizar Inteligência Artificial para encontrar os melhores candidatos para participarem deles. 
-			<br> <br> Assim, você ajuda o(a)s novo(a)s profissionais a se qualificarem para o mercado e ainda divulga sua empresa como facilitadora dessa jornada.
-			<br> <br> Além disso, vocês terão acesso a um perfil de cada profissional que comparecer ao evento para obter um recrutamento e seleção de maior qualidade.
+			<br> <br> LOREM IPSUM DOLOR SIT AMET CONSECTUR
+			<br> <br> LOREM IPSUM DOLOR SIT AMET CONSECTUR bla bla bla
 		 </div>
 		 
 		<div class="container">
 			<div class="row" style="align-items: baseline;">
 				<div class="col">
-					<a class="btn btn-light border-dark" href="/horadoevento/visitor/" role="button">START NOW</a>
+					<a id="btnStart" class="btn btn-light border-dark" href="/horadoevento/visitor/" role="button">START NOW</a>
 				</div>
 				<div class="col text-right">
-		            <img src="/horadoevento/assets/icons/helperCorpoInteiro.svg">
+					<input id="boxHelper" type="checkbox" name="boxHelper">
+		            <label id="btnHelper" for="boxHelper"> <img id="imgHelper" src="/horadoevento/assets/icons/helperCorpoInteiro.svg"> </label>
 				</div>
 			</div>
 		</div>
 
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
+		
+		<script>
+			// falta formatar o texto
+			var txtEmpresa = "Bem vindo(a)! \n\nO Hora do Evento é uma plataforma que vai ajudar sua empresa a moldar o(a)s novo(a)s profissionais do mercado com o seu mindset. Crie eventos: sejam cursos, workshops, oficinas ou palestras, cadastre eles na plataforma e nós vamos utilizar Inteligência Artificial para encontrar os melhores candidatos para participarem deles. <br> <br> Assim, você ajuda o(a)s novo(a)s profissionais a se qualificarem para o mercado e ainda divulga sua empresa como facilitadora dessa jornada.<br> <br> Além disso, vocês terão acesso a um perfil de cada profissional que comparecer ao evento para obter um recrutamento e seleção de maior qualidade.";
+			
+			$(document).ready(function() {
+			  $('input[id="boxHelper"]').on('change', function() {
+				  $('#textoPrincipal').text(txtEmpresa);
+				  $('#btnStart').hide();
+				  // falta trocar sprite
+				  $('#imgHelper').attr("src", "../assets/icons/helperCabeca.svg");
+			  });
+			});
+		</script>
     </body>
 </html>
