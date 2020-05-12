@@ -29,7 +29,20 @@ body { overflow-x: hidden; }
 }
 
 .bg-hde { background-color: rgba(242, 147, 126, .8); }
+
 .input-search-hde { width:auto; max-width:310px; min-width:200px;}
+
+.bginput-hde {
+	background-color: #f2937e !important;
+	border: 1px solid #f2937e !important;
+	transition: all .3s;
+	box-shadow: none !important;
+}
+
+.bginput-hde:focus {
+	background-color: #f2d272 !important;
+	border: 1px solid #333 !important;
+}
 
 .navHde {
 	background-color: #f2937e;
