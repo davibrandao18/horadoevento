@@ -55,9 +55,9 @@ public class CadastroController extends HttpServlet {
 				
 				if (us.criar(usuario) == false) {
 					request.setAttribute("novo_login", false);
-					request.getRequestDispatcher("usuario/index.jsp").forward(request, response);
+					request.getRequestDispatcher("/horadoevento/cadastro/").forward(request, response);
 				} else {
-					response.sendRedirect("/horadoevento/login/login.jsp");
+					response.sendRedirect("/horadoevento/login/");
 				}
 				//TODO us.criarFoto();
 				break;
@@ -78,9 +78,9 @@ public class CadastroController extends HttpServlet {
 				
 				if (es.criar(empresa) == false) {
 					request.setAttribute("novo_login", false);
-					request.getRequestDispatcher("empresa/index.jsp").forward(request, response);
+					request.getRequestDispatcher("/horadoevento/cadastro/").forward(request, response);
 				} else {
-					response.sendRedirect("/horadoevento/login/login.jsp");
+					response.sendRedirect("/horadoevento/login/");
 				}
 				//TODO es.criarFoto();
 				break;
