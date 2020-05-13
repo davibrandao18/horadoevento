@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
-		
+		System.out.println("Até aqui: "+request.getParameter("entidade"));
 		switch (request.getParameter("entidade")) {
 			case "usuario": {
 				UsuarioService us = new UsuarioService();
@@ -55,7 +55,7 @@ public class Login extends HttpServlet {
 				if (request.getParameter("senha").equals(user.getSenha())) {
 					sessao.setAttribute("tipo_entidade", "usuario");
 					sessao.setAttribute("sessao_user", user);
-					response.sendRedirect("/horadoevento/home/member/");
+					response.sendRedirect("/horadoevento/home/member/index.jsp");
 				} else {
 					response.sendRedirect("./login.jsp");
 				}
