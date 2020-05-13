@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="javax.servlet.http.HttpSession, model.Empresa" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -18,16 +18,10 @@
     </head>
     
     <body>
-    
-    	<%
-    		HttpSession sessao = request.getSession();
-    		Empresa empresa = (Empresa) sessao.getAttribute("sessao_user");
-    	%>
-    	
     	<div class="bodyContent">
-			<jsp:include page="../components/navbar/full-navbar.jsp" flush="true" />
+			<c:import url="../../components/navbar/full.jsp"/>
 		    	
-    		<h1>Saudações, <%= empresa.getNome() %></h1>
+    		<h1>Saudações, ${sessao_user.nome}</h1>
     		
     		<canvas id="primeiroGrafico"></canvas>
     		
