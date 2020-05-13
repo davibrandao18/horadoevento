@@ -40,6 +40,7 @@ public class UsuarioDao {
 			pst.setString(4,usuario.getEmail());
 			pst.setString(5,usuario.getSenha());
 			pst.setString(6,usuario.getLinkedin());
+			pst.setString(7,null);
 			
 			
 			/*
@@ -67,8 +68,6 @@ public class UsuarioDao {
 			pst.execute();
 			
 			System.out.println("Usuario inseridos com sucesso");
-			
-			imagemRandomica(usuario.getUserName(),usuario.getFoto());
 			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -228,18 +227,6 @@ public class UsuarioDao {
 			ex.printStackTrace();
 		}
 		return null;
-	}
-	
-	/**
-	 * Metodo para gerar imagem randomica
-	 * @param apelido
-	 */
-	public void imagemRandomica(String apelido, File foto) {
-		//instância um objeto da classe Random usando o construtor padrão
-       // Random gerador = new Random();
-        //" + gerador.nextInt(3) +"
-
-		inserirImagem(foto, apelido);
 	}
 	
 	
