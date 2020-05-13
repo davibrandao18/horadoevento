@@ -19,11 +19,11 @@
     	<%!//TODO condição para exibir 'alert' %>
     	
     	<div class="container p-4">
-			<form action="Login.do" method="post">
+			<form action="./Login.do" method="post">
 	    		<div class="row justify-content-center">
 	    			<div class="col-6 text-right">
 	    				<div class="form-group form-check">
-				  			<input class="form-check-input" type="radio" name="entidade" id="usuario" value="usuário" checked>
+				  			<input class="form-check-input" type="radio" name="entidade" id="usuario" value="usuario" checked>
 				  			<label class="form-check-label" for="usuario"> Usuário </label>
 					  	</div>
 					 </div>
