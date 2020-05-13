@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="javax.servlet.http.HttpSession" %>
-<% HttpSession sessao = request.getSession(); %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <div class="pos-f-t">
 	<nav class="navbar navbar-dark bg-hde">
@@ -30,7 +30,7 @@
 	<div class="collapse" id="menuOpcoes">
 		<div class="bg-hde p-4 d-flex justify-content-end">
 			<ul style="list-style: none;">
-				<li><a href="/horadoevento/perfil/<%=sessao.getAttribute("tipo_entidade")%>/" style="text-decoration: none;">Meu perfil</a></li>
+				<li><a href="/horadoevento/perfil/${tipo_entidade}/" style="text-decoration: none;">Meu perfil</a></li>
 				<li>
 					<label id="switch" class="switch">
             		<input type="checkbox" onchange="toggleTheme()" id="slider">
