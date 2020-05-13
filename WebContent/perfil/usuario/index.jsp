@@ -1,21 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"%>
-<%@ page import="javax.servlet.http.HttpSession, model.Usuario" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-    	<title>Perfil</title>
+    	<title>Perfil ${sessao_user.userName}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
         <link rel="stylesheet" href="/horadoevento/generalStyles.css">
         <link rel="stylesheet" href="../perfil.css">
+        <link rel="stylesheet" href="/horadoevento/components/bootstrap/css/bootstrap.min.css">
     </head>
     
     <body>
-    	<jsp:include page="../../components/navbar/full-navbar.jsp" flush="true" />
-    	<%	
-    		HttpSession sessao = request.getSession();
-    		Usuario user = (Usuario) sessao.getAttribute("sessao_user");
-   		%>
+    	<c:import url="../../components/navbar/full.jsp"/>
    		
         <div class="cover">
             <div>
@@ -26,22 +23,22 @@
    
                 	<%!//TODO foto /!\%>
                 	<label>CPF:</label>
-                	<input name="cpf" value="<%= user.getCpf()%>" type="text" readonly disabled> <br>
+                	<input name="cpf" value="${sessao_user.cpf}" type="text" readonly disabled> <br>
                 	<label>UserName:</label>
-                    <input name="username" value="<%= user.getUserName()%>" type="text" readonly disabled> <br>
+                    <input name="username" value="${sessao_user.getUserName()}" type="text" readonly disabled> <br>
                     <label>Nome:</label>
-                    <input name="nome" value="<%= user.getNome()%>" type="text"> <br>
+                    <input name="nome" value="${sessao_user.getNome()}" type="text"> <br>
                     <label>E-mail:</label>
-                    <input name="email" value="<%= user.getEmail()%>" type="text"> <br>
+                    <input name="email" value="${sessao_user.getEmail()}" type="text"> <br>
                     <label>Senha:</label>
-                    <input name="senha" value="<%= user.getSenha()%>" type="password"> <br>
+                    <input name="senha" value="${sessao_user.getSenha()}" type="password"> <br>
                     <label>Linkedin:</label>
-                    <input name="linkedin" value="<%= user.getLinkedin()%>" type="text"> <br>
+                    <input name="linkedin" value="${sessao_user.getLinkedin()}" type="text"> <br>
                     <input type='hidden' value='usuario' name='entidade'>
 
                     <button type="submit">Atualizar Dados</button>
                </form>
-               <img src="tmp1\wtpwebapps\horadoevento\\uploadFiles" <%= user.getFoto()%>><%! //TODO caminho sla %>
+               <img src="tmp1\wtpwebapps\horadoevento\\uploadFiles" ${sessao_user.getFoto()}><%! //TODO caminho sla %>
                <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
 					<div class="botaoFoto">
 						<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField" /> <br />
@@ -53,6 +50,10 @@
             
             </div>
         </div>
+        
+        <script type="text/javascript" src="/horadoevento/components/theme-switcher/theme-switcher.js"></script>
+		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
         
     </body>
 </html>
