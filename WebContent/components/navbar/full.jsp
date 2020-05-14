@@ -37,7 +37,7 @@
             			<span class="slider round"></span>
         			</label>
         		</li>
-				<li><form action="/horadoevento/perfil/Logout.do" method="get"> <button type="submit">Logout</button></form></li>
+				<li><form action="/horadoevento/perfil/Logout.do" method="get"> <button type="submit"> <img src="/horadoevento/assets/icons/logout.svg"> Sair</button></form></li>
 			</ul>
     	</div>
   	</div>

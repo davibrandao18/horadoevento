@@ -30,7 +30,7 @@ body { overflow-x: hidden; }
 
 .bg-hde { background-color: rgba(242, 147, 126, .8); }
 
-.input-search-hde { width:auto; max-width:310px; min-width:200px;}
+.input-search-hde {display: inline-block; width:auto; min-width:200px; padding: 3px;}
 
 .bginput-hde {
 	background-color: #f2937e !important;
@@ -91,6 +91,13 @@ body { overflow-x: hidden; }
 	color: #000;
 	outline: none;
 }
+
+#menuOpcoes button {
+	background-color: transparent;
+	border: none;
+	padding: 2px;
+}
+
 
 #searchArea {
 	padding-right: 20px;
@@ -317,8 +324,8 @@ body { overflow-x: hidden; }
 .slider:before {
   position: absolute;
   content: "";
-  height: 40px;
-  width: 40px;
+  height: 34px;
+  width: 34px;
   left: 0px;
   bottom: 4px;
   top: 0;
@@ -327,7 +334,7 @@ body { overflow-x: hidden; }
   -webkit-transition: 0.4s;
   transition: 0.4s;
   box-shadow: 0 0px 15px #2020203d;
-  background: white url('https://i.ibb.co/FxzBYR9/night.png');
+  background-color: white;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -341,10 +348,10 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(24px);
-  -ms-transform: translateX(24px);
-  transform: translateX(24px);
-  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
+  transform: translateX(25px);
+  background-color: white;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -358,8 +365,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
-
 @media only screen and (max-width: 1100px) {
 	.hdeTitulo-desktop {
 		display: none !important;
@@ -367,5 +372,11 @@ input:checked + .slider:before {
 	
 	.hdeTitulo-mobile {
 		display: block !important;
+	}
+}
+
+@media only screen and (max-width:991px){
+	.display-none-mobile{
+		display:none !important;
 	}
 }
