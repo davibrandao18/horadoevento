@@ -58,7 +58,9 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="/horadoevento/components/theme-switcher/theme-switcher.js"></script>
+        
+        <c:import url="../../components/footer/footer.html"/>
+        
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
     </body>

@@ -4,11 +4,8 @@
 <html lang="pt-br">
     <head>
     	<title>Perfil ${sessao_user.userName}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
-        <link rel="stylesheet" href="/horadoevento/generalStyles.css">
+        <c:import url="../../components/links.html"/>
         <link rel="stylesheet" href="../perfil.css">
-        <link rel="stylesheet" href="/horadoevento/components/bootstrap/css/bootstrap.min.css">
     </head>
     
     <body>
@@ -51,7 +48,8 @@
             </div>
         </div>
         
-        <script type="text/javascript" src="/horadoevento/components/theme-switcher/theme-switcher.js"></script>
+        <c:import url="../../components/footer/footer.html"/>
+        
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
         

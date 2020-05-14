@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="javax.servlet.http.HttpSession, model.Usuario" %>
 <%
 	HttpSession sessao = request.getSession();
@@ -8,16 +9,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title>Hora do Evento</title>
-        <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
-		<link rel="stylesheet" href="/horadoevento/components/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../generalStyles.css">
+        <c:import url="../../components/links.html"/>
         <link rel="stylesheet" href="../home.css">
     </head>
     
     <body>
-    	<jsp:include page="/components/navbar/full.jsp" flush="true" />
+    	<c:import url="../../components/navbar/full.jsp"/>
 		
 		<div class="bodyCover">
 			
@@ -60,29 +58,8 @@
 		</div>
 		
 		
-		<button class="helperDialog">
-			<img src="../../assets/icons/dialog.svg">
-			<p>Precisa de ajuda?</p>
-		</button>
+    	<c:import url="../../components/footer/footer.html"/>
 		
-		<footer class="fullFooter">
-			<div>
-				<p>Acompanhe suas empresas favoritas</p>
-			</div>
-			<div id="companies">
-				<button id="btnCompany"> <img src=""> </button>
-				<button id="btnCompany"> <img src=""> </button>
-				<button id="btnCompany"> <img src=""> </button>
-				<button id="btnAddCompany"> <!-- ESSE BOTÃO COM ESSE TAMANHO DE FONTE, BUGA OS OUTROS -->
-					+
-				</button>
-			</div>
-			<div id="helper">
-				<img src="../../assets/icons/helperCabeca.svg">
-			</div>
-		</footer>
-		
-		<script type="text/javascript" src="/horadoevento/components/theme-switcher/theme-switcher.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
     </body>
