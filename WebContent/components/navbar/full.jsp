@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
 <div class="pos-f-t">
 	<nav class="navbar navbar-dark bg-hde">
 		<div class="col-4 d-flex justify-content-start" style="align-items: center;">
@@ -30,15 +28,46 @@
 	<div class="collapse" id="menuOpcoes">
 		<div class="bg-hde p-4 d-flex justify-content-end">
 			<ul style="list-style: none;">
-				<li><a href="/horadoevento/perfil/${tipo_entidade}/" style="text-decoration: none;">Meu perfil</a></li>
-				<li>
+				<li class="text-right"><a href="/horadoevento/perfil/${tipo_entidade}/" style="text-decoration: none;">Meu perfil</a></li>
+				<li class="text-right">
+					<i class="fa fa-sun-o" aria-hidden="true"></i>
 					<label id="switch" class="switch">
             		<input type="checkbox" onchange="toggleTheme()" id="slider">
             			<span class="slider round"></span>
         			</label>
+        			<i class="fa fa-moon-o" aria-hidden="true"></i>
         		</li>
-				<li><form action="/horadoevento/perfil/Logout.do" method="get"> <button type="submit"> <img src="/horadoevento/assets/icons/logout.svg"> Sair</button></form></li>
+				<li class="text-right"><form action="/horadoevento/perfil/Logout.do" method="get"> <button type="submit"> <img src="/horadoevento/assets/icons/logout.svg"> Sair</button></form></li>
 			</ul>
     	</div>
   	</div>
 </div>
+
+
+<script>
+	//função que define o tema recebido por parâmetro
+	function setTheme(tema) {
+	    localStorage.setItem('theme', tema);
+	    document.documentElement.className = tema;
+	}
+	
+	// função que alterna entre tema light e dark
+	function toggleTheme() {
+	    if (localStorage.getItem('theme') === 'theme-dark') {
+	        setTheme('theme-light');
+	    } else {
+	        setTheme('theme-dark');
+	    }
+	}
+	
+	// Função que define um tema de acordo com o estado inicial
+	(function () {
+	    if (localStorage.getItem('theme') === 'theme-light') {
+	        setTheme('theme-light');
+	        document.getElementById('slider').checked = false;
+	    } else {
+	        setTheme('theme-dark');
+	      document.getElementById('slider').checked = true;
+	    }
+	})();
+</script>
