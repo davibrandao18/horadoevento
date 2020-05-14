@@ -13,11 +13,13 @@ body { overflow-x: hidden; }
     --card-primary: #f2d272cc;
     --card-secondary: #d94f32cc;
 }
+
 .theme-dark {
     --background: rgba(4, 47, 102, 0.5);
     --card-primary: #ff7829cc;
     --card-secondary: #6b32d9cc;
 }
+
 .bodyCover {
     display: flex;
     width: 100%;
@@ -316,7 +318,7 @@ body { overflow-x: hidden; }
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #afafaf;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -340,11 +342,11 @@ body { overflow-x: hidden; }
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #55bf5e;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #55bf5e;
 }
 
 input:checked + .slider:before {
