@@ -22,7 +22,9 @@
 			<h2>Saudações, <%= user.getNome() %></h2>
 			
 			<h4>Missões mais populares</h4>
-	
+			
+    		<c:import url="../../components/carousel/carousel.jsp"/>
+    		
 			<div class="carousel">
 				<h1>CURSO TAL</h1>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas libero ipsam aspernatur(...)</p>
