@@ -86,9 +86,9 @@
 				</div>
 
 				<nav class="navbar">
-		  			<button type="button" class="btn btn-light border-dark" onclick="history.go(-1)">
+		  			<a type="button" class="btn btn-light border-dark" href="/horadoevento/inicio/">
 						<i class="fa fa-chevron-left"></i> Voltar
-					</button>
+					</a>
 			  		<button type="submit" class="btn border-dark redButton">
 						Enviar <i class="fa fa-chevron-right"></i>
 					</button>
@@ -165,9 +165,9 @@
 				</div>
 
 				<nav class="navbar">
-		  			<button type="button" class="btn btn-light border-dark" onclick="history.go(-1)">
+		  			<a type="button" class="btn btn-light border-dark" href="/horadoevento/inicio/">
 						<i class="fa fa-chevron-left"></i> Voltar
-					</button>
+					</a>
 			  		<button type="submit" class="btn border-dark redButton">
 						Enviar <i class="fa fa-chevron-right"></i>
 					</button>

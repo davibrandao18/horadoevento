@@ -53,9 +53,9 @@
 	    		<div class="row justify-content-center">
 	    			<div class="col-6">
 	    				<nav class="navbar">
-				  			<button type="button" class="btn btn-light border-dark" onclick="history.go(-1)">
+				  			<a type="button" class="btn btn-light border-dark" href="/horadoevento/inicio/">
 								<i class="fa fa-chevron-left"></i> Voltar
-							</button>
+							</a>
 					  		<button type="submit" class="btn btn-light border-dark">
 								Entrar <i class="fa fa-chevron-right"></i>
 							</button>
