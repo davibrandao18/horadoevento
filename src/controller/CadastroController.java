@@ -50,9 +50,6 @@ public class CadastroController extends HttpServlet {
 				
 				System.out.println(fotoF.exists());
 				
-				
-				
-				
 				if (us.criar(usuario) == false) {
 					request.setAttribute("novo_login", false);
 					request.getRequestDispatcher("/horadoevento/cadastro/").forward(request, response);
