@@ -10,16 +10,16 @@
 				</g>
 			</svg>
   		</div>
-  		<div class="col-4 d-flex justify-content-center">
-  			<form class="form-inline bg-light rounded p-0">
+  		<div class="col-md-4 d-flex justify-content-center">
+  			<form class="form-inline bg-light rounded p-0" action="/perfil/perfil.do">
 				<button class="btn btn-outline-light" type="submit" style="width:40px;">
 					<img src="/horadoevento/assets/icons/search.svg">
 				</button>
 				<input type='hidden' value='usuario' name='entidade'> <!-- CAMPO FIXO TEMPORARIAMENTE SÓ PARA TESTES -->
-				<input class="form-control bg-light border-light input-search-hde" type="search" aria-label="Search" name="username" type="text"/>
+				<input class="form-control bg-light border-light" type="search" aria-label="Search" name="username" type="text"/>
 	    	</form>
   		</div>
-  		<div class="col-4 d-flex justify-content-end" style="align-items: center;">
+  		<div class="col-md-4 d-flex justify-content-end" style="align-items: center;">
 	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuOpcoes" aria-controls="menuOpcoes" aria-expanded="false" aria-label="Alterna navegação" style="border: none!important;">
 		    	<span><img src="/horadoevento/assets/icons/user.svg"></span>
 		    </button>
