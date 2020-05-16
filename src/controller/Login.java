@@ -40,7 +40,6 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
-		System.out.println("Até aqui: "+request.getParameter("entidade"));
 		switch (request.getParameter("entidade")) {
 			case "usuario": {
 				UsuarioService us = new UsuarioService();
