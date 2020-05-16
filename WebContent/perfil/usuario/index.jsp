@@ -38,7 +38,7 @@
                <c:if test="${sessao_user.getFoto().exists()}">
                		ta tudo certo.
                </c:if>
-               <img src="tmp1\wtpwebapps\horadoevento\\uploadFiles" ${sessao_user.getFoto()}><%! //TODO caminho sla %>
+               <img src="/horadoevento/ImageResponse.do?file=${sessao_user.getFoto().getAbsolutePath()}">
                <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
 					<div class="botaoFoto">
 						<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField" /> <br />

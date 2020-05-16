@@ -17,10 +17,11 @@ public class ImageResponse extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Busca o arquivo:
-		File arquivo = (File) request.getAttribute("arquivo");
+		String caminho = request.getParameter("file");
+		File arquivo = new File(caminho);
 		// Informa na resposta HTTP qual o tipo do conteudo do arquivo:
 		// Nesse caso, eu usei tipo imagem png:
-		response.setContentType("image/png");
+		response.setContentType("image/jpg");
 		
 		response.setContentLength((int)arquivo.length());
 

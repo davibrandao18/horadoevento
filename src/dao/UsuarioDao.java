@@ -82,7 +82,7 @@ public class UsuarioDao {
 	 * @since 0.2
 	 * @param String username;
 	 */
-	public Usuario consultarUsuario(String username) {
+	public Usuario consultarUsuario(String username, String path) {
 		String consulta = "SELECT * FROM usuario WHERE username='"+username+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
@@ -97,7 +97,7 @@ public class UsuarioDao {
 				String email = resultado.getString("email");
 				String senha = resultado.getString("senha");
 				String linkedin = resultado.getString("linkedin");
-				File foto = recuperarImagem(username);
+				File foto = recuperarImagem(username, path);
 				
 				usuario.setCpf(cpf);
 				usuario.setUserName(username);
@@ -115,6 +115,44 @@ public class UsuarioDao {
 		}
 		return null;
 	}
+	
+	
+	/**
+	 * consulta de usuario sem manipulação de arquivo
+	 * @param username
+	 * @return
+	 */
+	public Usuario consultarUsuario(String username) {
+		String consulta = "SELECT * FROM usuario WHERE username='"+username+"'";
+		
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(consulta);) {
+			
+			ResultSet resultado = pst.executeQuery();
+			
+			if (resultado.next()){
+				Usuario usuario = new Usuario();
+				String cpf = resultado.getString("cpf");
+				String nome = resultado.getString("nome");
+				String email = resultado.getString("email");
+				String senha = resultado.getString("senha");
+				String linkedin = resultado.getString("linkedin");
+				
+				usuario.setCpf(cpf);
+				usuario.setUserName(username);
+				usuario.setNome(nome);
+				usuario.setEmail(email);
+				usuario.setSenha(senha);
+				usuario.setLinkedin(linkedin);
+				return usuario;
+			}
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
+	
 	
 	
 	/**
@@ -136,7 +174,6 @@ public class UsuarioDao {
 			
 			while(resultado.next())
 				listaUsuario.add(consultarUsuario(resultado.getString("cpf")));
-
 			return listaUsuario;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -189,7 +226,7 @@ public class UsuarioDao {
 	 * @since 0.1
 	 * @param String username
 	 */
-	public File recuperarImagem(String username) {
+	public File recuperarImagem(String username, String path) {
 		String selectImg = "SELECT foto FROM usuario WHERE username = ?";
 		
 		try {
@@ -200,7 +237,7 @@ public class UsuarioDao {
 			
 			ResultSet resultado = pst.executeQuery();
 			// Arquivo onde a imagem sera armazenada no disco:
-			File file = new File("c:"+File.separator+"teste"+".jpg");
+			File file = new File(path+ File.separator + username +".jpg");
 			// Objeto para tratar saida de dados para um arquivo:
 			FileOutputStream output = new FileOutputStream(file);
 			

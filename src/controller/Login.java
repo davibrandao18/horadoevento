@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,9 @@ import service.UsuarioService;
  */
 @WebServlet("/login/Login.do")
 public class Login extends HttpServlet {
+	
+	private static final String SAVE_DIR = "uploadFiles";
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -40,13 +44,27 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
+		
+		
+		String appPath = request.getServletContext().getRealPath("");
+        // constructs path of the directory to save uploaded file
+        String savePath = appPath + File.separator + SAVE_DIR;
+        
+        // creates the save directory if it does not exists
+        File fileSaveDir = new File(savePath);
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdir();
+        }
+        
+		
 		switch (request.getParameter("entidade")) {
 			case "usuario": {
 				UsuarioService us = new UsuarioService();
 				Usuario user = new Usuario();
 				
 				try {
-					user = us.carregar(request.getParameter("username"));
+					user = us.carregar(request.getParameter("username"), savePath);
+					if(user.getFoto().exists()) System.out.println(user.getFoto().getAbsolutePath());
 				} catch (Exception e) {
 					response.sendRedirect("./login.jsp");
 				}

@@ -67,6 +67,10 @@ public class UsuarioService {
 	 * @param username
 	 * @return
 	 */
+	public Usuario carregar(String username, String path){
+		return dao.consultarUsuario(username, path);
+	}
+	
 	public Usuario carregar(String username){
 		return dao.consultarUsuario(username);
 	}
