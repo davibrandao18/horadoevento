@@ -64,7 +64,6 @@ public class Login extends HttpServlet {
 				
 				try {
 					user = us.carregar(request.getParameter("username"), savePath);
-					if(user.getFoto().exists()) System.out.println(user.getFoto().getAbsolutePath());
 				} catch (Exception e) {
 					response.sendRedirect("./login.jsp");
 				}
