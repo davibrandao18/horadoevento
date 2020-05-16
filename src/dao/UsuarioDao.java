@@ -237,7 +237,10 @@ public class UsuarioDao {
 			
 			ResultSet resultado = pst.executeQuery();
 			// Arquivo onde a imagem sera armazenada no disco:
-			File file = new File(path+ File.separator + username +".jpg");
+			String path2 = path + File.separator;
+			path2 = path2.replace("\\", "/");
+			System.out.println("Antes: "+ path +"\nDepois: "+path2);
+			File file = new File(path2 + File.separator + username +".jpg");
 			// Objeto para tratar saida de dados para um arquivo:
 			FileOutputStream output = new FileOutputStream(file);
 			

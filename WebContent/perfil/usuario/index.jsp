@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -35,10 +36,8 @@
 
                     <button type="submit">Atualizar Dados</button>
                </form>
-               <c:if test="${sessao_user.getFoto().exists()}">
-               		ta tudo certo.
-               </c:if>
-               <img src="/horadoevento/ImageResponse.do?file=${sessao_user.getFoto().getAbsolutePath()}">
+               <c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
+               <img src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
                <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
 					<div class="botaoFoto">
 						<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField" /> <br />
