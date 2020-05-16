@@ -200,7 +200,7 @@ public class UsuarioDao {
 			
 			ResultSet resultado = pst.executeQuery();
 			// Arquivo onde a imagem sera armazenada no disco:
-			File file = new File(username +".jpg");
+			File file = new File("c:"+File.separator+"teste"+".jpg");
 			// Objeto para tratar saida de dados para um arquivo:
 			FileOutputStream output = new FileOutputStream(file);
 			

@@ -22,19 +22,22 @@
                 	<label>CPF:</label>
                 	<input name="cpf" value="${sessao_user.cpf}" type="text" readonly disabled> <br>
                 	<label>UserName:</label>
-                    <input name="username" value="${sessao_user.getUserName()}" type="text" readonly disabled> <br>
+                    <input name="username" value="${sessao_user.userName}" type="text" readonly disabled> <br>
                     <label>Nome:</label>
-                    <input name="nome" value="${sessao_user.getNome()}" type="text"> <br>
+                    <input name="nome" value="${sessao_user.nome}" type="text"> <br>
                     <label>E-mail:</label>
-                    <input name="email" value="${sessao_user.getEmail()}" type="text"> <br>
+                    <input name="email" value="${sessao_user.email}" type="text"> <br>
                     <label>Senha:</label>
-                    <input name="senha" value="${sessao_user.getSenha()}" type="password"> <br>
+                    <input name="senha" value="${sessao_user.senha}" type="password"> <br>
                     <label>Linkedin:</label>
-                    <input name="linkedin" value="${sessao_user.getLinkedin()}" type="text"> <br>
+                    <input name="linkedin" value="${sessao_user.linkedin}" type="text"> <br>
                     <input type='hidden' value='usuario' name='entidade'>
 
                     <button type="submit">Atualizar Dados</button>
                </form>
+               <c:if test="${sessao_user.getFoto().exists()}">
+               		ta tudo certo.
+               </c:if>
                <img src="tmp1\wtpwebapps\horadoevento\\uploadFiles" ${sessao_user.getFoto()}><%! //TODO caminho sla %>
                <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
 					<div class="botaoFoto">

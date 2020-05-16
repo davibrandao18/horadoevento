@@ -40,21 +40,26 @@ public class BuscaPerfil extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String entidade = request.getParameter("entidade");
 		
+		System.out.println("Server: entidade = "+entidade);
+		
 		switch (entidade) {
 			case "usuario": {
 				UsuarioService us = new UsuarioService();
-				Usuario usuario = us.carregar(request.getParameter("username"));
-		        request.setAttribute(entidade, usuario);
+				Usuario user = us.carregar(request.getParameter("username"));
+				System.out.println("Server: usuario = "+user.toString());
+				System.out.println("Server: entidade = "+entidade);
+		        request.setAttribute(entidade, user);
 				break;
 			}
 			case "empresa": {
 				EmpresaService es = new EmpresaService();
 				Empresa empresa = es.carregar(request.getParameter("username"));
+				//System.out.println("Server: empresa = "+empresa.toString());
 				request.setAttribute(entidade, empresa);
 				break;
 			}
 		}
 		
-		request.getRequestDispatcher(entidade+"/view/").forward(request, response);
+		request.getRequestDispatcher("/perfil/"+entidade+"/view/").forward(request, response);
 	}
 }
