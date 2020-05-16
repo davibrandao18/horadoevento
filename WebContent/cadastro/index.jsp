@@ -107,7 +107,7 @@
 					</div>
 					<div class="col-12 col-md-6">
 						<div class="form-group">
-							<label for="nome">Nome*</label>
+							<label for="nome">Empresa*</label>
 	    					<input type="text" class="form-control bginput-hde" name="nome" id="nome" required>
 						</div>
 					</div>
