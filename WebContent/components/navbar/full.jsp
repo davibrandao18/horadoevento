@@ -11,7 +11,7 @@
 			</svg>
   		</div>
   		<div class="col-md-4 d-flex justify-content-center">
-  			<form class="form-inline bg-light rounded p-0" action="/perfil/perfil.do">
+  			<form class="form-inline bg-light rounded p-0" action="/horadoevento/perfil/Perfil.do">
 				<button class="btn btn-outline-light" type="submit" style="width:40px;">
 					<img src="/horadoevento/assets/icons/search.svg">
 				</button>
