@@ -84,5 +84,18 @@ CREATE TABLE empresa_usuario(
     foreign key (fk_empresa_cnpj) references empresa(cnpj)
 );
 
-USE horadoevento;
-Select* from usuario;
+-- USE horadoevento; 
+-- drop database horadoevento;
+-- Select* from usuario;
+
+## INSERTS
+
+INSERT INTO usuario (cpf, username, nome, email, senha, linkedin, foto)
+VALUES ('00000000001', 'teste1', 'teste1', 'teste1@hde.com', 'Senha123', 'https://linkedin.com/in/teste1', null),
+('00000000002', 'teste2', 'teste2', 'teste2@hde.com', 'Senha123', 'https://linkedin.com/in/teste2', null);
+
+INSERT INTO tag (id, nome)
+VALUES (1, 'TagTeste1'), (2, 'TagTeste2');
+
+INSERT INTO tag_usuario (id, fk_tag_id, fk_usuario_cpf)
+VALUES (1, 1, '00000000001'), (2, 2, '00000000002');
