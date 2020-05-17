@@ -8,7 +8,7 @@ import java.io.File;
  * 
  * @author Davi Fonseca
  * @version 2.0
- * @since 1.0 -> desde qual versao esta classe est� no projeto
+ * @since 1.0 -> desde qual versao esta classe esta no projeto
  *
  */
 public class Usuario  implements java.io.Serializable {
@@ -20,9 +20,9 @@ public class Usuario  implements java.io.Serializable {
 	private String email;
 	private String senha;
 	private String linkedin;
-	private ArrayList<TagUsuario> colecaoTags;
+	private ArrayList<Tag> colecaoTags;
 	private ArrayList<Certificado> colecaoCertificados;
-	private ArrayList<EmpresaUsuario> colecaoEmpresas;
+	private ArrayList<Empresa> colecaoEmpresas;
 	private File foto;
 	
 	/**
@@ -47,8 +47,8 @@ public class Usuario  implements java.io.Serializable {
 	 * @param foto
 	 */
 	public Usuario(String cpf, String userName, String nome, String email, String senha, String linkedin,
-			ArrayList<TagUsuario> colecaoTags, ArrayList<Certificado> colecaoCertificados,
-			ArrayList<EmpresaUsuario> colecaoEmpresas, File foto) {
+			ArrayList<Tag> colecaoTags, ArrayList<Certificado> colecaoCertificados,
+			ArrayList<Empresa> colecaoEmpresas, File foto) {
 		this.cpf = cpf;
 		this.userName = userName;
 		this.nome = nome;
@@ -176,7 +176,7 @@ public class Usuario  implements java.io.Serializable {
 	/**
 	 * @return the colecaoTags
 	 */
-	public ArrayList<TagUsuario> getColecaoTags() {
+	public ArrayList<Tag> getColecaoTags() {
 		return colecaoTags;
 	}
 
@@ -185,7 +185,7 @@ public class Usuario  implements java.io.Serializable {
 	/**
 	 * @param colecaoTags the colecaoTags to set
 	 */
-	public void setColecaoTags(ArrayList<TagUsuario> colecaoTags) {
+	public void setColecaoTags(ArrayList<Tag> colecaoTags) {
 		this.colecaoTags = colecaoTags;
 	}
 
@@ -212,7 +212,7 @@ public class Usuario  implements java.io.Serializable {
 	/**
 	 * @return the colecaoEmpresas
 	 */
-	public ArrayList<EmpresaUsuario> getColecaoEmpresas() {
+	public ArrayList<Empresa> getColecaoEmpresas() {
 		return colecaoEmpresas;
 	}
 
@@ -221,7 +221,7 @@ public class Usuario  implements java.io.Serializable {
 	/**
 	 * @param colecaoEmpresas the colecaoEmpresas to set
 	 */
-	public void setColecaoEmpresas(ArrayList<EmpresaUsuario> colecaoEmpresas) {
+	public void setColecaoEmpresas(ArrayList<Empresa> colecaoEmpresas) {
 		this.colecaoEmpresas = colecaoEmpresas;
 	}
 

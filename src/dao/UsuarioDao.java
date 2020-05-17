@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Random;
 
 import model.Usuario;;
 
@@ -41,29 +40,6 @@ public class UsuarioDao {
 			pst.setString(5,usuario.getSenha());
 			pst.setString(6,usuario.getLinkedin());
 			pst.setString(7,null);
-			
-			
-			/*
-			usuario.getColecaoTags();
-			ArrayList<TagUsuario> colecaoTags = usuario.getColecaoTags();
-			TagUsuarioService tus = new TagUsuarioService();
-			colecaoTags.forEach( i -> {
-				tus.criar(i);
-			});
-			
-			usuario.getColecaoCertificados();
-			ArrayList<Certificado> colecaoCertificados = usuario.getColecaoCertificados();
-			CertificadoService cs = new CertificadoService();
-			colecaoCertificados.forEach( i -> {
-				cs.criar(i);;
-			});
-			
-			usuario.getColecaoEmpresas();
-			ArrayList<EmpresaUsuario> colecaoEmpresas = usuario.getColecaoEmpresas();
-			EmpresaUsuarioService eus = new EmpresaUsuarioService();
-			colecaoEmpresas.forEach( i -> {
-				eus.criar(i);
-			});*/
 
 			pst.execute();
 			
@@ -325,5 +301,27 @@ public class UsuarioDao {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Insere tag_usuario
+	 * @param cpf
+	 * @param idTag
+	 */
+	public void inserirTag(String cpf, int idTag){
+		String sqlInsert = "INSERT INTO tag_usuario"
+				+"(fk_tag_id, fk_usuario_cpf)"
+				+"VALUES (?,?)";
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
+			pst.setInt(1, idTag);
+			pst.setString(2, cpf);
+
+			pst.execute();
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		
 	}
 }

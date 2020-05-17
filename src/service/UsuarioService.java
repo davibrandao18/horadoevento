@@ -1,12 +1,13 @@
 package service;
 
-import model.Usuario;
-import teste.ValidaUsuario;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+
 import dao.UsuarioDao;
+import model.Tag;
+import model.Usuario;
+import teste.ValidaUsuario;
 
 /**
  * Classe responsável por chamar as DAO's de Usuario
@@ -71,6 +72,11 @@ public class UsuarioService {
 		return dao.consultarUsuario(username, path);
 	}
 	
+	/**
+	 * Carregar sem foto
+	 * @param username
+	 * @return
+	 */
 	public Usuario carregar(String username){
 		return dao.consultarUsuario(username);
 	}
@@ -86,7 +92,22 @@ public class UsuarioService {
 		return dao.listarUsuarios(username);
 	}
 	
+	/**
+	 * metodo para inserir tags
+	 * @param tags
+	 * @param user
+	 */
+	public void inserirTag(ArrayList<Tag> tags, Usuario user){
+		for (Tag tag : tags) {
+			dao.inserirTag(user.getCpf(), tag.getId());
+		}
+	}
 	
+	/**
+	 * metodo para criar imagem
+	 * @param foto
+	 * @param username
+	 */
 	public void criarImagem(File foto, String username) {
 		dao.inserirImagem(foto, username);
 		System.out.println("service: foto inserida com sucesso!");
