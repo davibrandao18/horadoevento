@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="pos-f-t">
 	<nav class="navbar navbar-dark bg-hde">
-		<div class="col-4 d-flex justify-content-start" style="align-items: center;">
+		<div class="display-none-mobile col-md-4 d-flex justify-content-start" style="align-items: center;">
 			<svg id="Component_2_1" data-name="Component 2 â€“ 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="328" height="36" viewBox="0 0 328 36">
 				<text id="HORA_DO_EVENTO" data-name="HORA DO EVENTO" transform="translate(0 31)" fill="#0d0d0d" font-size="20" font-family="PressStart2P, 'Press Start 2P'" letter-spacing="0.011em"><tspan x="0" y="0">HORA DO EVENTO</tspan></text>
 				<g id="Bitmap" transform="translate(292)">
@@ -10,7 +10,7 @@
 				</g>
 			</svg>
   		</div>
-  		<div class="col-md-4 d-flex justify-content-center">
+  		<div class="col-10 col-md-5 d-flex justify-relative-mobile">
   			<form class="form-inline bg-light rounded p-0" action="/horadoevento/perfil/Perfil.do">
 				<button class="btn btn-outline-light" type="submit" style="width:40px;">
 					<img src="/horadoevento/assets/icons/search.svg">
@@ -19,7 +19,7 @@
 				<input class="form-control bg-light border-light" type="search" aria-label="Search" name="username" type="text"/>
 	    	</form>
   		</div>
-  		<div class="col-md-4 d-flex justify-content-end" style="align-items: center;">
+  		<div class="col-2 col-md-3 d-flex justify-content-end" style="align-items: center;">
 	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuOpcoes" aria-controls="menuOpcoes" aria-expanded="false" aria-label="Alterna navegação" style="border: none!important;">
 		    	<span><img src="/horadoevento/assets/icons/user.svg"></span>
 		    </button>
