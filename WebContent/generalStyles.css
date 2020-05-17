@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url("components/fonts/PressStart2P-Regular.ttf") format("truetype");
+}
 
-body { overflow-x: hidden; }
+body { overflow-x: hidden; background-repeat: no-repeat; background-size: cover;}
 
 * {
     font-family: 'Press Start 2P', cursive;
@@ -348,6 +351,14 @@ input:checked + .slider:before {
 
 .justify-relative-mobile {
 	justify-content: center;
+}
+
+
+.img-perfil-hde {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 
