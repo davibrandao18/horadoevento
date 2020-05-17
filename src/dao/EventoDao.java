@@ -200,4 +200,26 @@ public class EventoDao {
 			ex.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Insere tag_usuario
+	 * @param cpf
+	 * @param idTag
+	 */
+	public void inserirTag(int id, int idTag){
+		String sqlInsert = "INSERT INTO tag_evento"
+				+"(fk_tag_id, fk_evento_id)"
+				+"VALUES (?,?)";
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
+			pst.setInt(1, idTag);
+			pst.setInt(2, id);
+
+			pst.execute();
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		
+	}
 }

@@ -1,9 +1,11 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import dao.EventoDao;
 import model.Evento;
+import model.Tag;
 
 /**
  * Classe que representa um evento
@@ -84,6 +86,17 @@ public class EventoService {
 			System.out.println("service:: Evento carregado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * metodo para inserir tags
+	 * @param tags
+	 * @param user
+	 */
+	public void inserirTag(ArrayList<Tag> tags, Evento evento){
+		for (Tag tag : tags) {
+			dao.inserirTag(evento.getId(), tag.getId());
 		}
 	}
 }
