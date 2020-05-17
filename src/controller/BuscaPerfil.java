@@ -40,15 +40,11 @@ public class BuscaPerfil extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String entidade = request.getParameter("entidade");
 		
-		System.out.println("Server: entidade = "+entidade);
-		
 		switch (entidade) {
 			case "usuario": {
 				UsuarioService us = new UsuarioService();
 				Usuario user = us.carregar(request.getParameter("username"));
-				System.out.println("Server: usuario = "+user.toString());
-				System.out.println("Server: entidade = "+entidade);
-		        request.setAttribute(entidade, user);
+		        request.setAttribute("usuario", user);
 				break;
 			}
 			case "empresa": {
