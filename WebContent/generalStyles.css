@@ -12,23 +12,17 @@ body { overflow-x: hidden; }
 	--background: rgba(2,103,255,0.1);
     --card-primary: #f2d272cc;
     --card-secondary: #d94f32cc;
+    --card-tertiary: green; /* essa daqui na vdd nem é usada em um card, é a cor do terceiro elemento do carrossel, coloquei uma cor bem nonsense pra testar msm */
 }
 
 .theme-dark {
     --background: rgba(4, 47, 102, 0.5);
     --card-primary: #ff7829cc;
     --card-secondary: #6b32d9cc;
+    --card-tertiary: blue;
 }
 
-.bodyCover {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    background: var(--background);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+.bodyCover { background: var(--background); }
 
 .bg-hde { background-color: rgba(242, 147, 126, .8); }
 
@@ -202,56 +196,39 @@ body { overflow-x: hidden; }
 }
 
 
-/* CARROSSEL */
-.carousel {
-    width: 80%;
-    height: 300px;
-    background-color: #e7b67a;
-	margin: 20px auto;
-	border: 1px solid transparent;
-	border-radius: 10px;
-	padding: 20px;
-}
-
-.carousel p {
-	width: 90%;
-	padding: 15px 0 20px 20px;
-}
 
 
-/* CARTÃ•ES */
-.cardGroup {
-    width: 80%;
-    display: flex;
-    margin-top: 20px;
-    margin: 20px auto;
-}
-
-.cardGroup button {
-    width: 20%;
-    height: 150px;
-    margin-left: 2.5%;
-	margin-right: 2.5%;
-	border: 1px solid transparent;
+/* CARTÕES */
+.card-hde {
+    width: 100%;
+    height: auto;
+	border: none;
 	border-radius: 10px;
 	padding: 10px;
 	text-align: start;
+	font-size: auto;
 }
 
-.primary-cards button {
+.primary-card-hde {
     background-color: var(--card-primary);
 }
 
-.secondary-cards button {
+.secondary-card-hde {
     background-color: var(--card-secondary);
 }
 
-.cardGroup button small {
-	margin-top: 10px;
+.tertiary-card-hde {
+    background-color: var(--card-tertiary);
+}
+
+.carousel-hde {
+	height: 200px;
+	border-radius: 10px;
+	padding: 10px 10% 10px 10%;
 }
 
 
-/* FOOTER SIMPLES COM HELPER E DIÃ�LOGO */
+/* FOOTER SIMPLES COM HELPER E DIÁLOGO */
 .simpleFooter {
 	width: 400px;
 	display: flex;
@@ -367,6 +344,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+
+
+.justify-relative-mobile {
+	justify-content: center;
+}
+
+
 @media only screen and (max-width: 1100px) {
 	.hdeTitulo-desktop {
 		display: none !important;
@@ -377,8 +361,11 @@ input:checked + .slider:before {
 	}
 }
 
-@media only screen and (max-width:991px){
+@media (max-width: 991.98px) {
 	.display-none-mobile{
 		display:none !important;
 	}
+	
+	.justify-relative-mobile {
+	justify-content: flex-start;}
 }
