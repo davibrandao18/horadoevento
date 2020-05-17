@@ -15,7 +15,7 @@
 			<c:import url="../../components/carousel/"/>
 			
 			<div class="container">
-				<h4 class="text-center">Missões que combinam com você</h4>
+				<h5 class="text-center">Missões que combinam com você</h5>
 				
 				<div class="row">
 					<div class="col-6 col-md-3 mt-2">
@@ -41,7 +41,7 @@
 				</div>
 				
 				
-				<h4 class="text-center mt-4">Categorias</h4>
+				<h5 class="text-center mt-4">Categorias</h5>
 				
 				<div class="row pb-4 justify-content-center">
 					<div class="col-10 col-md-3 mt-2">
