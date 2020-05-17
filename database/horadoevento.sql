@@ -84,10 +84,6 @@ CREATE TABLE empresa_usuario(
     foreign key (fk_empresa_cnpj) references empresa(cnpj)
 );
 
--- USE horadoevento; 
--- drop database horadoevento;
--- Select* from usuario;
-
 ## INSERTS
 
 INSERT INTO usuario (cpf, username, nome, email, senha, linkedin, foto)
@@ -99,3 +95,7 @@ VALUES (1, 'TagTeste1'), (2, 'TagTeste2');
 
 INSERT INTO tag_usuario (id, fk_tag_id, fk_usuario_cpf)
 VALUES (1, 1, '00000000001'), (2, 2, '00000000002');
+
+-- USE horadoevento; 
+-- drop database horadoevento;
+Select* from usuario;
