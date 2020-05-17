@@ -12,7 +12,7 @@
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
 		
-		<c:import url="../../components/boasvindas/"/>
+		<c:import url="../../components/alert/boasvindas/"/>
 
 		<div class="bodyCover">
 			<c:import url="../../components/carousel/"/>

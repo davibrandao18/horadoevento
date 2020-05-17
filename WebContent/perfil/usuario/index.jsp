@@ -11,28 +11,34 @@
     
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
+   		<c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
+   		
    		
    		<div class="bodyCover">
+   			<div class="row pt-4">
+   				<div class="col-6" style="text-align:end;">
+   					<img class="img-perfil-hde" src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
+   				</div>
+   				<div class="col-6 justify-content-start">
+	               <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
+						<div class="botaoFoto">
+							<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField mt-4"/> <br />
+							<input type="submit" value="Atualizar foto" class="mt-4" />
+						</div>
+				   </form>
+   				</div>
+   			</div>
    			<div class="row">
-   				<div class="col-7">
+   				<div class="col">
    					
    				</div>
    			</div>
-   		
-   		
-   		
    		</div>
-   		
    		
    		
         <div class="cover">
             <div>
-            	<form action="../Logout.do" method="get">
-            		<button type="submit">Sair</button>
-            	</form> <br>
                 <form action="../Atualizar.do" method="post">
-   
-                	<%!//TODO foto /!\%>
                 	<label>CPF:</label>
                 	<input name="cpf" value="${sessao_user.cpf}" type="text" readonly disabled> <br>
                 	<label>UserName:</label>
@@ -46,24 +52,14 @@
                     <label>Linkedin:</label>
                     <input name="linkedin" value="${sessao_user.linkedin}" type="text"> <br>
                     <input type='hidden' value='usuario' name='entidade'>
-
                     <button type="submit">Atualizar Dados</button>
                </form>
-               <c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
-               <img src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
-               <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
-					<div class="botaoFoto">
-						<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField" /> <br />
-						<input type="submit" value="Atualizar foto" />
-					</div>
-			   </form>
-               
-                <button type="button" onclick="history.go(-1)">Cancelar</button>
-            
-            </div>
+               <button type="button" onclick="history.go(-1)">Cancelar</button>
+			</div>
         </div>
         
-        <c:import url="../../components/footer/footer.html"/>
+        
+        <c:import url="../../components/footer/"/>
         
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
