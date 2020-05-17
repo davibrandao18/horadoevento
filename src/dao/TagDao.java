@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import model.Tag;
 
 /**
@@ -87,5 +89,65 @@ public class TagDao {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Retornar lista de tag_usuario
+	 * @param cpf
+	 * @return
+	 */
+	public ArrayList<Tag> tagUsuario(String cpf){
+		ArrayList<Tag> tags = null;
+		
+		String select = "SELECT tag.id, tag.nome FROM tag , tag_usuario WHERE tag.id = tag_usuario.fk_tag_id and fk_usuario_cpf = ?";
+		try(Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(select);){
+			
+		pst.setString(1, cpf);
+		
+		ResultSet resultado = pst.executeQuery();
+		
+		tags = new ArrayList<Tag>();
+		
+		while (resultado.next()) {				
+			Tag t = new Tag(resultado.getInt("id"), resultado.getString("nome"));
+			tags.add(t);
+		}
+		
+		} catch(SQLException e) {
+		e.printStackTrace();
+		}
+		
+		return tags;
+	}
+	
+	/**
+	 * Retornar lista de tag_evento
+	 * @param cpf
+	 * @return
+	 */
+	public ArrayList<Tag> tagEvento(int id){
+		ArrayList<Tag> tags = null;
+		
+		String select = "SELECT tag.id, tag.nome FROM tag , tag_evento WHERE tag.id = tag_evento.fk_tag_id and fk_evento_id = ?";
+		try(Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(select);){
+			
+		pst.setInt(1, id);
+		
+		ResultSet resultado = pst.executeQuery();
+		
+		tags = new ArrayList<Tag>();
+		
+		while (resultado.next()) {				
+			Tag t = new Tag(resultado.getInt("id"), resultado.getString("nome"));
+			tags.add(t);
+		}
+		
+		} catch(SQLException e) {
+		e.printStackTrace();
+		}
+		
+		return tags;
 	}
 }

@@ -1,10 +1,13 @@
 package service;
 
+import java.util.ArrayList;
+
 //import java.util.ArrayList;
 
 import dao.TagDao;
-
+import model.Evento;
 import model.Tag;
+import model.Usuario;
 
 public class TagService {
 	
@@ -57,6 +60,19 @@ public class TagService {
 		return dao.consultarTag(id);
 	}
 	
+	/**
+	 * Metodo responsavel por carregar ArrayList de tag_usuario
+	 * @param user
+	 * @return
+	 */
+	public ArrayList<Tag> carregarTagUsuario(Usuario user){
+		return dao.tagUsuario(user.getCpf());
+	}
+	
+	
+	public ArrayList<Tag> carregarTagEvento(Evento evento){
+		return dao.tagEvento(evento.getId());
+	}
 	
 	/**
 	 * Metodo responsavel por listar Tags com ids semelhantes
