@@ -12,6 +12,19 @@
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
    		
+   		<div class="bodyCover">
+   			<div class="row">
+   				<div class="col-7">
+   					
+   				</div>
+   			</div>
+   		
+   		
+   		
+   		</div>
+   		
+   		
+   		
         <div class="cover">
             <div>
             	<form action="../Logout.do" method="get">
