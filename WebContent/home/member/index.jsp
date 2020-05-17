@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="javax.servlet.http.HttpSession, model.Usuario" %>
-<%
-	HttpSession sessao = request.getSession();
-	Usuario user = (Usuario) sessao.getAttribute("sessao_user");
-%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,50 +12,66 @@
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
 		
+		<c:import url="../../components/boasvindas/"/>
+
 		<div class="bodyCover">
+			<c:import url="../../components/carousel/"/>
 			
-			<h2>Saudações, <%= user.getNome() %></h2>
-			
-			<h4>Missões mais populares</h4>
-			
-    		<c:import url="../../components/carousel/carousel.jsp"/>
-    		
-			<div class="carousel">
-				<h1>CURSO TAL</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas libero ipsam aspernatur(...)</p>
-				<h2>ONDE E QUANDO IR:</h2>
-				<p>[data] | [hora] <br><br> [endereço]</p>
-			</div>
-	
-			<h4>Missões que combinam com você</h4>
-	
-			<div class="cardGroup primary-cards">
-				<button>
-					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
-				</button>
-				<button>
-					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
-				</button>
-				<button>
-					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
-				</button>
-				<button>
-					NOME BEM GRANDE <br> <small>[data] | [hora]</small>
-				</button>
-			</div>
-	
-			<h4>Categorias sugeridas</h4>
-	
-			<div class="cardGroup secondary-cards">
-				<button> NOME BEM GRANDE </button>
-				<button> NOME BEM GRANDE </button>
-				<button> NOME BEM GRANDE </button>
-				<button> NOME BEM GRANDE </button>
+			<div class="container">
+				<h4 class="text-center">Missões que combinam com você</h4>
+				
+				<div class="row">
+					<div class="col-6 col-md-3 mt-2">
+						<button class="card-hde primary-card">
+							Evento W <br> <small>[data] | [hora]</small>
+						</button>
+					</div>
+					<div class="col-6 col-md-3 mt-2">
+						<button class="card-hde primary-card">
+							Evento X <br> <small>[data] | [hora]</small>
+						</button>
+					</div>
+					<div class="col-6 col-md-3 mt-2">
+						<button class="card-hde primary-card">
+							Evento Y <br> <small>[data] | [hora]</small>
+						</button>
+					</div>
+					<div class="col-6 col-md-3 mt-2">
+						<button class="card-hde primary-card">
+							Evento Z <br> <small>[data] | [hora]</small>
+						</button>
+					</div>
+				</div>
+				
+				
+				<h4 class="text-center mt-4">Categorias</h4>
+				
+				<div class="row pb-4 justify-content-center">
+					<div class="col-10 col-md-3 mt-2">
+						<button class="card-hde secondary-card text-center">
+							Design
+						</button>
+					</div>
+					<div class="col-10 col-md-3 mt-2">
+						<button class="card-hde secondary-card text-center">
+							Gastronomia
+						</button>
+					</div>
+					<div class="col-10 col-md-3 mt-2">
+						<button class="card-hde secondary-card text-center">
+							Jogos
+						</button>
+					</div>
+					<div class="col-10 col-md-3 mt-2">
+						<button class="card-hde secondary-card text-center">
+							Tecnologia
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 		
-		
-    	<c:import url="../../components/footer/footer.html"/>
+    	<c:import url="../../components/footer/" />
 		
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
