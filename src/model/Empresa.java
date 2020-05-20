@@ -55,6 +55,15 @@ public class Empresa {
 		this.foto = foto;
 	}
 	
+	public Empresa(String cnpj, String userName, String nome, String linkedin, File foto) {
+		super();
+		this.cnpj = cnpj;
+		this.userName = userName;
+		this.nome = nome;
+		this.linkedin = linkedin;
+		this.foto = foto;
+	}
+	
 	// Getters e Setters //
 	
 	/**
