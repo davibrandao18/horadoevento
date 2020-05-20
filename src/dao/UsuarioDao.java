@@ -223,7 +223,7 @@ public class UsuarioDao {
 				InputStream input = resultado.getBinaryStream("foto");
 				// Preparando um vetor de bytes para enviar para o arquivo:
 		        byte[] buffer = new byte[1024];
-		        // Enquanto existir conte�do no fluxo de dados, continua:
+		        // Enquanto existir conteudo no fluxo de dados, continua:
 		        while (input.read(buffer) > 0) {
 		        	// Escreve o conteudo no arquivo de destino no disco:
 		            output.write(buffer);
@@ -315,6 +315,24 @@ public class UsuarioDao {
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
 			pst.setInt(1, idTag);
+			pst.setString(2, cpf);
+
+			pst.execute();
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		
+	}
+	
+	
+	public void inserirEmpresa(String cpf, String cnpj){
+		String sqlInsert = "INSERT INTO empresa_usuario"
+				+"(fk_empresa_cnpj, fk_usuario_cpf)"
+				+"VALUES (?,?)";
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
+			pst.setString(1, cnpj);
 			pst.setString(2, cpf);
 
 			pst.execute();
