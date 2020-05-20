@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import dao.EmpresaDao;
 
 import model.Empresa;
+import model.Tag;
+import model.Usuario;
 import teste.ValidaEmpresa;
 
 /**
@@ -66,6 +68,15 @@ public class EmpresaService {
 		return dao.consultarEmpresa(username);
 	}
 	
+	/**
+	 * Metodo responsavel por chamar a consulta de empresa com foto do DAO
+	 * @param username
+	 * @param path
+	 * @return
+	 */
+	public Empresa carregar(String username, String path){
+		return dao.consultarEmpresa(username, path);
+	}
 	
 	/**
 	 * Metodo responsavel por listar Empresas com usernames semelhantes
