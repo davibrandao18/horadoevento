@@ -47,7 +47,53 @@ public class EmpresaDao {
 	
 	
 	/**
-	 * Metodo para consultar empresas
+	 * Metodo para consultar empresas com a foto
+	 * @author Maicon Souza
+	 * @since 0.1
+	 * @param String usern -> username
+	 */
+	public Empresa consultarEmpresa(String username, String path) {
+		String sqlSelect = "SELECT * FROM empresa WHERE username='"+username+"'";
+		
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+			
+			ResultSet resultado = pst.executeQuery();
+			
+			if (resultado.next()){
+				Empresa empresa = new Empresa();
+				String cnpj = resultado.getString("cnpj");
+				String nome = resultado.getString("nome");
+				String cidade = resultado.getString("cidade");
+				String estado = resultado.getString("estado");
+				String pais = resultado.getString("pais");
+				String senha = resultado.getString("senha");
+				String email = resultado.getString("email");
+				String linkedin = resultado.getString("linkedin");
+				File foto = recuperarImagem(username, path);
+				
+				empresa.setCnpj(cnpj);
+				empresa.setUserName(username);
+				empresa.setNome(nome);
+				empresa.setCidade(cidade);
+				empresa.setEstado(estado);
+				empresa.setPais(pais);
+				empresa.setSenha(senha);
+				empresa.setEmail(email);
+				empresa.setLinkedin(linkedin);
+				empresa.setFoto(foto);
+				
+				return empresa;
+			}
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * Metodo para consultar empresas sem o paramentro para foto
 	 * @author Maicon Souza
 	 * @since 0.1
 	 * @param String usern -> username
@@ -70,7 +116,6 @@ public class EmpresaDao {
 				String senha = resultado.getString("senha");
 				String email = resultado.getString("email");
 				String linkedin = resultado.getString("linkedin");
-				//TODO File foto = recuperarImagem(usern); /!\ ERRO
 				
 				empresa.setCnpj(cnpj);
 				empresa.setUserName(username);
@@ -81,9 +126,8 @@ public class EmpresaDao {
 				empresa.setSenha(senha);
 				empresa.setEmail(email);
 				empresa.setLinkedin(linkedin);
-				//TODO empresa.setFoto(foto); /!\ ERRO
 				
-				System.out.println("dao:: " +empresa.toString());
+				
 				return empresa;
 			}
 			
@@ -122,50 +166,50 @@ public class EmpresaDao {
 	}
 	
 	/**
-	 * Metodo para insercao de imagem
-	 * @author Maicon Souza
-	 * @since
-	 * @param foto
-	 * @param username
+	 * Metodo para alteracao de imagem:
+	 * @author Davi Fonseca
+	 * @since 0.1
+	 * @param File foto
+	 * @param String username
 	 */
 	public void inserirImagem(File foto, String username) {
 			
-		// Preparando String de insercao:
-		String sqlUpdate = "UPDATE empresa SET foto = ?"
+		//Preparando a String para insercao:
+		String sqlUpdate = "UPDATE usuario SET foto = ?"
 				+ "WHERE username = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
 			
-			// Fluxo de manipulacao de arquivo
+			//criando fluxo de manipulacao de arquivo
 			FileInputStream inputStream = new FileInputStream(foto);
 			
-			pst.setBinaryStream(1,				// Posicao do Sql
-					(InputStream) inputStream,	// Fluxo de informacao
-					(int) (foto.length())		// Quantidade de bytes
+			pst.setBinaryStream(1,				//Posicao do Sql
+					(InputStream) inputStream,	//Fluxo de informacao
+					(int) (foto.length())		//Quantidade de bytes
 					);
 			pst.setString(2, username);
 			
-			// Enviando a insercao no banco de dados:
+			//Enviando um comando para o MySQL
 			pst.execute();
 			
+			System.out.println("foi a foto hem papai");
+			
 		} catch (Exception e) {
-			// Imprimido a pilha de erros:
+			//Imprimido a pilha de erros:
 			e.printStackTrace();
 		}
 	}
 	
 	
 	/**
-	 * Metodo para recuperar a imagem do banco de dados
-	 * @author Maicon Souza
-	 * @since
+	 * Metodo para recuperar imagem do banco de dados de acordo com o apelido.
+	 * @author Davi Fonseca
+	 * @since 0.1
 	 * @param String username
 	 */
-	public File recuperarImagem(String username) {
-
-        // Criando o SQL de consulta:
-		String selectImg = "SELECT foto FROM empresa WHERE username = ?";
+	public File recuperarImagem(String username, String path) {
+		String selectImg = "SELECT foto FROM usuario WHERE username = ?";
 		
 		try {
 			Connection conectar = ConnectionFactory.obtemConexao();
@@ -174,10 +218,8 @@ public class EmpresaDao {
 			pst.setString(1, username);
 			
 			ResultSet resultado = pst.executeQuery();
-			
 			// Arquivo onde a imagem sera armazenada no disco:
-			File file = new File(username +".jpg");
-			
+			File file = new File(path + File.separator + username +".jpg");
 			// Objeto para tratar saida de dados para um arquivo:
 			FileOutputStream output = new FileOutputStream(file);
 			
@@ -185,20 +227,16 @@ public class EmpresaDao {
 			if (resultado.next()) {
 				// Pegando o campo do tipo blob, chamado "foto":
 				InputStream input = resultado.getBinaryStream("foto");
-				
 				// Preparando um vetor de bytes para enviar para o arquivo:
 		        byte[] buffer = new byte[1024];
-		        
-		        // Enquanto existir conte�do no fluxo de dados, continua:
+		        // Enquanto existir conteudo no fluxo de dados, continua:
 		        while (input.read(buffer) > 0) {
-		        	// Escreve o conte�do no arquivo de destino no disco:
+		        	// Escreve o conteudo no arquivo de destino no disco:
 		            output.write(buffer);
 		        }
-				
-		        // Fechando a entrada:
+				// Fechando a entrada:
 		        input.close();
 			}
-			
 			// Encerra a saida:
 			output.close();
 			resultado.close();
@@ -277,5 +315,38 @@ public class EmpresaDao {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Retornar lista de empresa_usuario
+	 * @param cnpj
+	 * @param path
+	 * @return
+	 */
+	public ArrayList<Empresa> empresaUsuario(String cnpj, String path){
+		ArrayList<Empresa> empresas = null;
+		String select = "SELECT empresa.nome, empresa.username, empresa.linkedin FROM tag , tag_evento WHERE tag.id = tag_evento.fk_tag_id and fk_evento_id = ?";
+		try(Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(select);){
+			
+		pst.setString(1, cnpj);
+		
+		ResultSet resultado = pst.executeQuery();
+		
+		empresas = new ArrayList<Empresa>();
+		
+		while (resultado.next()) {
+			File foto = recuperarImagem(cnpj, path);
+			//cnpj,username,nome,linkedin, foto.
+			Empresa emp = new Empresa(resultado.getString("cnpj"), resultado.getString("username"),resultado.getString("nome"), resultado.getString("linkedin"), foto);
+			System.out.println("Regitro inserido na lista");
+			empresas.add(emp);
+		}
+		
+		} catch(SQLException e) {
+		e.printStackTrace();
+		}
+		
+		return empresas;
 	}
 }
