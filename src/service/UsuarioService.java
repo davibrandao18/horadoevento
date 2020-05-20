@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import dao.UsuarioDao;
+import model.Empresa;
 import model.Tag;
 import model.Usuario;
 import teste.ValidaUsuario;
@@ -81,6 +82,15 @@ public class UsuarioService {
 		return dao.consultarUsuario(username);
 	}
 	
+	/**
+	 * metodo para criar imagem
+	 * @param foto
+	 * @param username
+	 */
+	public void criarImagem(File foto, String username) {
+		dao.inserirImagem(foto, username);
+		System.out.println("service: foto inserida com sucesso!");
+	}
 	
 	/**
 	 * Metodo responsavel por listar usuarios com usernames semelhantes
@@ -104,12 +114,13 @@ public class UsuarioService {
 	}
 	
 	/**
-	 * metodo para criar imagem
-	 * @param foto
-	 * @param username
+	 * metodo para inserir empresa
+	 * @param tags
+	 * @param user
 	 */
-	public void criarImagem(File foto, String username) {
-		dao.inserirImagem(foto, username);
-		System.out.println("service: foto inserida com sucesso!");
+	public void inserirEmpresa(ArrayList<Empresa> empresas, Usuario user){
+		for (Empresa empresa : empresas) {
+			dao.inserirEmpresa(user.getCpf(), empresa.getCnpj());
+		}
 	}
 }
