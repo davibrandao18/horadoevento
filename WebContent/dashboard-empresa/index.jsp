@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png">
         
-        <!-- chartjs -->
+        <!-- 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
-        
+        chartjs -->
         
         <link rel="stylesheet" href="../generalStyles.css">
         <link rel="stylesheet" href="./member.css">
@@ -18,12 +18,13 @@
     </head>
     
     <body>
+    	<c:import url="../components/navbar/full.jsp"/>
+    	
     	<div class="bodyContent">
-			<c:import url="../../components/navbar/full.jsp"/>
-		    	
-    		<h1>Saudações, ${sessao_user.nome}</h1>
+		
+    		<h1>Saudações ${sessao_user.nome}</h1>
     		
-    		<canvas id="primeiroGrafico"></canvas>
+    		<!-- <canvas id="primeiroGrafico"></canvas>
     		
     		<script>
 	    		let primeiroGrafico = document.getElementById('primeiroGrafico').getContext('2d');
@@ -42,7 +43,12 @@
 	    		        ]
 	    		    }
 	    		}
-	    	</script>
+	    	</script>  -->
 		</div>
+		
+		<c:import url="../components/footer/"/>
+        
+		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
