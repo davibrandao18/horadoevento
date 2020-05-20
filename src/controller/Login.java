@@ -80,7 +80,7 @@ public class Login extends HttpServlet {
 			case "empresa": {
 				EmpresaService es = new EmpresaService();
 				Empresa empresa = new Empresa();
-				
+		
 				try {
 					empresa = es.carregar(request.getParameter("username"));
 				} catch (Exception e){
