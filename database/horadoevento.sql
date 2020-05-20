@@ -90,6 +90,9 @@ INSERT INTO usuario (cpf, username, nome, email, senha, linkedin, foto)
 VALUES ('00000000001', 'teste1', 'teste1', 'teste1@hde.com', 'Senha123', 'https://linkedin.com/in/teste1', null),
 ('00000000002', 'teste2', 'teste2', 'teste2@hde.com', 'Senha123', 'https://linkedin.com/in/teste2', null);
 
+INSERT INTO empresa (cnpj, username, nome, cidade, estado, pais, senha, email, linkedin, foto)
+VALUES ('00000000000001', 'teste1', 'teste1', 'São Paulo', 'SP', 'Brasil', 'Senha123', 'teste1@hde.com', 'https://linkedin.com/in/teste1', null);
+
 INSERT INTO tag (id, nome)
 VALUES (1, 'TagTeste1'), (2, 'TagTeste2');
 
