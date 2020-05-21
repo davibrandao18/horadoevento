@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import dao.EmpresaDao;
 
 import model.Empresa;
-import model.Tag;
-import model.Usuario;
 import teste.ValidaEmpresa;
 
 /**

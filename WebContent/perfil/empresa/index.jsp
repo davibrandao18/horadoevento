@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,6 +14,29 @@
     
     <body>
    		<c:import url="../../components/navbar/full.jsp"/>
+   		<c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
+   		
+   		
+   		<div class="bodyCover">
+   			<div class="row pt-4">
+   				<div class="col-6" style="text-align:end;">
+   					<img class="img-perfil-hde" src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
+   				</div>
+   				<div class="col-6 justify-content-start">
+	               <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
+						<div class="botaoFoto">
+							<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField mt-4"/> <br />
+							<input type="submit" value="Atualizar foto" class="mt-4" />
+						</div>
+				   </form>
+   				</div>
+   			</div>
+   			<div class="row">
+   				<div class="col">
+   					
+   				</div>
+   			</div>
+   		</div>
    		
         <div class="cover">
             <div>
@@ -45,21 +69,16 @@
                     <button type="submit">Atualizar Dados</button>
                 </form>
                 
-                <img src="tmp1\wtpwebapps\horadoevento\\uploadFiles" ${sessao_user.getFoto()}><%! //TODO caminho sla %>
-               	<form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
-					<div class="botaoFoto">
-						<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField" /> <br />
-						<input type="submit" value="Atualizar foto" />
-					</div>
-			   	</form>
+               	<form action="../../evento/novo/index.jsp" method="post">
+            		<button type="submit">Novo evento</button>
+            	</form>
                 <div>
                 	<button type="button" onclick="history.go(-1)">Cancelar</button>
-                    <button type="submit">Atualizar</button>
                 </div>
             </div>
         </div>
         
-        <c:import url="../../components/footer/footer.html"/>
+        <c:import url="../../components/footer/"/>
         
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
