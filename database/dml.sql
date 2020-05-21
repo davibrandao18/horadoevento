@@ -23,9 +23,9 @@ VALUES (1, 'tag1'), (2, 'tag2'), (3, 'tag3'), (4, 'tag4'), (5, 'tag5');
 
 ## evento
 INSERT INTO evento (id, data_hora, localizacao, descricao, duracao, quantidade_vagas, palestrante, titulo, fk_empresa_cnpj)
-VALUES (1, '2020-05-29 15:30:00', 'Rua Davi Gamer Br, 100', 'Evento voltato para gamers de todas as idades', '02:30:00', '100', 'Hayash', 'Mega campeonato de COD','00000000000001'),
-(1, '2020-02-03 10:00:00', 'rua goias, 100', 'Evento Super Bacana', '01:30:00', '350', 'joao silva', 'evento bacana','00000000000002'),
-(1, '2020-09-14 12:00:00', 'rua sao paulo, 100', 'Super Evento 2.0 do Evento Super Bacana', '02:00:00', '54', 'marina silva', 'evento 2.0','00000000000003');
+VALUES (1, '2020-05-29 15:30:00', 'Rua Davi Gamer Br, 100', 'Evento voltato para gamers de todas as idades', 120, 100, 'Hayash', 'Mega campeonato de COD','00000000000001'),
+(2, '2020-02-03 10:00:00', 'rua goias, 100', 'Evento Super Bacana', 150, 350, 'joao silva', 'evento bacana','00000000000002'),
+(3, '2020-09-14 12:00:00', 'rua sao paulo, 100', 'Super Evento 2.0 do Evento Super Bacana', 180, 200, 'marina silva', 'evento 2.0','00000000000003');
 
 
 ## tag_evento

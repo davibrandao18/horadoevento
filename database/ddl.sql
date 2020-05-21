@@ -19,7 +19,7 @@ CREATE TABLE empresa(
     cidade varchar(50) not null,
     estado varchar(50) not null,
     pais varchar(50) not null,
-    senha varchar(100) unique not null,
+    senha varchar(100) not null,
     email varchar(100) unique not null,
     linkedin varchar(100),
     foto longblob
