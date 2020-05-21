@@ -3,6 +3,10 @@ package controller;
 import java.io.File;
 //import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Empresa;
+import model.Evento;
 import model.Usuario;
 import service.EmpresaService;
+import service.EventoService;
 import service.UsuarioService;
 
 /**
@@ -80,6 +86,53 @@ public class CadastroController extends HttpServlet {
 					response.sendRedirect("/horadoevento/login/");
 				}
 				//TODO es.criarFoto();
+				break;
+			}
+			case "evento": {
+				EmpresaService es = new EmpresaService();
+				EventoService evs = new EventoService();
+				Evento evento = new Evento();
+				
+				evento.setTitulo(request.getParameter("titulo"));
+				evento.setDescricao(request.getParameter("descricao"));
+				
+				// Comecei a tratar a #data
+				String pDt = request.getParameter("data-hora");
+				Date date = null;
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+				try {
+				date = (Date)formatter.parse(pDt);
+				
+				} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				}
+				GregorianCalendar d = new GregorianCalendar();
+				d.setGregorianChange(date);
+				// ./data
+				
+				evento.setDataHora(d);
+				evento.setDataHora(null);
+				evento.setLocalizacao(request.getParameter("localizacao"));
+				evento.setDuracao(request.getParameter("duracao"));
+				evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
+				evento.setPalestrante(request.getParameter("palestrante"));
+				
+				// TODO arraylist
+				evento.setColecaoTags(null);
+				
+				Empresa empresa = es.carregar(request.getParameter("empresa"));
+				evento.setEmpresa(empresa);
+				
+				
+				if (evs.criar(evento) == false) {
+					// tela evento com os dados errados para correcao
+					request.getRequestDispatcher("/horadoevento/cadastro/").forward(request, response);
+				} else {
+					// tela cadastrado com sucesso !
+					response.sendRedirect("/horadoevento/login/");
+				}
+				
 				break;
 			}
 		}

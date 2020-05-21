@@ -22,13 +22,15 @@ public class EventoService {
 	 * @param Evento evento
 	 * @throws SQLException
 	 */
-	public void criar(Evento evento) throws SQLException {
+	public boolean criar(Evento evento) {
 		try {
 			dao.inserirEvento(evento);
-			System.out.println("service:: Evento criado com sucesso");
+			System.out.println("Service: Evento " +evento.getTitulo() +" criado com sucesso");
+			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+		return false;
 	}
 	
 	/**
@@ -50,7 +52,7 @@ public class EventoService {
 	 * @param id
 	 * @throws SQLException
 	 */
-	public void excluir(int id) throws SQLException {
+	public void excluir(int id)  {
 		try {
 			dao.deletarEvento(id);
 			System.out.println("service: Evento deletado com sucesso");
@@ -64,7 +66,7 @@ public class EventoService {
 	 * @param id
 	 * @throws SQLException
 	 */
-	public Evento carregar(int id) throws SQLException {
+	public Evento carregar(int id) {
 		try {
 			Evento ev = dao.consultarEvento(id);
 			System.out.println("service: Evento carregado com sucesso"+ev.toString());
@@ -73,20 +75,6 @@ public class EventoService {
 			ex.printStackTrace();
 		}
 		return null;
-	}
-	
-	/**
-	 * Carrega um evento utilizando um cnpj
-	 * @param cnpj
-	 * @throws SQLException
-	 */
-	public void carregar(String cnpj) throws SQLException {
-		try {
-			dao.consultarEvento(cnpj);
-			System.out.println("service:: Evento carregado com sucesso");
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 	
 	/**

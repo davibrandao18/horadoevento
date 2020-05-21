@@ -26,7 +26,7 @@ public class EventoDao {
 	 * @param evento
 	 * @throws SQLException
 	 */
-	public void inserirEvento(Evento evento) throws SQLException {
+	public boolean inserirEvento(Evento evento) throws SQLException {
 		String sqlInsert = "INSERT INTO evento"
 				+ "(data_hora, localizacao, descricao, duracao, quantidade_vagas, palestrante, titulo, fk_empresa_cnpj)"
 				+ "VALUES (?,?,?,?,?,?,?,?)";
@@ -43,10 +43,11 @@ public class EventoDao {
 			pst.setString(8, evento.getEmpresa().getCnpj());
 			
 			pst.execute();
-			System.out.println("dao:: Evento " +evento.getTitulo() +" criado com sucesso");
+			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+		return false;
 	}
 	
 	
