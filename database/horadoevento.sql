@@ -96,6 +96,9 @@ VALUES ('00000000000001', 'teste1', 'teste1', 'São Paulo', 'SP', 'Brasil', 'Sen
 INSERT INTO tag (id, nome)
 VALUES (1, 'TagTeste1'), (2, 'TagTeste2');
 
+INSERT INTO evento (data_hora, localizacao, descricao, duracao, quantidade_vagas, palestrante, titulo, fk_empresa_cnpj)
+VALUES ('2020-05-29', 'Rua Davi Gamer Br, 100', 'Evento voltato para gamers de todas as idades', '14:25:00', '100', 'Hayash', 'Mega campeonato de COD','00000000000001');
+
 INSERT INTO tag_usuario (id, fk_tag_id, fk_usuario_cpf)
 VALUES (1, 1, '00000000001'), (2, 2, '00000000002');
 
