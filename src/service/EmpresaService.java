@@ -1,5 +1,6 @@
 package service;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import dao.EmpresaDao;
@@ -75,6 +76,17 @@ public class EmpresaService {
 	public Empresa carregar(String username, String path){
 		return dao.consultarEmpresa(username, path);
 	}
+	
+	/**
+	 * metodo para criar imagem
+	 * @param foto
+	 * @param username
+	 */
+	public void criarImagem(File foto, String username) {
+		dao.inserirImagem(foto, username);
+		System.out.println("service: foto inserida com sucesso!");
+	}
+	
 	
 	/**
 	 * Metodo responsavel por listar Empresas com usernames semelhantes
