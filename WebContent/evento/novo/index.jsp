@@ -11,8 +11,9 @@
 <body>
 	<c:import url="/components/navbar/full.jsp"/>
 	
-	<form action="Evento.do" method="post" id="formCadastroUsuario">
-            	<input type='hidden' value='incluir' name='acao'>
+	<form action="/cadastro/Cadastro.do" method="post" id="formCadastroUsuario">
+            	<input type='hidden' value='evento' name='entidade'>
+            	<input type='hidden' value='${sessao_user.userName}' name='empresa'>
 					
 				<div class="row">
 					<div class="col-12 col-md-6">
@@ -37,7 +38,7 @@
 					<div class="col-12 col-md-6">
 						<div class="form-group">
 							<label for="data-hora">Data e Hora*</label>
-			    			<input type="datetime-local" class="form-control bginput-hde" name="data-hora" id="data-hora" required>
+			    			<input type="datetime-local" class="form-control bginput-hde" name="data-hora" id="data-hora" required maxlength="100">
 						</div>
 					</div>
 					<div class="col-12 col-md-6">
@@ -95,16 +96,10 @@
 							</div>
     					</div>
 					</div>
-					<div class="col-12 col-md-4">
-						<div class="form-group">
-							<label for="empresa">Empresa</label>
-    						<input type="text" class="form-control bginput-hde" name="empresa" id="empresa">
-    					</div>
-					</div>
 				</div>
 
 				<nav class="navbar">
-		  			<a type="button" class="btn btn-light border-dark" href="/horadoevento/inicio/">
+		  			<a type="button" class="btn btn-light border-dark" href="/horadoevento/dashboard-empresa/">
 						<i class="fa fa-chevron-left"></i> Voltar
 					</a>
 			  		<button type="submit" class="btn border-dark redButton">
