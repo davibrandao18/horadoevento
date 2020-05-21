@@ -50,7 +50,7 @@ public class UploadArquivo extends HttpServlet {
        	//C:\Users\davif\git\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\horadoevento\\uploadFiles//
         */
         
-        response.sendRedirect("/horadoevento/home/member/");
+        //response.sendRedirect("/horadoevento/perfil/"); TODO redirect
         
         // Criando um objeto do tipo File:
         File arquivo = new File(savePath + File.separator + fileName);
