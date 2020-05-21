@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Empresa;
+import model.Evento;
 import model.Usuario;
 import service.EmpresaService;
+import service.EventoService;
 import service.UsuarioService;
 
 /**
@@ -51,7 +53,14 @@ public class BuscaPerfil extends HttpServlet {
 				EmpresaService es = new EmpresaService();
 				Empresa empresa = es.carregar(request.getParameter("username"));
 				//System.out.println("Server: empresa = "+empresa.toString());
-				request.setAttribute(entidade, empresa);
+				request.setAttribute("empresa", empresa);
+				break;
+			}
+			case "evento": {
+				EventoService eventS = new EventoService();
+				Evento evento = eventS.carregar(Integer.parseInt(request.getParameter("id")));
+				//System.out.println("Server: empresa = "+empresa.toString());
+				request.setAttribute("evento", evento);
 				break;
 			}
 		}
