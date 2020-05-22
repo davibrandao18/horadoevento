@@ -2,7 +2,6 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import model.Empresa;
 import model.Usuario;
-import service.EmpresaService;
 import service.UsuarioService;
 
 @WebServlet("/perfil/UploadArquivo.do")
@@ -46,29 +43,18 @@ public class UploadArquivo extends HttpServlet {
             fileName = new File(fileName).getName();
             part.write(savePath + File.separator + fileName);
         }
-        // Criando um objeto do tipo File:
+        
+        response.getWriter().println("Arquivo recebido com sucesso.\n"
+        			+ "Diretório onde os arquivos são armazenados: " + savePath);
+        
+        // Criando um objeto do tipo File @Kesselyn:
         File arquivo = new File(savePath + File.separator + fileName);
         
-        switch (request.getParameter("entidade")) {
-        	case "usuario": {
-        		UsuarioService us = new UsuarioService();
-                HttpSession sessao = request.getSession();
-                Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
-                us.criarImagem(arquivo, usuario.getUserName());
-                response.sendRedirect("/horadoevento/perfil/member");
-                break;
-        	}
-        	
-        	case "empresa": {
-        		EmpresaService es = new EmpresaService();
-        		HttpSession sessao = request.getSession();
-        		Empresa empresa = (Empresa) sessao.getAttribute("sessao_user");
-        		es.criarImagem(arquivo, empresa.getUserName());
-        		response.sendRedirect("/horadoevento/perfil/member");
-                break;
-        	}
-        	
-        }
+        UsuarioService us = new UsuarioService();
+        HttpSession sessao = request.getSession();
+        Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
+        us.criarImagem(arquivo, usuario.getUserName());
+        response.sendRedirect("/horadoevento/perfil/member");
         
 	}
 	
