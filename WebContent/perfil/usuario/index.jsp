@@ -21,6 +21,7 @@
    				</div>
    				<div class="col-6 justify-content-start">
 	               <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
+            			<input type='hidden' value='usuario' name='entidade'>
 						<div class="botaoFoto">
 							<input type="file" name="arquivo" size="50" id="itemBotao" class="fileField mt-4"/> <br />
 							<input type="submit" value="Atualizar foto" class="mt-4" />
