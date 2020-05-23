@@ -36,7 +36,7 @@ public class EventoDao {
 			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis()));
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
-			pst.setString(4, evento.getDuracao());
+			pst.setInt(4, evento.getDuracao());
 			pst.setInt(5, evento.getQuantidadeVagas());
 			pst.setString(6, evento.getPalestrante());
 			pst.setString(7, evento.getTitulo());
@@ -71,7 +71,7 @@ public class EventoDao {
 				evento.setDataHora(evento.toGregorian(result.getDate("data_hora")));
 				evento.setLocalizacao(result.getString("localizacao"));
 				evento.setDescricao(result.getString("descricao"));
-				evento.setDuracao(result.getString("duracao"));
+				evento.setDuracao(result.getInt("duracao"));
 				evento.setQuantidadeVagas(result.getInt("quantidade_vagas"));
 				evento.setPalestrante(result.getString("palestrante"));
 				evento.setTitulo(result.getString("titulo"));
@@ -112,7 +112,7 @@ public class EventoDao {
 				evento.setDataHora(evento.toGregorian(result.getDate("data_hora")));
 				evento.setLocalizacao(result.getString("localizacao"));
 				evento.setDescricao(result.getString("descricao"));
-				evento.setDuracao(result.getString("duracao"));
+				evento.setDuracao(result.getInt("duracao"));
 				evento.setQuantidadeVagas(result.getInt("quantidade_vagas"));
 				evento.setPalestrante(result.getString("palestrante"));
 				evento.setTitulo(result.getString("titulo"));
@@ -169,7 +169,7 @@ public class EventoDao {
 			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis())); // /!\
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
-			pst.setString(4, evento.getDuracao());
+			pst.setInt(4, evento.getDuracao());
 			pst.setInt(5, evento.getQuantidadeVagas());
 			pst.setString(6, evento.getPalestrante());
 			pst.setString(7, evento.getTitulo());

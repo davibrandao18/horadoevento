@@ -47,7 +47,7 @@ public class UploadArquivo extends HttpServlet {
         response.getWriter().println("Arquivo recebido com sucesso.\n"
         			+ "Diretório onde os arquivos são armazenados: " + savePath);
         
-        // Criando um objeto do tipo File @Kesselyn:
+        // Criando um objeto do tipo File
         File arquivo = new File(savePath + File.separator + fileName);
         
         UsuarioService us = new UsuarioService();

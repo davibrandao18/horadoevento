@@ -17,7 +17,7 @@ public class Evento {
 	private String descricao;
 	private GregorianCalendar dataHora;
 	private String localizacao;
-	private String duracao;
+	private int duracao;
 	private int quantidadeVagas;
 	private String palestrante;
 	private ArrayList<Tag> colecaoTags;
@@ -40,7 +40,7 @@ public class Evento {
 	 * @param colecaoTags
 	 * @param empresa
 	 */
-	public Evento(int id, String titulo, String descricao, GregorianCalendar dataHora, String localizacao, String duracao,
+	public Evento(int id, String titulo, String descricao, GregorianCalendar dataHora, String localizacao, int duracao,
 			int quantidadeVagas, String palestrante, ArrayList<Tag> colecaoTags, Empresa empresa) {
 		super();
 		this.id = id;
@@ -130,14 +130,14 @@ public class Evento {
 	/**
 	 * @return the duracao
 	 */
-	public String getDuracao() {
+	public int getDuracao() {
 		return duracao;
 	}
 
 	/**
 	 * @param duracao the duracao to set
 	 */
-	public void setDuracao(String duracao) {
+	public void setDuracao(int duracao) {
 		this.duracao = duracao;
 	}
 
