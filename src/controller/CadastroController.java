@@ -114,7 +114,7 @@ public class CadastroController extends HttpServlet {
 				evento.setDataHora(d);
 				evento.setDataHora(null);
 				evento.setLocalizacao(request.getParameter("localizacao"));
-				evento.setDuracao(request.getParameter("duracao"));
+				evento.setDuracao(Integer.parseInt(request.getParameter("duracao")));
 				evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
 				evento.setPalestrante(request.getParameter("palestrante"));
 				

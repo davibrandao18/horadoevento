@@ -27,7 +27,8 @@ public class UploadArquivo extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// gets absolute path of the web application
-        String appPath = request.getServletContext().getRealPath("");
+        //String appPath = request.getServletContext().getRealPath("");
+		String appPath = "C:"+ File.separator;
         // constructs path of the directory to save uploaded file
         String savePath = appPath + File.separator + SAVE_DIR;
          
@@ -41,7 +42,10 @@ public class UploadArquivo extends HttpServlet {
         	fileName = extractFileName(part);
             // refines the fileName in case it is an absolute path
             fileName = new File(fileName).getName();
+            fileName = randomAlphaNumeric(16) + ".jpg";
+            System.out.println("server : "+fileName);
             part.write(savePath + File.separator + fileName);
+     
         }
         
         response.getWriter().println("Arquivo recebido com sucesso.\n"
@@ -70,6 +74,16 @@ public class UploadArquivo extends HttpServlet {
             }
         }
         return "";
+    }
+    
+    private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    public static String randomAlphaNumeric(int count) {
+    StringBuilder builder = new StringBuilder();
+    while (count-- != 0) {
+    int character = (int)(Math.random()*ALPHA_NUMERIC_STRING.length());
+    builder.append(ALPHA_NUMERIC_STRING.charAt(character));
+    }
+    return builder.toString();
     }
 
 }
