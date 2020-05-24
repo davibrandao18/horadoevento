@@ -48,6 +48,15 @@ public class InscricaoService {
 		System.out.println("Deu certo a exclusao");
 	}
 	
+	/**
+	 * Metodo responsavel por chamar o excluir DAO
+	 * @param cpf
+	 */
+	public void excluir(String cpf) {
+		dao.deletarInscricao(cpf);
+		System.out.println("Deu certo a exclusao");
+	}
+	
 	
 	/**
 	 * Metodo responsavel por chamar a consulta de inscricao do DAO
