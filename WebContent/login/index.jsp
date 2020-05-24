@@ -24,13 +24,13 @@
 	    			<div class="col-6 text-right">
 	    				<div class="form-group form-check">
 				  			<input class="form-check-input" type="radio" name="entidade" id="usuario" value="usuario" checked>
-				  			<label class="form-check-label" for="usuario"> Usuário </label>
+				  			<label class="form-check-label" for="usuario"> Player (PF) </label>
 					  	</div>
 					 </div>
 					 <div class="col-6">
 					  	<div class="form-group form-check">	
 					  		<input class="form-check-input" type="radio" name="entidade" id="empresa" value="empresa">
-					  		<label class="form-check-label" for="empresa"> Empresa </label>
+					  		<label class="form-check-label" for="empresa"> Boss (PJ) </label>
 						</div>
 	    			</div>
 	    		</div>
