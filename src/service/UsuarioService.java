@@ -113,6 +113,10 @@ public class UsuarioService {
 		}
 	}
 	
+	public void excluirTags(String cpf) {
+		dao.deletarTags(cpf);
+	}
+	
 	/**
 	 * metodo para inserir empresa
 	 * @param tags
