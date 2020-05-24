@@ -70,7 +70,7 @@
                     <button type="submit">Atualizar Dados</button>
                 </form>
                 
-               	<form action="../../evento/novo/index.jsp" method="post">
+               	<form action="IniciarCadastroEvento.do" method="post">
             		<button type="submit">Novo evento</button>
             	</form>
                 <div>
