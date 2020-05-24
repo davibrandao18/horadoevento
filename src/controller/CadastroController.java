@@ -129,9 +129,11 @@ public class CadastroController extends HttpServlet {
 				Empresa empresa = es.carregar(request.getParameter("empresa"));
 				evento.setEmpresa(empresa);
 				
-				if (evs.criar(evento) == false) {
+				evento.setId(evs.criar(evento));
+				
+				if (evento.getId() == -1) {
 					// tela evento com os dados errados para correcao
-					request.getRequestDispatcher("/horadoevento/cadastro/").forward(request, response);
+					request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
 				} else {
 					// tela cadastrado com sucesso !
 					evs.inserirTag(tags, evento);
