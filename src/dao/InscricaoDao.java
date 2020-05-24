@@ -45,8 +45,7 @@ public class InscricaoDao {
 	 * @return
 	 */
 	public Inscricao consultarInscricao(int id){
-		String consulta = "SELECT * FROM inscricao"
-				+ "WHERE id = "+id;
+		String consulta = "SELECT * FROM inscricao WHERE id='" +id +"'";
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(consulta)) {
 			
@@ -76,7 +75,7 @@ public class InscricaoDao {
 	 * @return ArrayList<Inscricao>
 	 */
 	public ArrayList<Inscricao> listarInscricoes(String cpf) {
-		String sqlSelect = "SELECT * FROM inscricao WHERE fk_usuario_cpf = '"+cpf+"'";
+		String sqlSelect = "SELECT * FROM inscricao WHERE fk_usuario_cpf='"+cpf+"'";
 
 		ArrayList<Inscricao> listaInscricao = new ArrayList<>();
 		
@@ -101,7 +100,7 @@ public class InscricaoDao {
 	 * @param id
 	 */
 	public void deletarInscricao(int id){
-		String deletar = "DELET FROM inscricao WHERE id = "+id;
+		String deletar = "DELETE FROM inscricao WHERE id = "+id;
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(deletar)) {
 			
@@ -111,6 +110,22 @@ public class InscricaoDao {
 				e.printStackTrace();
 		}
 	}
+	
+	
+	/**
+	 * Método para deletar inscrições referentes a um determinado usuário
+	 * @param cpf
+	 */
+	public void deletarInscricao(String cpf){
+		String deletar = "DELETE FROM inscricao WHERE fk_usuario_cpf = "+cpf;
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(deletar)) {
+			pst.execute();			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	/**
 	 * Metodo de atualizar inscricao
