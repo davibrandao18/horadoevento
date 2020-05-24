@@ -87,4 +87,9 @@ public class EventoService {
 			dao.inserirTag(evento.getId(), tag.getId());
 		}
 	}
+	
+	
+	public ArrayList<Evento> listar(String nome) {
+		return dao.listarEventos(nome);
+	}
 }
