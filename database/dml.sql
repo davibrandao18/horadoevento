@@ -39,6 +39,9 @@ VALUES (1, '00000000001'), (2, '00000000002');
 
 
 ## AREA DE TESTES
--- SELECT* FROM usuario;
--- SELECT* FROM empresa;
--- SELECT* FROM evento;
+SELECT* FROM usuario;
+SELECT* FROM empresa;
+SELECT* FROM evento;
+SELECT* FROM tag;
+
+SELECT tag.id, tag.nome FROM tag LEFT OUTER join tag_evento on tag.id = tag_evento.fk_tag_id where fk_evento_id = 1;
