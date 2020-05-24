@@ -18,8 +18,11 @@
     				<%!//TODO foto /!\%>
     			</div>
     			<div class="col-12 col-md-6">
+    			<span>Nome:</span>
+    			<div class="name-wrapper">
     			<c:out value="${usuario.nome}"/>
-    				<h3>${usuario.nome}</h3>
+    				<h3>${usuario.email}</h3>
+    			</div>
     				<small>${usuario.userName}</small>
 	     			<a href="${usuario.linkedin}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
     			</div>

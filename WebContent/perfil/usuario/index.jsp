@@ -39,18 +39,18 @@
         <div class="cover">
             <div>
                 <form action="../Atualizar.do" method="post">
+                    <label class="text-esquerda">Nome:</label>
+                    <input name="nome" value="${sessao_user.nome}" type="text" class="items-esquerda"> <br>
+                	<label class="text-esquerda">UserName:</label>
+                    <input name="username" value="${sessao_user.userName}" type="text" readonly disabled class="items-esquerda"> <br>
+                    <label class="text-esquerda">Senha:</label>
+                    <input name="senha" value="${sessao_user.senha}" type="password" class="items-esquerda"> <br>
                 	<label>CPF:</label>
-                	<input name="cpf" value="${sessao_user.cpf}" type="text" readonly disabled> <br>
-                	<label>UserName:</label>
-                    <input name="username" value="${sessao_user.userName}" type="text" readonly disabled> <br>
-                    <label>Nome:</label>
-                    <input name="nome" value="${sessao_user.nome}" type="text"> <br>
-                    <label>E-mail:</label>
-                    <input name="email" value="${sessao_user.email}" type="text"> <br>
-                    <label>Senha:</label>
-                    <input name="senha" value="${sessao_user.senha}" type="password"> <br>
-                    <label>Linkedin:</label>
-                    <input name="linkedin" value="${sessao_user.linkedin}" type="text"> <br>
+                	<input name="cpf" value="${sessao_user.cpf}" type="text" readonly disabled class="items-direita"> <br>
+                    <label class="text-direita">E-mail:</label>
+                    <input name="email" value="${sessao_user.email}" type="text" class="items-direita"> <br>
+                    <label class="text-direita">Linkedin:</label>
+                    <input name="linkedin" value="${sessao_user.linkedin}" type="text" class="items-direita"> <br>
                     <input type='hidden' value='usuario' name='entidade'>
                     <button type="submit">Atualizar Dados</button>
                </form>

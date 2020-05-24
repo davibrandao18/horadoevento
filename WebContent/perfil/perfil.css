@@ -1,1 +1,5 @@
-body { background-image: url("/horadoevento/assets/backgrounds/field.jpg"); }
+.bodyCover{background-image: }
+.text-esquerda {
+	align-content: left;
+	margin-left: 100px;
+}
