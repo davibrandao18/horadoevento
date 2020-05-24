@@ -34,7 +34,6 @@
    					
    				</div>
    			</div>
-   		</div>
    		
    		
         <div class="cover">
@@ -55,10 +54,34 @@
                     <input type='hidden' value='usuario' name='entidade'>
                     <button type="submit">Atualizar Dados</button>
                </form>
+               
+               <h5>Tags relacionadas</h5>
+               <c:if test="${not empty lista}">
+					<div id="list" class="row">
+						<div class="table-responsive col-md-12">
+							<table class="table table-striped" cellspacing="0" cellpadding="0">
+								<thead>
+									<tr>
+										<th>Nome</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="tags" items="${lista}">
+										<tr>
+											<td>${tag.nome}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</c:if>
+               
                <button type="button" onclick="history.go(-1)">Cancelar</button>
 			</div>
         </div>
         
+        </div>
         
         <c:import url="../../components/footer/"/>
         
