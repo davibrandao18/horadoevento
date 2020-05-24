@@ -84,7 +84,7 @@ public class EmpresaService {
 	 */
 	public void criarImagem(File foto, String username) {
 		dao.inserirImagem(foto, username);
-		System.out.println("service: foto inserida com sucesso!");
+		System.out.println("service empresa: foto inserida com sucesso!");
 	}
 	
 	
