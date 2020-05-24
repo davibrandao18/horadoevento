@@ -66,6 +66,11 @@
 					</div>
 				</div>
 			</div>
+			<div class="row justify-content-end">
+				<a href="../../cadastro/" class="btnHelperTransparent">
+					<img src="/horadoevento/assets/icons/helper_sem_cadastro.svg">
+				</a>
+			</div>
 		</div>
 		
     	<c:import url="../../components/footer/" />

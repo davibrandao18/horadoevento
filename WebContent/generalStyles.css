@@ -275,6 +275,15 @@ body { overflow-x: hidden; background-repeat: no-repeat; background-size: cover;
 	display: none !important;
 }
 
+.btnHelperTransparent {
+	background-color: transparent;
+	border: 1px transparent;
+}
+
+.btnHelperTransparent:focus {
+	outline: 1px transparent !important;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;

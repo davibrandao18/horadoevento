@@ -21,10 +21,24 @@
 	  		</a>
 		</nav>
 
-        <div class="container p-4 bg-hde rounded" id="textoPrincipal">
-			Bem vindo(a)!
-			<br> <br> TEXTO USUÁRIO
-			<br> <br> lorem ispum dolor sit amet consectur elit!
+        <div class="container p-4 bg-hde rounded" id="textoUsuario">
+			Bem vindo(a) ao Hora do Evento!<br><br>
+
+			Fazer cursos e participar de workshops e palestras de qualidade é ótimo para o seu desenvolvimento profissional. Mas se escolher esses cursos parecia cada vez mais difícil, não mais: Aqui você vai encontrar eventos criados por empresas escolhidas a dedo para você subir de nível na sua carreira.<br><br>
+			
+			Além disso, você vai poder criar um perfil e, se quiser, pode se colocar à disposição para participar de seleções nas empresas dos eventos que você comparecer.<br><br>
+			
+			Pronto(a) pra sua jornada?
+		 </div>
+		 
+		 <div class="container p-4 bg-hde rounded" id="textoEmpresa">
+			Bem vindo(a)!<br><br>
+			
+			O Hora do Evento é uma plataforma que vai ajudar sua empresa a moldar o(a)s novo(a)s profissionais do mercado com o seu mindset. Crie eventos: sejam cursos, workshops, oficinas ou palestras, cadastre eles na plataforma e nós vamos utilizar Inteligência Artificial para encontrar os melhores candidatos para participarem deles.<br><br>
+			
+			Assim, você ajuda o(a)s novo(a)s profissionais a se qualificarem para o mercado e ainda divulga sua empresa como facilitadora dessa jornada.<br><br>
+			
+			Além disso, vocês terão acesso a um perfil de cada profissional que comparecer ao evento para obter um recrutamento e seleção de maior qualidade.
 		 </div>
 		 
 		<div class="container">
@@ -33,8 +47,10 @@
 					<a id="btnStart" class="btn btn-light border-dark" href="/horadoevento/home/visitante/" role="button">START NOW</a>
 				</div>
 				<div class="col text-right">
-					<input id="boxHelper" type="checkbox" name="boxHelper" style="display:none;">
-		            <label id="btnHelper" for="boxHelper"> <img id="imgHelper" src="/horadoevento/assets/icons/helperCorpoInteiro.svg"> </label>
+					<button class="btnHelperTransparent" id="btnEntidade" onclick="handleEntidade()">
+						<img id="helperUsuario" src="/horadoevento/assets/icons/helperCorpoInteiro.svg">
+						<img id="helperEmpresa" src="/horadoevento/assets/icons/helperCabeca.svg">
+					</button>
 				</div>
 			</div>
 		</div>
@@ -43,17 +59,38 @@
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
 		
 		<script>
-			// falta formatar o texto
-			var txtEmpresa = "Bem vindo(a)! \n\nO Hora do Evento é uma plataforma que vai ajudar sua empresa a moldar o(a)s novo(a)s profissionais do mercado com o seu mindset. Crie eventos: sejam cursos, workshops, oficinas ou palestras, cadastre eles na plataforma e nós vamos utilizar Inteligência Artificial para encontrar os melhores candidatos para participarem deles. <br> <br> Assim, você ajuda o(a)s novo(a)s profissionais a se qualificarem para o mercado e ainda divulga sua empresa como facilitadora dessa jornada.<br> <br> Além disso, vocês terão acesso a um perfil de cada profissional que comparecer ao evento para obter um recrutamento e seleção de maior qualidade.";
-			
-			$(document).ready(function() {
-			  $('input[id="boxHelper"]').on('change', function() {
-				  $('#textoPrincipal').text(txtEmpresa);
-				  $('#btnStart').hide();
-				  // falta trocar sprite
-				  $('#imgHelper').attr("src", "../assets/icons/helperCabeca.svg");
-			  });
-			});
+		
+			function handleEntidade() {
+				let txtUsuario = document.getElementById('textoUsuario');
+				let txtEmpresa = document.getElementById('textoEmpresa');
+
+				let helperUsuario = document.getElementById('helperUsuario');
+				let helperEmpresa = document.getElementById('helperEmpresa');
+		        
+				switch (localStorage.getItem('txtAtual')) {
+				case null:
+		        	localStorage.setItem('txtAtual', 'empresa')
+					txtUsuario.style.display = 'none';
+		        	helperUsuario.style.display = 'none';
+					txtEmpresa.style.display = 'block';
+		        	helperEmpresa.style.display = 'block';
+					break;
+				case 'empresa':
+		        	localStorage.setItem('txtAtual', 'usuario')
+					txtUsuario.style.display = 'block';
+		        	helperUsuario.style.display = 'block';
+					txtEmpresa.style.display = 'none';
+		        	helperEmpresa.style.display = 'none';
+					break;
+				case 'usuario':
+		        	localStorage.setItem('txtAtual', 'empresa')
+					txtUsuario.style.display = 'none';
+		        	helperUsuario.style.display = 'none';
+					txtEmpresa.style.display = 'block';
+		        	helperEmpresa.style.display = 'block';
+					break;
+				}
+			}
 		</script>
     </body>
 </html>

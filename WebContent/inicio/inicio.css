@@ -5,3 +5,19 @@ body {
 	background-attachment : fixed;
 	background-image: url("/horadoevento/assets/backgrounds/city-default.jpg");
 }
+
+#textoUsuario {
+	display: block;
+}
+
+#helperUsuario {
+	display: block;
+}
+
+#textoEmpresa {
+	display: none;
+}
+
+#helperEmpresa {
+	display: none;
+}
