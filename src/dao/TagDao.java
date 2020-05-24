@@ -36,28 +36,48 @@ public class TagDao {
 		
 	}
 	
+	public Tag consultarTag(int id) {
+		Tag tag = null;
+		String consulta = "SELECT * FROM tag "
+				+ "WHERE id="+id;
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(consulta);){
+			
+			ResultSet resultado = pst.executeQuery();
+			
+			if (resultado.next()) {
+				tag = new Tag(resultado.getInt("id"), resultado.getString("nome"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tag;
+	}
+	
 	/**
 	 * Metodo para consultar Tag:
 	 * @since 0.1
 	 * @param id
 	 * @return Tag
 	 */
-	public Tag consultarTag(int id){
-		String consulta = "SELECT * FROM tag"
-				+"WHERE id = "+id;
+	public ArrayList<Tag> consultarTags(){
+		ArrayList<Tag> tags = null;
+		
+		String consulta = "SELECT * FROM tag";
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(consulta);){
 			ResultSet resultado = pst.executeQuery();
 			
-			if(resultado.next()) {
-			Tag tag = new Tag();
-			tag.setNome(resultado.getString("nome"));
-			return tag;
+			tags = new ArrayList<Tag>();
+			while (resultado.next()) {
+				Tag t = new Tag(resultado.getInt("id"), resultado.getString("nome"));
+				tags.add(t);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return tags;
 	}
 	
 	/**
@@ -90,6 +110,7 @@ public class TagDao {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	/**
 	 * Retornar lista de tag_usuario
