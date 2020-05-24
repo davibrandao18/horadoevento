@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +32,7 @@ public class EventoDao {
 		
 		try(Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
-			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis()));
+			pst.setTimestamp(1,  new java.sql.Timestamp(evento.getDataHora().getTime()));
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
 			pst.setInt(4, evento.getDuracao());
@@ -68,7 +67,7 @@ public class EventoDao {
 			if (result.next()){
 				Evento evento = new Evento();
 				
-				evento.setDataHora(evento.toGregorian(result.getDate("data_hora")));
+				evento.setDataHora(result.getDate("data_hora"));
 				evento.setLocalizacao(result.getString("localizacao"));
 				evento.setDescricao(result.getString("descricao"));
 				evento.setDuracao(result.getInt("duracao"));
@@ -109,7 +108,7 @@ public class EventoDao {
 			if (result.next()){
 				Evento evento = new Evento();
 				
-				evento.setDataHora(evento.toGregorian(result.getDate("data_hora")));
+				evento.setDataHora(result.getDate("data_hora"));
 				evento.setLocalizacao(result.getString("localizacao"));
 				evento.setDescricao(result.getString("descricao"));
 				evento.setDuracao(result.getInt("duracao"));
@@ -166,7 +165,7 @@ public class EventoDao {
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
-			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis())); // /!\
+			pst.setTimestamp(1, new java.sql.Timestamp(evento.getDataHora().getTime()));
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
 			pst.setInt(4, evento.getDuracao());
