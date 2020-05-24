@@ -22,15 +22,15 @@ public class EventoService {
 	 * @param Evento evento
 	 * @throws SQLException
 	 */
-	public boolean criar(Evento evento) {
+	public int criar(Evento evento) {
 		try {
-			dao.inserirEvento(evento);
-			System.out.println("Service: Evento " +evento.getTitulo() +" criado com sucesso");
-			return true;
+			int id = dao.inserirEvento(evento);
+			System.out.println("Service:"+evento.toString());
+			return id;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return false;
+		return -1;
 	}
 	
 	/**
@@ -84,6 +84,7 @@ public class EventoService {
 	 */
 	public void inserirTag(ArrayList<Tag> tags, Evento evento){
 		for (Tag tag : tags) {
+			System.out.println("Service evento: Tag id "+tag.getId()+", evento id "+evento.getId());
 			dao.inserirTag(evento.getId(), tag.getId());
 		}
 	}

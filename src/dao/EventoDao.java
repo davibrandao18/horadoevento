@@ -25,7 +25,7 @@ public class EventoDao {
 	 * @param evento
 	 * @throws SQLException
 	 */
-	public boolean inserirEvento(Evento evento) throws SQLException {
+	public Integer inserirEvento(Evento evento) throws SQLException {
 		String sqlInsert = "INSERT INTO evento"
 				+ "(data_hora, localizacao, descricao, duracao, quantidade_vagas, palestrante, titulo, fk_empresa_cnpj)"
 				+ "VALUES (?,?,?,?,?,?,?,?)";
@@ -42,11 +42,20 @@ public class EventoDao {
 			pst.setString(8, evento.getEmpresa().getCnpj());
 			
 			pst.execute();
-			return true;
+			String sqlQuery = "SELECT LAST_INSERT_ID()";
+			try (PreparedStatement stm2 = conectar.prepareStatement(sqlQuery);
+					ResultSet rs = stm2.executeQuery();) {
+				if (rs.next()) {
+					evento.setId(rs.getInt(1));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return evento.getId();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 	
 	
