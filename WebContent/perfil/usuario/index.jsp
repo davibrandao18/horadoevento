@@ -77,13 +77,19 @@
 					</div>
 				</c:if>
                
-               <button type="button" onclick="history.go(-1)">Cancelar</button>
+               	<button type="button" onclick="history.go(-1)">Cancelar</button>
+               
+               	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExcluirUsuario">
+					Excluir perfil
+				</button>
 			</div>
         </div>
         
         </div>
         
+        
         <c:import url="../../components/footer/"/>
+        <c:import url="../../components/modal/perfil.jsp"/>
         
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
