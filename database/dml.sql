@@ -17,8 +17,8 @@ VALUES ('00000000000001', 'teste', 'Teste Empresa', 'São Paulo', 'SP', 'Brasil'
 
 
 ## tag
-INSERT INTO tag (id, nome)
-VALUES (1, 'tag1'), (2, 'tag2'), (3, 'tag3'), (4, 'tag4'), (5, 'tag5');
+INSERT INTO tag (nome)
+VALUES ('Desenvolvimento'), ('Design'), ('Ux'), ('Ui'), ('Games');
 
 
 ## evento
@@ -43,5 +43,10 @@ SELECT* FROM usuario;
 SELECT* FROM empresa;
 SELECT* FROM evento;
 SELECT* FROM tag;
+SELECT* FROM tag_evento;
 
-SELECT tag.id, tag.nome FROM tag LEFT OUTER join tag_evento on tag.id = tag_evento.fk_tag_id where fk_evento_id = 1;
+SELECT tag.id, tag.nome FROM tag RIGHT OUTER join tag_evento on tag.id = tag_evento.fk_tag_id where fk_evento_id = 1;
+
+select t.* , if(te.id_tag=1,true,false) as checado
+from tag t left outer join tag_evento te
+on  t.id = te.id_tag
