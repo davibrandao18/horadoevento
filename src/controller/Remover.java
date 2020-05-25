@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Empresa;
+import model.Evento;
 import model.Usuario;
 import service.EmpresaService;
 import service.EventoService;
@@ -34,23 +35,20 @@ public class Remover extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EventoService evs = new EventoService();
 		String entidade = request.getParameter("entidade");
-		String username = request.getParameter("username");
-		String cpf = request.getParameter("cpf");
-		String cnpj = request.getParameter("cnpj");
-		String senha = request.getParameter("senha");
 		
 		switch (entidade) {
 		case "usuario":
 			UsuarioService us = new UsuarioService();
 			InscricaoService is = new InscricaoService();
+			String cpf = request.getParameter("cpf");
 
 			try {
 				Usuario user = us.carregar(request.getParameter("username"));
 				
-				if (senha.equals(user.getSenha()) && cpf.equals(user.getCpf())) {
+				if (request.getParameter("senha").equals(user.getSenha()) && cpf.equals(user.getCpf())) {
 					is.excluir(cpf);
 					us.excluirTags(cpf);
-					us.excluir(username, cpf);
+					us.excluir(user.getUserName(), cpf);
 					response.sendRedirect("/horadoevento/inicio/");
 				}
 				else request.getRequestDispatcher("erro/credenciais/").forward(request, response);;
@@ -62,14 +60,14 @@ public class Remover extends HttpServlet {
 			
 		case "empresa":
 			EmpresaService es = new EmpresaService();
+			String cnpj = request.getParameter("cnpj");
 			
 			try {
 				Empresa e = es.carregar(request.getParameter("username"));
 				
-				
-				if (senha.equals(e.getSenha()) && cnpj.equals(e.getCnpj())) {
+				if (request.getParameter("senha").equals(e.getSenha()) && cnpj.equals(e.getCnpj())) {
 					evs.excluir(cnpj);
-					es.excluir(username, cnpj);
+					es.excluir(e.getUserName(), cnpj);
 					response.sendRedirect("/horadoevento/inicio/");
 				}
 				else request.getRequestDispatcher("erro/credenciais/").forward(request, response);;
@@ -81,14 +79,9 @@ public class Remover extends HttpServlet {
 			
 		case "evento":
 			try {
-				Empresa e = es.carregar(request.getParameter("username"));
-				
-				if (senha.equals(e.getSenha()) && cnpj.equals(e.getCnpj())) {
-					evs.excluir(request.getParameter("id"));
-					response.sendRedirect("/horadoevento/inicio/");
-				}
-				else request.getRequestDispatcher("erro/credenciais/").forward(request, response);;
-				
+				Evento e = evs.carregar(Integer.parseInt(request.getParameter("id")));
+				evs.excluir(e.getId());
+				response.sendRedirect("/horadoevento/inicio/");
 			} catch (Exception e) {
 				response.sendRedirect("/horadoevento/erro/not_found/");
 			}
