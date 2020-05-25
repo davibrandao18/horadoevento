@@ -30,14 +30,6 @@
     			<c:forEach var="tags" items=""></c:forEach><%! //TODO tem que ver ! %>
     		</div>
     	</div>
-    	
-    	<div class="row">
-    		<div class="col-12">
-    			<h5>Principais empresas</h5>
-    			<%! //TODO exibição botões link empresa %>
-    			<%! //TODO %>
-    		</div>
-    	</div>
 
 		<c:import url="../../../components/footer/"/>
 
