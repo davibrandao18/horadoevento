@@ -43,8 +43,6 @@ public class UsuarioDao {
 
 			pst.execute();
 			
-			System.out.println("Usuario inseridos com sucesso");
-			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -149,7 +147,7 @@ public class UsuarioDao {
 			ResultSet resultado = pst.executeQuery();
 			
 			while(resultado.next())
-				listaUsuario.add(consultarUsuario(resultado.getString("cpf")));
+				listaUsuario.add(consultarUsuario(resultado.getString("username")));
 			return listaUsuario;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -187,7 +185,6 @@ public class UsuarioDao {
 			//Enviando um comando para o MySQL
 			pst.execute();
 			
-			System.out.println("foi a foto hem papai");
 			
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
@@ -289,7 +286,6 @@ public class UsuarioDao {
 				PreparedStatement pst = conectar.prepareStatement(deletarUsuario)) {
 			
 			pst.execute();
-			System.out.println("usuario excluido com sucesso");
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
@@ -325,7 +321,6 @@ public class UsuarioDao {
 				PreparedStatement pst = conectar.prepareStatement(deletarTags)) {
 
 			pst.execute();
-			System.out.println("tags excluidas com sucesso");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

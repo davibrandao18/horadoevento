@@ -208,9 +208,7 @@ public class Evento {
 				+ ", Quantidade Vagas=" + getQuantidadeVagas()
 				+ ", Palestrante=" + getPalestrante()
 				+ ", ColecaoTags=" + getColecaoTags()
-				+ "./nEmpresa=" + getEmpresa().toString()
+				//+ ", Empresa=" + getEmpresa().toString()
 				+ "}";
 	}
-	
-	
 }
