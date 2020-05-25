@@ -1,5 +1,63 @@
-.bodyCover{background-image: }
+body {
+	background-image: url("/horadoevento/assets/backgrounds/fieldWidescreen.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	}
+
 .text-esquerda {
-	align-content: left;
-	margin-left: 100px;
+	margin-top: 20px;
+	margin-left: 170px;
+}
+
+.row {
+	display: flex;
+}
+
+.items-esquerda { 
+	margin-left: 150px;
+	margin-bottom: 31px;
+	width: 640px;
+  	height: 51px;
+  	opacity: 0.7;
+  	border: none;
+  	border-radius: 7px;
+ 	background-color: #f2937e;
+}
+
+.text-direita {
+	margin-left: 39px;
+	margin-top: 20px;
+}
+
+.items-direita { 
+	margin-left: 19px;
+	margin-bottom: 31px;
+	width: 640px;
+  	height: 51px;
+  	opacity: 0.7;
+  	border: none;
+  	border-radius: 7px;
+ 	background-color: #f2937e;
+}
+
+.botao-save {
+	position: absolute;
+	right: 180px;
+	justify-self: end;
+	width: 139px;
+  	height: 51px;
+  	opacity: 0.8;
+  	border-radius: 7px;
+  	border: none;
+  	background-color: #d95032;
+}
+
+.botao-cancel {
+	margin-left: 19px;
+	width: 150px;
+  	height: 51px;
+  	opacity: 1;
+  	border-radius: 7px;
+  	border: none;
+  	background-color: #f2d272;
 }
