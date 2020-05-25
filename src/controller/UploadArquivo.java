@@ -31,23 +31,52 @@ public class UploadArquivo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// gets absolute path of the web application
         //String appPath = request.getServletContext().getRealPath("");
-		String appPath = "C:"+ File.separator;
+		
+		String appPathW = "C:"+ File.separator;
+		String appPathL = "/home/"+ File.separator;
+		
+		
+		// String appPath = "C:"+ File.separator;
+		// String appPath = "/home/maiconspa/"+ File.separator;
         // constructs path of the directory to save uploaded file
-        String savePath = appPath + File.separator + SAVE_DIR;
-         
+        String savePathW = appPathW + File.separator + SAVE_DIR;
+        String savePathL = appPathL + File.separator + SAVE_DIR;
+        String savePath = "";
+        
         // creates the save directory if it does not exists
-        File fileSaveDir = new File(savePath);
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdir();
-        }
+        
+
+    	File fileSaveDir = new File(savePathW);
+    	if (!fileSaveDir.exists())
+    		fileSaveDir.mkdir();
+    	savePath = savePathW;
+
+        
         String fileName = null;
-        for (Part part : request.getParts()) {
-        	fileName = extractFileName(part);
-            // refines the fileName in case it is an absolute path
-            fileName = new File(fileName).getName();
-            fileName = randomAlphaNumeric(16) + ".jpg";
-            part.write(savePath + File.separator + fileName);
-        }
+        
+        try {
+        	for (Part part : request.getParts()) {
+            	fileName = extractFileName(part);
+                // refines the fileName in case it is an absolute path
+                fileName = new File(fileName).getName();
+                fileName = randomAlphaNumeric(16) + ".jpg";
+                part.write(savePath + File.separator + fileName);
+            }
+		} catch (Exception e) {
+			savePath = savePathL;
+	    	fileSaveDir = new File(savePath);
+	    	if (!fileSaveDir.exists())
+	    		fileSaveDir.mkdir();
+	    	
+			for (Part part : request.getParts()) {
+            	fileName = extractFileName(part);
+                // refines the fileName in case it is an absolute path
+                fileName = new File(fileName).getName();
+                fileName = randomAlphaNumeric(16) + ".jpg";
+                part.write(savePath + File.separator + fileName);
+            }
+		}
+        
         System.out.println("Upload: nome do arquivo = "+fileName);
         
         /*response.getWriter().println("Arquivo recebido com sucesso.\n"
