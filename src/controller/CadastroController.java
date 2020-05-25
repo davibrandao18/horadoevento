@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Empresa;
 import model.Evento;
+import model.Tag;
 import model.Usuario;
 import service.EmpresaService;
 import service.EventoService;
+import service.TagService;
 import service.UsuarioService;
 
 /**
@@ -107,30 +109,35 @@ public class CadastroController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				}
-				GregorianCalendar d = new GregorianCalendar();
-				d.setGregorianChange(date);
 				// ./data
+				evento.setDataHora(date);
 				
-				evento.setDataHora(d);
-				evento.setDataHora(null);
 				evento.setLocalizacao(request.getParameter("localizacao"));
 				evento.setDuracao(Integer.parseInt(request.getParameter("duracao")));
 				evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
 				evento.setPalestrante(request.getParameter("palestrante"));
 				
 				// TODO arraylist
-				evento.setColecaoTags(null);
+				String[] checkedIds = request.getParameterValues("checkbox");
+				TagService ts = new TagService();
+				ArrayList<Tag> tags = new ArrayList<Tag>();
+				for(int i = 0 ; i < checkedIds.length ; i++) {
+					tags.add(ts.carregar(Integer.parseInt(checkedIds[i])));
+				}
+				evento.setColecaoTags(tags);
 				
 				Empresa empresa = es.carregar(request.getParameter("empresa"));
 				evento.setEmpresa(empresa);
 				
+				evento.setId(evs.criar(evento));
 				
-				if (evs.criar(evento) == false) {
+				if (evento.getId() == -1) {
 					// tela evento com os dados errados para correcao
-					request.getRequestDispatcher("/horadoevento/cadastro/").forward(request, response);
+					request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
 				} else {
 					// tela cadastrado com sucesso !
-					response.sendRedirect("/horadoevento/login/");
+					evs.inserirTag(tags, evento);
+					response.sendRedirect("/horadoevento/evento/");
 				}
 				
 				break;

@@ -61,3 +61,8 @@ body {
   	border: none;
   	background-color: #f2d272;
 }
+
+.botao-delete {
+	background-color: #db2d07;
+	color: white;
+}

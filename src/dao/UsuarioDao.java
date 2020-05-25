@@ -283,24 +283,18 @@ public class UsuarioDao {
 	 * @param cpf
 	 */
 	public void deletarUsuario(String username, String cpf) {
-		
-		//Preparando a String para atualizacao:
-		String deletar = "DELETE FROM usuario WHERE username = ? && cpf = ?";
+		String deletarUsuario = "DELETE FROM usuario WHERE username='" +username +"' AND cpf='" +cpf +"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
-				PreparedStatement pst = conectar.prepareStatement(deletar)) {
-
-			pst.setString(1, username);
-			pst.setString(1, cpf);
+				PreparedStatement pst = conectar.prepareStatement(deletarUsuario)) {
 			
-			//Enviando um comando para o MySQL
 			pst.execute();
-			System.out.println("Dados excluidos com sucesso");
-			
+			System.out.println("usuario excluido com sucesso");
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
 		}
+		
 	}
 	
 	/**
@@ -322,7 +316,19 @@ public class UsuarioDao {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public void deletarTags(String cpf){
+		String deletarTags = "DELETE FROM tag_usuario WHERE fk_usuario_cpf='" +cpf +"'";
 		
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(deletarTags)) {
+
+			pst.execute();
+			System.out.println("tags excluidas com sucesso");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

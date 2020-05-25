@@ -85,17 +85,20 @@
 					</div>
 				</c:if>
                
+               	<button type="button" class="btn btn-primary botao-delete" data-toggle="modal" data-target="#modalExcluirUsuario">
+					Excluir perfil
+				</button>
 			</div>
         </div>
         
         </div>
         
         
+        <c:import url="../../components/footer/"/>
+        <c:import url="../../components/modal/perfil.jsp"/>
+        
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
         
     </body>
-        <footer>
-        <c:import url="../../components/footer/"/>
-        </footer>
 </html>

@@ -70,16 +70,20 @@
                     <button type="submit">Atualizar Dados</button>
                 </form>
                 
-               	<form action="../../evento/novo/index.jsp" method="post">
+               	<form action="IniciarCadastroEvento.do" method="post">
             		<button type="submit">Novo evento</button>
             	</form>
                 <div>
                 	<button type="button" onclick="history.go(-1)">Cancelar</button>
                 </div>
             </div>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExcluirUsuario">
+				Excluir perfil
+			</button>
         </div>
         
         <c:import url="../../components/footer/"/>
+        <c:import url="../../components/modal/perfil.jsp"/>
         
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>

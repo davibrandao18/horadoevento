@@ -1,5 +1,6 @@
 package model;
 
+
 /**
  * Classe que representa uma Tag.
  * 
@@ -12,6 +13,7 @@ public class Tag {
 	
 	private int id;
 	private String nome;
+	private boolean checado;
 	
 	/**
 	 * Void constructor
@@ -31,19 +33,33 @@ public class Tag {
 	}
 	
 	// Getters e Setters //
-
+	
 	/**
 	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
-
+	
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the checado
+	 */
+	public boolean isChecado() {
+		return checado;
+	}
+
+	/**
+	 * @param checado the checado to set
+	 */
+	public void setChecado(boolean checado) {
+		this.checado = checado;
 	}
 
 	/**
