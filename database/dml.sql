@@ -47,6 +47,6 @@ SELECT* FROM tag_evento;
 
 SELECT tag.id, tag.nome FROM tag RIGHT OUTER join tag_evento on tag.id = tag_evento.fk_tag_id where fk_evento_id = 1;
 
-select t.* , if(te.id_tag=1,true,false) as checado
+select t.* , if(te.fk_evento_id=1,true,false) as checado
 from tag t left outer join tag_evento te
-on  t.id = te.id_tag
+on  t.id = te.fk_tag_id;
