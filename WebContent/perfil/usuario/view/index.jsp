@@ -21,9 +21,15 @@
     			<span>Nome:</span>
     			<div class="name-wrapper">
     			<c:out value="${usuario.nome}"/>
+    			</div>
+    			<span>Email:</span>
+    			<div class="email-wrapper">
     				<h3>${usuario.email}</h3>
     			</div>
+				<span>Username:</span>
+    			<div class="username-wrapper">
     				<small>${usuario.userName}</small>
+    			</div>
 	     			<a href="${usuario.linkedin}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
     			</div>
     		</div>

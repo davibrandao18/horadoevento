@@ -13,6 +13,45 @@ body {
 	display: flex;
 }
 
+.name-wrapper {
+	width: 240px;
+  	height: 51px;
+  	opacity: 0.7;
+  	border: none;
+  	border-radius: 7px;
+ 	background-color: #f2937e;
+}
+
+.username-wrapper {
+	width: 240px;
+  	height: 51px;
+  	opacity: 0.7;
+  	border: none;
+  	border-radius: 7px;
+ 	background-color: #f2937e;
+}
+
+.email-wrapper {
+	width: 240px;
+  	height: 51px;
+  	opacity: 0.7;
+  	border: none;
+  	border-radius: 7px;
+ 	background-color: #f2937e;
+}
+
+.evento-wrapper {
+	position: absolute;
+	left: 50%;
+	justify-self: center;
+	height: 500px;
+	width: 720px;
+	opacity: 0.7;
+  	border: none;
+  	border-radius: 7px;
+	background-color: #f2937e;
+}
+
 .items-esquerda { 
 	margin-left: 150px;
 	margin-bottom: 31px;
