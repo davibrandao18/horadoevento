@@ -197,7 +197,24 @@ public class EventoDao {
 	 * @throws SQLException
 	 */
 	public void deletarEvento(int id) throws SQLException {
-		String sqlDelete = "DELETE FROM evento WHERE id = " +id;
+		String sqlDelete = "DELETE FROM evento WHERE id='" +id +"'";
+		
+		try(Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlDelete);) {
+			pst.execute();
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Remove todos os eventos de uma empresa
+	 * @param cnpj
+	 * @throws SQLException
+	 */
+	public void deletarEvento(String cnpj) throws SQLException {
+		String sqlDelete = "DELETE FROM evento WHERE fk_empresa_cnpj='" +cnpj +"'";
 		
 		try(Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlDelete);) {
@@ -209,6 +226,7 @@ public class EventoDao {
 			ex.printStackTrace();
 		}
 	}
+	
 	
 	/**
 	 * Insere tag_usuario
