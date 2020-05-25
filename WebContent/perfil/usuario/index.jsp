@@ -13,7 +13,6 @@
     	<c:import url="../../components/navbar/full.jsp"/>
    		<c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
    		
-   		
    		<div class="bodyCover">
    			<div class="row pt-4">
    				<div class="col-6" style="text-align:end;">
@@ -59,7 +58,7 @@
                <c:if test="${not empty lista}">
 					<div id="list" class="row">
 						<div class="table-responsive col-md-12">
-							<table class="table table-striped" cellspacing="0" cellpadding="0">
+							<table class="table table-striped">
 								<thead>
 									<tr>
 										<th>Nome</th>
