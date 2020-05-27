@@ -206,7 +206,7 @@ public class EmpresaDao {
 	 * @param String username
 	 */
 	public File recuperarImagem(String username, String path) {
-		String selectImg = "SELECT foto FROM usuario WHERE username = ?";
+		String selectImg = "SELECT foto FROM empresa WHERE username = ?";
 		
 		try {
 			Connection conectar = ConnectionFactory.obtemConexao();

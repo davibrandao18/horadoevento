@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-    	<title>Perfil</title>
+    	<title>Perfil ${sessao_user.userName}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
         <link rel="stylesheet" href="/horadoevento/generalStyles.css">
@@ -14,8 +14,7 @@
     
     <body>
    		<c:import url="../../components/navbar/full.jsp"/>
-   		<c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
-   		
+   		<c:set var="path" value="${sessao_user.foto.getAbsolutePath()}"/>
    		
    		<div class="bodyCover">
    			<div class="row pt-4">
@@ -37,16 +36,10 @@
    					
    				</div>
    			</div>
-   		</div>
    		
         <div class="cover">
             <div>
-            	<form action="../Logout.do" method="get">
-            		<button type="submit">Sair</button>
-            	</form> <br>
                 <form action="../Atualizar.do" method="post">
-                	<!-- /!\ tem que deixar o cara carragar a foto que ele quer -->
-                	<%!//TODO foto /!\%>
                 	<label>CNPJ:</label>
                 	<input name="cpf" value="${sessao_user.getCnpj()}" type="text" readonly disabled> <br>
                 	<label>UserName:</label>
@@ -80,6 +73,7 @@
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExcluirUsuario">
 				Excluir perfil
 			</button>
+        </div>
         </div>
         
         <c:import url="../../components/footer/"/>

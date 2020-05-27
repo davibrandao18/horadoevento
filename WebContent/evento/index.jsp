@@ -31,17 +31,6 @@
     			<c:forEach var="tags" items=""></c:forEach><%! //TODO tem que ver ! %>
     		</div>
     	</div>
-    	
-    	<div class="row">
-    		<div class="col-12 align-self-start">
-    			<h5>Principais empresas</h5>
-    			<%! //TODO exibição botões link empresa %>
-    			<%! //TODO %>
-    		</div>
-    	</div>
-    	</div>
-    	
-
 		<c:import url="../components/footer/"/>
 
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>

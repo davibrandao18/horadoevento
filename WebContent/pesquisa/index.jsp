@@ -19,7 +19,7 @@
 				<c:forEach var="usuario" items="${listaUsuario}">
 					<button>
 						<p>${usuario.nome}</p>
-						<p style="color: blue;">${usuario.username}</p>
+						<p style="color: blue;">${usuario.userName}</p>
 					</button>
 				</c:forEach>
 			</c:if>

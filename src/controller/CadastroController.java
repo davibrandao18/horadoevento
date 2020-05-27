@@ -137,7 +137,9 @@ public class CadastroController extends HttpServlet {
 				} else {
 					// tela cadastrado com sucesso !
 					evs.inserirTag(tags, evento);
-					response.sendRedirect("/horadoevento/evento/");
+					request.setAttribute("eventoId", evento.getId());
+					request.setAttribute("acao", "visualizar");
+					request.getRequestDispatcher("Evento.do").forward(request, response);
 				}
 				
 				break;

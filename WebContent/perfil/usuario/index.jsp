@@ -67,7 +67,7 @@
                <c:if test="${not empty lista}">
 					<div id="list" class="row">
 						<div class="table-responsive col-md-12">
-							<table class="table table-striped" cellspacing="0" cellpadding="0">
+							<table class="table table-striped">
 								<thead>
 									<tr>
 										<th>Nome</th>

@@ -22,7 +22,6 @@ public class InscricaoService {
 	 */
 	public void criar(Inscricao inscricao) {
 		dao.criarInscricao(inscricao);
-		System.out.println("Deu certo a inclusao");
 	}
 	
 	
@@ -33,7 +32,6 @@ public class InscricaoService {
 	 */
 	public void atualizar(Inscricao inscricao){
 		dao.atualizarInscricao(inscricao);
-		System.out.println("Deu certo a atualizacao ! /n"+inscricao.toString());
 	}
 	
 	
@@ -45,7 +43,6 @@ public class InscricaoService {
 	 */
 	public void excluir(int id){
 		dao.deletarInscricao(id);
-		System.out.println("Deu certo a exclusao");
 	}
 	
 	/**
@@ -54,7 +51,6 @@ public class InscricaoService {
 	 */
 	public void excluir(String cpf) {
 		dao.deletarInscricao(cpf);
-		System.out.println("Deu certo a exclusao");
 	}
 	
 	
@@ -78,5 +74,4 @@ public class InscricaoService {
 	public ArrayList<Inscricao> listar(String cpf) {
 		return dao.listarInscricoes(cpf);
 	}
-	
 }

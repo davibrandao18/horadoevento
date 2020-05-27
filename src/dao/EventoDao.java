@@ -154,7 +154,6 @@ public class EventoDao {
 			
 			while(resultado.next())
 				listaEvento.add(consultarEvento(resultado.getInt("id")));
-
 			return listaEvento;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -184,7 +183,6 @@ public class EventoDao {
 			pst.setString(8, evento.getEmpresa().getCnpj());
 			
 			pst.executeUpdate();
-			System.out.println("dao:: Evento atualizado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -219,8 +217,6 @@ public class EventoDao {
 		try(Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlDelete);) {
 			pst.execute();
-			
-			System.out.println("dao:: Evento deletado com sucesso");
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ImageResponse2.do")
+@WebServlet("/ImageResponse.do")
 public class ImageResponse extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,6 @@ public class ImageResponse extends HttpServlet {
 		// Informa na resposta HTTP qual o tipo do conteudo do arquivo:
 		// Nesse caso, eu usei tipo imagem png:
 		response.setContentType("image/jpg");
-		
 		response.setContentLength((int)arquivo.length());
 
 		FileInputStream in = new FileInputStream(arquivo);

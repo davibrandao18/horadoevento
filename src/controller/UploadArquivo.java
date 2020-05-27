@@ -77,7 +77,7 @@ public class UploadArquivo extends HttpServlet {
             }
 		}
         
-        System.out.println("Upload: nome do arquivo = "+fileName);
+        //System.out.println("Upload: nome do arquivo = "+fileName);
         
         /*response.getWriter().println("Arquivo recebido com sucesso.\n"
         			+ "Diretório onde os arquivos são armazenados: " + savePath);*/
@@ -91,7 +91,7 @@ public class UploadArquivo extends HttpServlet {
         
         switch (entidade) {
         	case "usuario": {
-        		System.out.println("Upload: entidade = "+entidade);
+        		//System.out.println("Upload: entidade = "+entidade);
         		UsuarioService us = new UsuarioService();
                 Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
                 us.criarImagem(arquivo, usuario.getUserName());
@@ -100,7 +100,7 @@ public class UploadArquivo extends HttpServlet {
         	}
         	
         	case "empresa": {
-        		System.out.println("Upload: entidade = "+entidade);
+        		//System.out.println("Upload: entidade = "+entidade);
         		EmpresaService es = new EmpresaService();
         		Empresa empresa = (Empresa) sessao.getAttribute("sessao_user");
         		es.criarImagem(arquivo, empresa.getUserName());
