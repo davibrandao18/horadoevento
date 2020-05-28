@@ -12,8 +12,11 @@ body {
 
 #helperUsuario {
 	display: block;
-	position: relative;
-	margin-top: 200px;
+	position: absolute;
+	height: 150px;
+	top: 300;
+	right: -200 !important;
+	
 }
 
 #textoEmpresa {
@@ -22,28 +25,35 @@ body {
 
 #helperEmpresa {
 	display: none;
-	position: relative;
-	margin-top: 200px;
+	position: absolute;
+	height: 150px;
+	top: 300;
+	right: -200 !important;
 }
 
 .btn-cadastro {
 	background-color: #F2D272;
+	width: 200px;
+	height: fit-content;
 	opacity: 0.8;
 	border: none;
 	color: black;
 	position: absolute;
-	left: 0;
+	margin-left: 40px;
+	left: 20;
 }
 
 .btn-start {
 	background-color: #d95032;
 	width: 170px;
-	height: 32px;
+	height: fit-content;
+	margin-top: 5px;
+	margin-left: 300px;
 	opacity: 0.8;
 	border: none;
 	color: black;
 	position: absolute;
-	right: 0;
+	right: 20;
 }
 
 .btn-login {

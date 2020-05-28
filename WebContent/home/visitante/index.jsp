@@ -19,23 +19,23 @@
 				
 				<div class="row">
 					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card">
-							Evento W <br> <small>[data] | [hora]</small>
+						<button class="card-hde primary-card yellow-card">
+							EVENTO W <br> <br> <small>[data] | [hora]</small>
 						</button>
 					</div>
 					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card">
-							Evento X <br> <small>[data] | [hora]</small>
+						<button class="card-hde primary-card yellow-card">
+							EVENTO X <br> <br> <small>[data] | [hora]</small>
 						</button>
 					</div>
 					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card">
-							Evento Y <br> <small>[data] | [hora]</small>
+						<button class="card-hde primary-card yellow-card">
+							EVENTO Y <br> <br> <small>[data] | [hora]</small>
 						</button>
 					</div>
 					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card">
-							Evento Z <br> <small>[data] | [hora]</small>
+						<button class="card-hde primary-card yellow-card">
+							EVENTO Z <br> <br> <small>[data] | [hora]</small>
 						</button>
 					</div>
 				</div>
@@ -45,35 +45,31 @@
 				
 				<div class="row pb-4 justify-content-center">
 					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center">
-							Design
+						<button class="card-hde secondary-card text-center pink-card">
+							DESIGN
 						</button>
 					</div>
 					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center">
-							Gastronomia
+						<button class="card-hde secondary-card text-center pink-card">
+							GASTRONOMIA
 						</button>
 					</div>
 					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center">
-							Jogos
+						<button class="card-hde secondary-card text-center pink-card">
+							JOGOS
 						</button>
 					</div>
 					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center">
-							Tecnologia
+						<button class="card-hde secondary-card text-center pink-card">
+							TECNOLOGIA
 						</button>
 					</div>
 				</div>
 			</div>
-			<div class="row justify-content-end">
-				<a href="../../cadastro/" class="btnHelperTransparent">
-					<img src="/horadoevento/assets/icons/helper_sem_cadastro.svg">
-				</a>
-			</div>
+			
+    	<c:import url="../../components/footer-outro-sprite/" />
+			
 		</div>
-		
-    	<c:import url="../../components/footer/" />
 		
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>

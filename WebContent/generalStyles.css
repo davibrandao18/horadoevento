@@ -20,10 +20,10 @@ body { overflow-x: hidden; background-repeat: no-repeat; background-size: cover;
 
 .theme-dark {
     --background: rgba(4, 47, 102, 0.5);
-    --background-image: url("assets/backgrounds/fundoDark.png")
-    --card-primary: #ff7829cc;
-    --card-secondary: #6b32d9cc;
-    --card-tertiary: blue;
+    --background-image: url("assets/backgrounds/fundoDark.png");
+    --card-primary: #345923;
+    --card-secondary: #64A646;
+    --card-tertiary: #96F26B;
 }
 
 .bodyCover { background: var(--background); }
@@ -215,18 +215,24 @@ body { overflow-x: hidden; background-repeat: no-repeat; background-size: cover;
 
 .primary-card-hde {
     background-color: var(--card-primary);
+    opacity: 0.8;
+    color: black;
 }
 
 .secondary-card-hde {
     background-color: var(--card-secondary);
+    opacity: 0.8;
+    color: black;
 }
 
 .tertiary-card-hde {
     background-color: var(--card-tertiary);
+    opacity: 0.8;
+    color: black;
 }
 
 .carousel-hde {
-	height: 200px;
+	height: 230px;
 	border-radius: 10px;
 	padding: 10px 10% 10px 10%;
 }
@@ -236,7 +242,7 @@ body { overflow-x: hidden; background-repeat: no-repeat; background-size: cover;
 .simpleFooter {
 	width: 400px;
 	display: flex;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	right: 0;
 }

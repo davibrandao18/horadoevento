@@ -1,2 +1,13 @@
 body { background-image: url("/horadoevento/assets/backgrounds/field.jpg"); }
 
+.yellow-card {
+	background-color: #f2d272;
+	height: 134px;
+	opacity: 0.86;
+}
+
+.pink-card {
+	background-color: #d95032;
+	height: 134px;
+	opacity: 0.7;
+}

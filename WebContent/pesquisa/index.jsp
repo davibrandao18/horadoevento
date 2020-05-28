@@ -12,16 +12,17 @@
     <body>
     	<c:import url="../components/navbar/full.jsp"/>
 
-		<div class="bodyCover">
+		<div class="bodyContainer">
 		
 			<h4>Usuários:</h4>
 			<c:if test="${not empty listaUsuario}">
 				<c:forEach var="usuario" items="${listaUsuario}">
 					<form action="/horadoevento/perfil/Perfil.do" method="get">
 						<input type="hidden" value="${usuario.userName}" name="username"/>
-						<button type="submit" value="usuario" name="entidade">
+						<button class="card-result-user" type="submit" value="usuario" name="entidade">
+						<img src="../assets/icons/user.svg" style="height: 50px; position: absolute; left: 30px;margin-top: 20px;"/>
 							<p>${usuario.nome}</p>
-							<p style="color: blue;">${usuario.userName}</p>
+							<p style="color: black;">${usuario.userName}</p>
 						</button>
 					</form>
 				</c:forEach>
@@ -35,9 +36,10 @@
 				<c:forEach var="empresa" items="${listaEmpresa}">
 					<form action="/horadoevento/perfil/Perfil.do" method="get">
 						<input type="hidden" value="${empresa.userName}" name="username"/>
-						<button type="submit" value="empresa" name="entidade">
+						<button class="card-result-empresa" type="submit" value="empresa" name="entidade">
+						<img src="../assets/icons/empresas.svg"style="height: 50px; position: absolute; left: 30px;margin-top: 20px;"/>
 							<p>${empresa.nome}</p>
-							<p style="color: blue;">${empresa.userName}</p>
+							<p style="color: black;">${empresa.userName}</p>
 						</button>
 					</form>
 				</c:forEach>
@@ -51,7 +53,8 @@
 				<c:forEach var="evento" items="${listaEvento}">
 					<form action="/horadoevento/perfil/Perfil.do" method="get">
 						<input type="hidden" value="${evento.id}" name="id"/>
-						<button type="submit" value="evento" name="entidade">
+						<button class="card-result-evento"  type="submit" value="evento" name="entidade">
+							<img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
 							<p>${evento.titulo}</p>
 							<p style="color: blue;">${evento.empresa.nome}</p>
 						</button>
