@@ -25,6 +25,7 @@
     				<!-- continuar exibição -->
     			</div>
     		</div>
+    	</div>
     	<div class="row">
     		<div class="col-12 align-self-end">
     			<h5>Tags relacionadas</h5>
