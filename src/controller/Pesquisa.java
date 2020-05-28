@@ -31,10 +31,7 @@ public class Pesquisa extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		
-		System.out.println(us.listar(username).toString());
-		
 		session.setAttribute("listaUsuario", us.listar(username));
-		System.out.println(us.listar(username).toString());
 		session.setAttribute("listaEmpresa", es.listar(username));
 		session.setAttribute("listaEvento", evs.listar(username));
 		

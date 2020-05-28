@@ -17,10 +17,13 @@
 			<h4>Usuários:</h4>
 			<c:if test="${not empty listaUsuario}">
 				<c:forEach var="usuario" items="${listaUsuario}">
-					<button>
-						<p>${usuario.nome}</p>
-						<p style="color: blue;">${usuario.userName}</p>
-					</button>
+					<form action="/horadoevento/perfil/Perfil.do" method="get">
+						<input type="hidden" value="${usuario.userName}" name="username"/>
+						<button type="submit" value="usuario" name="entidade">
+							<p>${usuario.nome}</p>
+							<p style="color: blue;">${usuario.userName}</p>
+						</button>
+					</form>
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty listaUsuario}">
@@ -30,10 +33,13 @@
 			<h4>Empresas:</h4>
 			<c:if test="${not empty listaEmpresa}">		
 				<c:forEach var="empresa" items="${listaEmpresa}">
-					<button>
-						<p>${empresa.nome}</p>
-						<p style="color: blue;">${empresa.userName}</p>
-					</button>
+					<form action="/horadoevento/perfil/Perfil.do" method="get">
+						<input type="hidden" value="${empresa.userName}" name="username"/>
+						<button type="submit" value="empresa" name="entidade">
+							<p>${empresa.nome}</p>
+							<p style="color: blue;">${empresa.userName}</p>
+						</button>
+					</form>
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty listaEmpresa}">
@@ -43,10 +49,13 @@
 			<h4>Eventos:</h4>
 			<c:if test="${not empty listaEvento}">
 				<c:forEach var="evento" items="${listaEvento}">
-					<button>
-						<p>${evento.titulo}</p>
-						<p style="color: blue;">${evento.empresa.nome}</p>
-					</button>
+					<form action="/horadoevento/perfil/Perfil.do" method="get">
+						<input type="hidden" value="${evento.id}" name="id"/>
+						<button type="submit" value="evento" name="entidade">
+							<p>${evento.titulo}</p>
+							<p style="color: blue;">${evento.empresa.nome}</p>
+						</button>
+					</form>
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty listaEvento}">

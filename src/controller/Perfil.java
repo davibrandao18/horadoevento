@@ -52,12 +52,12 @@ public class Perfil extends HttpServlet {
 			case "evento": {
 				EventoService eventS = new EventoService();
 				Evento evento = eventS.carregar(Integer.parseInt(request.getParameter("id")));
-				//System.out.println("Server: empresa = "+empresa.toString());
+				System.out.println("foiiii");
 				request.setAttribute("evento", evento);
 				break;
 			}
 		}
 		
-		request.getRequestDispatcher("/perfil/"+entidade+"/view/").forward(request, response);
+		request.getRequestDispatcher("/view/"+entidade+"/").forward(request, response);
 	}
 }
