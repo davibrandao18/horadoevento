@@ -10,8 +10,12 @@
     </head>
     
     <body>
+
     	<c:import url="../components/navbar/full.jsp"/>
-    	
+
+    	<c:import url="../../../components/modal/inscricao.jsp"/>
+    	<c:import url="../../../components/navbar/full.jsp"/>
+
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-12 col-md-8 align-self-start evento-wrapper">
@@ -25,17 +29,23 @@
     				<!-- continuar exibição -->
     			</div>
     		</div>
+	    	
+	    	<div class="row">
+	    		<div class="col-12">
+	    			<h5>Tags relacionadas</h5>
+	    			<c:forEach var="tags" items=""></c:forEach><%! //TODO tem que ver ! %>
+	    		</div>
+	    	</div>
+	    	
+	    	<button type="button" data-toggle="modal" data-target="#modalInscricao"></button>
+	    	
     	</div>
-    	<div class="row">
-    		<div class="col-12 align-self-end">
-    			<h5>Tags relacionadas</h5>
-    			<c:forEach var="tags" items=""></c:forEach><%! //TODO tem que ver ! %>
-    		</div>
-    	</div>
-		<c:import url="../components/footer/"/>
+
+    	
+		<c:import url="../../../components/footer/"/>
+
 
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
-     	
  	</body>
 </html>
