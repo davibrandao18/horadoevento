@@ -76,6 +76,7 @@ public class EventoDao {
 			if (result.next()){
 				Evento evento = new Evento();
 				
+				evento.setId(id);
 				evento.setDataHora(result.getDate("data_hora"));
 				evento.setLocalizacao(result.getString("localizacao"));
 				evento.setDescricao(result.getString("descricao"));
@@ -154,6 +155,7 @@ public class EventoDao {
 			
 			while(resultado.next())
 				listaEvento.add(consultarEvento(resultado.getInt("id")));
+			
 			return listaEvento;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
