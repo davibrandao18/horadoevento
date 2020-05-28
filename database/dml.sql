@@ -44,9 +44,19 @@ SELECT* FROM empresa;
 SELECT* FROM evento;
 SELECT* FROM tag;
 SELECT* FROM tag_evento;
+SELECT* FROM tag_usuario;
 
 SELECT tag.id, tag.nome FROM tag RIGHT OUTER join tag_evento on tag.id = tag_evento.fk_tag_id where fk_evento_id = 1;
 
-select t.* , if(te.fk_evento_id=1,true,false) as checado
+select t.* , if(te.fk_evento_id=7, true, false) as checado
 from tag t left outer join tag_evento te
 on  t.id = te.fk_tag_id;
+
+select evento.* from tag t left outer join tag_evento te
+on  t.id = te.fk_tag_id;
+
+select fk_evento_id from tag_evento where fk_tag_id = 2;
+select evento.* from evento where evento.id in (select fk_evento_id from tag_evento where fk_tag_id = 2);
+
+select evento.* from evento where evento.id in (select fk_evento_id from tag_evento where fk_tag_id 
+in (select fk_tag_id from tag_usuario where fk_usuario_cpf = 0000000001));

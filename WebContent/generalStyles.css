@@ -13,13 +13,14 @@ body { overflow-x: hidden; background-repeat: no-repeat; background-size: cover;
 
 .theme-light {
 	--background: rgba(2,103,255,0.1);
-    --card-primary: #f2d272cc;
-    --card-secondary: #d94f32cc;
-    --card-tertiary: green; /* essa daqui na vdd nem é usada em um card, é a cor do terceiro elemento do carrossel, coloquei uma cor bem nonsense pra testar msm */
+    --card-primary: #d95032;
+    --card-secondary: #f2937e;
+    --card-tertiary: #f2d272; /* essa daqui na vdd nem é usada em um card, é a cor do terceiro elemento do carrossel, coloquei uma cor bem nonsense pra testar msm */
 }
 
 .theme-dark {
     --background: rgba(4, 47, 102, 0.5);
+    --background-image: url("assets/backgrounds/fundoDark.png")
     --card-primary: #ff7829cc;
     --card-secondary: #6b32d9cc;
     --card-tertiary: blue;
