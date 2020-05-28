@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Evento;
-import service.EventoService;
+import model.Tag;
+import service.TagService;
 
 /**
- * Servlet implementation class EventoController
+ * Servlet implementation class IniciarCadastroEvento
  */
-@WebServlet("/Evento.do")
-public class EventoController extends HttpServlet {
+@WebServlet("/perfil/empresa/IniciarCadastroEvento.do")
+public class IniciarCadastroEvento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EventoController() {
+    public IniciarCadastroEvento() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,6 +31,7 @@ public class EventoController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -37,30 +39,14 @@ public class EventoController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("UTF-8");
+		TagService ts = new TagService();
+		ArrayList<Tag> tags = ts.carregar();
 		
-		String acao = request.getParameter("acao");
-		int id = Integer.parseInt(request.getParameter("eventoId"));
+		request.setAttribute("lista", tags);
 		
-		Evento evento = null;
-		EventoService es = null;
-		
-		switch(acao) {
-			case "visualizar":{
-				evento = new Evento();
-				es = new EventoService();
-				
-				evento = es.carregar(id);
-				if (evento == null) {
-					request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
-				} else {
-					request.setAttribute("evento", evento);
-					request.getRequestDispatcher("/horadoevento/evento/").forward(request, response);
-				}
-				
-			}
-		}
+		request.getRequestDispatcher("../../evento/novo/index.jsp").forward(request, response);
 	}
 
 }

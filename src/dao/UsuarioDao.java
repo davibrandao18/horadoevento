@@ -43,8 +43,6 @@ public class UsuarioDao {
 
 			pst.execute();
 			
-			System.out.println("Usuario inseridos com sucesso");
-			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
@@ -149,7 +147,7 @@ public class UsuarioDao {
 			ResultSet resultado = pst.executeQuery();
 			
 			while(resultado.next())
-				listaUsuario.add(consultarUsuario(resultado.getString("cpf")));
+				listaUsuario.add(consultarUsuario(resultado.getString("username")));
 			return listaUsuario;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -187,7 +185,6 @@ public class UsuarioDao {
 			//Enviando um comando para o MySQL
 			pst.execute();
 			
-			System.out.println("foi a foto hem papai");
 			
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
@@ -283,24 +280,17 @@ public class UsuarioDao {
 	 * @param cpf
 	 */
 	public void deletarUsuario(String username, String cpf) {
-		
-		//Preparando a String para atualizacao:
-		String deletar = "DELETE FROM usuario WHERE username = ? && cpf = ?";
+		String deletarUsuario = "DELETE FROM usuario WHERE username='" +username +"' AND cpf='" +cpf +"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
-				PreparedStatement pst = conectar.prepareStatement(deletar)) {
-
-			pst.setString(1, username);
-			pst.setString(1, cpf);
+				PreparedStatement pst = conectar.prepareStatement(deletarUsuario)) {
 			
-			//Enviando um comando para o MySQL
 			pst.execute();
-			System.out.println("Dados excluidos com sucesso");
-			
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
 			e.printStackTrace();
 		}
+		
 	}
 	
 	/**
@@ -322,7 +312,18 @@ public class UsuarioDao {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public void deletarTags(String cpf){
+		String deletarTags = "DELETE FROM tag_usuario WHERE fk_usuario_cpf='" +cpf +"'";
 		
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(deletarTags)) {
+
+			pst.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

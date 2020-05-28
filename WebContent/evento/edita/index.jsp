@@ -42,14 +42,9 @@
 					<c:if test="${not empty lista}">
 			            <div id="list" class="row">
 							<div class="table-responsive col-md-12">
-			                	<table class="table table-striped" cellspacing="0" cellpadding="0">
-	                          		<thead>
-			                        	<tr>
-				                            <th>Nome</th>
-		                             	</tr>
-	                         		</thead>
+			                	<table class="table table-striped">
 			                        <tbody>
-				        				<c:forEach var="tags" items="${lista}">
+				        				<c:forEach var="tag" items="${lista}">
 				                            <tr>
 				                            	<td>${tag.nome}</td>
 				                            </tr>

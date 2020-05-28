@@ -11,7 +11,7 @@
 <body>
 	<c:import url="/components/navbar/full.jsp"/>
 	
-	<form action="/cadastro/Cadastro.do" method="post" id="formCadastroUsuario">
+	<form action="../../cadastro/Cadastro.do" method="post" id="formCadastroUsuario">
             	<input type='hidden' value='evento' name='entidade'>
             	<input type='hidden' value='${sessao_user.userName}' name='empresa'>
 					
@@ -72,29 +72,14 @@
 	    				</div>
 					</div>
 					<div class="col-12 col-md-4">
-						<div class="form-group">
-    						<div class="dropdown">
-								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								    Tags
-								  </button>
-								  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								  		<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-										  <label class="form-check-label" for="inlineCheckbox1">1</label>
-										</div>
-										
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-										  <label class="form-check-label" for="inlineCheckbox2">2</label>
-										</div>
-										
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-										  <label class="form-check-label" for="inlineCheckbox3">3</label>
-										</div>
-								  </div>
-							</div>
-    					</div>
+					<c:forEach var="tag" items="${lista}">
+						<div class="form-check">
+						  <input class="form-check-input" name="checkbox" type="checkbox" value="${tag.id}" id="defaultCheck1">
+						  <label class="form-check-label" for="defaultCheck1">
+						    ${tag.nome}
+						  </label>
+						</div>
+					</c:forEach>
 					</div>
 				</div>
 

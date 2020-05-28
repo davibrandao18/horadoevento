@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 /**
  * Classe que representa um Evento.
@@ -15,7 +15,7 @@ public class Evento {
 	private int id;
 	private String titulo;
 	private String descricao;
-	private GregorianCalendar dataHora;
+	private Date dataHora;
 	private String localizacao;
 	private int duracao;
 	private int quantidadeVagas;
@@ -40,7 +40,7 @@ public class Evento {
 	 * @param colecaoTags
 	 * @param empresa
 	 */
-	public Evento(int id, String titulo, String descricao, GregorianCalendar dataHora, String localizacao, int duracao,
+	public Evento(int id, String titulo, String descricao, Date dataHora, String localizacao, int duracao,
 			int quantidadeVagas, String palestrante, ArrayList<Tag> colecaoTags, Empresa empresa) {
 		super();
 		this.id = id;
@@ -102,14 +102,14 @@ public class Evento {
 	/**
 	 * @return the dataHora
 	 */
-	public GregorianCalendar getDataHora() {
+	public Date getDataHora() {
 		return dataHora;
 	}
 
 	/**
 	 * @param dataHora the dataHora to set
 	 */
-	public void setDataHora(GregorianCalendar dataHora) {
+	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
 
@@ -208,17 +208,7 @@ public class Evento {
 				+ ", Quantidade Vagas=" + getQuantidadeVagas()
 				+ ", Palestrante=" + getPalestrante()
 				+ ", ColecaoTags=" + getColecaoTags()
-				+ ", Empresa=" + getEmpresa().toString()
+				//+ ", Empresa=" + getEmpresa().toString()
 				+ "}";
 	}
-
-	public GregorianCalendar toGregorian(java.sql.Date valorSql) {
-    	GregorianCalendar valorGregorian = new GregorianCalendar();
-    	valorGregorian.setTimeInMillis(valorSql.getTime());
-    	
-    	return valorGregorian;
-    }
-	
-	
-	
 }

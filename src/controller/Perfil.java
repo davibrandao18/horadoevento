@@ -19,15 +19,8 @@ import service.UsuarioService;
  * Servlet implementation class Atualizar
  */
 @WebServlet("/perfil/Perfil.do")
-public class BuscaPerfil extends HttpServlet {
+public class Perfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BuscaPerfil() {
-        super();
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

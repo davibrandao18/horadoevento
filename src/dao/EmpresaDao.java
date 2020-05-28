@@ -175,8 +175,8 @@ public class EmpresaDao {
 	public void inserirImagem(File foto, String username) {
 			
 		//Preparando a String para insercao:
-		String sqlUpdate = "UPDATE usuario SET foto = ?"
-				+ "WHERE username = ?";
+		String sqlUpdate = "UPDATE empresa SET foto = ?"
+				+ "WHERE username='"+username+"'";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
@@ -188,12 +188,9 @@ public class EmpresaDao {
 					(InputStream) inputStream,	//Fluxo de informacao
 					(int) (foto.length())		//Quantidade de bytes
 					);
-			pst.setString(2, username);
 			
 			//Enviando um comando para o MySQL
 			pst.execute();
-			
-			System.out.println("foi a foto hem papai");
 			
 		} catch (Exception e) {
 			//Imprimido a pilha de erros:
@@ -209,7 +206,7 @@ public class EmpresaDao {
 	 * @param String username
 	 */
 	public File recuperarImagem(String username, String path) {
-		String selectImg = "SELECT foto FROM usuario WHERE username = ?";
+		String selectImg = "SELECT foto FROM empresa WHERE username = ?";
 		
 		try {
 			Connection conectar = ConnectionFactory.obtemConexao();

@@ -59,7 +59,7 @@ CREATE TABLE tag_evento(
     foreign key (fk_evento_id) references evento(id)
 );
 
-CREATE TABLE incricao(
+CREATE TABLE inscricao(
 	id serial,
     fk_usuario_cpf varchar(11),
     fk_evento_id bigint unsigned,

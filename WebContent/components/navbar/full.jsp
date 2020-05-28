@@ -11,8 +11,7 @@
 			</svg>
   		</div>
   		<div class="col-10 col-md-4 d-flex justify-relative-mobile">
-  			<form class="form-inline bg-light rounded p-0" action="/horadoevento/perfil/Perfil.do">
-				<input type='hidden' value='usuario' name='entidade'> <!-- CAMPO FIXO TEMPORARIAMENTE SÓ PARA TESTES -->
+  			<form class="form-inline bg-light rounded p-0" action="/horadoevento/pesquisa/Pesquisa.do" method="get">
 				<input class="form-control bg-light border-light" type="search" aria-label="Search" name="username" placeholder="Busque aqui!" type="text"/>
 	    	</form>
   		</div>

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import model.Empresa;
 import model.Usuario;
+import service.EmpresaService;
 import service.UsuarioService;
 
 @WebServlet("/perfil/UploadArquivo.do")
@@ -28,44 +31,88 @@ public class UploadArquivo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// gets absolute path of the web application
         //String appPath = request.getServletContext().getRealPath("");
-		String appPath = "C:"+ File.separator;
+		
+		String appPathW = "C:"+ File.separator;
+		String appPathL = "/home/"+ File.separator;
+		
+		
+		// String appPath = "C:"+ File.separator;
+		// String appPath = "/home/maiconspa/"+ File.separator;
         // constructs path of the directory to save uploaded file
-        String savePath = appPath + File.separator + SAVE_DIR;
-         
+        String savePathW = appPathW + File.separator + SAVE_DIR;
+        String savePathL = appPathL + File.separator + SAVE_DIR;
+        String savePath = "";
+        
         // creates the save directory if it does not exists
-        File fileSaveDir = new File(savePath);
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdir();
-        }
+        
+
+    	File fileSaveDir = new File(savePathW);
+    	if (!fileSaveDir.exists())
+    		fileSaveDir.mkdir();
+    	savePath = savePathW;
+
+        
         String fileName = null;
-        for (Part part : request.getParts()) {
-        	fileName = extractFileName(part);
-            // refines the fileName in case it is an absolute path
-            fileName = new File(fileName).getName();
-            fileName = randomAlphaNumeric(16) + ".jpg";
-            System.out.println("server : "+fileName);
-            part.write(savePath + File.separator + fileName);
-     
-        }
         
-        response.getWriter().println("Arquivo recebido com sucesso.\n"
-        			+ "Diretório onde os arquivos são armazenados: " + savePath);
+        try {
+        	for (Part part : request.getParts()) {
+            	fileName = extractFileName(part);
+                // refines the fileName in case it is an absolute path
+                fileName = new File(fileName).getName();
+                fileName = randomAlphaNumeric(16) + ".jpg";
+                part.write(savePath + File.separator + fileName);
+            }
+		} catch (Exception e) {
+			savePath = savePathL;
+	    	fileSaveDir = new File(savePath);
+	    	if (!fileSaveDir.exists())
+	    		fileSaveDir.mkdir();
+	    	
+			for (Part part : request.getParts()) {
+            	fileName = extractFileName(part);
+                // refines the fileName in case it is an absolute path
+                fileName = new File(fileName).getName();
+                fileName = randomAlphaNumeric(16) + ".jpg";
+                part.write(savePath + File.separator + fileName);
+            }
+		}
         
-        // Criando um objeto do tipo File
+        //System.out.println("Upload: nome do arquivo = "+fileName);
+        
+        /*response.getWriter().println("Arquivo recebido com sucesso.\n"
+        			+ "Diretório onde os arquivos são armazenados: " + savePath);*/
+        
+    	// Criando um objeto do tipo File
         File arquivo = new File(savePath + File.separator + fileName);
         
-        UsuarioService us = new UsuarioService();
+        String entidade = request.getParameter("entidade");
+
         HttpSession sessao = request.getSession();
-        Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
-        us.criarImagem(arquivo, usuario.getUserName());
-        response.sendRedirect("/horadoevento/perfil/member");
+        
+        switch (entidade) {
+        	case "usuario": {
+        		//System.out.println("Upload: entidade = "+entidade);
+        		UsuarioService us = new UsuarioService();
+                Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
+                us.criarImagem(arquivo, usuario.getUserName());
+                response.sendRedirect("/horadoevento/perfil/"+entidade);
+                break;
+        	}
+        	
+        	case "empresa": {
+        		//System.out.println("Upload: entidade = "+entidade);
+        		EmpresaService es = new EmpresaService();
+        		Empresa empresa = (Empresa) sessao.getAttribute("sessao_user");
+        		es.criarImagem(arquivo, empresa.getUserName());
+        		response.sendRedirect("/horadoevento/perfil/"+entidade);
+                break;
+        	}
+        	
+        }
         
 	}
 	
-	/**
-     * Extracts file name from HTTP header content-disposition
-     */
-    private String extractFileName(Part part) {
+	private String extractFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         String[] items = contentDisp.split(";");
         for (String s : items) {

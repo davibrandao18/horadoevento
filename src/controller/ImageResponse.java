@@ -22,7 +22,6 @@ public class ImageResponse extends HttpServlet {
 		// Informa na resposta HTTP qual o tipo do conteudo do arquivo:
 		// Nesse caso, eu usei tipo imagem png:
 		response.setContentType("image/jpg");
-		
 		response.setContentLength((int)arquivo.length());
 
 		FileInputStream in = new FileInputStream(arquivo);

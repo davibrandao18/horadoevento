@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,14 +25,14 @@ public class EventoDao {
 	 * @param evento
 	 * @throws SQLException
 	 */
-	public boolean inserirEvento(Evento evento) throws SQLException {
+	public Integer inserirEvento(Evento evento) throws SQLException {
 		String sqlInsert = "INSERT INTO evento"
 				+ "(data_hora, localizacao, descricao, duracao, quantidade_vagas, palestrante, titulo, fk_empresa_cnpj)"
 				+ "VALUES (?,?,?,?,?,?,?,?)";
 		
 		try(Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlInsert);) {
-			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis()));
+			pst.setTimestamp(1,  new java.sql.Timestamp(evento.getDataHora().getTime()));
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
 			pst.setInt(4, evento.getDuracao());
@@ -43,11 +42,20 @@ public class EventoDao {
 			pst.setString(8, evento.getEmpresa().getCnpj());
 			
 			pst.execute();
-			return true;
+			String sqlQuery = "SELECT LAST_INSERT_ID()";
+			try (PreparedStatement stm2 = conectar.prepareStatement(sqlQuery);
+					ResultSet rs = stm2.executeQuery();) {
+				if (rs.next()) {
+					evento.setId(rs.getInt(1));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return evento.getId();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 	
 	
@@ -68,7 +76,7 @@ public class EventoDao {
 			if (result.next()){
 				Evento evento = new Evento();
 				
-				evento.setDataHora(evento.toGregorian(result.getDate("data_hora")));
+				evento.setDataHora(result.getDate("data_hora"));
 				evento.setLocalizacao(result.getString("localizacao"));
 				evento.setDescricao(result.getString("descricao"));
 				evento.setDuracao(result.getInt("duracao"));
@@ -109,7 +117,7 @@ public class EventoDao {
 			if (result.next()){
 				Evento evento = new Evento();
 				
-				evento.setDataHora(evento.toGregorian(result.getDate("data_hora")));
+				evento.setDataHora(result.getDate("data_hora"));
 				evento.setLocalizacao(result.getString("localizacao"));
 				evento.setDescricao(result.getString("descricao"));
 				evento.setDuracao(result.getInt("duracao"));
@@ -146,7 +154,6 @@ public class EventoDao {
 			
 			while(resultado.next())
 				listaEvento.add(consultarEvento(resultado.getInt("id")));
-
 			return listaEvento;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -166,7 +173,7 @@ public class EventoDao {
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
-			pst.setDate(1, new Date(evento.getDataHora().getTimeInMillis())); // /!\
+			pst.setTimestamp(1, new java.sql.Timestamp(evento.getDataHora().getTime()));
 			pst.setString(2, evento.getLocalizacao());
 			pst.setString(3, evento.getDescricao());
 			pst.setInt(4, evento.getDuracao());
@@ -176,7 +183,6 @@ public class EventoDao {
 			pst.setString(8, evento.getEmpresa().getCnpj());
 			
 			pst.executeUpdate();
-			System.out.println("dao:: Evento atualizado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -189,18 +195,34 @@ public class EventoDao {
 	 * @throws SQLException
 	 */
 	public void deletarEvento(int id) throws SQLException {
-		String sqlDelete = "DELETE FROM evento WHERE id = " +id;
+		String sqlDelete = "DELETE FROM evento WHERE id='" +id +"'";
 		
 		try(Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlDelete);) {
 			pst.execute();
 			
-			System.out.println("dao:: Evento deletado com sucesso");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Remove todos os eventos de uma empresa
+	 * @param cnpj
+	 * @throws SQLException
+	 */
+	public void deletarEvento(String cnpj) throws SQLException {
+		String sqlDelete = "DELETE FROM evento WHERE fk_empresa_cnpj='" +cnpj +"'";
+		
+		try(Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(sqlDelete);) {
+			pst.execute();
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
+	
 	
 	/**
 	 * Insere tag_usuario

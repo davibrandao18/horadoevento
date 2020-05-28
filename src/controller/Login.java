@@ -82,7 +82,7 @@ public class Login extends HttpServlet {
 				Empresa empresa = new Empresa();
 		
 				try {
-					empresa = es.carregar(request.getParameter("username"));
+					empresa = es.carregar(request.getParameter("username"), savePath);
 				} catch (Exception e){
 					response.sendRedirect("./login.jsp");
 				}

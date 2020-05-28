@@ -13,7 +13,6 @@
     	<c:import url="../../components/navbar/full.jsp"/>
    		<c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
    		
-   		
    		<div class="bodyCover">
    			<div class="row pt-4">
    				<div class="col-6" style="text-align:end;">
@@ -34,33 +33,69 @@
    					
    				</div>
    			</div>
-   		</div>
    		
    		
         <div class="cover">
             <div>
                 <form action="../Atualizar.do" method="post">
-                	<label>CPF:</label>
-                	<input name="cpf" value="${sessao_user.cpf}" type="text" readonly disabled> <br>
-                	<label>UserName:</label>
-                    <input name="username" value="${sessao_user.userName}" type="text" readonly disabled> <br>
-                    <label>Nome:</label>
-                    <input name="nome" value="${sessao_user.nome}" type="text"> <br>
-                    <label>E-mail:</label>
-                    <input name="email" value="${sessao_user.email}" type="text"> <br>
-                    <label>Senha:</label>
-                    <input name="senha" value="${sessao_user.senha}" type="password"> <br>
-                    <label>Linkedin:</label>
-                    <input name="linkedin" value="${sessao_user.linkedin}" type="text"> <br>
-                    <input type='hidden' value='usuario' name='entidade'>
-                    <button type="submit">Atualizar Dados</button>
+                    <div class="row"> 
+                    	<div class="col-6 tudo-esquerda">
+                    		<h5 class="text-esquerda">Nome:</h5>
+                    		<input name="nome" value="${sessao_user.nome}" type="text" class="items-esquerda"> <br>
+                			<h5 class="text-esquerda">UserName:</h5>
+                    		<input name="username" value="${sessao_user.userName}" type="text" readonly disabled class="items-esquerda"> <br>
+                			<h5 class="text-esquerda">Senha:</h5>
+                    		<input name="senha" value="${sessao_user.senha}" type="password" class="items-esquerda"> <br>
+                    	</div>   	
+	                	<div class="col-6 tudo-direita">
+		                	<h5 class="text-direita">CPF:</h5>
+		                	<input name="cpf" value="${sessao_user.cpf}" type="text" readonly disabled class="items-direita"> <br>
+		                    <h5 class="text-direita">E-mail:</h5>
+		                    <input name="email" value="${sessao_user.email}" type="text" class="items-direita"> <br>
+		                    <h5 class="text-direita">Linkedin:</h5>
+		                    <input name="linkedin" value="${sessao_user.linkedin}" type="text" class="items-direita"> <br>
+		                    <input type='hidden' value='usuario' name='entidade'>
+		                    <button type="submit" class="botao-save">Salvar</button>
+               				<button type="button" onclick="history.go(-1)" class="botao-cancel">Cancelar</button>
+	                    </div>
+                    </div>
                </form>
-               <button type="button" onclick="history.go(-1)">Cancelar</button>
+               
+               <div class="row">
+               </div>
+               <h5>Tags relacionadas</h5>
+               <c:if test="${not empty lista}">
+					<div id="list" class="row">
+						<div class="table-responsive col-md-12">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Nome</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="tags" items="${lista}">
+										<tr>
+											<td>${tag.nome}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</c:if>
+               
+               	<button type="button" class="btn btn-primary botao-delete" data-toggle="modal" data-target="#modalExcluirUsuario">
+					Excluir perfil
+				</button>
 			</div>
+        </div>
+        
         </div>
         
         
         <c:import url="../../components/footer/"/>
+        <c:import url="../../components/modal/perfil.jsp"/>
         
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>

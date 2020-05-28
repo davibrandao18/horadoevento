@@ -56,6 +56,10 @@ public class TagService {
 	 * @param id
 	 * @return
 	 */
+	public ArrayList<Tag> carregar(){
+		return dao.consultarTags();
+	}
+	
 	public Tag carregar(int id){
 		return dao.consultarTag(id);
 	}
