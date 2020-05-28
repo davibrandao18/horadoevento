@@ -31,7 +31,7 @@
 			<c:if test="${not empty listaEmpresa}">		
 				<c:forEach var="empresa" items="${listaEmpresa}">
 					<button>
-						<p>${empresa.nome};</p>
+						<p>${empresa.nome}</p>
 						<p style="color: blue;">${empresa.userName}</p>
 					</button>
 				</c:forEach>
@@ -44,7 +44,7 @@
 			<c:if test="${not empty listaEvento}">
 				<c:forEach var="evento" items="${listaEvento}">
 					<button>
-						<p>${evento.titulo};</p>
+						<p>${evento.titulo}</p>
 						<p style="color: blue;">${evento.empresa.nome}</p>
 					</button>
 				</c:forEach>
