@@ -5,3 +5,25 @@ body {
 	background-attachment : fixed;
 	background-image: url("/horadoevento/assets/backgrounds/city-default.jpg");
 }
+
+.user-field {
+	background-color: #f2937e;
+	opacity: 0.7;
+	width: 600px;
+	height: 51px;
+	border-radius: 7px;
+	border: none;
+}
+
+.password-field {
+	background-color: #f2d272;
+	opacity: 0.8;
+	width: 600px;
+	height: 51px;
+	border-radius: 7px;
+	border: none;
+}
+
+.label-radio {
+	padding-top: 3px;
+	}

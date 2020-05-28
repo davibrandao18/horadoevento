@@ -13,10 +13,7 @@
     
     <body>
 	    <nav class="navbar">
-	  		<a class="btn btn-light border-dark" href="/horadoevento/cadastro/" role="button">
-	  			<i class="fa fa-chevron-left mr-1"></i> CADASTRO
-	  		</a>
-	  		<a class="btn btn-light border-dark" href="/horadoevento/login/" role="button">
+	  		<a class="btn btn-light border-dark btn-login" href="/horadoevento/login/" role="button">
 	  			LOGIN <i class="fa fa-chevron-right ml-1"></i>
 	  		</a>
 		</nav>
@@ -44,12 +41,19 @@
 		<div class="container">
 			<div class="row" style="align-items: baseline;">
 				<div class="col">
-					<a id="btnStart" class="btn btn-light border-dark" href="/horadoevento/home/visitante/" role="button">START NOW</a>
+					<a class="btn btn-cadastro btn-light border-dark" href="/horadoevento/cadastro/" role="button">
+	  					<i class="fa fa-chevron-left mr-1"></i> CADASTRO
+	  				</a>
 				</div>
-				<div class="col text-right">
+				<div class="col">
+					<a id="btnStart" class="btn btn-start" href="/horadoevento/home/visitante/" role="button">START NOW</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 text-right">
 					<button class="btnHelperTransparent" id="btnEntidade" onclick="handleEntidade()">
-						<img id="helperUsuario" src="/horadoevento/assets/icons/helperCorpoInteiro.svg">
-						<img id="helperEmpresa" src="/horadoevento/assets/icons/helperCabeca.svg">
+						<img id="helperUsuario" src="/horadoevento/assets/icons/helpereumaempresa.png">
+						<img id="helperEmpresa" src="/horadoevento/assets/icons/empresaInicioHelper.png">
 					</button>
 				</div>
 			</div>
