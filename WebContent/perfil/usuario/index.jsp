@@ -36,7 +36,6 @@
    		
    		
         <div class="cover">
-            <div>
                 <form action="../Atualizar.do" method="post">
                     <div class="row"> 
                     	<div class="col-6 tudo-esquerda">
@@ -55,40 +54,51 @@
 		                    <h5 class="text-direita">Linkedin:</h5>
 		                    <input name="linkedin" value="${sessao_user.linkedin}" type="text" class="items-direita"> <br>
 		                    <input type='hidden' value='usuario' name='entidade'>
-		                    <button type="submit" class="botao-save">Salvar</button>
-               				<button type="button" onclick="history.go(-1)" class="botao-cancel">Cancelar</button>
 	                    </div>
-                    </div>
+	               </div>
+	               <div class="row">
+	               		<div class="col-6" style="text-align:end;">
+	                    	<button type="submit" class="botao-save">Salvar</button>
+	                    </div>
+	                    <div class="col-6" style="text-align:start;">
+	                    	<button type="button" onclick="history.go(-1)" class="botao-cancel">Cancelar</button>
+	                    </div>
+	               </div>
                </form>
                
                <div class="row">
-               </div>
-               <h5>Tags relacionadas</h5>
-               <c:if test="${not empty lista}">
-					<div id="list" class="row">
-						<div class="table-responsive col-md-12">
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>Nome</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="tags" items="${lista}">
+               	   <div class="col-12 align-self-center">
+	               		<h5 style="text-align : center;">Tags relacionadas</h5>
+	               </div>
+	               <c:if test="${not empty lista}">
+						<div id="list" class="row">
+							<div class="table-responsive col-md-12">
+								<table class="table table-striped">
+									<thead>
 										<tr>
-											<td>${tag.nome}</td>
+											<th>Nome</th>
 										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+										<c:forEach var="tags" items="${lista}">
+											<tr>
+												<td>${tag.nome}</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
-				</c:if>
+					</c:if>
+				</div>
                
-               	<button type="button" class="btn btn-primary botao-delete" data-toggle="modal" data-target="#modalExcluirUsuario">
-					Excluir perfil
-				</button>
-			</div>
+               <div class="row  align-self-center">
+	               <div class="col-md-6">
+		               	<button type="button" style="text-align : center;" class="btn btn-primary botao-delete" data-toggle="modal" data-target="#modalExcluirUsuario">
+							Excluir perfil
+						</button>
+				   </div>
+               </div>
         </div>
         
         </div>
