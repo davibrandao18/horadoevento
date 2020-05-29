@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Empresa;
 import model.Evento;
@@ -136,8 +137,10 @@ public class CadastroController extends HttpServlet {
 				} else {
 					// tela cadastrado com sucesso !
 					evs.inserirTag(tags, evento);
-					request.setAttribute("eventoId", evento.getId());
-					request.setAttribute("acao", "visualizar");
+					HttpSession session = request.getSession();
+					int id = evento.getId();
+					session.setAttribute("id", id);
+					session.setAttribute("acao", "visualizar");
 					request.getRequestDispatcher("../Evento.do").forward(request, response);
 				}
 				

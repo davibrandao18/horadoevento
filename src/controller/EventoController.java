@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Evento;
 import service.EventoService;
@@ -39,9 +40,9 @@ public class EventoController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		
-		String acao = request.getParameter("acao");
-		int id = Integer.parseInt(request.getParameter("eventoId"));
+		HttpSession session = request.getSession();
+		String acao = (String)session.getAttribute("acao");
+		int id = (Integer)session.getAttribute("id");
 		
 		Evento evento = null;
 		EventoService es = null;
@@ -53,10 +54,10 @@ public class EventoController extends HttpServlet {
 				
 				evento = es.carregar(id);
 				if (evento == null) {
-					request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
+					request.getRequestDispatcher("../perfil/empresa/").forward(request, response);
 				} else {
 					request.setAttribute("evento", evento);
-					request.getRequestDispatcher("/horadoevento/view/evento/").forward(request, response);
+					request.getRequestDispatcher("/view/evento/").forward(request, response);
 				}
 				
 			}
