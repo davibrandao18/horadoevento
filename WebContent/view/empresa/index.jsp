@@ -6,6 +6,7 @@
     <head>
     	<title>Perfil ${empresa.getNome()} </title>
         <c:import url="../../components/links.html"/>
+        <link rel="stylesheet" href="../view/view.css"/>
     </head>
     
     <body>

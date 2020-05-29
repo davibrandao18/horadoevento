@@ -1,0 +1,7 @@
+body { background-image: url("/horadoevento/assets/backgrounds/field.jpg"); }
+
+.evento-container {
+	width: 70%;
+	height: 500px;
+	background-color: #f2d272;
+}

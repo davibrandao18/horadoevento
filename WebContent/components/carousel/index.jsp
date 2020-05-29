@@ -5,7 +5,7 @@
 
 <div class="row justify-content-center mb-4">
 	<div class="col-12 col-md-10">
-		<div id="carouselExampleInterval" class="carousel slide w-100" data-ride="carousel">
+		<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
 		  	<div class="carousel-inner">
 		    	<div class="carousel-item active primary-card-hde carousel-hde" data-interval="10000">
 		      		<h4>The Last Of Us</h4>

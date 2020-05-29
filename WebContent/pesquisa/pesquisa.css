@@ -1,0 +1,31 @@
+body { background-image: url("/horadoevento/assets/backgrounds/field.jpg"); }
+
+.card-result-user {
+	background-color: #f2d272;
+	margin-bottom: 10px;
+	width: 400px;
+	height: 134px;
+	opacity: 0.86;
+	border: none;
+	border-radius: 7px;
+}
+
+.card-result-empresa {
+	background-color: #d95032;
+	margin-bottom: 10px;
+	height: 134px;
+	width: 400px;
+	opacity: 0.7;
+	border: none;
+	border-radius: 7px;
+}
+
+.card-result-evento {
+	background-color: #f2937e;
+	margin-bottom: 10px;
+	width: 400px;
+	height: 134px;
+	opacity: 0.7;
+	border: none;
+	border-radius: 7px;
+}

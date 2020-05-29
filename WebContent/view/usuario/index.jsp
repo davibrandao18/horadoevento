@@ -6,7 +6,7 @@
     <head>
     	<title>Perfil de ${usuario.userName} </title>
         <c:import url="../../components/links.html"/>
-        <link rel="stylesheet" href="../../perfil.css">
+        <link rel="stylesheet" href="../view/view.css">
     </head>
     
     <body>

@@ -6,6 +6,7 @@
     <head>
     	<title>Evento: ${evento.titulo} </title>
         <c:import url="../../components/links.html"/>
+        <link rel="stylesheet" href="../view/view.css"/>
     </head>
     
     <body>
@@ -15,7 +16,7 @@
     	<div class="bodyContent">
     		<div class="container">
 	    		<div class="row">
-	    			<div class="col-12 col-md-6">
+	    			<div class="col-12 col-md-6 evento-container">
 	    			<c:out value="${evento.id}"/>
 	    				<h3>${evento.titulo}</h3>
 	    				<small>${evento.palestrante}</small>
