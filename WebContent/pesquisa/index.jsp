@@ -12,6 +12,8 @@
     <body>
     	<c:import url="../components/navbar/full.jsp"/>
 
+		
+    	<div class="bodyCover">
 		<div class="bodyContainer">
 		
 			<h4>Usuários:</h4>
@@ -64,7 +66,7 @@
 			<c:if test="${empty listaEvento}">
 				<p>Nenhum evento encontrado</p>
 			</c:if>
-		</div>
+		</div></div>
 		
     	<c:import url="../components/footer/" />
 		

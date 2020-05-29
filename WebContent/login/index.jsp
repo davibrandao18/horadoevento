@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"%>
-<%!//TODO recuperaÁ„o de senha com base no CPF, email e username %>
+<%!//TODO recupera√ß√£o de senha com base no CPF, email e username %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,15 +16,15 @@
     <body>
     	<jsp:include page="/components/navbar/slim.html" flush="false" />
     	
-    	<%!//TODO condiÁ„o para exibir 'alert' %>
+    	<%!//TODO condi√ß√£o para exibir 'alert' %>
     	
-    	<div class="container p-4">
+    	<div class="container-fluid p-4">
 			<form action="./Login.do" method="post">
 	    		<div class="row justify-content-center">
 	    			<div class="col-6 text-right">
 	    				<div class="form-group form-check">
 				  			<input class="form-check-input" type="radio" name="entidade" id="usuario" value="usuario" checked>
-				  			<label class="label-radio" for="usuario"> Usu·rio </label>
+				  			<label class="label-radio" for="usuario"> Usu√°rio </label>
 					  	</div>
 					 </div>
 					 <div class="col-6">
@@ -35,34 +35,41 @@
 	    			</div>
 	    		</div>
 	    		<div class="row justify-content-center">
-	    			<div class="col-6">
-	    				<div class="form-group">
-							<label for="username">Username</label>
-			    			<input type="text" class="user-field" name="username" id="username" required>
-						</div>
-	    			</div>
-	    		</div>
-	  			<div class="row justify-content-center">
-	    			<div class="col-6">
-	    				<div class="form-group">
-							<label for="senha">Password</label>
-			    			<input type="password" class="password-field" name="senha" id="senha" required>
-						</div>
+	    			<div class="col-12 col-sm-10 col-md-6">
+						<label for="username">Username</label>
 	    			</div>
 	    		</div>
 	    		<div class="row justify-content-center">
-	    			<div class="col-6">
-	    				<nav class="navbar">
-				  			<a type="button" class="btn btn-light border-dark" href="/horadoevento/inicio/">
-								<i class="fa fa-chevron-left"></i> Voltar
-							</a>
-					  		<button type="submit" class="btn btn-light border-dark">
-								Entrar <i class="fa fa-chevron-right"></i>
-							</button>
-						</nav>
+	    			<div class="col-12 col-sm-10 col-md-6">
+			    		<input type="text" class="user-field" name="username" id="username" required>
 	    			</div>
 	    		</div>
-				
+	  			<div class="row justify-content-center mt-3">
+	    			<div class="col-12 col-sm-10 col-md-6">
+						<label for="senha">Password</label>
+	    			</div>
+	    		</div>
+	  			<div class="row justify-content-center">
+	    			<div class="col-12 col-sm-10 col-md-6">
+		    			<input type="password" class="password-field" name="senha" id="senha" required>
+	    			</div>
+	    		</div>
+	    		<div class="row justify-content-center pt-3">
+	    			<div class="col-12 col-sm-10 col-md-6">
+	    				<div class="row">
+	    					<div class="col-6">
+	    						<a type="button" class="btn btn-light border-dark" href="/horadoevento/inicio/">
+									<i class="fa fa-chevron-left"></i> Voltar
+								</a>	
+	    					</div>
+	    					<div class="col-6" style="text-align: end;">
+	    						<button type="submit" class="btn btn-light border-dark">
+									Entrar <i class="fa fa-chevron-right"></i>
+								</button>	
+	    					</div>
+	    				</div>
+	    			</div>
+	    		</div>
 	    	</form>
     	</div>
     	
