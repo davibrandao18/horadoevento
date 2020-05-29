@@ -54,7 +54,7 @@
 					</div>
 					<div class="col-10 col-md-3 mt-2">
 						<button class="card-hde secondary-card text-center pink-card">
-							GASTRONOMIA
+							DESENVOLVIMENTO
 						</button>
 					</div>
 					<div class="col-10 col-md-3 mt-2">
@@ -64,7 +64,7 @@
 					</div>
 					<div class="col-10 col-md-3 mt-2">
 						<button class="card-hde secondary-card text-center pink-card">
-							TECNOLOGIA
+							UX
 						</button>
 					</div>
 				</div>
