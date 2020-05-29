@@ -25,7 +25,7 @@ public class InscricaoDao {
 	 * @param inscricao
 	 * @throws MySQLException
 	 */
-	public void criarInscricao(Inscricao inscricao) {
+	public int criarInscricao(Inscricao inscricao) {
 		String sqlInsert = "INSERT INTO inscricao"
 				+"(fk_usuario_cpf, fk_evento_id)"
 				+"VALUES (?,?)";
@@ -34,9 +34,21 @@ public class InscricaoDao {
 			pst.setString(1,inscricao.getUser().getCpf());
 			pst.setInt(2,inscricao.getEvento().getId());
 			pst.execute();
+			
+			String sqlQuery = "SELECT LAST_INSERT_ID()";
+			try (PreparedStatement stm2 = conectar.prepareStatement(sqlQuery);
+					ResultSet rs = stm2.executeQuery();) {
+				if (rs.next()) {
+					inscricao.setId(rs.getInt(1));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
+		
+		return inscricao.getId();
 	}
 	
 	/**

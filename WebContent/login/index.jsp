@@ -24,13 +24,13 @@
 	    			<div class="col-6 text-right">
 	    				<div class="form-group form-check">
 				  			<input class="form-check-input" type="radio" name="entidade" id="usuario" value="usuario" checked>
-				  			<label class="label-radio" for="usuario"> Player(PF) </label>
+				  			<label class="label-radio" for="usuario"> Usuário </label>
 					  	</div>
 					 </div>
 					 <div class="col-6">
 					  	<div class="form-group form-check">	
 					  		<input class="form-check-input" type="radio" name="entidade" id="empresa" value="empresa">
-					  		<label class="label-radio" for="empresa"> Boss(PJ) </label>
+					  		<label class="label-radio" for="empresa"> Empresa </label>
 						</div>
 	    			</div>
 	    		</div>
@@ -38,7 +38,7 @@
 	    			<div class="col-6">
 	    				<div class="form-group">
 							<label for="username">Username</label>
-			    			<input type="text" class="user-field" name="username" id="username">
+			    			<input type="text" class="user-field" name="username" id="username" required>
 						</div>
 	    			</div>
 	    		</div>
@@ -46,7 +46,7 @@
 	    			<div class="col-6">
 	    				<div class="form-group">
 							<label for="senha">Password</label>
-			    			<input type="password" class="password-field" name="senha" id="senha">
+			    			<input type="password" class="password-field" name="senha" id="senha" required>
 						</div>
 	    			</div>
 	    		</div>

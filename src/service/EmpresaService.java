@@ -30,6 +30,7 @@ public class EmpresaService {
 			System.out.println("Deu certo a inclusao");
 			return true;
 		} else
+			System.out.println("Service:"+ValidaEmpresa.validacao(empresa.getUserName(), empresa.getCnpj(), empresa.getSenha()));
 			return false;
 	}
 	

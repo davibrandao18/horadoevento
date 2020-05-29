@@ -77,7 +77,7 @@ public class ValidaEmpresa {
 	 * @return true, caso o cpf seja valido
 	 */
 	public static boolean validaCnpj(String cnpj) {
-		return (cnpj.length() == 11);
+		return (cnpj.length() == 14);
 	}
 	
 	

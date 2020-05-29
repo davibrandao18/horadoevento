@@ -79,11 +79,10 @@ public class CadastroController extends HttpServlet {
 				empresa.setSenha(request.getParameter("senha"));
 				empresa.setEmail(request.getParameter("email"));
 				empresa.setLinkedin(request.getParameter("linkedin"));
-				//TODO foto
 				
 				if (es.criar(empresa) == false) {
 					request.setAttribute("novo_login", false);
-					request.getRequestDispatcher("/horadoevento/cadastro/").forward(request, response);
+					request.getRequestDispatcher("/cadastro/").forward(request, response);
 				} else {
 					response.sendRedirect("/horadoevento/login/");
 				}
@@ -139,7 +138,7 @@ public class CadastroController extends HttpServlet {
 					evs.inserirTag(tags, evento);
 					request.setAttribute("eventoId", evento.getId());
 					request.setAttribute("acao", "visualizar");
-					request.getRequestDispatcher("Evento.do").forward(request, response);
+					request.getRequestDispatcher("../Evento.do").forward(request, response);
 				}
 				
 				break;

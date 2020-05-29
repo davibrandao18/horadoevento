@@ -2,6 +2,7 @@ package command;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,7 @@ import model.Usuario;
 import service.EventoService;
 import service.InscricaoService;
 
-public class CriarInscrição implements Command {
+public class CriarInscricao implements Command {
 
 	@Override
 	public void executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,6 +29,14 @@ public class CriarInscrição implements Command {
 		
 		i.setUser(u);
 		i.setEvento(e);
-		is.criar(i);
+		i.setId(is.criar(i));
+		
+		RequestDispatcher view = null;
+		
+		request.setAttribute("evento", e);
+		sessao.setAttribute("inscricao", i);
+		
+		view = request.getRequestDispatcher("/controller.do");
+		view.forward(request, response);
 	}
 }

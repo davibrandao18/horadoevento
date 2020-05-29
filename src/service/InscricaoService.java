@@ -20,8 +20,8 @@ public class InscricaoService {
 	 * @since
 	 * @param inscricao
 	 */
-	public void criar(Inscricao inscricao) {
-		dao.criarInscricao(inscricao);
+	public int criar(Inscricao inscricao) {
+		return dao.criarInscricao(inscricao);
 	}
 	
 	

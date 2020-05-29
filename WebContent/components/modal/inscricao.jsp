@@ -10,7 +10,8 @@
           			<span aria-hidden="true">&times;</span>
        			</button>
       		</div>
-      		<form action="controller.do" method="post">
+      		<form action="/horadoevento/controller.do" method="post">
+      		<input type="hidden" name="idEvento" value="${evento.id}">
       			<div class="modal-body">
 			      	Você tem certeza que deseja inscrever-se em: ${evento.titulo}
 			      	<input type="text" placeholder="cpf" name="cpf">

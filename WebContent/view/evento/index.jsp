@@ -32,7 +32,7 @@
 	    		</div>
 	    	</div>
 	    	
-	    	<button type="button" data-toggle="modal" data-target="#modalInscricao"></button>
+	    	<button type="button" data-toggle="modal" data-target="#modalInscricao">Inscrever-se</button>
 	    	
     	</div>
     	

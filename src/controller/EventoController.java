@@ -56,7 +56,7 @@ public class EventoController extends HttpServlet {
 					request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
 				} else {
 					request.setAttribute("evento", evento);
-					request.getRequestDispatcher("/horadoevento/evento/").forward(request, response);
+					request.getRequestDispatcher("/horadoevento/view/evento/").forward(request, response);
 				}
 				
 			}
