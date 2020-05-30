@@ -12,36 +12,31 @@
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
     	
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-12 col-md-6">
-    				<%!//TODO foto /!\%>
-    			</div>
-    			<div class="col-12 col-md-6">
-    			<c:out value="${usuario.nome}"/>
-    				<h3>${usuario.nome}</h3>
-    				<small>${usuario.userName}</small>
-	     			<a href="${usuario.linkedin}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
-    			</div>
-    		</div>
-    	</div>
-    	
-    	<div class="row">
-    		<div class="col-12">
-    			<h5>Tags de interesse</h5>
-    			<c:forEach var="tags" items="${lista}"></c:forEach><%! //TODO tem que ver ! %>
-    			<%! //TODO pesquisa join com eventos %>
-    		</div>
-    	</div>
-    	
-    	<div class="row">
-    		<div class="col-12">
-    			<h5>Principais empresas</h5>
-    			<%! //TODO exibição botões link empresa %>
-    			<%! //TODO %>
-    		</div>
-    	</div>
-
+    	<div class="bodyContent">
+	    	
+	    	<div class="container">
+	    		<div class="row">
+	    			<div class="col-12 col-md-6">
+	    				<%!//TODO foto /!\%>
+	    			</div>
+	    			<div class="col-12 col-md-6">
+	    			<c:out value="${usuario.nome}"/>
+	    				<h3>${usuario.nome}</h3>
+	    				<small>${usuario.userName}</small>
+		     			<a href="${usuario.linkedin}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+	    			</div>
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="row">
+	    		<div class="col-12">
+	    			<h5>Tags de interesse</h5>
+	    			<c:forEach var="tags" items="${lista}"></c:forEach><%! //TODO tem que ver ! %>
+	    			<%! //TODO pesquisa join com eventos %>
+	    		</div>
+	    	</div>
+		</div>
+		
 		<c:import url="../../components/footer/"/>
 
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>

@@ -11,35 +11,36 @@
     
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
-    	
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-12 col-md-6">
-    				<%!//TODO foto /!\%>
-    			</div>
-    			<div class="col-12 col-md-6">
-    				<h3>${empresa.getNome()}</h3>
-     				<small> ${empresa.getUserName()} </small>
-	     			<a href="${empresa.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
-    			</div>
-    		</div>
-    	</div>
-		
-    	<div class="row">
-    		<div class="col-12">
-    			<h5>Próximos eventos</h5>
-    			<%! //TODO exibição arraylist botões eventos %>
-    			<%! //TODO pesquisa join com eventos %>
-    		</div>
-    	</div>
-    	
-    	<div class="row">
-    		<div class="col-12">
-    			<h5>Últimos eventos</h5>
-    			<%! //TODO exibição botões link evento %>
-    			<%! //TODO %>
-    		</div>
-    	</div>
+    	<div class="bodyContent">
+	    	<div class="container">
+	    		<div class="row">
+	    			<div class="col-12 col-md-6">
+	    				<%!//TODO foto /!\%>
+	    			</div>
+	    			<div class="col-12 col-md-6">
+	    				<h3>${empresa.getNome()}</h3>
+	     				<small> ${empresa.getUserName()} </small>
+		     			<a href="${empresa.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+	    			</div>
+	    		</div>
+	    	</div>
+			
+	    	<div class="row">
+	    		<div class="col-12">
+	    			<h5>Próximos eventos</h5>
+	    			<%! //TODO exibição arraylist botões eventos %>
+	    			<%! //TODO pesquisa join com eventos %>
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="row">
+	    		<div class="col-12">
+	    			<h5>Últimos eventos</h5>
+	    			<%! //TODO exibição botões link evento %>
+	    			<%! //TODO %>
+	    		</div>
+	    	</div>
+	    </div>
 
      	<c:import url="../../components/footer/"/>
      	

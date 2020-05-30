@@ -37,44 +37,50 @@
    				</div>
    			</div>
    		
-        <div class="cover">
-            <div>
-                <form action="../Atualizar.do" method="post">
-                	<label>CNPJ:</label>
-                	<input name="cpf" value="${sessao_user.getCnpj()}" type="text" readonly disabled> <br>
-                	<label>UserName:</label>
-                    <input name="username" value="${sessao_user.getUserName()}" type="text" readonly disabled> <br> <!-- /!\ como pegar  o atributo-->
-                    <label>Nome:</label>
-                    <input name="nome" value="${sessao_user.getNome()}" type="text"> <br>
-                    <label>Cidade:</label>
-                    <input name="cidade" value="${sessao_user.getCidade()}" type="text"> <br>
-                    <label>Estado:</label>
-                    <input name="estado" value="${sessao_user.getEstado()}" type="text"> <br>
-                    <label>Pais:</label>
-                    <input name="pais" value="${sessao_user.getPais()}" type="text"> <br>
-                    <label>E-mail:</label>
-                    <input name="email" value="${sessao_user.getEmail()}" type="text"> <br>
-                    <label>Senha:</label>
-                    <input name="senha" value="${sessao_user.getSenha()}" type="password"> <br>
-                    <label>Linkedin:</label>
-                    <input name="linkedin" value="${sessao_user.getLinkedin()}" type="text"> <br>
-                    <input type='hidden' value='empresa' name='entidade'>
-                    
-                    <button type="submit">Atualizar Dados</button>
-                </form>
-                
-               	<form action="IniciarCadastroEvento.do" method="post">
-            		<button type="submit">Novo evento</button>
-            	</form>
-                <div>
-                	<button type="button" onclick="history.go(-1)">Cancelar</button>
-                </div>
-            </div>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExcluirUsuario">
-				Excluir perfil
-			</button>
-        </div>
-        </div>
+	        <div class="cover">
+	                <form action="../Atualizar.do" method="post">
+	                    <div class="row">
+	                    	<div class="col-6 tudo-esquerda">
+	                    		<h5 class="text-esquerda">Nome:</h5>
+	                    		<input name="nome" value="${sessao_user.nome}" type="text" class="items-esquerda"> <br>
+	                			<h5 class="text-esquerda">UserName:</h5>
+	                    		<input name="username" value="${sessao_user.userName}" type="text" readonly disabled class="items-esquerda"> <br>
+	                			<h5 class="text-esquerda">Senha:</h5>
+	                    		<input name="senha" value="${sessao_user.senha}" type="password" class="items-esquerda"> <br>
+	                    		<h5 class="text-direita">CNPJ:</h5>
+			                	<input name="cpf" value="${sessao_user.cnpj}" type="text" readonly disabled class="items-direita"> <br>
+			                    <h5 class="text-direita">E-mail:</h5>
+			                    <input name="email" value="${sessao_user.email}" type="text" class="items-direita"> <br>
+	                    	</div>
+	                    	<div class="col-6 tudo-direita">
+			                    <h5 class="text-direita">Linkedin:</h5>
+			                    <input name="linkedin" value="${sessao_user.linkedin}" type="text" class="items-direita"> <br>
+			                    <input type='hidden' value='empresa' name='entidade'>
+			                	<h5 class="text-direita">Cidade:</h5>
+			                	<input name="cpf" value="${sessao_user.cidade}" type="text" readonly disabled class="items-direita"> <br>
+			                    <h5 class="text-direita">E-mail:</h5>
+			                    <input name="email" value="${sessao_user.estado}" type="text" class="items-direita"> <br>
+			                    <h5 class="text-direita">Pais:</h5>
+			                    <input name="email" value="${sessao_user.pais}" type="text" class="items-direita"> <br>
+			                    <h5 class="text-direita">Linkedin:</h5>
+			                    <input name="linkedin" value="${sessao_user.linkedin}" type="text" class="items-direita"> <br>
+			                    <input type='hidden' value='empresa' name='entidade'>
+		                    </div>
+		                 </div>
+	                    <button type="submit">Atualizar Dados</button>
+	                </form>
+	                
+	               	<form action="IniciarCadastroEvento.do" method="post">
+	            		<button type="submit">Novo evento</button>
+	            	</form>
+	                <div>
+	                	<button type="button" onclick="history.go(-1)">Cancelar</button>
+	                </div>
+	            </div>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExcluirUsuario">
+					Excluir perfil
+				</button>
+	        </div>
         
         <c:import url="../../components/footer/"/>
         <c:import url="../../components/modal/perfil.jsp"/>
