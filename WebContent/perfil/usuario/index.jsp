@@ -11,6 +11,7 @@
     
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
+    	<c:import url="../../components/modal/inscricao.jsp"/>
    		<c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
    		
    		<div class="bodyCover">
@@ -77,6 +78,44 @@
 											<c:forEach var="tags" items="${lista}">
 												<tr>
 													<td>${tag.nome}</td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</c:if>
+					</div>
+					
+					<div class="row">
+	               	   <div class="col-12 align-self-center">
+		               		<h5 style="text-align : center;">Inscrições</h5>
+		               </div>
+		               <c:if test="${not empty lista}">
+							<div id="list" class="row">
+								<div class="table-responsive col-md-12">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>Id</th>
+												<th>Evento</th>
+												<th class="actions">Ações</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="tags" items="${lista}">
+												<tr>
+													<td>${inscrição.id}</td>
+													<td>${evento.titulo}</td>
+													<td class="actions">
+													<button type="button" data-toggle="modal" data-target="#modalInscricaoView">
+														Visualizar
+													</button>
+													
+													<button type="button" data-toggle="modal" data-target="#modalInscricaoView">
+														Cancelar Inscrição
+													</button>
+													</td>
 												</tr>
 											</c:forEach>
 										</tbody>
