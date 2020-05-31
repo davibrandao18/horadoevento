@@ -11,68 +11,74 @@
     
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
-		
-		<c:import url="../../components/alert/boasvindas/"/>
-
-		<div class="bodyCover">
-			<c:import url="../../components/carousel/"/>
+    
+    	<div class="bodyCover">
+	    	<c:if test='${sessao_user == null}'>
+				<h1>Você não está logado</h1>
+				<a href="/horadoevento/inicio/">Voltar ao início</a>
+			</c:if>
 			
-			<div class="container">
-				<h5 class="text-center">Missões que combinam com você</h5>
+			<c:if test='${sessao_user != null}'>
+				<c:import url="../../components/alert/home-member/"/>
+				<c:import url="../../components/carousel/"/>
 				
-				<div class="row">
-					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card yellow-card">
-							EVENTO W <br> <br> <small>[data] | [hora]</small>
-						</button>
+				<div class="container">
+					<h5 class="text-center">Missões que combinam com você</h5>
+					
+					<div class="row">
+						<div class="col-6 col-md-3 mt-2">
+							<button class="card-hde primary-card yellow-card">
+								EVENTO W <br> <br> <small>[data] | [hora]</small>
+							</button>
+						</div>
+						<div class="col-6 col-md-3 mt-2">
+							<button class="card-hde primary-card yellow-card">
+								EVENTO X <br> <br> <small>[data] | [hora]</small>
+							</button>
+						</div>
+						<div class="col-6 col-md-3 mt-2">
+							<button class="card-hde primary-card yellow-card">
+								EVENTO Y <br> <br> <small>[data] | [hora]</small>
+							</button>
+						</div>
+						<div class="col-6 col-md-3 mt-2">
+							<button class="card-hde primary-card yellow-card">
+								EVENTO Z <br> <br> <small>[data] | [hora]</small>
+							</button>
+						</div>
 					</div>
-					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card yellow-card">
-							EVENTO X <br> <br> <small>[data] | [hora]</small>
-						</button>
-					</div>
-					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card yellow-card">
-							EVENTO Y <br> <br> <small>[data] | [hora]</small>
-						</button>
-					</div>
-					<div class="col-6 col-md-3 mt-2">
-						<button class="card-hde primary-card yellow-card">
-							EVENTO Z <br> <br> <small>[data] | [hora]</small>
-						</button>
+					
+					
+					<h5 class="text-center mt-4">Categorias</h5>
+					
+					<div class="row pb-4 justify-content-center">
+						<div class="col-10 col-md-3 mt-2">
+							<button class="card-hde secondary-card text-center pink-card">
+								DESIGN
+							</button>
+						</div>
+						<div class="col-10 col-md-3 mt-2">
+							<button class="card-hde secondary-card text-center pink-card">
+								DESENVOLVIMENTO
+							</button>
+						</div>
+						<div class="col-10 col-md-3 mt-2">
+							<button class="card-hde secondary-card text-center pink-card">
+								JOGOS
+							</button>
+						</div>
+						<div class="col-10 col-md-3 mt-2">
+							<button class="card-hde secondary-card text-center pink-card">
+								UX
+							</button>
+						</div>
 					</div>
 				</div>
-				
-				
-				<h5 class="text-center mt-4">Categorias</h5>
-				
-				<div class="row pb-4 justify-content-center">
-					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center pink-card">
-							DESIGN
-						</button>
-					</div>
-					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center pink-card">
-							DESENVOLVIMENTO
-						</button>
-					</div>
-					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center pink-card">
-							JOGOS
-						</button>
-					</div>
-					<div class="col-10 col-md-3 mt-2">
-						<button class="card-hde secondary-card text-center pink-card">
-							UX
-						</button>
-					</div>
-				</div>
-			</div>
+			</c:if>
 		</div>
-		
+    
     	<c:import url="../../components/footer/" />
-		
+    	
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
     </body>

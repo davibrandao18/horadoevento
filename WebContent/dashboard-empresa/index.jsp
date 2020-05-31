@@ -11,12 +11,18 @@
     
     <body>
     	<c:import url="../components/navbar/full.jsp"/>
-		<c:import url="../components/alert/boasvindas/"/>
 		
-    	<div class="bodyCover">
-    		dashboard<br/>
-    		dashboard<br/>
-    		dashboard<br/>
+		<div class="bodyCover">
+	    	<c:if test='${sessao_user == null}'>
+				<h1>Você não está logado</h1>
+				<a href="/horadoevento/inicio/">Voltar ao início</a>
+			</c:if>
+			
+			<c:if test='${sessao_user != null}'>
+				dashboard<br/>
+	    		dashboard<br/>
+	    		dashboard<br/>
+			</c:if>
 		</div>
 		
 		<c:import url="../components/footer/"/>
