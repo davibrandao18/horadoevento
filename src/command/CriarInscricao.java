@@ -2,7 +2,6 @@ package command;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,12 +30,6 @@ public class CriarInscricao implements Command {
 		i.setEvento(e);
 		i.setId(is.criar(i));
 		
-		RequestDispatcher view = null;
-		
-		request.setAttribute("evento", e);
-		sessao.setAttribute("inscricao", i);
-		
-		view = request.getRequestDispatcher("/controller.do");
-		view.forward(request, response);
+		response.sendRedirect("/horadoevento/home/member/");
 	}
 }
