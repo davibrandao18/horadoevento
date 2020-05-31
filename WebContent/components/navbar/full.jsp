@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-		
-
 <div class="pos-f-t">
 	<nav class="navbar navbar-dark bg-hde">
 		<div class="display-none-mobile col-md-4 d-flex justify-content-start" style="align-items: center;">
@@ -43,6 +41,9 @@
 		<div class="bg-hde p-4 d-flex justify-content-end">
 			<ul style="list-style: none;">
 				<li class="text-right"><a href="/horadoevento/perfil/${tipo_entidade}/" style="text-decoration: none;">Meu perfil</a></li>
+				<c:if test='${tipo_entidade.equals("usuario")}'>
+					<li class="text-right"><a href="/horadoevento/view/inscricao/" style="text-decoration: none;">Minhas inscrições</a></li>
+				</c:if>
 				<li class="text-right">
 					<i class="fa fa-sun-o" aria-hidden="true"></i>
 					<label id="switch" class="switch">
