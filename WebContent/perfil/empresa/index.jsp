@@ -19,7 +19,12 @@
    		<div class="bodyCover">
    			<div class="row pt-4">
    				<div class="col-6" style="text-align:end;">
-   					<img class="img-perfil-hde" src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
+   					<c:if test="${sessao_user.getFoto() != null}">
+   						<img class="img-perfil-hde" src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
+   					</c:if>
+   					<c:if test="${sessao_user.getFoto() == null}">
+   						<img class="img-perfil-hde" src="/horadoevento/assets/icons/user-01.png"/>
+   					</c:if>
    				</div>
    				<div class="col-6 justify-content-start">
 	               <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
