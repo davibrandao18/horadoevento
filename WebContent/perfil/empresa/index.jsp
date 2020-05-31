@@ -4,12 +4,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-    	<title>Perfil ${sessao_user.userName}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="shortcut icon" href="/horadoevento/assets/icons/HDE_transparent.png" />
-        <link rel="stylesheet" href="/horadoevento/generalStyles.css">
+    	<title>Perfil de ${sessao_user.userName}</title>
+        <c:import url="../../components/links.html"/>
         <link rel="stylesheet" href="../perfil.css">
-        <link rel="stylesheet" href="/horadoevento/components/bootstrap/css/bootstrap.min.css">
     </head>
     
     <body>
@@ -34,11 +31,6 @@
 							<input type="submit" value="Atualizar foto" class="mt-4" />
 						</div>
 				   </form>
-   				</div>
-   			</div>
-   			<div class="row">
-   				<div class="col">
-   					
    				</div>
    			</div>
    		
