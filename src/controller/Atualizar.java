@@ -49,9 +49,8 @@ public class Atualizar extends HttpServlet {
 				usuario.getUserName();
 				usuario.setNome(request.getParameter("nome"));
 				usuario.setEmail(request.getParameter("email"));
-				usuario.getSenha(); //TODO alterar senha
+				usuario.getSenha();
 				usuario.setLinkedin(request.getParameter("linkedin"));
-				//TODO foto = new File("/horadoevento/assets/logo/default250.png"); /!\ NÃO FUNCIONA SOCORRO
 				
 				us.atualizar(usuario);
 				
@@ -68,10 +67,9 @@ public class Atualizar extends HttpServlet {
 				empresa.setCidade(request.getParameter("cidade"));
 				empresa.setEstado(request.getParameter("estado"));
 				empresa.setPais(request.getParameter("pais"));
-				empresa.getSenha(); //TODO alterar senha
+				empresa.getSenha();
 				empresa.setEmail(request.getParameter("email"));
 				empresa.setLinkedin(request.getParameter("linkedin"));
-				//TODO foto
 				
 				es.atualizar(empresa);
 				
