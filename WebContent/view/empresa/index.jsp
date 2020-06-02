@@ -15,12 +15,9 @@
 	    	<div class="container">
 	    		<div class="row">
 	    			<div class="col-12 col-md-6">
-	    				<%!//TODO foto /!\%>
-	    			</div>
-	    			<div class="col-12 col-md-6">
 	    				<h3>${empresa.getNome()}</h3>
 	     				<small> ${empresa.getUserName()} </small>
-		     			<a href="${empresa.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+		     			<a href="${empresa.getLinkedin()}" target="_blank">LINKEDIN</a><%!//TODO icon linkedin /!\%>
 	    			</div>
 	    		</div>
 	    	</div>

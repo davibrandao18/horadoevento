@@ -1,6 +1,6 @@
 ## usuario
 INSERT INTO usuario (cpf, username, nome, email, senha, linkedin, foto)
-VALUES ('00000000001', 'teste', 'Teste Usuário', 'teste@hde.com', 'Senha123', 'https://linkedin.com/in/teste', null),
+VALUES ('00000000001', 'davibrandao18', 'Davi Brandão Fonseca', 'teste@email.com', 'Senha123', 'https://linkedin.com/in/davibrandao18', null),
 ('00000000002', 'usuario1', 'Usuario1', 'usuario1@hde.com', 'Senha123', 'https://linkedin.com/in/usuario1', null),
 ('00000000003', 'joaosilva', 'Joao da Silva', 'joao@hde.com', 'Senha123', 'www.linkedin/joao', null),
 ('00000000004', 'mariasantos', 'Maria dos Santos', 'maria@hde.com', 'Senha123', 'www.linkedin/maria', null),
@@ -43,14 +43,25 @@ SELECT* FROM usuario;
 SELECT* FROM empresa;
 SELECT* FROM evento;
 SELECT* FROM tag;
-SELECT* FROM tag_evento;
+select * from inscricao;
+SELECT* FROM tag_evento order by (fk_evento_id);
 SELECT* FROM tag_usuario;
 
 SELECT tag.id, tag.nome FROM tag RIGHT OUTER join tag_evento on tag.id = tag_evento.fk_tag_id where fk_evento_id = 1;
 
-select t.* , if(te.fk_evento_id=7, true, false) as checado
-from tag t left outer join tag_evento te
-on  t.id = te.fk_tag_id;
+select t.* ,
+(select 1
+from tag_evento t1
+where t1.fk_evento_id = 5
+and t1.fk_tag_id = t.id) as checked
+from tag t;
+
+select t.* ,
+(select 1
+from tag_usuario t1
+where t1.fk_usuario_cpf = 00000000001
+and t1.fk_tag_id = t.id) as checked
+from tag t;
 
 select evento.* from tag t left outer join tag_evento te
 on  t.id = te.fk_tag_id;

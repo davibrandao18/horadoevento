@@ -117,7 +117,6 @@ public class CadastroController extends HttpServlet {
 				evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
 				evento.setPalestrante(request.getParameter("palestrante"));
 				
-				// TODO arraylist
 				String[] checkedIds = request.getParameterValues("checkbox");
 				TagService ts = new TagService();
 				ArrayList<Tag> tags = new ArrayList<Tag>();
