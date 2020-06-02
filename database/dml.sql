@@ -13,7 +13,7 @@ VALUES ('00000000000001', 'epicgames', 'Epic Games', 'São Paulo', 'SP', 'Brasil
 ('00000000000002', 'ibmbrasil', 'IBM', 'São Paulo', 'SP', 'Brasil', 'Senha123', 'ibmbrasil@ibm.com', 'https://linkedin.com/in/ibmbrasil', null),
 ('00000000000003', 'samsung', 'Samsung', 'São Paulo', 'SP', 'Brasil', 'Senha123', 'samsung@samsung.com', 'www.linkedin/in/samsung', null),
 ('00000000000004', 'amazon', 'Amazon', 'Curitiba', 'Parana', 'Brasil', 'Senha123', 'amazon@amazon.com', 'www.linkedin/in/amazon', null),
-('00000000000005', 'cisco', 'Cisco', 'São Paulo', 'PR', 'Brasil', 'Senha123', ''cisco@cisco.com.com', 'www.linkedin/in/cisco', null);
+('00000000000005', 'cisco', 'Cisco', 'São Paulo', 'PR', 'Brasil', 'Senha123', 'cisco@cisco.com.com', 'www.linkedin/in/cisco', null);
 
 
 ## tag
@@ -46,11 +46,16 @@ SELECT* FROM tag;
 SELECT* FROM tag_evento;
 SELECT* FROM tag_usuario;
 
-SELECT tag.id, tag.nome FROM tag RIGHT OUTER join tag_evento on tag.id = tag_evento.fk_tag_id where fk_evento_id = 1;
-
 select t.* , if(te.fk_evento_id=7, true, false) as checado
 from tag t left outer join tag_evento te
 on  t.id = te.fk_tag_id;
+
+select t.* ,
+(select 1
+from tag_evento t1
+where t1.fk_evento_id = 5
+and t1.fk_tag_id = t.id) as checked
+from tag t;
 
 select evento.* from tag t left outer join tag_evento te
 on  t.id = te.fk_tag_id;

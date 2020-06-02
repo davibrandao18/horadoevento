@@ -58,20 +58,6 @@ public class Atualizar extends HttpServlet {
 				
 				us.atualizar(usuario);
 				
-				// Tags
-				
-				//remover todas as tags existentes para este usuario
-				
-				
-				String[] checkedIds = request.getParameterValues("checkbox");
-				TagService ts = new TagService();
-				ArrayList<Tag> tags = new ArrayList<Tag>();
-				for(int i = 0 ; i < checkedIds.length ; i++) {
-					tags.add(ts.carregar(Integer.parseInt(checkedIds[i])));
-				}
-				usuario.setColecaoTags(tags);
-				// fim tags
-				
 				sessao.setAttribute("sessao_user", usuario);
 				response.sendRedirect("/horadoevento/home/member/");
 				break;
@@ -94,6 +80,21 @@ public class Atualizar extends HttpServlet {
 				sessao.setAttribute("sessao_user", empresa);
 				response.sendRedirect("/horadoevento/dashboard-empresa/");
 				break;
+			}
+			case "tagUsuario": {
+				// Tags
+				//remover todas as tags existentes para este usuario
+				Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
+				
+				String[] checkedIds = request.getParameterValues("checkbox");
+				TagService ts = new TagService();
+				ArrayList<Tag> tags = new ArrayList<Tag>();
+				for(int i = 0 ; i < checkedIds.length ; i++) {
+					tags.add(ts.carregar(Integer.parseInt(checkedIds[i])));
+				}
+				usuario.setColecaoTags(tags);
+				
+				// fim tags
 			}
 		}
 	}

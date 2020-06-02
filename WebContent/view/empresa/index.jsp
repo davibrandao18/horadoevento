@@ -12,7 +12,6 @@
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
     	<div class="bodyContent">
-<<<<<<< HEAD
 	    	<div class="container">
 	    		<div class="row">
 	    			<div class="col-12 col-md-6">
@@ -38,7 +37,6 @@
 	    			<%! //TODO %>
 	    		</div>
 	    	</div>
-=======
     		<c:if test='${sessao_user == null}'>
 				<h1>Você não está logado</h1>
 				<a href="/horadoevento/inicio/">Voltar ao início</a>
@@ -73,7 +71,6 @@
 		    		</div>
 		    	</div>
 	    	</c:if>
->>>>>>> refs/remotes/origin/master
 	    </div>
 
      	<c:import url="../../components/footer/"/>
