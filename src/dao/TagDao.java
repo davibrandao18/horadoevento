@@ -120,7 +120,12 @@ public class TagDao {
 	public ArrayList<Tag> tagUsuario(String cpf){
 		ArrayList<Tag> tags = null;
 		
-		String select = "SELECT tag.id, tag.nome FROM tag , tag_usuario WHERE tag.id = tag_usuario.fk_tag_id and fk_usuario_cpf = ?";
+		String select = "select t.* ," + 
+				" (select 1" + 
+				" from tag_usuario t1" + 
+				" where t1.fk_usuario_cpf = ?" + 
+				" and t1.fk_tag_id = t.id) as checked" + 
+				" from tag t";
 		try(Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(select);){
 			
@@ -132,6 +137,7 @@ public class TagDao {
 		
 		while (resultado.next()) {				
 			Tag t = new Tag(resultado.getInt("id"), resultado.getString("nome"));
+			t.setChecado(resultado.getInt("checked"));
 			tags.add(t);
 		}
 		

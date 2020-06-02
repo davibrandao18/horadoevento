@@ -12,6 +12,33 @@
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
     	<div class="bodyContent">
+<<<<<<< HEAD
+	    	<div class="container">
+	    		<div class="row">
+	    			<div class="col-12 col-md-6">
+	    				<h3>${empresa.getNome()}</h3>
+	     				<small> ${empresa.getUserName()} </small>
+		     			<a href="${empresa.getLinkedin()}" target="_blank">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+	    			</div>
+	    		</div>
+	    	</div>
+			
+	    	<div class="row">
+	    		<div class="col-12">
+	    			<h5>Próximos eventos</h5>
+	    			<%! //TODO exibição arraylist botões eventos %>
+	    			<%! //TODO pesquisa join com eventos %>
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="row">
+	    		<div class="col-12">
+	    			<h5>Últimos eventos</h5>
+	    			<%! //TODO exibição botões link evento %>
+	    			<%! //TODO %>
+	    		</div>
+	    	</div>
+=======
     		<c:if test='${sessao_user == null}'>
 				<h1>Você não está logado</h1>
 				<a href="/horadoevento/inicio/">Voltar ao início</a>
@@ -46,6 +73,7 @@
 		    		</div>
 		    	</div>
 	    	</c:if>
+>>>>>>> refs/remotes/origin/master
 	    </div>
 
      	<c:import url="../../components/footer/"/>

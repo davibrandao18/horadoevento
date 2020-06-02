@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Empresa;
+import model.Tag;
 import model.Usuario;
 import service.EmpresaService;
+import service.TagService;
 import service.UsuarioService;
 
 /**
@@ -53,6 +57,20 @@ public class Atualizar extends HttpServlet {
 				usuario.setLinkedin(request.getParameter("linkedin"));
 				
 				us.atualizar(usuario);
+				
+				// Tags
+				
+				//remover todas as tags existentes para este usuario
+				
+				
+				String[] checkedIds = request.getParameterValues("checkbox");
+				TagService ts = new TagService();
+				ArrayList<Tag> tags = new ArrayList<Tag>();
+				for(int i = 0 ; i < checkedIds.length ; i++) {
+					tags.add(ts.carregar(Integer.parseInt(checkedIds[i])));
+				}
+				usuario.setColecaoTags(tags);
+				// fim tags
 				
 				sessao.setAttribute("sessao_user", usuario);
 				response.sendRedirect("/horadoevento/home/member/");

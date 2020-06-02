@@ -72,6 +72,50 @@
 		               </form>
 		               
 		               <div class="row">
+<<<<<<< HEAD
+		               		<div class="col-6" style="text-align:end;">
+		                    	<button type="submit" class="botao-save">Salvar</button>
+		                    </div>
+		                    <div class="col-6" style="text-align:start;">
+		                    	<button type="button" onclick="history.go(-1)" class="botao-cancel">Cancelar</button>
+		                    </div>
+		               </div>
+	               </form>
+
+			<div class="row">
+				<div class="col-12 align-self-center">
+					<h5 style="text-align: center;">Tags relacionadas</h5>
+				</div>
+				<c:if test="${not empty lista}">
+					<div class="col-12 col-md-4">
+						<c:forEach var="tag" items="${lista}">
+							<div class="form-check">
+								<input class="form-check-input" name="checkbox" type="checkbox" value="${tag.id}" id="defaultCheck1">
+								<label class="form-check-label" for="defaultCheck1">${tag.nome}</label>
+							</div>
+						</c:forEach>
+					</div>
+				</c:if>
+			</div>
+
+			<div class="row">
+	               	   <div class="col-12 align-self-center">
+		               		<h5 style="text-align : center;">Inscrições</h5>
+		               </div>
+		               <c:if test="${not empty lista}">
+							<div id="list" class="row">
+								<div class="table-responsive col-md-12">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>Id</th>
+												<th>Evento</th>
+												<th class="actions">Ações</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="tags" items="${lista}">
+=======
 		               	   <div class="col-12 align-self-center">
 			               		<h5 style="text-align : center;">Tags relacionadas</h5>
 			               </div>
@@ -106,6 +150,7 @@
 									<div class="table-responsive col-md-12">
 										<table class="table table-striped">
 											<thead>
+>>>>>>> refs/remotes/origin/master
 												<tr>
 													<th>Id</th>
 													<th>Evento</th>

@@ -13,7 +13,7 @@ public class Tag {
 	
 	private int id;
 	private String nome;
-	private boolean checado;
+	private int checado;
 	
 	/**
 	 * Void constructor
@@ -51,14 +51,14 @@ public class Tag {
 	/**
 	 * @return the checado
 	 */
-	public boolean isChecado() {
+	public int isChecado() {
 		return checado;
 	}
 
 	/**
 	 * @param checado the checado to set
 	 */
-	public void setChecado(boolean checado) {
+	public void setChecado(int checado) {
 		this.checado = checado;
 	}
 

@@ -23,7 +23,7 @@
 	    			<c:out value="${usuario.nome}"/>
 	    				<h3>${usuario.nome}</h3>
 	    				<small>${usuario.userName}</small>
-		     			<a href="${usuario.linkedin}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+		     			<a href="${usuario.linkedin}" target="_blank">LINKEDIN</a><%!//TODO icon linkedin /!\%>
 	    			</div>
 	    		</div>
 	    	</div>

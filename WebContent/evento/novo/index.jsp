@@ -74,10 +74,18 @@
 					<div class="col-12 col-md-4">
 					<c:forEach var="tag" items="${lista}">
 						<div class="form-check">
-						  <input class="form-check-input" name="checkbox" type="checkbox" value="${tag.id}" id="defaultCheck1">
+						<c:if test="${tag.checado == 1}">
+							<input class="form-check-input" name="checkbox" type="checkbox" value="${tag.id}" id="defaultCheck1" checked>
 						  <label class="form-check-label" for="defaultCheck1">
 						    ${tag.nome}
 						  </label>
+						</c:if>
+						<c:if test="${ tag.checado != 1}">
+							<input class="form-check-input" name="checkbox" type="checkbox" value="${tag.id}" id="defaultCheck1">
+						  <label class="form-check-label" for="defaultCheck1">
+						    ${tag.nome}
+						  </label>
+						</c:if>
 						</div>
 					</c:forEach>
 					</div>
