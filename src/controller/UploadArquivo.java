@@ -57,7 +57,6 @@ public class UploadArquivo extends HttpServlet {
         try {
         	for (Part part : request.getParts()) {
             	fileName = extractFileName(part);
-                // refines the fileName in case it is an absolute path
                 fileName = new File(fileName).getName();
                 fileName = randomAlphaNumeric(16) + ".jpg";
                 part.write(savePath + File.separator + fileName);
@@ -70,7 +69,6 @@ public class UploadArquivo extends HttpServlet {
 	    	
 			for (Part part : request.getParts()) {
             	fileName = extractFileName(part);
-                // refines the fileName in case it is an absolute path
                 fileName = new File(fileName).getName();
                 fileName = randomAlphaNumeric(16) + ".jpg";
                 part.write(savePath + File.separator + fileName);
@@ -86,30 +84,37 @@ public class UploadArquivo extends HttpServlet {
         File arquivo = new File(savePath + File.separator + fileName);
         
         String entidade = request.getParameter("entidade");
-
         HttpSession sessao = request.getSession();
         
         switch (entidade) {
         	case "usuario": {
-        		//System.out.println("Upload: entidade = "+entidade);
         		UsuarioService us = new UsuarioService();
                 Usuario usuario = (Usuario) sessao.getAttribute("sessao_user");
                 us.criarImagem(arquivo, usuario.getUserName());
-                response.sendRedirect("/horadoevento/perfil/"+entidade);
+                usuario = us.carregar(usuario.getUserName(), savePath);
+                
+                sessao.invalidate();
+
+                request.getSession().setAttribute("tipo_entidade", "usuario");
+                request.getSession().setAttribute("sessao_user", usuario);
+        		response.sendRedirect("/horadoevento/perfil/usuario/");
                 break;
         	}
         	
         	case "empresa": {
-        		//System.out.println("Upload: entidade = "+entidade);
         		EmpresaService es = new EmpresaService();
         		Empresa empresa = (Empresa) sessao.getAttribute("sessao_user");
         		es.criarImagem(arquivo, empresa.getUserName());
-        		response.sendRedirect("/horadoevento/perfil/"+entidade);
+        		empresa = es.carregar(empresa.getUserName(), savePath);
+        		
+        		sessao.invalidate();
+
+                request.getSession().setAttribute("tipo_entidade", "empresa");
+                request.getSession().setAttribute("sessao_user", empresa);
+        		response.sendRedirect("/horadoevento/perfil/empresa/");
                 break;
         	}
-        	
         }
-        
 	}
 	
 	private String extractFileName(Part part) {

@@ -53,7 +53,7 @@ public class Atualizar extends HttpServlet {
 				usuario.getUserName();
 				usuario.setNome(request.getParameter("nome"));
 				usuario.setEmail(request.getParameter("email"));
-				usuario.getSenha(); //TODO alterar senha
+				usuario.getSenha();
 				usuario.setLinkedin(request.getParameter("linkedin"));
 				
 				us.atualizar(usuario);
@@ -85,7 +85,7 @@ public class Atualizar extends HttpServlet {
 				empresa.setCidade(request.getParameter("cidade"));
 				empresa.setEstado(request.getParameter("estado"));
 				empresa.setPais(request.getParameter("pais"));
-				empresa.getSenha(); //TODO alterar senha
+				empresa.getSenha();
 				empresa.setEmail(request.getParameter("email"));
 				empresa.setLinkedin(request.getParameter("linkedin"));
 				

@@ -14,28 +14,34 @@
     	<c:import url="../../components/navbar/full.jsp"/>
     	
     	<div class="bodyCover">
-	    	<div class="bodyContent">
-	    		<div class="container">
-		    		<div class="row">
-		    			<div class="col-12 col-md-6 evento-container">
-		    			<c:out value="${evento.id}"/>
-		    				<h3>${evento.titulo}</h3>
-		    				<small>${evento.palestrante}</small>
-		    				<p>${evento.descricao}</p>
-		    				<!-- continuar exibição -->
-		    			</div>
-		    		</div>
-		    	</div>
-		    	
-		    	<div class="row">
-		    		<div class="col-12">
-		    			<h5>Tags relacionadas</h5>
-		    			<c:forEach var="tags" items=""></c:forEach><%! //TODO tem que ver ! %>
-		    		</div>
-		    	</div>
-		    	
-		    	<button type="button" data-toggle="modal" data-target="#modalInscricao">Inscrever-se</button>
-		    </div>
+    		<c:if test='${sessao_user == null}'>
+				<h1>Você não está logado</h1>
+				<a href="/horadoevento/inicio/">Voltar ao início</a>
+			</c:if>
+			<c:if test='${sessao_user != null}'>
+		    	<div class="bodyContent">
+		    		<div class="container">
+			    		<div class="row">
+			    			<div class="col-12 col-md-6 evento-container">
+			    			<c:out value="${evento.id}"/>
+			    				<h3>${evento.titulo}</h3>
+			    				<small>${evento.palestrante}</small>
+			    				<p>${evento.descricao}</p>
+			    				<!-- continuar exibição -->
+			    			</div>
+			    		</div>
+			    	</div>
+			    	
+			    	<div class="row">
+			    		<div class="col-12">
+			    			<h5>Tags relacionadas</h5>
+			    			<c:forEach var="tags" items=""></c:forEach><%! //TODO tem que ver ! %>
+			    		</div>
+			    	</div>
+			    	
+			    	<button type="button" data-toggle="modal" data-target="#modalInscricao">Inscrever-se</button>
+			    </div>
+			</c:if>
 		</div>
     	
 		<c:import url="../../components/footer/"/>

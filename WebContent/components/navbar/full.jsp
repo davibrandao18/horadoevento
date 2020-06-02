@@ -40,17 +40,23 @@
 	<div class="collapse" id="menuOpcoes">
 		<div class="bg-hde p-4 d-flex justify-content-end">
 			<ul style="list-style: none;">
-				<li class="text-right"><a href="/horadoevento/perfil/${tipo_entidade}/" style="text-decoration: none;">Meu perfil</a></li>
+				<li class="text-right"><a href="/horadoevento/perfil/${tipo_entidade}/" style="text-decoration: none;">Perfil</a></li>
+				
 				<c:if test='${tipo_entidade.equals("usuario")}'>
-					<li class="text-right"><a href="/horadoevento/view/inscricao/" style="text-decoration: none;">Minhas inscrições</a></li>
+					<li class="text-right"><a href="/horadoevento/view/inscricao/" style="text-decoration: none;">Inscrições</a></li>
 				</c:if>
+				
+				<c:if test='${tipo_entidade.equals("usuario")}'>
+					<li class="text-right"><a href="/horadoevento/view/tags/" style="text-decoration: none;">Tags</a></li>
+				</c:if>
+				
 				<li class="text-right">
-					<i class="fa fa-sun-o" aria-hidden="true"></i>
+					<img src="/horadoevento/assets/icons/sun.svg"/>
 					<label id="switch" class="switch">
             		<input type="checkbox" onchange="toggleTheme()" id="slider">
             			<span class="slider round"></span>
         			</label>
-        			<i class="fa fa-moon-o" aria-hidden="true"></i>
+					<img src="/horadoevento/assets/icons/moon.svg"/>
         		</li>
 				<li class="text-right"><form action="/horadoevento/perfil/Logout.do" method="get"> <button type="submit"> <img src="/horadoevento/assets/icons/logout.svg"> Sair</button></form></li>
 			</ul>

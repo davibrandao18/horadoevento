@@ -13,25 +13,30 @@
     	<c:import url="../../components/navbar/full.jsp"/>
     	
     	<div class="bodyContent">
-	    	
-	    	<div class="container">
-	    		<div class="row">
-	    			<div class="col-12 col-md-6">
-	    				<h3>ID inscrição #${inscricao.id}</h3>
-	    			</div>
-	    			<div class="col-12 col-md-6">
-	    				<p>Evento: ${evento.titulo}</p>
-	    				<p>Data do evento: ${evento.dataHora}
-		     			
-	    			</div>
-	    		</div>
-	    	</div>
-	    	
-	    	<div class="row">
-	    		<div class="col-12">
-	    			
-	    		</div>
-	    	</div>
+	    	<c:if test='${sessao_user == null}'>
+				<h1>Você não está logado</h1>
+				<a href="/horadoevento/inicio/">Voltar ao início</a>
+			</c:if>
+			<c:if test='${sessao_user != null}'>
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class="col-12 col-md-6">
+		    				<h3>ID inscrição #${inscricao.id}</h3>
+		    			</div>
+		    			<div class="col-12 col-md-6">
+		    				<p>Evento: ${evento.titulo}</p>
+		    				<p>Data do evento: ${evento.dataHora}
+			     			
+		    			</div>
+		    		</div>
+		    	</div>
+		    	
+		    	<div class="row">
+		    		<div class="col-12">
+		    			
+		    		</div>
+		    	</div>
+		    </c:if>
 		</div>
 		
 		<c:import url="../../components/footer/"/>
