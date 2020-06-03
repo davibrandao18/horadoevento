@@ -51,7 +51,7 @@ public class Tag {
 	/**
 	 * @return the checado
 	 */
-	public int isChecado() {
+	public int getChecado() {
 		return checado;
 	}
 
