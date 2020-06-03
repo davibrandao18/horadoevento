@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import dao.InscricaoDao;
 import model.Inscricao;
+import model.Usuario;
 
 /**
  * Classe responsável por chamar as DAO's de Incricao
@@ -71,7 +72,7 @@ public class InscricaoService {
 	 * @param username
 	 * @return
 	 */
-	public ArrayList<Inscricao> listar(String cpf) {
-		return dao.listarInscricoes(cpf);
+	public ArrayList<Inscricao> listar(Usuario user) {
+		return dao.listarInscricoes(user);
 	}
 }
