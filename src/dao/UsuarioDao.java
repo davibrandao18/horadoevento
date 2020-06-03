@@ -118,6 +118,7 @@ public class UsuarioDao {
 				usuario.setEmail(email);
 				usuario.setSenha(senha);
 				usuario.setLinkedin(linkedin);
+				
 				return usuario;
 			}
 			
@@ -127,6 +128,43 @@ public class UsuarioDao {
 		return null;
 	}
 	
+	/**
+	 * consulta de usuario sem manipulação de arquivo
+	 * @param username
+	 * @return
+	 */
+	public Usuario consultarUsuarioCpf(String cpf) {
+		String consulta = "SELECT * FROM usuario WHERE cpf=?";
+		
+		try (Connection conectar = ConnectionFactory.obtemConexao();
+				PreparedStatement pst = conectar.prepareStatement(consulta);) {
+			pst.setString(1, cpf);
+			
+			ResultSet resultado = pst.executeQuery();
+			
+			if (resultado.next()){
+				Usuario usuario = new Usuario();
+				String username = resultado.getString("username");
+				String nome = resultado.getString("nome");
+				String email = resultado.getString("email");
+				String senha = resultado.getString("senha");
+				String linkedin = resultado.getString("linkedin");
+				
+				usuario.setCpf(cpf);
+				usuario.setUserName(username);
+				usuario.setNome(nome);
+				usuario.setEmail(email);
+				usuario.setSenha(senha);
+				usuario.setLinkedin(linkedin);
+				
+				return usuario;
+			}
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
 	
 	
 	/**

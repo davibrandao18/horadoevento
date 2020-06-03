@@ -82,6 +82,16 @@ public class UsuarioService {
 	}
 	
 	/**
+	 * Carregar sem foto
+	 * @param username
+	 * @return
+	 */
+	public Usuario carregarCPF(String cpf){
+		return dao.consultarUsuarioCpf(cpf);
+	}
+	
+	
+	/**
 	 * metodo para criar imagem
 	 * @param foto
 	 * @param username
