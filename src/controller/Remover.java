@@ -47,7 +47,7 @@ public class Remover extends HttpServlet {
 				
 				if (request.getParameter("senha").equals(user.getSenha()) && cpf.equals(user.getCpf())) {
 					is.excluir(cpf);
-					us.excluirTags(cpf);
+					us.excluirTags(user);
 					us.excluir(user.getUserName(), cpf);
 					response.sendRedirect("/horadoevento/inicio/");
 				}

@@ -39,6 +39,7 @@
 			    		</div>
 			    	</div>
 			    	
+			    	
 			    	<button type="button" data-toggle="modal" data-target="#modalInscricao">Inscrever-se</button>
 			    </div>
 			</c:if>

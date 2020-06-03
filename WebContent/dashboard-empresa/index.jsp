@@ -13,15 +13,48 @@
     	<c:import url="../components/navbar/full.jsp"/>
 		
 		<div class="bodyCover">
+            <c:import url="../components/marquee/homepage.jsp"/>
 	    	<c:if test='${sessao_user == null}'>
 				<h1>Você não está logado</h1>
 				<a href="/horadoevento/inicio/">Voltar ao início</a>
 			</c:if>
 			
 			<c:if test='${sessao_user != null}'>
-				dashboard<br/>
-	    		dashboard<br/>
-	    		dashboard<br/>
+				Eventos próximos:
+				<c:forEach var="ef" items="${listaEventosFuturos}">
+                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+                        <input type="hidden" value="${evento.id}" name="id"/>
+                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
+                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
+                            <p>${ef.titulo}</p>
+                            <p style="color: blue;"><b>Palestrante: </b>${ef.palestrante}</p>
+                        </button>
+                    </form>
+                </c:forEach>
+                
+                Eventos com mais inscritos:
+                <c:forEach var="ef" items="${listaEventosFuturos}">
+                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+                        <input type="hidden" value="${evento.id}" name="id"/>
+                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
+                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
+                            <p>${ef.titulo}</p>
+                            <p style="color: blue;"><b>Palestrante: </b>${ef.palestrante}</p>
+                        </button>
+                    </form>
+                </c:forEach>
+                
+                Eventos Passados:
+                <c:forEach var="evento" items="${listaEvento}">
+                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+                        <input type="hidden" value="${evento.id}" name="id"/>
+                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
+                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
+                            <p>${evento.titulo}</p>
+                            <p style="color: blue;">${evento.empresa.nome}</p>
+                        </button>
+                    </form>
+                </c:forEach>
 			</c:if>
 		</div>
 		

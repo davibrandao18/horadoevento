@@ -91,45 +91,24 @@ public class CadastroController extends HttpServlet {
 				break;
 			}
 			case "evento": {
-				EmpresaService es = new EmpresaService();
-				EventoService evs = new EventoService();
-				Evento evento = new Evento();
-				
-				evento.setTitulo(request.getParameter("titulo"));
-				evento.setDescricao(request.getParameter("descricao"));
-				
-				// Comecei a tratar a #data
-				String pDt = request.getParameter("data-hora");
-				Date date = null;
-				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
-				try {
-				date = (Date)formatter.parse(pDt);
-				
-				} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-				}
-				// ./data
-				evento.setDataHora(date);
-				
-				evento.setLocalizacao(request.getParameter("localizacao"));
-				evento.setDuracao(Integer.parseInt(request.getParameter("duracao")));
-				evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
-				evento.setPalestrante(request.getParameter("palestrante"));
-				
-				String[] checkedIds = request.getParameterValues("checkbox");
-				TagService ts = new TagService();
-				ArrayList<Tag> tags = new ArrayList<Tag>();
-				for(int i = 0 ; i < checkedIds.length ; i++) {
-					tags.add(ts.carregar(Integer.parseInt(checkedIds[i])));
-				}
-				evento.setColecaoTags(tags);
-				
-				Empresa empresa = es.carregar(request.getParameter("empresa"));
-				evento.setEmpresa(empresa);
-				
-				evento.setId(evs.criar(evento));
-				
+			    Evento evento = new Evento();
+			    EventoService evs = new EventoService();
+			    EmpresaService es = new EmpresaService();
+                Empresa empresa = es.carregar(request.getParameter("empresa"));
+                Date date = converteData(request.getParameter("data-hora"));
+                
+                evento.setTitulo(request.getParameter("titulo"));
+                evento.setDescricao(request.getParameter("descricao"));
+                evento.setDataHora(date);
+                evento.setLocalizacao(request.getParameter("localizacao"));
+                evento.setDuracao(Integer.parseInt(request.getParameter("duracao")));
+                evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
+                evento.setPalestrante(request.getParameter("palestrante"));
+                evento.setEmpresa(empresa);
+                evento.setId(evs.criar(evento));
+                
+                ArrayList<Tag> tags = handleTags(evento, request.getParameterValues("checkbox"));
+                
 				if (evento.getId() == -1) {
 					// tela evento com os dados errados para correcao
 					request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
@@ -142,9 +121,34 @@ public class CadastroController extends HttpServlet {
 					session.setAttribute("acao", "visualizar");
 					request.getRequestDispatcher("../Evento.do").forward(request, response);
 				}
-				
 				break;
 			}
 		}
 	}
+	
+	public Date converteData(String data) {
+        Date date = null;
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        
+        try {
+            date = (Date)formatter.parse(data);
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+        
+        return date;
+    }
+	
+	public ArrayList<Tag> handleTags(Evento evento, String[] checkbox) {
+        String[] checkedIds = checkbox;
+        TagService ts = new TagService();
+        ArrayList<Tag> tags = new ArrayList<Tag>();
+        
+        for(int i = 0 ; i < checkedIds.length ; i++)
+            tags.add(ts.carregar(Integer.parseInt(checkedIds[i])));
+        
+        evento.setColecaoTags(tags);
+        
+        return tags;
+    }
 }

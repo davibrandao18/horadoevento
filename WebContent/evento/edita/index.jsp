@@ -9,18 +9,19 @@
 		
 	</head>
 <body>
+    <c:import url="../../components/modal/deletarEvento.jsp"/>
 	<c:import url="../../components/navbar/full.jsp"/>
 	
 	<div class="bodyCover">
 		<div class="row pt-4">
 			<div class="col-md-6 justify-content-center" style="text-align:end;">
-				<form action="../Atualizar.do" method="post">
+				<form action="/horadoevento/Evento.do" method="post">
 				
 					<label for="titulo">Titulo:</label>
 					<input name="titulo" value="${evento.titulo}" type="text"> <br>
 					
 					<label for="data-hora">Data e Hora</label>
-			    	<input type="datetime-local" value="${evnto.dataHora}" class="form-control bginput-hde" name="data-hora" id="data-hora" required maxlength="100">
+			    	<input type="datetime-local" value="${evento.dataHora}" class="form-control bginput-hde" name="data-hora" id="data-hora" required maxlength="100">
 					
 					<label for="localizacao">Localização:</label>
 					<input name="localizacao" value="${evento.localizacao}" type="text"> <br>
@@ -53,11 +54,12 @@
 			                    </table>
 		                  	</div>
 		              	</div>
+		              	<button type="submit" value="editar" name="acao">Deletar Evento</button>
 					</c:if>
-					
 				</form>
 			</div>
 		</div>
+        <button type="button" data-toggle="modal" data-target="#modalExcluir">Deletar Evento</button>
 	</div>
 	
 	<c:import url="../../../components/footer/"/>

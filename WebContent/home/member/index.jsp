@@ -19,7 +19,7 @@
 			</c:if>
 			
 			<c:if test='${sessao_user != null}'>
-				<c:import url="../../components/alert/home-member/"/>
+				<c:import url="../../components/marquee/homepage.jsp"/>
 				<c:import url="../../components/carousel/"/>
 				
 				<div class="container">
