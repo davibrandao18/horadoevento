@@ -77,6 +77,10 @@ public class EventoService {
 		return null;
 	}
 	
+	public ArrayList<Evento> carregar(String cnpj) {
+	    return dao.consultarEventos(cnpj);
+	}
+	
 	/**
 	 * metodo para inserir tags
 	 * @param tags

@@ -164,6 +164,32 @@ public class EventoDao {
 		return null;
 	}
 	
+	/**
+	 * Lista de eventos de uma empresa
+	 * @param cnpj
+	 * @return
+	 */
+	public ArrayList<Evento> consultarEventos(String cnpj) {
+        String sqlSelect = "SELECT * FROM evento WHERE fk_empresa_cnpj='" +cnpj +"'";
+
+        ArrayList<Evento> listaEvento = new ArrayList<>();
+        
+        try (Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+            
+            ResultSet resultado = pst.executeQuery();
+            
+            while(resultado.next())
+                listaEvento.add(consultarEvento(resultado.getInt("id")));
+            
+            return listaEvento;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+	
 	
 	/**
 	 * Atualiza�ao de um evento existente
