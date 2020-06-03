@@ -93,11 +93,10 @@ public class UploadArquivo extends HttpServlet {
                 us.criarImagem(arquivo, usuario.getUserName());
                 usuario = us.carregar(usuario.getUserName(), savePath);
                 
-                sessao.invalidate();
-
-                request.getSession().setAttribute("tipo_entidade", "usuario");
-                request.getSession().setAttribute("sessao_user", usuario);
-        		response.sendRedirect("/horadoevento/perfil/usuario/");
+                sessao.setAttribute("tipo_entidade", "usuario");
+                sessao.setAttribute("sessao_user", usuario);
+                response.sendRedirect("/horadoevento/perfil/usuario/");
+                
                 break;
         	}
         	
@@ -107,10 +106,8 @@ public class UploadArquivo extends HttpServlet {
         		es.criarImagem(arquivo, empresa.getUserName());
         		empresa = es.carregar(empresa.getUserName(), savePath);
         		
-        		sessao.invalidate();
-
-                request.getSession().setAttribute("tipo_entidade", "empresa");
-                request.getSession().setAttribute("sessao_user", empresa);
+        		sessao.setAttribute("tipo_entidade", "empresa");
+                sessao.setAttribute("sessao_user", empresa);
         		response.sendRedirect("/horadoevento/perfil/empresa/");
                 break;
         	}
