@@ -20,41 +20,49 @@
 			</c:if>
 			
 			<c:if test='${sessao_user != null}'>
-				Eventos próximos:
-				<c:forEach var="ef" items="${listaEventosFuturos}">
-                    <form action="/horadoevento/perfil/Perfil.do" method="get">
-                        <input type="hidden" value="${evento.id}" name="id"/>
-                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
-                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
-                            <p>${ef.titulo}</p>
-                            <p style="color: blue;"><b>Palestrante: </b>${ef.palestrante}</p>
-                        </button>
-                    </form>
-                </c:forEach>
-                
-                Eventos com mais inscritos:
-                <c:forEach var="ef" items="${listaEventosFuturos}">
-                    <form action="/horadoevento/perfil/Perfil.do" method="get">
-                        <input type="hidden" value="${evento.id}" name="id"/>
-                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
-                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
-                            <p>${ef.titulo}</p>
-                            <p style="color: blue;"><b>Palestrante: </b>${ef.palestrante}</p>
-                        </button>
-                    </form>
-                </c:forEach>
-                
-                Eventos Passados:
-                <c:forEach var="evento" items="${listaEvento}">
-                    <form action="/horadoevento/perfil/Perfil.do" method="get">
-                        <input type="hidden" value="${evento.id}" name="id"/>
-                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
-                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
-                            <p>${evento.titulo}</p>
-                            <p style="color: blue;">${evento.empresa.nome}</p>
-                        </button>
-                    </form>
-                </c:forEach>
+				<div class="container">
+				    <div class="row">Seus proximos 3 eventos:</div>
+				    <div class="row">
+					    <c:forEach var="tpe" items="${tresProximosEventos}">
+		                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+		                        <input type="hidden" value="${tpe.id}" name="id"/>
+		                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
+		                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
+		                            <p>${tpe.titulo}</p>
+		                            <p style="color: red;"><b>Palestrante: </b>${tpe.palestrante}</p>
+		                        </button>
+		                    </form>
+		                </c:forEach>
+				    </div>
+				    
+                    <div class="row">Eventos passados:</div>
+                    <div class="row">
+                        <c:forEach var="lep" items="${listaEventosPassados}">
+		                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+		                        <input type="hidden" value="${lep.id}" name="id"/>
+		                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
+		                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
+		                            <p>${lep.titulo}</p>
+		                            <p style="color: blue;"><b>Palestrante: </b>${lep.palestrante}</p>
+		                        </button>
+		                    </form>
+		                </c:forEach>
+                    </div>
+                    
+                    <div class="row">Eventos futuros:</div>
+                    <div class="row">
+                        <c:forEach var="lef" items="${listaEventosFuturos}">
+		                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+		                        <input type="hidden" value="${lef.id}" name="id"/>
+		                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
+		                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
+		                            <p>${lef.titulo}</p>
+		                            <p style="color: green;"><b>Palestrante: </b>${lef.palestrante}</p>
+		                        </button>
+		                    </form>
+		                </c:forEach>
+                    </div>
+				</div>
 			</c:if>
 		</div>
 		

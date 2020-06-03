@@ -44,11 +44,12 @@
 				
 				<c:if test='${tipo_entidade.equals("usuario")}'>
 					<li class="text-right"><a href="/horadoevento/view/inscricao/" style="text-decoration: none;">Inscrições</a></li>
-				</c:if>
-				
-				<c:if test='${tipo_entidade.equals("usuario")}'>
 					<li class="text-right"><a href="/horadoevento/view/tags/" style="text-decoration: none;">Tags</a></li>
 				</c:if>
+				
+				<c:if test='${tipo_entidade.equals("empresa")}'>
+                    <li class="text-right"><a href="/horadoevento/evento/lista/" style="text-decoration: none;">Todos os eventos</a></li>
+                </c:if>
 				
 				<li class="text-right">
 					<img src="/horadoevento/assets/icons/sun.svg"/>

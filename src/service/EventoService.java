@@ -81,6 +81,18 @@ public class EventoService {
 	    return dao.consultarEventos(cnpj);
 	}
 	
+	public ArrayList<Evento> carregarTresProximosEventos(String cnpj) {
+	    return dao.consultarTresProximosEventos(cnpj);
+	}
+	
+	public ArrayList<Evento> carregarEventosPassados(String cnpj) {
+        return dao.consultarEventosPassados(cnpj);
+    }
+	
+	public ArrayList<Evento> carregarEventosFuturos(String cnpj) {
+        return dao.consultarEventosFuturos(cnpj);
+    }
+	
 	/**
 	 * metodo para inserir tags
 	 * @param tags

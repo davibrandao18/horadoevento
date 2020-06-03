@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import model.Empresa;
 import model.Evento;
@@ -102,43 +104,6 @@ public class EventoDao {
 	
 	
 	/**
-	 * Consulta evento usando um cnpj
-	 * @param cnpj
-	 * @return
-	 */
-	public Evento consultarEvento(String cnpj) {
-		String sqlSelect = "SELECT * FROM evento WHERE fk_empresa_cnpj = ?";
-		
-		try (Connection conectar = ConnectionFactory.obtemConexao();
-				PreparedStatement pst = conectar.prepareStatement(sqlSelect)) {
-			pst.setString(1, cnpj);
-			
-			ResultSet result = pst.executeQuery();
-			
-			if (result.next()){
-				Evento evento = new Evento();
-				
-				evento.setDataHora(result.getDate("data_hora"));
-				evento.setLocalizacao(result.getString("localizacao"));
-				evento.setDescricao(result.getString("descricao"));
-				evento.setDuracao(result.getInt("duracao"));
-				evento.setQuantidadeVagas(result.getInt("quantidade_vagas"));
-				evento.setPalestrante(result.getString("palestrante"));
-				evento.setTitulo(result.getString("titulo"));
-				
-				EmpresaService es = new EmpresaService();
-				evento.setEmpresa(es.carregar(cnpj));
-				
-				return evento;
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return null;
-	}
-	
-	
-	/**
 	 * Listagem de eventos utilizando um titulo
 	 * @param titulo
 	 * @return
@@ -182,6 +147,126 @@ public class EventoDao {
             while(resultado.next())
                 listaEvento.add(consultarEvento(resultado.getInt("id")));
             
+            return listaEvento;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+	
+	/**
+	 * consultar os eventos passados
+	 * @param cnpj
+	 * @return
+	 */
+	public ArrayList<Evento> consultarEventosPassados(String cnpj) {
+	    Evento evento = null;
+	    String sqlSelect = "SELECT * FROM evento WHERE fk_empresa_cnpj='" + cnpj + "' and data_hora < '"
+                + handleDataHoraAtual() + "' order by data_hora asc";
+
+        ArrayList<Evento> listaEvento = new ArrayList<>();
+        
+        try (Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+            
+            ResultSet result = pst.executeQuery();
+            
+            while(result.next()) {
+                evento = new Evento();
+                evento.setId(result.getInt("id"));
+                evento.setDataHora(result.getDate("data_hora"));
+                evento.setLocalizacao(result.getString("localizacao"));
+                evento.setDescricao(result.getString("descricao"));
+                evento.setDuracao(result.getInt("duracao"));
+                evento.setQuantidadeVagas(result.getInt("quantidade_vagas"));
+                evento.setPalestrante(result.getString("palestrante"));
+                evento.setTitulo(result.getString("titulo"));
+                System.out.println(evento.toString());
+                listaEvento.add(evento);
+                evento = null;
+            }
+            
+            return listaEvento;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+	
+	/**
+	 * todos os eventos futuros
+	 * @param cnpj
+	 * @return
+	 */
+	public ArrayList<Evento> consultarEventosFuturos(String cnpj) {
+        Evento evento = null;
+        String sqlSelect = "SELECT * FROM evento WHERE fk_empresa_cnpj='" + cnpj + "' and data_hora > '"
+                + handleDataHoraAtual() + "' order by data_hora asc";
+
+        
+        ArrayList<Evento> listaEvento = new ArrayList<>();
+        
+        try (Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+            
+            ResultSet result = pst.executeQuery();
+            while(result.next()) {
+                evento = new Evento();
+                evento.setId(result.getInt("id"));
+                evento.setDataHora(result.getDate("data_hora"));
+                evento.setLocalizacao(result.getString("localizacao"));
+                evento.setDescricao(result.getString("descricao"));
+                evento.setDuracao(result.getInt("duracao"));
+                evento.setQuantidadeVagas(result.getInt("quantidade_vagas"));
+                evento.setPalestrante(result.getString("palestrante"));
+                evento.setTitulo(result.getString("titulo"));
+                System.out.println(evento.toString());
+                listaEvento.add(evento);
+                evento = null;
+            }
+            
+            return listaEvento;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+	
+	/**
+	 * Tres proximos eventos
+	 * @param cnpj
+	 * @return
+	 */
+    public ArrayList<Evento> consultarTresProximosEventos(String cnpj) {
+        Evento evento = null;
+        String sqlSelect = "SELECT * FROM evento WHERE fk_empresa_cnpj='" + cnpj + "' and data_hora > '"
+                + handleDataHoraAtual() + "' order by data_hora asc";
+
+        ArrayList<Evento> listaEvento = new ArrayList<>();
+
+        try (Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+
+            ResultSet result = pst.executeQuery();
+            
+            for (int i = 0; result.next() && i <= 3; i++) {
+                evento = new Evento();
+                evento.setId(result.getInt("id"));
+                evento.setDataHora(result.getDate("data_hora"));
+                evento.setLocalizacao(result.getString("localizacao"));
+                evento.setDescricao(result.getString("descricao"));
+                evento.setDuracao(result.getInt("duracao"));
+                evento.setQuantidadeVagas(result.getInt("quantidade_vagas"));
+                evento.setPalestrante(result.getString("palestrante"));
+                evento.setTitulo(result.getString("titulo"));
+                // TODO otimizar com dao.consultarEvento
+                listaEvento.add(evento);
+                evento = null;
+            }
+
             return listaEvento;
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -272,5 +357,11 @@ public class EventoDao {
 			ex.printStackTrace();
 		}
 		
+	}
+	
+	public String handleDataHoraAtual() {
+	    Date data = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return formatter.format(data);
 	}
 }

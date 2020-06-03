@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Empresa;
+import model.Evento;
 import model.Tag;
 import model.Usuario;
 import service.EmpresaService;
+import service.EventoService;
 import service.TagService;
 import service.UsuarioService;
 
@@ -90,6 +92,7 @@ public class Login extends HttpServlet {
 			}
 			case "empresa": {
 				EmpresaService es = new EmpresaService();
+				EventoService evs = new EventoService();
 				Empresa empresa = new Empresa();
 		
 				try {
@@ -99,6 +102,20 @@ public class Login extends HttpServlet {
 				}
 				
 				if (request.getParameter("senha").equals(empresa.getSenha())) {
+                    ArrayList<Evento> tresProximosEventos = evs.carregarTresProximosEventos(empresa.getCnpj());
+                    sessao.setAttribute("tresProximosEventos", tresProximosEventos);
+                 
+                    ArrayList<Evento> listaEventosPassados = evs.carregarEventosPassados(empresa.getCnpj());
+                    sessao.setAttribute("listaEventosPassados", listaEventosPassados);
+
+                    ArrayList<Evento> listaEventosFuturos = evs.carregarEventosFuturos(empresa.getCnpj());
+                    sessao.setAttribute("listaEventosFuturos", listaEventosFuturos);
+                    
+                    System.out.println("login:: ev 3" +tresProximosEventos);
+                    System.out.println("login:: ev p" +listaEventosPassados);
+                    System.out.println("login:: ev f" +listaEventosFuturos);
+                    
+                    
 					sessao.setAttribute("tipo_entidade", "empresa");
 					sessao.setAttribute("sessao_user", empresa);
 					response.sendRedirect("/horadoevento/dashboard-empresa/");
