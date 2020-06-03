@@ -72,6 +72,33 @@
 							value='usuario' name='entidade'>
 					</div>
 				</div>
+
+				<div class="row">
+					<div class="col-12 align-self-center">
+						<h5 style="text-align: center;">Tags relacionadas</h5>
+					</div>
+					<c:if test="${not empty listaTags}">
+						<div class="col-12 col-md-4">
+							<c:forEach var="tag" items="${listaTags}">
+								<c:if test="${tag.checado == 1}">
+									<div class="form-check">
+										<input class="form-check-input" name="checkbox"
+											type="checkbox" value="${tag.id}" id="defaultCheck1" checked>
+										<label class="form-check-label" for="defaultCheck1">${tag.nome}</label>
+									</div>
+								</c:if>
+								<c:if test="${tag.checado != 1}">
+									<div class="form-check">
+										<input class="form-check-input" name="checkbox"
+											type="checkbox" value="${tag.id}" id="defaultCheck1">
+										<label class="form-check-label" for="defaultCheck1">${tag.nome}</label>
+									</div>
+								</c:if>
+							</c:forEach>
+						</div>
+					</c:if>
+				</div>
+
 				<div class="row">
 					<div class="col-6" style="text-align: end;">
 						<button type="submit" class="botao-save">Salvar</button>
@@ -83,24 +110,7 @@
 				</div>
 			</form>
 		</div>
-
-		<div class="row">
-			<div class="col-12 align-self-center">
-				<h5 style="text-align: center;">Tags relacionadas</h5>
-			</div>
-			<c:if test="${not empty lista}">
-				<div class="col-12 col-md-4">
-					<c:forEach var="tag" items="${lista}">
-						<div class="form-check">
-							<input class="form-check-input" name="checkbox" type="checkbox"
-								value="${tag.id}" id="defaultCheck1"> <label
-								class="form-check-label" for="defaultCheck1">${tag.nome}</label>
-						</div>
-					</c:forEach>
-				</div>
-			</c:if>
 		</div>
-
 		<c:import url="../../components/footer/"/>
         <c:import url="../../components/modal/perfil.jsp"/>
         
