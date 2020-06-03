@@ -13,10 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import model.Empresa;
 import model.Evento;
+import model.Inscricao;
 import model.Tag;
 import model.Usuario;
 import service.EmpresaService;
 import service.EventoService;
+import service.InscricaoService;
 import service.TagService;
 import service.UsuarioService;
 
@@ -40,10 +42,8 @@ public class Login extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -82,6 +82,12 @@ public class Login extends HttpServlet {
 					tags = ts.carregarTagUsuario(user);
 					
 					sessao.setAttribute("listaTags", tags);
+					
+					InscricaoService is = new InscricaoService();
+					ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+					inscricoes = is.listar(user);
+					
+					sessao.setAttribute("inscricoes", inscricoes);
 					
 					response.sendRedirect("/horadoevento/home/member/index.jsp");
 				} else {

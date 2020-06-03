@@ -10,18 +10,14 @@
           			<span aria-hidden="true">&times;</span>
        			</button>
       		</div>
-      		<form action="/horadoevento/controller.do" method="post">
-      		<input type="hidden" name="idEvento" value="${evento.id}">
-      			<div class="modal-body">
-			      	Você tem certeza que deseja inscrever-se em: ${evento.titulo}
-			      	<input type="text" placeholder="cpf" name="cpf" required>
-			      	<input type="password" class="password-field" placeholder="senha" name="senha" required>
-      			</div>
-      			<div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-			        <button type="submit" class="btn btn-primary" name="command" value="CriarInscricao">Sim</button>
-      			</div>
-      	    </form>
-    	</div>
+			<div class="modal-body">
+				Inscrição ID #${inscricao.id}
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+				<button type="submit" class="btn btn-primary" name="command"
+					value="CriarInscricao">Sim</button>
+			</div>
+		</div>
 	</div>
 </div>

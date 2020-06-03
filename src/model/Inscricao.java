@@ -79,7 +79,8 @@ public class Inscricao {
 
 	@Override
 	public String toString() {
-		return "Inscricao {Id=" + getId() + ", User=" + getUser().toString() + ", Evento=" + getEvento().toString() + "}";
+		return "Inscricao {Id=" + this.id + ", User=" + this.user.toString() + ", Evento=" + this.evento.toString() + "}";
+		//return "Inscricao {Id=" + this.id + "}";
 	};
 	
 	

@@ -42,10 +42,12 @@ VALUES (1, '00000000001'), (2, '00000000002');
 SELECT* FROM usuario;
 SELECT* FROM empresa;
 SELECT* FROM evento;
+SELECT* FROM inscricao;
 SELECT* FROM tag;
 SELECT* FROM tag_evento;
 SELECT* FROM tag_usuario;
 
+SELECT id FROM inscricao WHERE fk_usuario_cpf= 0000000005;
 select t.* , if(te.fk_evento_id=7, true, false) as checado
 from tag t left outer join tag_evento te
 on  t.id = te.fk_tag_id;
@@ -57,8 +59,11 @@ where t1.fk_evento_id = 5
 and t1.fk_tag_id = t.id) as checked
 from tag t;
 
-select evento.* from tag t left outer join tag_evento te
-on  t.id = te.fk_tag_id;
+select t.* ,
+(select 1 from tag_usuario t1
+where t1.fk_usuario_cpf = 0000000005
+and t1.fk_tag_id = t.id) as checked
+from tag t;
 
 select fk_evento_id from tag_evento where fk_tag_id = 2;
 select evento.* from evento where evento.id in (select fk_evento_id from tag_evento where fk_tag_id = 2);

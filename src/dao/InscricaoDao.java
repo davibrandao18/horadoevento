@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.Inscricao;
-import service.UsuarioService;
+import model.Usuario;
 import service.EventoService;
+import service.UsuarioService;
 
 
 /**
@@ -57,9 +58,10 @@ public class InscricaoDao {
 	 * @return
 	 */
 	public Inscricao consultarInscricao(int id){
-		String consulta = "SELECT * FROM inscricao WHERE id='" +id +"'";
+		String consulta = "SELECT * FROM inscricao WHERE id= ?";
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(consulta)) {
+			pst.setInt(1, id);
 			
 			ResultSet resultado = pst.executeQuery();
 			
@@ -68,7 +70,7 @@ public class InscricaoDao {
 				inscricao.setId(id);
 				
 				UsuarioService us = new UsuarioService();
-				inscricao.setUser(us.carregar(resultado.getString("fk_usuario_cpf")));
+				inscricao.setUser(us.carregarCPF(resultado.getString("fk_usuario_cpf")));
 				
 				EventoService es = new EventoService();
 				inscricao.setEvento(es.carregar(resultado.getInt("fk_evento_id")));
@@ -86,25 +88,25 @@ public class InscricaoDao {
 	 * @param cpf
 	 * @return ArrayList<Inscricao>
 	 */
-	public ArrayList<Inscricao> listarInscricoes(String cpf) {
-		String sqlSelect = "SELECT * FROM inscricao WHERE fk_usuario_cpf='"+cpf+"'";
-
-		ArrayList<Inscricao> listaInscricao = new ArrayList<>();
+	public ArrayList<Inscricao> listarInscricoes(Usuario user) {
+		ArrayList<Inscricao> listaInscricao = null;
+		String sqlSelect = "SELECT * FROM inscricao WHERE fk_usuario_cpf=?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+			pst.setString(1, user.getCpf());
 			
 			ResultSet resultado = pst.executeQuery();
-			
+
+			listaInscricao = new ArrayList<Inscricao>();
 			while(resultado.next())
 				listaInscricao.add(consultarInscricao(resultado.getInt("id")));
 
-			return listaInscricao;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 		
-		return null;
+		return listaInscricao;
 	}
 	
 	/**
