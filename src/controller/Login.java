@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Empresa;
+import model.Tag;
 import model.Usuario;
 import service.EmpresaService;
+import service.TagService;
 import service.UsuarioService;
 
 /**
@@ -71,10 +74,18 @@ public class Login extends HttpServlet {
 				if (request.getParameter("senha").equals(user.getSenha())) {
 					sessao.setAttribute("tipo_entidade", "usuario");
 					sessao.setAttribute("sessao_user", user);
+					
+					TagService ts = new TagService();
+					ArrayList<Tag> tags = new ArrayList<Tag>();
+					tags = ts.carregarTagUsuario(user);
+					
+					sessao.setAttribute("listaTags", tags);
+					
 					response.sendRedirect("/horadoevento/home/member/index.jsp");
 				} else {
 					response.sendRedirect("./login.jsp");
-				}
+				}		
+				
 				break;
 			}
 			case "empresa": {
