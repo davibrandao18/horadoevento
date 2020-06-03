@@ -107,14 +107,14 @@ public class UsuarioService {
 	 * @param tags
 	 * @param user
 	 */
-	public void inserirTag(ArrayList<Tag> tags, Usuario user){
-		for (Tag tag : tags) {
+	public void inserirTag(Usuario user){
+		for (Tag tag : user.getColecaoTags()) {
 			dao.inserirTag(user.getCpf(), tag.getId());
 		}
 	}
 	
-	public void excluirTags(String cpf) {
-		dao.deletarTags(cpf);
+	public void excluirTags(Usuario user) {
+		dao.deletarTags(user.getCpf());
 	}
 	
 	/**

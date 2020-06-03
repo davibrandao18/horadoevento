@@ -315,11 +315,12 @@ public class UsuarioDao {
 	}
 	
 	public void deletarTags(String cpf){
-		String deletarTags = "DELETE FROM tag_usuario WHERE fk_usuario_cpf='" +cpf +"'";
+		String deletarTags = "DELETE FROM tag_usuario WHERE fk_usuario_cpf=?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(deletarTags)) {
-
+			pst.setString(1, cpf);
+			
 			pst.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
