@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Empresa;
+import model.Inscricao;
 import model.Tag;
 import model.Usuario;
 import service.EmpresaService;
+import service.InscricaoService;
 import service.TagService;
 import service.UsuarioService;
 
@@ -80,6 +82,12 @@ public class Login extends HttpServlet {
 					tags = ts.carregarTagUsuario(user);
 					
 					sessao.setAttribute("listaTags", tags);
+					
+					InscricaoService is = new InscricaoService();
+					ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+					inscricoes = is.listar(user);
+					
+					sessao.setAttribute("inscricoes", inscricoes);
 					
 					response.sendRedirect("/horadoevento/home/member/index.jsp");
 				} else {
