@@ -11,6 +11,8 @@
 
 <body>
 	<c:import url="../../components/navbar/full.jsp" />
+	<c:import url="../../components/modal/inscricaoView.jsp"/>
+	<c:import url="../../components/modal/inscricaoDelete.jsp"/>
 
 	<div class="bodyCover">
 		<c:if test='${sessao_user == null}'>
@@ -18,16 +20,9 @@
 			<a href="/horadoevento/inicio/">Voltar ao início</a>
 		</c:if>
 		<c:if test='${sessao_user != null}'>
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-6">
-						<h3>ID inscrição #${inscricao.id}</h3>
-					</div>
-				</div>
-			</div>
 			<div class="row">
 				<div class="col-12 align-self-center">
-					<h3 style="text-align: center;">${sessao_user.nome},aquiestão
+					<h3 style="text-align: center;">${sessao_user.nome}, aqui estão
 						suas inscrições:</h3>
 				</div>
 				<div class="col-6">
@@ -45,13 +40,16 @@
 											<td>${inscricao.id}</td>
 											<td>${inscricao.evento.titulo}</td>
 											<td class="actions">
-												<a class="btn btn-success btn-xs"
-												href="Controller.do?command=VisualizarInscricao&id=${inscricao.id}">
-													Visualizar</a> 
+												<button id="${inscricao.id}" type="button"
+                                                    class="btn btn-primary btn-xs" data-toggle="modal"
+                                                    data-target="#modalInscricaoView" data-inscricao="${inscricao.id}">
+                                                    Visualizar</button>
+                                                    
 												<button id="${inscricao.id}" type="button"
 													class="btn btn-danger btn-xs" data-toggle="modal"
 													data-target="#delete-modal" data-pais="${inscricao.id}">
-													Excluir</button></td>
+													Excluir</button>
+											</td>
 										</tr>
 									</c:forEach>
 								</c:if>
@@ -70,6 +68,13 @@
 		src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript"
 		src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$("#modalInscricaoView").on('show.bs.modal', function(event) {
+			var button = $(event.relatedTarget); //botao que disparou a modal
+			var recipient = button.data('inscricao');
+			$("#id").val(recipient);
+		});
+	</script>
 
 </body>
 </html>

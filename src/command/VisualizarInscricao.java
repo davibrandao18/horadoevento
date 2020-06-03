@@ -19,26 +19,17 @@ public class VisualizarInscricao implements Command{
 		
 		RequestDispatcher view = null;
 		
-		Inscricao i = (Inscricao) request.getAttribute("inscricao");
-		String id = request.getParameter("idEvento");
-		int idEvento = -1;
+		Inscricao i = (Inscricao) request.getAttribute("id");
 		
-		try {
-			idEvento = Integer.parseInt(id);
-		} catch (NumberFormatException e) {
-			
-		}
-		
-		if (i.getId() < 0) {
+		if (i.getEvento().getId() < 0) {
 			//TODO not found
 		}
 		
 		EventoService ev = new EventoService();
-		Evento e = ev.carregar(idEvento);
+		Evento e = ev.carregar(i.getEvento().getId());
 		
 		request.setAttribute("inscricao", i);
-		request.setAttribute("Evento", e);
-		view = request.getRequestDispatcher("/controller.do");
+		view = request.getRequestDispatcher("/view/iscricao/");
 		view.forward(request, response);
 		
 	}

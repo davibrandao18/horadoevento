@@ -11,7 +11,7 @@
     
     <body>
     	<c:import url="../../components/navbar/full.jsp"/>
-    	<c:import url="../../components/modal/inscricao.jsp"/>
+    	<c:import url="../../components/modal/perfil.jsp"/>
    		<c:set var="path" value="${sessao_user.getFoto().getAbsolutePath()}"/>
 
 	<div class="bodyCover">
@@ -100,12 +100,17 @@
 				</div>
 
 				<div class="row">
-					<div class="col-6" style="text-align: end;">
+					<div class="col-4" style="text-align: end;">
 						<button type="submit" class="botao-save">Salvar</button>
 					</div>
-					<div class="col-6" style="text-align: start;">
+					<div class="col-4" style="text-align: start;">
 						<button type="button" onclick="history.go(-1)"
 							class="botao-cancel">Cancelar</button>
+					</div>
+					<div class="col-4">
+						<button type="button" style="text-align: center;"
+							class="btn btn-primary botao-delete" data-toggle="modal"
+							data-target="#modalExcluirUsuario">Excluir perfil</button>
 					</div>
 				</div>
 			</form>
