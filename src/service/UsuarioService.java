@@ -47,7 +47,6 @@ public class UsuarioService {
 	 */
 	public void atualizar(Usuario usuario){
 		dao.atualizarUsuario(usuario);
-		System.out.println("Deu certo a atualizacao ! \n"+usuario.toString());
 	}
 	
 	
