@@ -45,7 +45,6 @@ public class Perfil extends HttpServlet {
 			case "empresa": {
 				EmpresaService es = new EmpresaService();
 				Empresa empresa = es.carregar(request.getParameter("username"));
-				//System.out.println("Server: empresa = "+empresa.toString());
 				request.setAttribute("empresa", empresa);
 				break;
 			}
@@ -56,7 +55,6 @@ public class Perfil extends HttpServlet {
 				break;
 			}
 		}
-		
 		request.getRequestDispatcher("/view/"+entidade+"/").forward(request, response);
 	}
 }

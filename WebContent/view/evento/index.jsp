@@ -39,8 +39,18 @@
 			    		</div>
 			    	</div>
 			    	
+			    	<c:if test='${tipo_entidade == "usuario"}'>
+			    	    <button type="button" data-toggle="modal" data-target="#modalInscricao">Inscrever-se</button>
+			    	</c:if>
 			    	
-			    	<button type="button" data-toggle="modal" data-target="#modalInscricao">Inscrever-se</button>
+			    	<c:if test='${tipo_entidade == "empresa"}'>
+                        <button type="button" data-toggle="modal" data-target="#modalDeletar">Deletar evento</button>
+                        <form action="/Evento.do" method="post">
+                            <input type="hidden" name="id" value="${evento.id}"/>
+                            <button type="submit" name="acao" value="editar">Editar</button>
+                        </form>
+                    </c:if>
+			    	
 			    </div>
 			</c:if>
 		</div>
