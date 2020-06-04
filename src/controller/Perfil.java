@@ -13,6 +13,7 @@ import model.Evento;
 import model.Usuario;
 import service.EmpresaService;
 import service.EventoService;
+import service.TagService;
 import service.UsuarioService;
 
 /**
@@ -51,6 +52,10 @@ public class Perfil extends HttpServlet {
 			case "evento": {
 				EventoService eventS = new EventoService();
 				Evento evento = eventS.carregar(Integer.parseInt(request.getParameter("id")));
+				
+				TagService ts = new TagService();
+                evento.setColecaoTags(ts.carregarTagEvento(evento));
+				
 				request.setAttribute("evento", evento);
 				break;
 			}
