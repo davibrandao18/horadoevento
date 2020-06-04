@@ -29,7 +29,7 @@ public class VisualizarInscricao implements Command{
 		Evento e = ev.carregar(i.getEvento().getId());
 		
 		request.setAttribute("inscricao", i);
-		view = request.getRequestDispatcher("/view/iscricao/");
+		view = request.getRequestDispatcher("/view/inscricao/");
 		view.forward(request, response);
 		
 	}

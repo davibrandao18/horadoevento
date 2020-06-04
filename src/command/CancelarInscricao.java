@@ -1,26 +1,26 @@
 package command;
 
-import model.Usuario;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import service.InscricaoService;
-import service.UsuarioService;
 
 public class CancelarInscricao {
-    UsuarioService us = new UsuarioService();
-    InscricaoService is = new InscricaoService();
-    String cpf = request.getParameter("cpf");
-
-    try {
-        Usuario user = us.carregar(request.getParameter("username"));
+    public void executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        if (request.getParameter("senha").equals(user.getSenha()) && cpf.equals(user.getCpf())) {
-            is.excluir(cpf);
-            us.excluirTags(user);
-            us.excluir(user.getUserName(), cpf);
-            response.sendRedirect("/horadoevento/inicio/");
+        InscricaoService is = new InscricaoService();
+        
+        try {
+            is.excluir(request.getParameter("id_i"));
+            String mensagem = "Inscrição cancelada";
+            
+            request.getSession().setAttribute("sessao_mensagem", mensagem);
+            response.sendRedirect("/horadoevento/home/member/");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else request.getRequestDispatcher("erro/credenciais/").forward(request, response);;
-        
-    } catch (Exception e) {
-        response.sendRedirect("/horadoevento/erro/not_found/");
     }
 }

@@ -90,7 +90,7 @@ public class EventoDao {
 				EmpresaService es = new EmpresaService();
 				Empresa empresa = new Empresa();
 				
-				empresa = es.carregar(result.getString("fk_empresa_cnpj"));
+				empresa = es.carregarCpf(result.getString("fk_empresa_cnpj"));
 				
 				evento.setEmpresa(empresa);
 				

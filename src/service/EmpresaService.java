@@ -69,6 +69,16 @@ public class EmpresaService {
 	}
 	
 	/**
+     * Metodo responsavel por chamar a consulta de empresa do DAO
+     * @since
+     * @param username
+     * @return
+     */
+    public Empresa carregarCpf(String cnpj){
+        return dao.consultarEmpresaCnpj(cnpj);
+    }
+	
+	/**
 	 * Metodo responsavel por chamar a consulta de empresa com foto do DAO
 	 * @param username
 	 * @param path

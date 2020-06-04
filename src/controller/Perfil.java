@@ -13,6 +13,7 @@ import model.Evento;
 import model.Usuario;
 import service.EmpresaService;
 import service.EventoService;
+import service.TagService;
 import service.UsuarioService;
 
 /**
@@ -45,18 +46,20 @@ public class Perfil extends HttpServlet {
 			case "empresa": {
 				EmpresaService es = new EmpresaService();
 				Empresa empresa = es.carregar(request.getParameter("username"));
-				//System.out.println("Server: empresa = "+empresa.toString());
 				request.setAttribute("empresa", empresa);
 				break;
 			}
 			case "evento": {
 				EventoService eventS = new EventoService();
 				Evento evento = eventS.carregar(Integer.parseInt(request.getParameter("id")));
+				
+				TagService ts = new TagService();
+                evento.setColecaoTags(ts.carregarTagEvento(evento));
+				
 				request.setAttribute("evento", evento);
 				break;
 			}
 		}
-		
 		request.getRequestDispatcher("/view/"+entidade+"/").forward(request, response);
 	}
 }

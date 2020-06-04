@@ -138,6 +138,52 @@ public class EmpresaDao {
 	}
 	
 	/**
+     * Metodo para consultar empresas sem o paramentro para foto
+     * @author Davi Fonseca
+     * @since 0.1
+     * @param String cpf -> cpf
+     */
+    public Empresa consultarEmpresaCnpj(String cnpj) {
+        String sqlSelect = "SELECT * FROM empresa WHERE cnpj=?";
+        
+        try (Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+            pst.setString(1, cnpj);
+            
+            ResultSet resultado = pst.executeQuery();
+            
+            if (resultado.next()){
+                Empresa empresa = new Empresa();
+                String username = resultado.getString("username");
+                String nome = resultado.getString("nome");
+                String cidade = resultado.getString("cidade");
+                String estado = resultado.getString("estado");
+                String pais = resultado.getString("pais");
+                String senha = resultado.getString("senha");
+                String email = resultado.getString("email");
+                String linkedin = resultado.getString("linkedin");
+                
+                empresa.setCnpj(cnpj);
+                empresa.setUserName(username);
+                empresa.setNome(nome);
+                empresa.setCidade(cidade);
+                empresa.setEstado(estado);
+                empresa.setPais(pais);
+                empresa.setSenha(senha);
+                empresa.setEmail(email);
+                empresa.setLinkedin(linkedin);
+                
+                
+                return empresa;
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+	
+	/**
 	 * Metodo de listagem de empresas semelhantes utilizando o username
 	 * @author Davi Fonseca
 	 * @since

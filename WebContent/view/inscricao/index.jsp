@@ -22,8 +22,9 @@
 		<c:if test='${sessao_user != null}'>
 			<div class="row">
 				<div class="col-12 align-self-center">
-					<h3 style="text-align: center;">${sessao_user.nome}, aqui estão
-						suas inscrições:</h3>
+					<h3 style="text-align: center;">
+					   ${sessao_user.nome}, aqui estão suas inscrições:
+					</h3>
 				</div>
 				<div class="col-6">
 					<div class="table-responsive col-md-12">
@@ -47,7 +48,7 @@
                                                     
 												<button id="${inscricao.id}" type="button"
 													class="btn btn-danger btn-xs" data-toggle="modal"
-													data-target="#delete-modal" data-pais="${inscricao.id}">
+													data-target="#deletemodal" data-inscricao="${inscricao.id}">
 													Excluir</button>
 											</td>
 										</tr>
@@ -72,7 +73,7 @@
 		$("#modalInscricaoView").on('show.bs.modal', function(event) {
 			var button = $(event.relatedTarget); //botao que disparou a modal
 			var recipient = button.data('inscricao');
-			$("#id").val(recipient);
+			$("#id_i").val(recipient);
 		});
 	</script>
 

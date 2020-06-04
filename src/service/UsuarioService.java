@@ -98,7 +98,6 @@ public class UsuarioService {
 	 */
 	public void criarImagem(File foto, String username) {
 		dao.inserirImagem(foto, username);
-		System.out.println("service: foto inserida com sucesso!");
 	}
 	
 	/**

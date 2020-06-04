@@ -80,7 +80,7 @@ public class Tag {
 
 	@Override
 	public String toString() {
-		return "Tag {getId()=" + getId() + ", getNome()=" + getNome() + "}";
+		return "Tag {Id=" + getId() + ", Nome=" + getNome() + " Checado= " + getChecado() + "}";
 	}
 	
 }

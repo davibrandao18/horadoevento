@@ -73,7 +73,11 @@ public class TagService {
 		return dao.tagUsuario(user.getCpf());
 	}
 	
-	
+	/**
+     * Metodo responsavel por carregar ArrayList de tag_evento
+     * @param evento
+     * @return
+     */
 	public ArrayList<Tag> carregarTagEvento(Evento evento){
 		return dao.tagEvento(evento.getId());
 	}

@@ -24,7 +24,7 @@
 				    <div class="row">Seus proximos 3 eventos:</div>
 				    <div class="row">
 					    <c:forEach var="tpe" items="${tresProximosEventos}">
-		                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+		                    <form action="/horadoevento/perfil/Perfil.do" method="post">
 		                        <input type="hidden" value="${tpe.id}" name="id"/>
 		                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
 		                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
@@ -38,7 +38,7 @@
                     <div class="row">Eventos passados:</div>
                     <div class="row">
                         <c:forEach var="lep" items="${listaEventosPassados}">
-		                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+		                    <form action="/horadoevento/perfil/Perfil.do" method="post">
 		                        <input type="hidden" value="${lep.id}" name="id"/>
 		                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
 		                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
@@ -52,7 +52,7 @@
                     <div class="row">Eventos futuros:</div>
                     <div class="row">
                         <c:forEach var="lef" items="${listaEventosFuturos}">
-		                    <form action="/horadoevento/perfil/Perfil.do" method="get">
+		                    <form action="/horadoevento/perfil/Perfil.do" method="post">
 		                        <input type="hidden" value="${lef.id}" name="id"/>
 		                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
 		                            <img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>

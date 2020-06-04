@@ -154,27 +154,33 @@ public class TagDao {
 	 * @return
 	 */
 	public ArrayList<Tag> tagEvento(int id){
-		ArrayList<Tag> tags = null;
-		
-		String select = "SELECT tag.id, tag.nome FROM tag , tag_evento WHERE tag.id = tag_evento.fk_tag_id and fk_evento_id = ?";
-		try(Connection conectar = ConnectionFactory.obtemConexao();
-				PreparedStatement pst = conectar.prepareStatement(select);){
-			
-		pst.setInt(1, id);
-		
-		ResultSet resultado = pst.executeQuery();
-		
-		tags = new ArrayList<Tag>();
-		
-		while (resultado.next()) {				
-			Tag t = new Tag(resultado.getInt("id"), resultado.getString("nome"));
-			tags.add(t);
-		}
-		
-		} catch(SQLException e) {
-		e.printStackTrace();
-		}
-		
-		return tags;
+	    ArrayList<Tag> tags = null;
+        
+        String select = "select t.* ," + 
+                " (select 1" + 
+                " from tag_evento t1" + 
+                " where t1.fk_evento_id = ?" + 
+                " and t1.fk_tag_id = t.id) as checked" + 
+                " from tag t";
+        try(Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(select);){
+            
+        pst.setInt(1, id);
+        
+        ResultSet resultado = pst.executeQuery();
+        
+        tags = new ArrayList<Tag>();
+        
+        while (resultado.next()) {              
+            Tag t = new Tag(resultado.getInt("id"), resultado.getString("nome"));
+            t.setChecado(resultado.getInt("checked"));
+            tags.add(t);
+        }
+        
+        } catch(SQLException e) {
+        e.printStackTrace();
+        }
+        
+        return tags;
 	}
 }
