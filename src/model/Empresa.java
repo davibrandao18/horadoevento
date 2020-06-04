@@ -217,7 +217,7 @@ public class Empresa {
 				+ ", senha=" + this.senha 
 				+ ", email=" + this.email 
 				+ ", linkedin=" + this.linkedin 
-				+ ", foto=" + this.foto
+				//+ ", foto=" + this.foto
 				+ "}";
 	};
 	
