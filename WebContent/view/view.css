@@ -1,7 +1,16 @@
-body { background-image: url("/horadoevento/assets/backgrounds/field.jpg"); }
-
 .evento-container {
-	width: 70%;
-	height: 500px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	width: 1000px; 
+	height: 400px; 
 	background-color: #f2d272;
+}
+
+.inscrever-botao {
+	width: 220px; 
+	height: 60px; 
+	border: none;
+	border-radius: 7px;
+	position: absolute;
+	right: 10;
 }
