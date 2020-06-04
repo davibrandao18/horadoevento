@@ -62,8 +62,8 @@
 						  <div class="row">
 							<img src="../assets/icons/calendario-resultados.svg" class="col-lg-2"style="height: 50px;"/> <br>
 							<p class="col-lg-8">${evento.titulo}</p>
-							<p style="color: blue;">${evento.empresa.nome}</p>
 						  </div>
+							<p>${evento.empresa.nome}</p>
 						</button>
 					</form>
 				</c:forEach>
