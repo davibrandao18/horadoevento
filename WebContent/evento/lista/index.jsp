@@ -38,7 +38,7 @@
                                         <tr>
                                             <td>${evento.id}</td>
                                             <td>${evento.titulo}</td>
-                                            <td>${evento.data}</td>
+                                            <td>${evento.dataHora}</td>
                                             <td class="actions">
                                                 <button id="${evento.id}" type="button"
                                                     class="btn btn-primary btn-xs" data-toggle="modal"
