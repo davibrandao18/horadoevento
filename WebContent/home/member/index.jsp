@@ -9,10 +9,10 @@
         <link rel="stylesheet" href="../home.css">
     </head>
     
-    <body>
+    <body class="bodyCover">
     	<c:import url="../../components/navbar/full.jsp"/>
     
-    	<div class="bodyCover">
+    	<div>
 	    	<c:if test='${sessao_user == null}'>
 				<h1>Você não está logado</h1>
 				<a href="/horadoevento/inicio/">Voltar ao início</a>
@@ -76,8 +76,9 @@
 				</div>
 			</c:if>
 		</div>
-    
-    	<c:import url="../../components/footer/" />
+        <div style="position: absolute; bottom: 0; width: 100%;">
+	    	<c:import url="../../components/footer/" />
+        </div>
     	
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
