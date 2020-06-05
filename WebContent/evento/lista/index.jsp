@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Inscrição ${inscricao.id} </title>
+        <title>Eventos</title>
         <c:import url="../../components/links.html"/>
         <link rel="stylesheet" href="../view/view.css">
     </head>
@@ -18,25 +18,48 @@
                 <a href="/horadoevento/inicio/">Voltar ao início</a>
             </c:if>
             <c:if test='${sessao_user != null}'>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <h3>ID inscrição #${inscricao.id}</h3>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <p>Evento: ${evento.titulo}</p>
-                            <p>Data do evento: ${evento.dataHora}
-                            
-                        </div>
+            <div class="row">
+                <div class="col-12 align-self-center">
+                    <h3 style="text-align: center;">${sessao_user.nome}, aqui estão
+                        seus Eventos:</h3>
+                </div>
+                <div class="col-6">
+                    <div class="table-responsive col-md-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <th>ID</th>
+                                <th>Evento</th>
+                                <th>Data</th>
+                                <th class="actions">Ações</th>
+                            </thead>
+                            <tbody>
+                                <c:if test="${not empty listaEventos}">
+                                    <c:forEach var="evento" items="${listaEventos}">
+                                        <tr>
+                                            <td>${evento.id}</td>
+                                            <td>${evento.titulo}</td>
+                                            <td>${evento.data}</td>
+                                            <td class="actions">
+                                                <button id="${evento.id}" type="button"
+                                                    class="btn btn-primary btn-xs" data-toggle="modal"
+                                                    data-target="#modalInscricaoView" data-inscricao="${inscricao.id}">
+                                                    Visualizar</button>
+                                                    
+                                                <button id="${evento.id}" type="button"
+                                                    class="btn btn-danger btn-xs" data-toggle="modal"
+                                                    data-target="#delete-modal" data-pais="${evento.id}">
+                                                    Excluir</button>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-12">
-                        
-                    </div>
-                </div>
-            </c:if>
+            </div>
+        </c:if>
         </div>
         
         <c:import url="../../components/footer/"/>
