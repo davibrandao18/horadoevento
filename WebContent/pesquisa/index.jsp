@@ -9,12 +9,11 @@
         <link rel="stylesheet" href="./pesquisa.css">
     </head>
     
-    <body>
+    <body class="bodyCover">
     	<c:import url="../components/navbar/full.jsp"/>
 
 		
-    	<div class="bodyCover">
-		<div class="bodyContainer">
+    	<div>
 		
 			<h4>Usuários:</h4>
 			<c:if test="${not empty listaUsuario}">
@@ -22,9 +21,11 @@
 					<form action="/horadoevento/perfil/Perfil.do" method="get">
 						<input type="hidden" value="${usuario.userName}" name="username"/>
 						<button class="card-result-user" type="submit" value="usuario" name="entidade">
-						<img src="../assets/icons/user.svg" style="height: 50px; position: absolute; left: 30px;margin-top: 20px;"/>
-							<p>${usuario.nome}</p>
-							<p style="color: black;">${usuario.userName}</p>
+						  <div class="row">
+							<img src="../assets/icons/user.svg" class="col-lg-2" style="height: 50px; margin-top: 20px;"/>
+								<p class="col-lg-8">${usuario.nome}</p>
+								<p style="color: black;" class="col-lg-8">${usuario.userName}</p>
+						  </div>
 						</button>
 					</form>
 				</c:forEach>
@@ -39,9 +40,11 @@
 					<form action="/horadoevento/perfil/Perfil.do" method="get">
 						<input type="hidden" value="${empresa.userName}" name="username"/>
 						<button class="card-result-empresa" type="submit" value="empresa" name="entidade">
-						<img src="../assets/icons/empresas.svg"style="height: 50px; position: absolute; left: 30px;margin-top: 20px;"/>
-							<p>${empresa.nome}</p>
-							<p style="color: black;">${empresa.userName}</p>
+						  <div class="row">
+							<img src="../assets/icons/empresas.svg" class="col-lg-2"style="height: 50px; margin-top: 20px;"/>
+								<p class="col-lg-8">${empresa.nome}</p>
+								<p style="color: black;" class="col-lg-12">${empresa.userName}</p>
+						  </div>
 						</button>
 					</form>
 				</c:forEach>
@@ -56,9 +59,11 @@
 					<form action="/horadoevento/perfil/Perfil.do" method="get">
 						<input type="hidden" value="${evento.id}" name="id"/>
 						<button class="card-result-evento"  type="submit" value="evento" name="entidade">
-							<img src="../assets/icons/calendario-resultados.svg" style="height: 50px; position: absolute; left: 30px;"/> <br>
-							<p>${evento.titulo}</p>
-							<p style="color: blue;">${evento.empresa.nome}</p>
+						  <div class="row">
+							<img src="../assets/icons/calendario-resultados.svg" class="col-lg-2"style="height: 50px;"/> <br>
+							<p class="col-lg-8">${evento.titulo}</p>
+						  </div>
+							<p>${evento.empresa.nome}</p>
 						</button>
 					</form>
 				</c:forEach>
@@ -66,9 +71,10 @@
 			<c:if test="${empty listaEvento}">
 				<p>Nenhum evento encontrado</p>
 			</c:if>
-		</div></div>
-		
+		</div>
+		<div style="position: absolute; bottom: 0; width: 100%;">
     	<c:import url="../components/footer/" />
+		</div>
 		
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
