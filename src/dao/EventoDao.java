@@ -162,13 +162,14 @@ public class EventoDao {
 	 */
 	public ArrayList<Evento> consultarEventosPassados(String cnpj) {
 	    Evento evento = null;
-	    String sqlSelect = "SELECT * FROM evento WHERE fk_empresa_cnpj='" + cnpj + "' and data_hora < '"
+	    String sqlSelect = "SELECT * FROM evento WHERE fk_empresa_cnpj=? and data_hora < '"
                 + handleDataHoraAtual() + "' order by data_hora asc";
 
         ArrayList<Evento> listaEvento = new ArrayList<>();
         
         try (Connection conectar = ConnectionFactory.obtemConexao();
                 PreparedStatement pst = conectar.prepareStatement(sqlSelect);) {
+            pst.setString(1, cnpj);
             
             ResultSet result = pst.executeQuery();
             
@@ -182,6 +183,9 @@ public class EventoDao {
                 evento.setQuantidadeVagas(result.getInt("quantidade_vagas"));
                 evento.setPalestrante(result.getString("palestrante"));
                 evento.setTitulo(result.getString("titulo"));
+                
+                EmpresaService es = new EmpresaService();
+                evento.setEmpresa(es.carregarCpf(cnpj));
                 System.out.println(evento.toString());
                 listaEvento.add(evento);
                 evento = null;

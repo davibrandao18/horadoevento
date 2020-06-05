@@ -117,10 +117,8 @@ public class Login extends HttpServlet {
                     ArrayList<Evento> listaEventosFuturos = evs.carregarEventosFuturos(empresa.getCnpj());
                     sessao.setAttribute("listaEventosFuturos", listaEventosFuturos);
                     
-                    System.out.println("login:: ev 3" +tresProximosEventos);
-                    System.out.println("login:: ev p" +listaEventosPassados);
-                    System.out.println("login:: ev f" +listaEventosFuturos);
-                    
+                    ArrayList<Evento> listaEventos = evs.carregar(empresa.getCnpj());
+                    sessao.setAttribute("listaEventos", listaEventos);                    
                     
 					sessao.setAttribute("tipo_entidade", "empresa");
 					sessao.setAttribute("sessao_user", empresa);
