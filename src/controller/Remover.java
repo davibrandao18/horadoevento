@@ -61,11 +61,12 @@ public class Remover extends HttpServlet {
 		case "empresa":
 			EmpresaService es = new EmpresaService();
 			String cnpj = request.getParameter("cnpj");
+			String senha = request.getParameter("senha");
 			
 			try {
 				Empresa e = es.carregar(request.getParameter("username"));
 				
-				if (request.getParameter("senha").equals(e.getSenha()) && cnpj.equals(e.getCnpj())) {
+				if (senha.equals(e.getSenha()) && cnpj.equals(e.getCnpj())) {
 					evs.excluir(cnpj);
 					es.excluir(e.getUserName(), cnpj);
 					response.sendRedirect("/horadoevento/inicio/");
