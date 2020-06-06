@@ -25,24 +25,28 @@
 					<h3 style="text-align: center;">${sessao_user.nome}, aqui
 						estão suas inscrições:</h3>
 				</div>
-				<div class="col-6">
+				<div class="col-8">
 					<div class="table-responsive col-md-12">
 						<table class="table table-striped">
 							<thead>
-								<th>ID</th>
+							    <th>Empresa</th>
 								<th>Evento</th>
+								<th>Data Hora</th>
+								<th>Localização</th>
 								<th class="actions">Ações</th>
 							</thead>
 							<tbody>
 								<c:if test="${not empty inscricoes}">
 									<c:forEach var="inscricao" items="${inscricoes}">
 										<tr>
-											<td><label data-inscricao="getId">${inscricao.id}</label></td>
-											<td><label data-inscricao="getTitulo">${inscricao.evento.titulo}</label></td>
+										    <td>${inscricao.evento.empresa.nome}</td>
+											<td>${inscricao.evento.titulo}</td>
+											<td>${inscricao.evento.dataHora}</td>
+											<td>${inscricao.evento.localizacao}</td>
 											<td class="actions">
                                                 <form action="/horadoevento/controller.do" method="post">
                                                     <input
-                                                        type="hidden" name="id" value="${inscricao.id}">
+                                                        type="hidden" name="id" value="${inscricao.evento.id}">
                                                     <button
                                                         type="submit"
 	                                                    class="btn btn-primary btn-xs"
@@ -56,10 +60,10 @@
                                                         type="hidden" name="id" value="${inscricao.id}">
                                                     <button
                                                         type="submit"
-                                                        class="btn btn-primary btn-xs"
+                                                        class="btn btn-danger btn-xs"
                                                         name="command"
                                                         value="CancelarInscricao">
-                                                        Excluir
+                                                        Cancelar
                                                     </button>
                                                 </form>
 											</td>

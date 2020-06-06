@@ -23,7 +23,7 @@
                     <h3 style="text-align: center;">${sessao_user.nome}, aqui estão
                         seus Eventos:</h3>
                 </div>
-                <div class="col-6">
+                <div class="col-8">
                     <div class="table-responsive col-md-12">
                         <table class="table table-striped">
                             <thead>
