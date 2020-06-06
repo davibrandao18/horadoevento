@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../view/view.css">
     </head>
     
-    <body>
+    <body class="bodyCover">
         <c:import url="../../components/navbar/full.jsp"/>
         
         <div class="bodyContent">
@@ -20,7 +20,7 @@
             <c:if test='${sessao_user != null}'>
             <div class="row">
                 <div class="col-12 align-self-center">
-                    <h3 style="text-align: center;">${sessao_user.nome}, aqui estão
+                    <h3 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">${sessao_user.nome}, aqui estão
                         seus Eventos:</h3>
                 </div>
                 <div class="col-6">
@@ -62,7 +62,9 @@
         </c:if>
         </div>
         
-        <c:import url="../../components/footer/"/>
+        <div style="position: absolute; bottom: 0; width: 100%;">
+            <c:import url="../../components/footer/" />
+        </div>
 
         <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
