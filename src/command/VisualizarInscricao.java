@@ -19,7 +19,7 @@ public class VisualizarInscricao implements Command{
 		
 		RequestDispatcher view = null;
 		
-		Inscricao i = (Inscricao) request.getAttribute("id");
+		int id = Integer.parseInt(request.getAttribute("id"));
 		
 		if (i.getEvento().getId() < 0) {
 			//TODO not found
