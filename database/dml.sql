@@ -18,7 +18,7 @@ VALUES ('00000000000001', 'epicgames', 'Epic Games', 'São Paulo', 'SP', 'Brasil
 
 ## tag
 INSERT INTO tag (nome)
-VALUES ('Desenvolvimento'), ('Design'), ('Ux'), ('Ui'), ('Games');
+VALUES ('Desenvolvimento'), ('Design'), ('Infraestrutura'), ('Games');
 
 
 ## evento

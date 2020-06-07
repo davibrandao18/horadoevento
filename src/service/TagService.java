@@ -82,6 +82,10 @@ public class TagService {
 		return dao.tagEvento(evento.getId());
 	}
 	
+	public ArrayList<Evento> carregarEventoPorTag(int id) {
+	    return dao.consultarEventoPorTag(id);
+	}
+	
 	/**
 	 * Metodo responsavel por listar Tags com ids semelhantes
 	 * @since 0.1

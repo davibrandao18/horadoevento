@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.Evento;
 import model.Tag;
+import service.EventoService;
 
 /**
  * Data Acess Object para o Tag
@@ -32,8 +34,28 @@ public class TagDao {
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
-		
-		
+	}
+	
+	public ArrayList<Evento> consultarEventoPorTag(int id) {
+	    EventoService evs = new EventoService();
+	    String consulta = "SELECT fk_evento_id FROM tag_evento WHERE id='" +id +"'";
+	    
+	    ArrayList<Evento> listaEvento = new ArrayList<>();
+	    
+	    try (Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(consulta);){
+            ResultSet resultado = pst.executeQuery();
+            
+            while (resultado.next()) {
+                Evento e = new Evento();
+                e = evs.carregar(resultado.getInt("fk_evento_id"));
+                listaEvento.add(e);
+                e = null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
 	}
 	
 	public Tag consultarTag(int id) {

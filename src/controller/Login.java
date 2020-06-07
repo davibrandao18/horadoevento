@@ -74,19 +74,22 @@ public class Login extends HttpServlet {
 				}
 				
 				if (request.getParameter("senha").equals(user.getSenha())) {
-					sessao.setAttribute("tipo_entidade", "usuario");
-					sessao.setAttribute("sessao_user", user);
-					
-					TagService ts = new TagService();
+				    TagService ts = new TagService();
+				    InscricaoService is = new InscricaoService();
+				    
 					ArrayList<Tag> tags = new ArrayList<Tag>();
 					tags = ts.carregarTagUsuario(user);
 					
-					sessao.setAttribute("listaTags", tags);
+					ArrayList<Tag> listaTagsTotais = new ArrayList<Tag>();
+					listaTagsTotais = ts.carregar();
 					
-					InscricaoService is = new InscricaoService();
 					ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
-					inscricoes = is.listar(user);
+                    inscricoes = is.listar(user);
 					
+					sessao.setAttribute("tipo_entidade", "usuario");
+                    sessao.setAttribute("sessao_user", user);
+					sessao.setAttribute("listaTags", tags);
+                    sessao.setAttribute("listaTagsTotais", listaTagsTotais);
 					sessao.setAttribute("inscricoes", inscricoes);
 					
 					response.sendRedirect("/horadoevento/home/member/index.jsp");
