@@ -23,11 +23,10 @@
                     <h3 style="text-align: center;">${sessao_user.nome}, aqui estão
                         seus Eventos:</h3>
                 </div>
-                <div class="col-8">
+                <div class="col-10">
                     <div class="table-responsive col-md-12">
                         <table class="table table-striped">
                             <thead>
-                                <th>ID</th>
                                 <th>Evento</th>
                                 <th>Data</th>
                                 <th class="actions">Ações</th>
@@ -36,19 +35,29 @@
                                 <c:if test="${not empty listaEventos}">
                                     <c:forEach var="evento" items="${listaEventos}">
                                         <tr>
-                                            <td>${evento.id}</td>
                                             <td>${evento.titulo}</td>
                                             <td>${evento.dataHora}</td>
                                             <td class="actions">
-                                                <button id="${evento.id}" type="button"
-                                                    class="btn btn-primary btn-xs" data-toggle="modal"
-                                                    data-target="#modalInscricaoView" data-inscricao="${inscricao.id}">
-                                                    Visualizar</button>
-                                                    
-                                                <button id="${evento.id}" type="button"
-                                                    class="btn btn-danger btn-xs" data-toggle="modal"
-                                                    data-target="#delete-modal" data-pais="${evento.id}">
-                                                    Excluir</button>
+	                                            <form action="/horadoevento/Evento.do" method="post">
+	                                                <input type="hidden" name="id" value="${evento.id}"/>
+													<button type="submit"
+														class="btn btn-secondary btn-xs text-dark"
+														name="action" value="visualizar">
+														Visualizar
+													</button>
+													
+													<button id="${evento.id}" type="submit"
+														class="btn btn-warning btn-xs" value="${inscricao.id}"
+														name="action" value="editar">
+														Editar
+													</button>
+                                                
+													<button id="${evento.id}" type="button"
+														class="btn btn-danger btn-xs text-dark"
+														data-toggle="modal" data-target="#delete-modal"
+														data-evento="${evento.id}">Excluir
+													</button>
+											    </form>
                                             </td>
                                         </tr>
                                     </c:forEach>

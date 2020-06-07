@@ -186,7 +186,6 @@ public class EventoDao {
                 
                 EmpresaService es = new EmpresaService();
                 evento.setEmpresa(es.carregarCpf(cnpj));
-                System.out.println(evento.toString());
                 listaEvento.add(evento);
                 evento = null;
             }

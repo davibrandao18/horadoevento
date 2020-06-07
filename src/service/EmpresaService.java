@@ -27,7 +27,6 @@ public class EmpresaService {
 	public boolean criar(Empresa empresa) {
 		if (ValidaEmpresa.validacao(empresa.getUserName(), empresa.getCnpj(), empresa.getSenha()) == true) {
 			dao.inserirEmpresa(empresa);
-			System.out.println("Deu certo a inclusao");
 			return true;
 		} else
 			System.out.println("Service:"+ValidaEmpresa.validacao(empresa.getUserName(), empresa.getCnpj(), empresa.getSenha()));
@@ -42,7 +41,6 @@ public class EmpresaService {
 	 */
 	public void atualizar(Empresa empresa){
 		dao.atualizarEmpresa(empresa);
-		System.out.println("Deu certo a atualizacao ! /n"+empresa.toString());
 	}
 	
 	
@@ -54,7 +52,6 @@ public class EmpresaService {
 	 */
 	public void excluir(String username, String cnpj){
 		dao.deletarEmpresa(username, cnpj);
-		System.out.println("Deu certo a exclusao");
 	}
 	
 	
@@ -95,7 +92,6 @@ public class EmpresaService {
 	 */
 	public void criarImagem(File foto, String username) {
 		dao.inserirImagem(foto, username);
-		System.out.println("service empresa: foto inserida com sucesso!");
 	}
 	
 	
