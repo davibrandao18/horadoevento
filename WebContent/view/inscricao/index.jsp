@@ -44,15 +44,15 @@
 											<td>${inscricao.evento.dataHora}</td>
 											<td>${inscricao.evento.localizacao}</td>
 											<td class="actions">
-                                                <form action="/horadoevento/controller.do" method="post">
+                                                <form action="/horadoevento/Evento.do" method="post">
                                                     <input
                                                         type="hidden" name="id" value="${inscricao.evento.id}">
                                                     <button
                                                         type="submit"
 	                                                    class="btn btn-primary btn-xs"
-	                                                    name="command"
-                                                        value="VisualizarInscricao">
-                                                        Visualizar
+	                                                    name="acao"
+                                                        value="visualizar">
+                                                        Ver evento
                                                     </button>
                                                 </form>
                                                 <form action="/horadoevento/controller.do" method="post">
