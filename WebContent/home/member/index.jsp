@@ -66,7 +66,7 @@
 	                                        class="card-hde secondary-card text-center pink-card"
 	                                        name="criterio"
 	                                        value="tag">
-	                                        ${tagt.nome }
+	                                        ${tag.nome}
 	                                    </button>
 	                                </form>
 	                            </div>
