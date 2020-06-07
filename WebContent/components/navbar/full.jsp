@@ -44,7 +44,6 @@
 				
 				<c:if test='${tipo_entidade.equals("usuario")}'>
 					<li class="text-right"><a href="/horadoevento/view/inscricao/" style="text-decoration: none;">Inscrições</a></li>
-					<li class="text-right"><a href="/horadoevento/view/tags/" style="text-decoration: none;">Tags</a></li>
 				</c:if>
 				
 				<c:if test='${tipo_entidade.equals("empresa")}'>
