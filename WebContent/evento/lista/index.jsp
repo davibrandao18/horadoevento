@@ -42,13 +42,13 @@
 	                                                <input type="hidden" name="id" value="${evento.id}"/>
 													<button type="submit"
 														class="btn btn-secondary btn-xs text-dark"
-														name="action" value="visualizar">
+														name="acao" value="visualizar">
 														Visualizar
 													</button>
 													
 													<button id="${evento.id}" type="submit"
 														class="btn btn-warning btn-xs" value="${inscricao.id}"
-														name="action" value="editar">
+														name="acao" value="editar">
 														Editar
 													</button>
                                                 

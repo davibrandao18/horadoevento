@@ -46,7 +46,7 @@ public class EventoController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         String acao = request.getParameter("acao");
-        System.out.println("acao" +acao);
+        //System.out.println("acao " + acao);
         Evento evento = new Evento();
         EventoService evs = new EventoService();
 
@@ -57,6 +57,11 @@ public class EventoController extends HttpServlet {
             if (evento == null) {
                 request.getRequestDispatcher("../perfil/empresa/").forward(request, response);
             } else {
+                TagService ts = new TagService();
+                evento.setColecaoTags(ts.carregarTagEvento(evento));
+                
+                System.out.println("Event Controller:"+evento.getColecaoTags().toString());
+                
                 request.setAttribute("evento", evento);
                 request.getRequestDispatcher("/view/evento/").forward(request, response);
             }
