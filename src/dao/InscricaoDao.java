@@ -114,10 +114,10 @@ public class InscricaoDao {
 	 * @param id
 	 */
 	public void deletarInscricao(int id){
-		String deletar = "DELETE FROM inscricao WHERE id = "+id;
+		String deletar = "DELETE FROM inscricao WHERE id = ?";
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(deletar)) {
-			
+			pst.setInt(1, id);
 			pst.execute();
 					
 		} catch (Exception e) {
@@ -131,9 +131,10 @@ public class InscricaoDao {
 	 * @param cpf
 	 */
 	public void deletarInscricao(String cpf){
-		String deletar = "DELETE FROM inscricao WHERE fk_usuario_cpf = "+cpf;
+		String deletar = "DELETE FROM inscricao WHERE fk_usuario_cpf =?";
 		try (Connection conectar = ConnectionFactory.obtemConexao();
-				PreparedStatement pst = conectar.prepareStatement(deletar)) {
+		        PreparedStatement pst = conectar.prepareStatement(deletar)) {
+            pst.setString(1, cpf);
 			pst.execute();			
 		} catch (Exception e) {
 			e.printStackTrace();

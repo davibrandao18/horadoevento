@@ -13,7 +13,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-			     Inscrição lfdksfjsl
+			     Inscrição <label data-inscricao="titulo"></label>
 		      </div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>

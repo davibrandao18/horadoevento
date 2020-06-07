@@ -46,7 +46,51 @@
 			    		</div>
 			    	</div>
 			    	
-			    	<button type="button" data-toggle="modal" data-target="#modalInscricao" class="inscrever-botao">Inscrever-se</button>
+			    	<c:if test="${inscricoes.size() == 0 }">
+                        <button type="button" data-toggle="modal" data-target="#modalInscricao" class="inscrever-botao">Inscrever-se</button>
+                    </c:if>
+			    	
+			    	<c:if test='${tipo_entidade.equals("usuario")}'>
+			    	    <c:forEach var="inscricao" items="${inscricoes}" varStatus="counter">
+	                        <c:if test="${inscricao.evento.id == evento.id}">
+	                            <form action="/horadoevento/controller.do" method="post">
+	                                <input
+	                                    type="hidden" name="id" value="${inscricao.id}">
+	                                <button
+	                                    type="submit"
+	                                    class="btn btn-danger btn-xs"
+	                                    name="command"
+	                                    value="CancelarInscricao">
+	                                    Cancelar Inscrição
+	                                </button>
+	                            </form>
+	                        </c:if>
+	                        <c:if test="${counter.count == inscricoes.size() }">
+	                               <c:if test="${inscricao.evento.id != evento.id}">
+	                                   <button type="button" data-toggle="modal" data-target="#modalInscricao" class="inscrever-botao">Inscrever-se</button>   
+	                               </c:if>
+	                        </c:if>
+	                    </c:forEach>
+			    	</c:if>
+			    	
+                    <c:if test='${tipo_entidade.equals("empresa")}'>
+                        <c:forEach var="eventoEmpresa" items="${listaEventos}" varStatus="counter">
+                            <c:if test="${eventoEmpresa.id == evento.id}">
+                                <form action="/horadoevento/Evento.do" method="post">
+                                    <input
+                                        type="hidden" name="id" value="${evento.id}">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-danger btn-xs"
+                                        name="acao"
+                                        value="editar">
+                                        Editar evento
+                                    </button>
+                                </form>
+                            </c:if>
+                        </c:forEach>
+                    </c:if>			    	    
+			    	
 			    	
 			    </div>
 			</c:if>

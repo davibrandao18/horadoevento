@@ -45,15 +45,14 @@ public class EventoController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        String acao = (String) session.getAttribute("acao");
-        int id = (Integer) session.getAttribute("id");
-
+        String acao = request.getParameter("acao");
+        System.out.println("acao" +acao);
         Evento evento = new Evento();
         EventoService evs = new EventoService();
 
         switch (acao) {
         case "visualizar":
-            evento = evs.carregar(id);
+            evento = evs.carregar(Integer.parseInt(request.getParameter("id")));
 
             if (evento == null) {
                 request.getRequestDispatcher("../perfil/empresa/").forward(request, response);
@@ -65,7 +64,7 @@ public class EventoController extends HttpServlet {
 
         case "excluir":
             String mensagem = "evento " + evento.getTitulo() + " removido com sucesso";
-            evs.excluir(id);
+            evs.excluir(Integer.parseInt(request.getParameter("id")));
 
             session.setAttribute("sessao_mensagem", mensagem);
             response.sendRedirect("/horadoevento/dashboard-empresa/");

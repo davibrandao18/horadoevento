@@ -11,8 +11,8 @@
 
 <body>
 	<c:import url="../../components/navbar/full.jsp" />
-	<c:import url="../../components/modal/inscricaoView.jsp"/>
-	<c:import url="../../components/modal/inscricaoDelete.jsp"/>
+	<c:import url="../../components/modal/inscricaoView.jsp" />
+	<c:import url="../../components/modal/inscricaoDelete.jsp" />
 
 	<div class="bodyCover">
 		<c:if test='${sessao_user == null}'>
@@ -22,34 +22,50 @@
 		<c:if test='${sessao_user != null}'>
 			<div class="row">
 				<div class="col-12 align-self-center">
-					<h3 style="text-align: center;">
-					   ${sessao_user.nome}, aqui estão suas inscrições:
-					</h3>
+					<h3 style="text-align: center;">${sessao_user.nome}, aqui
+						estão suas inscrições:</h3>
 				</div>
-				<div class="col-6">
+				<div class="col-8">
 					<div class="table-responsive col-md-12">
 						<table class="table table-striped">
 							<thead>
-								<th>ID</th>
+							    <th>Empresa</th>
 								<th>Evento</th>
+								<th>Data Hora</th>
+								<th>Localização</th>
 								<th class="actions">Ações</th>
 							</thead>
 							<tbody>
 								<c:if test="${not empty inscricoes}">
 									<c:forEach var="inscricao" items="${inscricoes}">
 										<tr>
-											<td>${inscricao.id}</td>
+										    <td>${inscricao.evento.empresa.nome}</td>
 											<td>${inscricao.evento.titulo}</td>
+											<td>${inscricao.evento.dataHora}</td>
+											<td>${inscricao.evento.localizacao}</td>
 											<td class="actions">
-												<button id="${inscricao.id}" type="button"
-                                                    class="btn btn-primary btn-xs" data-toggle="modal"
-                                                    data-target="#modalInscricaoView" data-inscricao="${inscricao.id}">
-                                                    Visualizar</button>
-                                                    
-												<button id="${inscricao.id}" type="button"
-													class="btn btn-danger btn-xs" data-toggle="modal"
-													data-target="#deletemodal" data-inscricao="${inscricao.id}">
-													Excluir</button>
+                                                <form action="/horadoevento/Evento.do" method="post">
+                                                    <input
+                                                        type="hidden" name="id" value="${inscricao.evento.id}">
+                                                    <button
+                                                        type="submit"
+	                                                    class="btn btn-primary btn-xs"
+	                                                    name="acao"
+                                                        value="visualizar">
+                                                        Ver evento
+                                                    </button>
+                                                </form>
+                                                <form action="/horadoevento/controller.do" method="post">
+                                                    <input
+                                                        type="hidden" name="id" value="${inscricao.id}">
+                                                    <button
+                                                        type="submit"
+                                                        class="btn btn-danger btn-xs"
+                                                        name="command"
+                                                        value="CancelarInscricao">
+                                                        Cancelar
+                                                    </button>
+                                                </form>
 											</td>
 										</tr>
 									</c:forEach>
@@ -71,6 +87,8 @@
 		src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$("#modalInscricaoView").on('show.bs.modal', function(event) {
+			let array = [document.querySelector('label[]')]
+			
 			var button = $(event.relatedTarget); //botao que disparou a modal
 			var recipient = button.data('inscricao');
 			$("#id_i").val(recipient);

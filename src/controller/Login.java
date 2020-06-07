@@ -114,8 +114,8 @@ public class Login extends HttpServlet {
                     ArrayList<Evento> listaEventosPassados = evs.carregarEventosPassados(empresa.getCnpj());
                     sessao.setAttribute("listaEventosPassados", listaEventosPassados);
 
-                    ArrayList<Evento> listaEventosFuturos = evs.carregarEventosFuturos(empresa.getCnpj());
-                    sessao.setAttribute("listaEventosFuturos", listaEventosFuturos);
+                    //ArrayList<Evento> listaEventosFuturos = evs.carregarEventosFuturos(empresa.getCnpj());
+                    //sessao.setAttribute("listaEventosFuturos", listaEventosFuturos);
                     
                     ArrayList<Evento> listaEventos = evs.carregar(empresa.getCnpj());
                     sessao.setAttribute("listaEventos", listaEventos);                    

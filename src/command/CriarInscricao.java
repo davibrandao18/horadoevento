@@ -1,6 +1,7 @@
 package command;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,13 @@ public class CriarInscricao implements Command {
 		i.setEvento(e);
 		i.setId(is.criar(i));
 		
-		response.sendRedirect("/horadoevento/home/member/");
+		sessao.removeAttribute("inscricoes");
+        
+        ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+        inscricoes = is.listar(u);
+        
+        sessao.setAttribute("inscricoes", inscricoes);
+		
+		response.sendRedirect("/horadoevento/view/inscricao/");
 	}
 }
