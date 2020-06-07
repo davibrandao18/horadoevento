@@ -43,12 +43,12 @@
                                                 <button id="${evento.id}" type="button"
                                                     class="btn btn-primary btn-xs" data-toggle="modal"
                                                     data-target="#modalInscricaoView" data-inscricao="${inscricao.id}">
-                                                    Visualizar</button>
+                                                    <img alt="Visualizar" title="Visualizar" src="/horadoevento/assets/icons/eye.png" style="height: 30px;"></button>
                                                     
                                                 <button id="${evento.id}" type="button"
                                                     class="btn btn-danger btn-xs" data-toggle="modal"
                                                     data-target="#delete-modal" data-pais="${evento.id}">
-                                                    Excluir</button>
+                                                   <img alt="Excluir" title="Excluir" src="/horadoevento/assets/icons/trash.png" style="height: 40px;"></button>
                                             </td>
                                         </tr>
                                     </c:forEach>

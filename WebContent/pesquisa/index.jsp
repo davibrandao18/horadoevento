@@ -16,7 +16,7 @@
     	<div class="row" id="searchContainerUsuario">
 			<c:if test="${not empty listaUsuario}">
 				<c:forEach var="usuario" items="${listaUsuario}">
-				    <div class="col-6">
+				    <div class="col-6" style="margin-top: 20px; margin-left: 20px;">
 				        <form action="/horadoevento/perfil/Perfil.do" method="get">
 	                        <input type="hidden" value="${usuario.userName}" name="username"/>
 	                        <button class="card-result-user" type="submit" value="usuario" name="entidade">
@@ -31,14 +31,14 @@
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty listaUsuario}">
-				<p>Nenhum usuário encontrado</p>
+				<p style="margin-top: 20px; margin-left: 20px;">Nenhum usuário encontrado</p>
 			</c:if>
 		</div>
 		
 		<div class="row"  id="searchContainerEmpresa">
 			<c:if test="${not empty listaEmpresa}">		
 				<c:forEach var="empresa" items="${listaEmpresa}">
-				    <div class="col-6">
+				    <div class="col-6" style="margin-top: 20px; margin-left: 20px;">
 				        <form action="/horadoevento/perfil/Perfil.do" method="get">
 	                        <input type="hidden" value="${empresa.userName}" name="username"/>
 	                        <button class="card-result-empresa" type="submit" value="empresa" name="entidade">
@@ -53,14 +53,14 @@
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty listaEmpresa}">
-				<p>Nenhuma empresa encontrada</p>
+				<p style="margin-top: 20px; margin-left: 20px;">Nenhuma empresa encontrada</p>
 			</c:if>
 		</div>
 		
 		<div class="row"  id="searchContainerEvento">
 			<c:if test="${not empty listaEvento}">
 				<c:forEach var="evento" items="${listaEvento}">
-				    <div class="col-6">
+				    <div class="col-6" style="margin-top: 20px; margin-left: 20px;">
 				        <form action="/horadoevento/perfil/Perfil.do" method="get">
 	                        <input type="hidden" value="${evento.id}" name="id"/>
 	                        <button class="card-result-evento"  type="submit" value="evento" name="entidade">
@@ -80,7 +80,9 @@
 		</div>
 		
 
-    	<c:import url="../components/footer/" />
+    	<div style="position: absolute; bottom: 0; width: 100%;">
+            <c:import url="../components/footer/" />
+        </div>
 
         		
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
