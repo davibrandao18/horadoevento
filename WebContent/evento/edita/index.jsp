@@ -40,14 +40,16 @@
 					
 					<h5>Tags relacionadas</h5>
 					
-					<c:if test="${not empty lista}">
+					<c:if test="${not empty evento.colecaoTags}">
 			            <div id="list" class="row">
 							<div class="table-responsive col-md-12">
 			                	<table class="table table-striped">
 			                        <tbody>
-				        				<c:forEach var="tag" items="${lista}">
+				        				<c:forEach var="tag" items="${evento.colecaoTags}">
 				                            <tr>
-				                            	<td>${tag.nome}</td>
+				                                <c:if test="${tag.checado == 1}">
+				                            	   <td>${tag.nome}</td>
+				                            	</c:if>
 				                            </tr>
 				                        </c:forEach>
 			                        </tbody>
