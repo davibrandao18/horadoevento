@@ -1,14 +1,14 @@
 .text-esquerda {
-	margin-top: 20px;
-	margin-left: 170px;
+    margin-top: 20px;
+    margin-left: 170px;
 }
 
 .row {
-	display: flex;
+    display: flex;
 }
 
 .cpf-wrapper {
-  	margin-left: 19px;
+    margin-left: 19px;
     margin-bottom: 31px;
     width: 650px;
     height: 51px;
@@ -33,47 +33,47 @@
     background-color: white;
 }
 
-.items-esquerda { 
-	margin-left: 150px;
-	margin-bottom: 31px;
-  	height: 51px;
-  	width: 650px;
-  	opacity: 0.7;
-  	border-style: solid;
+.items-esquerda {
+    margin-left: 150px;
+    margin-bottom: 31px;
+    height: 51px;
+    width: 650px;
+    opacity: 0.7;
+    border-style: solid;
     border-width: 10px;
     border-color: #f2937e;
-  	border-radius: 7px;
- 	background-color: #f2937e;
+    border-radius: 7px;
+    background-color: #f2937e;
 }
 
 .text-direita {
-	margin-left: 39px;
-	margin-top: 20px;
+    margin-left: 39px;
+    margin-top: 20px;
 }
 
-.items-direita { 
-	margin-left: 19px;
-	margin-bottom: 31px;
-	width: 650px;
-  	height: 51px;
-  	opacity: 0.7;
-  	border-style: solid;
+.items-direita {
+    margin-left: 19px;
+    margin-bottom: 31px;
+    width: 650px;
+    height: 51px;
+    opacity: 0.7;
+    border-style: solid;
     border-width: 10px;
     border-color: #f2937e;
-  	border-radius: 7px;
- 	background-color: #f2937e;
+    border-radius: 7px;
+    background-color: #f2937e;
 }
 
 .botao-save {
-	position: absolute;
-	right: 180px;
-	justify-self: end;
-	width: 139px;
-  	height: 51px;
-  	opacity: 0.8;
-  	border-radius: 7px;
-  	border: none;
-  	background-color: #d95032;
+    position: absolute;
+    right: 180px;
+    justify-self: end;
+    width: 139px;
+    height: 51px;
+    opacity: 0.8;
+    border-radius: 7px;
+    border: none;
+    background-color: #d95032;
 }
 
 .botao-attDados {
@@ -89,25 +89,25 @@
 }
 
 .botao-cancel {
-	width: 150px;
-  	height: 51px;
-  	opacity: 1;
-  	border-radius: 7px;
-  	border: none;
-  	background-color: #f2d272;
-}
-
-.botao-delete {
-	height: 51px;
+    width: 150px;
+    height: 51px;
     opacity: 1;
     border-radius: 7px;
     border: none;
-	background-color: #db2d07;
-	color: white;
+    background-color: #f2d272;
+}
+
+.botao-delete {
+    height: 51px;
+    opacity: 1;
+    border-radius: 7px;
+    border: none;
+    background-color: #db2d07;
+    color: white;
 }
 
 .botao-novoEv {
-	width: 200px;
+    width: 200px;
     height: 51px;
     opacity: 1;
     border-radius: 7px;
@@ -116,7 +116,7 @@
 }
 
 .botaoFoto {
-	border-radius: 7px;
+    border-radius: 7px;
     border-style: solid;
     border-width: 5px;
     border-color: white;
@@ -128,12 +128,13 @@
     width: 150px;
     height: 150px;
 }
+
 .form-check {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
     border-radius: 7px;
     border-style: solid;
     border-width: 5px;
     border-color: white;
     background-color: white;
-	display: inline-block !important;
+    display: inline-block !important;
 }

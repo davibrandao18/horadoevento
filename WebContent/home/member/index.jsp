@@ -77,7 +77,7 @@
             </div>
         </c:if>
     </div>
-             
+
     <div style="position: absolute; bottom: 0; width: 100%;">
         <c:import url="../../components/footer/" />
     </div>

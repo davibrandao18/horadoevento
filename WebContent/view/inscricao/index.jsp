@@ -3,97 +3,89 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Inscrições</title>
-<c:import url="../../components/links.html" />
-<link rel="stylesheet" href="../view/view.css">
+    <title>Inscriï¿½ï¿½es</title>
+    <c:import url="../../components/links.html" />
+    <link rel="stylesheet" href="../view/view.css">
 </head>
 
 <body>
-	<c:import url="../../components/navbar/full.jsp" />
-	<c:import url="../../components/modal/inscricaoView.jsp" />
-	<c:import url="../../components/modal/inscricaoDelete.jsp" />
+    <c:import url="../../components/navbar/full.jsp" />
+    <c:import url="../../components/modal/inscricaoView.jsp" />
+    <c:import url="../../components/modal/inscricaoDelete.jsp" />
 
-	<div class="bodyCover">
-		<c:if test='${sessao_user == null}'>
-			<h1>Você não está logado</h1>
-			<a href="/horadoevento/inicio/">Voltar ao início</a>
-		</c:if>
-		<c:if test='${sessao_user != null}'>
-			<div class="row">
-				<div class="col-12 align-self-center">
-					<h3 style="text-align: center;">${sessao_user.nome}, aqui
-						estão suas inscrições:</h3>
-				</div>
-				<div class="col-8">
-					<div class="table-responsive col-md-12">
-						<table class="table table-striped">
-							<thead>
-							    <th>Empresa</th>
-								<th>Evento</th>
-								<th>Data Hora</th>
-								<th>Localização</th>
-								<th class="actions">Ações</th>
-							</thead>
-							<tbody>
-								<c:if test="${not empty inscricoes}">
-									<c:forEach var="inscricao" items="${inscricoes}">
-										<tr>
-										    <td>${inscricao.evento.empresa.nome}</td>
-											<td>${inscricao.evento.titulo}</td>
-											<td>${inscricao.evento.dataHora}</td>
-											<td>${inscricao.evento.localizacao}</td>
-											<td class="actions">
+    <div class="bodyCover">
+        <c:if test='${sessao_user == null}'>
+            <h1>Vocï¿½ nï¿½o estï¿½ logado</h1>
+            <a href="/horadoevento/inicio/">Voltar ao inï¿½cio</a>
+        </c:if>
+        <c:if test='${sessao_user != null}'>
+            <div class="row">
+                <div class="col-12 align-self-center">
+                    <h3 style="text-align: center;">${sessao_user.nome}, aqui
+                        estï¿½o suas inscriï¿½ï¿½es:</h3>
+                </div>
+                <div class="col-8">
+                    <div class="table-responsive col-md-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <th>Empresa</th>
+                                <th>Evento</th>
+                                <th>Data Hora</th>
+                                <th>Localizaï¿½ï¿½o</th>
+                                <th class="actions">Aï¿½ï¿½es</th>
+                            </thead>
+                            <tbody>
+                                <c:if test="${not empty inscricoes}">
+                                    <c:forEach var="inscricao" items="${inscricoes}">
+                                        <tr>
+                                            <td>${inscricao.evento.empresa.nome}</td>
+                                            <td>${inscricao.evento.titulo}</td>
+                                            <td>${inscricao.evento.dataHora}</td>
+                                            <td>${inscricao.evento.localizacao}</td>
+                                            <td class="actions">
                                                 <form action="/horadoevento/Evento.do" method="post">
-                                                    <input
-                                                        type="hidden" name="id" value="${inscricao.evento.id}">
-                                                    <button
-                                                        type="submit"
-	                                                    class="btn btn-primary btn-xs"
-	                                                    name="acao"
+                                                    <input type="hidden" name="id" value="${inscricao.evento.id}">
+                                                    <button type="submit" class="btn btn-primary btn-xs" name="acao"
                                                         value="visualizar">
                                                         Ver evento
                                                     </button>
                                                 </form>
                                                 <form action="/horadoevento/controller.do" method="post">
-                                                    <input
-                                                        type="hidden" name="id" value="${inscricao.id}">
-                                                    <button
-                                                        type="submit"
-                                                        class="btn btn-danger btn-xs"
-                                                        name="command"
+                                                    <input type="hidden" name="id" value="${inscricao.id}">
+                                                    <button type="submit" class="btn btn-danger btn-xs" name="command"
                                                         value="CancelarInscricao">
                                                         Cancelar
                                                     </button>
                                                 </form>
-											</td>
-										</tr>
-									</c:forEach>
-								</c:if>
-							</tbody>
-						</table>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if>
+                            </tbody>
+                        </table>
 
-					</div>
-				</div>
-			</div>
-		</c:if>
-	</div>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+    </div>
 
-	<c:import url="../../components/footer/" />
+    <c:import url="../../components/footer/" />
 
-	<script type="text/javascript"
-		src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript"
-		src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$("#modalInscricaoView").on('show.bs.modal', function(event) {
-			let array = [document.querySelector('label[]')]
-			
-			var button = $(event.relatedTarget); //botao que disparou a modal
-			var recipient = button.data('inscricao');
-			$("#id_i").val(recipient);
-		});
-	</script>
+    <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $("#modalInscricaoView").on('show.bs.modal', function (event) {
+            let array = [document.querySelector('label[]')]
+
+            var button = $(event.relatedTarget); //botao que disparou a modal
+            var recipient = button.data('inscricao');
+            $("#id_i").val(recipient);
+        });
+    </script>
 
 </body>
+
 </html>

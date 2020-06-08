@@ -1,11 +1,15 @@
 body {
-	background-color: #c2c0c3;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment : fixed;
-	background-image: url("/horadoevento/assets/backgrounds/city-default.jpg");
+    background-color: #c2c0c3;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("/horadoevento/assets/backgrounds/city-default.jpg");
 }
 
-#formCadastroEmpresa { display: none; }
+#formCadastroEmpresa {
+    display: none;
+}
 
-.redButton{ background-color: #d95032 !important; }
+.redButton {
+    background-color: #d95032 !important;
+}

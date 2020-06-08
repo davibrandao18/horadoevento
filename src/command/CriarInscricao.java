@@ -16,28 +16,29 @@ import service.InscricaoService;
 
 public class CriarInscricao implements Command {
 
-	@Override
-	public void executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idEvento = Integer.parseInt(request.getParameter("idEvento"));
-		HttpSession sessao = request.getSession();
-		Usuario u = (Usuario) sessao.getAttribute("sessao_user");
-		
-		Inscricao i = new Inscricao();
-		InscricaoService is = new InscricaoService();
-		EventoService evs = new EventoService();
-		Evento e = evs.carregar(idEvento);
-		
-		i.setUser(u);
-		i.setEvento(e);
-		i.setId(is.criar(i));
-		
-		sessao.removeAttribute("inscricoes");
-        
+    @Override
+    public void executar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idEvento = Integer.parseInt(request.getParameter("idEvento"));
+        HttpSession sessao = request.getSession();
+        Usuario u = (Usuario) sessao.getAttribute("sessao_user");
+
+        Inscricao i = new Inscricao();
+        InscricaoService is = new InscricaoService();
+        EventoService evs = new EventoService();
+        Evento e = evs.carregar(idEvento);
+
+        i.setUser(u);
+        i.setEvento(e);
+        i.setId(is.criar(i));
+
+        sessao.removeAttribute("inscricoes");
+
         ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
         inscricoes = is.listar(u);
-        
+
         sessao.setAttribute("inscricoes", inscricoes);
-		
-		response.sendRedirect("/horadoevento/view/inscricao/");
-	}
+
+        response.sendRedirect("/horadoevento/view/inscricao/");
+    }
 }
