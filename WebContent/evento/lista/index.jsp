@@ -73,9 +73,7 @@
         </c:if>
         </div>
         
-        <div style="position: absolute; bottom: 0; width: 100%;">
-            <c:import url="../../components/footer/" />
-        </div>
+        <c:import url="../../components/footer/" />
 
         <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
