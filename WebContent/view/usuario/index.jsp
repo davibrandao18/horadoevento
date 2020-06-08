@@ -9,23 +9,27 @@
         <link rel="stylesheet" href="../view/view.css">
     </head>
     
-    <body>
+    <body class="bodyCover">
     	<c:import url="../../components/navbar/full.jsp"/>
     	
     	<div class="bodyContent">
 	    	
-	    	<div class="container">
+	    	<div class="container container-dados">
 	    		<div class="row">
-	    			<div class="col-12 col-md-6">
-	    				<%!//TODO foto /!\%>
-	    			</div>
-	    			<div class="col-12 col-md-6">
-	    			<c:out value="${usuario.nome}"/>
-	    				<h3>${usuario.nome}</h3>
-	    				<small>${usuario.userName}</small>
-		     			<a href="${usuario.linkedin}" target="_blank">LINKEDIN</a><%!//TODO icon linkedin /!\%>
-	    			</div>
-	    		</div>
+                    <div class="col-lg-6 col-md-3">
+                        <img class="foto-fix"
+                            src="/horadoevento/assets/icons/helperCabeca.svg" />
+                     </div>
+                     <div class="col-lg-6 col-md-3 text-fix">
+                         <div class="row">
+                            <h3>${usuario.getNome()}</h3>
+                          </div>
+                          <div class="row">
+                            <small>${usuario.email}</small>
+                            <a href="${empresa.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+                          </div>
+                     </div>
+                 </div>
 	    	</div>
 	    	
 	    	<div class="row">
@@ -37,7 +41,9 @@
 	    	</div>
 		</div>
 		
-		<c:import url="../../components/footer/"/>
+		<div style="position: absolute; bottom: 0; width: 100%">
+        <c:import url="../../components/footer/"/>
+        </div>
 
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>

@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="../home.css">
     </head>
     
-    <body>
+    <body class="bodyCover">
     	<c:import url="../../components/navbar/visitante.jsp"/>
 		
-		<div class="bodyCover">
+		<div>
 			<c:import url="../../components/carousel/"/>
 			
 			<div class="container">
@@ -67,8 +67,9 @@
 				</div>
 			</div>
 			
-    	<c:import url="../../components/footer-outro-sprite/" />
-			
+			<div style="position: absolute; bottom: 0; width: 100%;">	
+	    	<c:import url="../../components/footer-outro-sprite/" />
+			</div>	
 		</div>
 		
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>

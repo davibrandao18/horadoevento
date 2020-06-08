@@ -9,71 +9,93 @@
         <link rel="stylesheet" href="../view/view.css"/>
     </head>
     
-    <body>
+    <body class="bodyCover">
     	<c:import url="../../components/navbar/full.jsp"/>
     	<div class="bodyContent">
-	    	<div class="container">
-	    		<div class="row">
-	    			<div class="col-12 col-md-6">
-	    				<h3>${empresa.getNome()}</h3>
-	     				<small> ${empresa.getUserName()} </small>
-		     			<a href="${empresa.getLinkedin()}" target="_blank">LINKEDIN</a><%!//TODO icon linkedin /!\%>
-	    			</div>
-	    		</div>
-	    	</div>
-			
-	    	<div class="row">
-	    		<div class="col-12">
-	    			<h5>Próximos eventos</h5>
-	    			<%! //TODO exibição arraylist botões eventos %>
-	    			<%! //TODO pesquisa join com eventos %>
-	    		</div>
-	    	</div>
-	    	
-	    	<div class="row">
-	    		<div class="col-12">
-	    			<h5>Últimos eventos</h5>
-	    			<%! //TODO exibição botões link evento %>
-	    			<%! //TODO %>
-	    		</div>
-	    	</div>
     		<c:if test='${sessao_user == null}'>
 				<h1>Você não está logado</h1>
 				<a href="/horadoevento/inicio/">Voltar ao início</a>
 			</c:if>
 			<c:if test='${sessao_user != null}'>
-		    	<div class="container">
-		    		<div class="row">
-		    			<div class="col-12 col-md-6">
-		    				<%!//TODO foto /!\%>
+		    	<div class="container container-dados">
+                    <div class="row">
+		    			<div class="col-lg-6 col-md-3">
+                        <img class="img-perfil-hde foto-fix"
+                            src="/horadoevento/assets/icons/empresas.svg" />
 		    			</div>
-		    			<div class="col-12 col-md-6">
+		    			<div class="col-lg-6 col-md-3 text-fix">
+		    				<div class="row">
 		    				<h3>${empresa.getNome()}</h3>
-		     				<small> ${empresa.getUserName()} </small>
+		    				</div>
+		    				<div class="row">
+		     				<small>${empresa.cidade}, </small>
+		     				<small>${empresa.estado}</small>
 			     			<a href="${empresa.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+		    				</div>
 		    			</div>
-		    		</div>
+                    </div>
 		    	</div>
+			    	<div class="row eventos-row">
+			    		<div class="col-12">
+			    			<h5>Próximos eventos</h5>
+				    			<div class="row">
+			                        <div class="col-6 col-md-3 mt-2">
+			                            <button class="card-hde primary-card yellow-card">
+			                                FUNDAMENTOS DO DESIGN THINKING <br> <br> <small>02/10/2020 | 13:00</small>
+			                            </button>
+			                        </div>
+			                        <div class="col-6 col-md-3 mt-2">
+			                            <button class="card-hde primary-card yellow-card">
+			                                MÉTODO GARAGE NO DESENVOLVIMENTO DE SOFTWARES <br> <br> <small>20/07/2020 | 10:45</small>
+			                            </button>
+			                        </div>
+			                        <div class="col-6 col-md-3 mt-2">
+			                            <button class="card-hde primary-card yellow-card">
+			                                PUNK GAMIFICATION <br> <br> <small>13/05/2021 | 15:00</small>
+			                            </button>
+			                        </div>
+			                        <div class="col-6 col-md-3 mt-2">
+			                            <button class="card-hde primary-card yellow-card">
+			                                TRANSFORMÇÃO AGILE <br> <br> <small>22/06/2020 | 20:30</small>
+			                            </button>
+			                        </div>
+	                            </div>
+			    			<%! //TODO exibição arraylist botões eventos %>
+			    			<%! //TODO pesquisa join com eventos %>
+		    		</div>
+			    	</div>
+			    	
+			    	<div class="row eventos-row">
+                        <div class="col-12">
+                            <h5>Últimos eventos</h5>
+                                <div class="row">
+                                    <div class="col-6 col-md-3 mt-2">
+                                        <button class="card-hde primary-card pink-card">
+                                            WATSON HEALTH <br> <br> <small>02/10/2019 | 13:00</small>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 col-md-3 mt-2">
+                                        <button class="card-hde primary-card pink-card">
+                                            AGILE LEADERSHIP <br> <br> <small>20/07/2019 | 10:45</small>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 col-md-3 mt-2">
+                                        <button class="card-hde primary-card pink-card">
+                                            WATSON E A REVOLUÇÃO DA IA <br> <br> <small>13/05/2020 | 15:00</small>
+                                        </button>
+                                    </div>
+                                </div>
+			    			<%! //TODO exibição botões link evento %>
+			    			<%! //TODO %>
+			    		</div>
+			    	</div>
 				
-		    	<div class="row">
-		    		<div class="col-12">
-		    			<h5>Próximos eventos</h5>
-		    			<%! //TODO exibição arraylist botões eventos %>
-		    			<%! //TODO pesquisa join com eventos %>
-		    		</div>
-		    	</div>
-		    	
-		    	<div class="row">
-		    		<div class="col-12">
-		    			<h5>Últimos eventos</h5>
-		    			<%! //TODO exibição botões link evento %>
-		    			<%! //TODO %>
-		    		</div>
-		    	</div>
 	    	</c:if>
 	    </div>
 
-     	<c:import url="../../components/footer/"/>
+     	<div style="position: absolute; bottom: 0; width: 100%">
+        <c:import url="../../components/footer/"/>
+        </div>
      	
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>

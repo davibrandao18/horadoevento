@@ -1,9 +1,3 @@
-body {
-	background-image: url("/horadoevento/assets/backgrounds/fieldWidescreen.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	}
-
 .text-esquerda {
 	margin-top: 20px;
 	margin-left: 170px;
@@ -13,51 +7,41 @@ body {
 	display: flex;
 }
 
-.name-wrapper {
-	width: 240px;
-  	height: 51px;
-  	opacity: 0.7;
-  	border: none;
-  	border-radius: 7px;
- 	background-color: #f2937e;
+.cpf-wrapper {
+  	margin-left: 19px;
+    margin-bottom: 31px;
+    width: 650px;
+    height: 51px;
+    opacity: 0.5;
+    border-style: solid;
+    border-width: 10px;
+    border-color: white;
+    border-radius: 7px;
+    background-color: white;
 }
 
 .username-wrapper {
-	width: 240px;
-  	height: 51px;
-  	opacity: 0.7;
-  	border: none;
-  	border-radius: 7px;
- 	background-color: #f2937e;
-}
-
-.email-wrapper {
-	width: 240px;
-  	height: 51px;
-  	opacity: 0.7;
-  	border: none;
-  	border-radius: 7px;
- 	background-color: #f2937e;
-}
-
-.evento-wrapper {
-	position: absolute;
-	left: 50%;
-	justify-self: center;
-	height: 500px;
-	width: 720px;
-	opacity: 0.7;
-  	border: none;
-  	border-radius: 7px;
-	background-color: #f2937e;
+    margin-left: 150px;
+    margin-bottom: 31px;
+    height: 51px;
+    width: 650px;
+    opacity: 0.5;
+    border-style: solid;
+    border-width: 10px;
+    border-color: white;
+    border-radius: 7px;
+    background-color: white;
 }
 
 .items-esquerda { 
 	margin-left: 150px;
 	margin-bottom: 31px;
   	height: 51px;
+  	width: 650px;
   	opacity: 0.7;
-  	border: none;
+  	border-style: solid;
+    border-width: 10px;
+    border-color: #f2937e;
   	border-radius: 7px;
  	background-color: #f2937e;
 }
@@ -70,9 +54,12 @@ body {
 .items-direita { 
 	margin-left: 19px;
 	margin-bottom: 31px;
+	width: 650px;
   	height: 51px;
   	opacity: 0.7;
-  	border: none;
+  	border-style: solid;
+    border-width: 10px;
+    border-color: #f2937e;
   	border-radius: 7px;
  	background-color: #f2937e;
 }
@@ -89,6 +76,18 @@ body {
   	background-color: #d95032;
 }
 
+.botao-attDados {
+    position: absolute;
+    right: 180px;
+    justify-self: end;
+    width: 200px;
+    height: 51px;
+    opacity: 0.8;
+    border-radius: 7px;
+    border: none;
+    background-color: #d95032;
+}
+
 .botao-cancel {
 	width: 150px;
   	height: 51px;
@@ -99,6 +98,42 @@ body {
 }
 
 .botao-delete {
+	height: 51px;
+    opacity: 1;
+    border-radius: 7px;
+    border: none;
 	background-color: #db2d07;
 	color: white;
+}
+
+.botao-novoEv {
+	width: 200px;
+    height: 51px;
+    opacity: 1;
+    border-radius: 7px;
+    border: none;
+    background-color: white;
+}
+
+.botaoFoto {
+	border-radius: 7px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    background-color: white;
+}
+
+.foto-fix {
+    margin-top: 5px;
+    width: 150px;
+    height: 150px;
+}
+.form-check {
+	margin-bottom: 10px;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    background-color: white;
+	display: inline-block !important;
 }

@@ -14,3 +14,43 @@
 	position: absolute;
 	right: 10;
 }
+
+.container-dados {
+	margin-top: 40px;
+	width: 500px;
+	border-radius: 7px;
+}
+
+.eventos-row {
+	margin-top: 30px;
+	margin-left: 10px;
+	display: flex;
+}
+
+.foto-fix {
+	margin-top: 5px;
+	width: 150px;
+    height: 150px;
+}
+
+.text-fix {
+	margin-top: 25px;
+	position: relative;
+	left: -30px;
+}
+
+.yellow-card {
+	margin-bottom: 40px;
+	width: 400px;
+    background-color: #f2d272;
+    height: 150px;
+    opacity: 0.86;
+}
+
+.pink-card {
+	margin-bottom: 40px;
+    width: 400px;
+    background-color: #d95032;
+    height: 150px;
+    opacity: 0.7;
+}

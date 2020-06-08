@@ -8,7 +8,7 @@
 		<c:import url="/components/links.html"/>
 		
 	</head>
-<body>
+<body class="bodyCover">
 	<c:import url="/components/navbar/full.jsp"/>
 	
 	<form action="../../cadastro/Cadastro.do" method="post" id="formCadastroUsuario">
