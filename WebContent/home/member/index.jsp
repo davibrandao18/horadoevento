@@ -51,29 +51,16 @@
 
                 <h5 class="text-center mt-4">Categorias</h5>
 
-                <div class="row pb-4 justify-content-center">
-                    <c:forEach var="tag" items="${listaTagsTotais}">
-                        <div class="col-10 col-md-3 mt-2">
-	                        <div class="row pb-4 justify-content-center">
-	                            <div class="col mt-2">
-	                                <form action="/horadoevento/pesquisa/Pesquisa.do" method="get">
-	                                    <input
-	                                        type="hidden"
-	                                        name="idTag"
-	                                        value="${tag.id}"/>
-	                                    <button
-	                                        type="submit"
-	                                        class="card-hde secondary-card text-center pink-card"
-	                                        name="criterio"
-	                                        value="tag">
-	                                        ${tag.nome}
-	                                    </button>
-	                                </form>
-	                            </div>
-	                        </div>
-	                    </div>
-                    </c:forEach>
-                </div>
+                <div class="row pb-4" style="justify-content: space-evenly;">
+					<c:forEach var="tag" items="${listaTagsTotais}">
+						<form action="/horadoevento/pesquisa/Pesquisa.do" method="get">
+							<input type="hidden" name="idTag" value="${tag.id}" />
+							<button type="submit"
+								class="card-hde pink-card"
+								name="criterio" value="tag">${tag.nome}</button>
+						</form>
+					</c:forEach>
+				</div>
             </div>
         </c:if>
     </div>
