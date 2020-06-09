@@ -1,11 +1,17 @@
+.yellow-card, .red-card {
+	height: auto;
+}
+
 .yellow-card {
 	background-color: #f2d272;
-	height: 134px;
 	opacity: 0.86;
 }
 
 .pink-card {
+	width: 260px!important;
 	background-color: #d95032;
-	height: 134px;
 	opacity: 0.7;
+	min-width: 60px;
+	text-align: center;
+	margin-top: 10px;
 }
