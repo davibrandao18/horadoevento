@@ -17,14 +17,14 @@
 
     <div class="bodyCover">
         <c:if test='${sessao_user == null}'>
-            <h1>Voc� n�o est� logado</h1>
-            <a href="/horadoevento/inicio/">Voltar ao in�cio</a>
+            <h1>Voce nao esta logado</h1>
+            <a href="/horadoevento/inicio/">Voltar ao inicio</a>
         </c:if>
         <c:if test='${sessao_user != null}'>
             <div class="row">
                 <div class="col-12 align-self-center">
                     <h3 style="text-align: center;">${sessao_user.nome}, aqui
-                        est�o suas inscri��es:</h3>
+                        estao suas inscricoes:</h3>
                 </div>
                 <div class="col-8">
                     <div class="table-responsive col-md-12">
@@ -33,8 +33,8 @@
                                 <th>Empresa</th>
                                 <th>Evento</th>
                                 <th>Data Hora</th>
-                                <th>Localiza��o</th>
-                                <th class="actions">A��es</th>
+                                <th>Localizacao</th>
+                                <th class="actions">Acoes</th>
                             </thead>
                             <tbody>
                                 <c:if test="${not empty inscricoes}">

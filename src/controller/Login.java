@@ -83,6 +83,8 @@ public class Login extends HttpServlet {
 					ArrayList<Tag> listaTagsTotais = new ArrayList<Tag>();
 					listaTagsTotais = ts.carregar();
 					
+					System.out.println("LOgin: " + listaTagsTotais.toString());
+					
 					ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
                     inscricoes = is.listar(user);
 					

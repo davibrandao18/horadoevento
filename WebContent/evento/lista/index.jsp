@@ -15,14 +15,14 @@
 
     <div class="bodyContent">
         <c:if test='${sessao_user == null}'>
-            <h1>Voc� n�o est� logado</h1>
-            <a href="/horadoevento/inicio/">Voltar ao in�cio</a>
+            <h1>Voca nao esta logado</h1>
+            <a href="/horadoevento/inicio/">Voltar ao inicio</a>
         </c:if>
         <c:if test='${sessao_user != null}'>
             <div class="row">
                 <div class="col-12 align-self-center">
                     <h3 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">${sessao_user.nome}, aqui
-                        est�o
+                        esta
                         seus Eventos:</h3>
                 </div>
                 <div class="col-8">
@@ -31,7 +31,7 @@
                             <thead>
                                 <th>Evento</th>
                                 <th>Data</th>
-                                <th class="actions">A��es</th>
+                                <th class="actions">Acoes</th>
                             </thead>
                             <tbody>
                                 <c:if test="${not empty listaEventos}">

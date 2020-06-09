@@ -52,15 +52,15 @@
                 <h5 class="text-center mt-4">Categorias</h5>
 
                 <div class="row pb-4 justify-content-center">
-                    <c:forEach var="tag" items="listaTagsTotais">
+                    <c:forEach var="tag" items="${listaTagsTotais}">
                         <div class="col-10 col-md-3 mt-2">
 	                        <div class="row pb-4 justify-content-center">
-	                            <div class="col-10 col-md-3 mt-2">
+	                            <div class="col mt-2">
 	                                <form action="/horadoevento/pesquisa/Pesquisa.do" method="get">
 	                                    <input
 	                                        type="hidden"
 	                                        name="idTag"
-	                                        value="${tag.id}">
+	                                        value="${tag.id}"/>
 	                                    <button
 	                                        type="submit"
 	                                        class="card-hde secondary-card text-center pink-card"
@@ -78,9 +78,7 @@
         </c:if>
     </div>
 
-    <div style="position: absolute; bottom: 0; width: 100%;">
-        <c:import url="../../components/footer/" />
-    </div>
+   <c:import url="../../components/footer/" />
 
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>

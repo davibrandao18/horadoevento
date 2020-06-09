@@ -219,7 +219,7 @@ body {
 /* CARTÕES */
 
 .card-hde {
-    width: 100%;
+    width: fit-content;
     height: auto;
     border: none;
     border-radius: 10px;
