@@ -69,4 +69,4 @@ select fk_evento_id from tag_evento where fk_tag_id = 2;
 select evento.* from evento where evento.id in (select fk_evento_id from tag_evento where fk_tag_id = 2);
 
 select evento.* from evento where evento.id in (select fk_evento_id from tag_evento where fk_tag_id 
-in (select fk_tag_id from tag_usuario where fk_usuario_cpf = 0000000001));
+in (select fk_tag_id from tag_usuario where fk_usuario_cpf = 0000000005));
