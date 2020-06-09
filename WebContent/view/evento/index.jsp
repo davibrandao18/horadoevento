@@ -16,8 +16,8 @@
 
     <div>
         <c:if test='${sessao_user == null}'>
-            <h1>Voc� n�o est� logado</h1>
-            <a href="/horadoevento/inicio/">Voltar ao in�cio</a>
+            <h1>Voce nao esta logado</h1>
+            <a href="/horadoevento/inicio/">Voltar ao inicio</a>
         </c:if>
         <c:if test='${sessao_user != null}'>
             <div class="bodyContent">
@@ -78,7 +78,7 @@
                                 <input type="hidden" name="id" value="${inscricao.id}">
                                 <button type="submit" class="btn btn-danger btn-xs" name="command"
                                     value="CancelarInscricao">
-                                    Cancelar Inscri��o
+                                    Cancelar Inscricao
                                 </button>
                             </form>
                         </c:if>
