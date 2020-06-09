@@ -26,13 +26,13 @@
                     <input type="datetime-local" value="${evento.dataHora}" class="form-control bginput-hde"
                         name="data-hora" id="data-hora" required maxlength="100">
 
-                    <label for="localizacao">Localiza��o:</label>
+                    <label for="localizacao">Localizacao:</label>
                     <input name="localizacao" value="${evento.localizacao}" type="text"> <br>
 
-                    <label for="descricao">Descri��o:</label>
+                    <label for="descricao">Descricao:</label>
                     <textarea name="descricao">${evento.descricao}</textarea> <br>
 
-                    <label for="duracao">Dura��o em minutos:</label>
+                    <label for="duracao">Duracao em minutos:</label>
                     <input name="duracao" value="${evento.duracao}" type="number"> <br>
 
                     <label for="qtd-vaga">Quantidade de vagas:</label>

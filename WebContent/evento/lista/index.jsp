@@ -50,8 +50,8 @@
                                                             style="height: 30px;">
                                                     </button>
 
-                                                    <button id="${evento.id}" type="submit"
-                                                        class="btn btn-warning btn-xs" value="${inscricao.id}"
+                                                    <button type="submit"
+                                                        class="btn btn-warning btn-xs"
                                                         name="acao" value="editar">
                                                         Editar
                                                     </button>

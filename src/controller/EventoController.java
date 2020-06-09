@@ -46,7 +46,7 @@ public class EventoController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         String acao = request.getParameter("acao");
-        //System.out.println("acao " + acao);
+        System.out.println("Acao: "+acao);
         Evento evento = new Evento();
         EventoService evs = new EventoService();
 
@@ -59,8 +59,6 @@ public class EventoController extends HttpServlet {
             } else {
                 TagService ts = new TagService();
                 evento.setColecaoTags(ts.carregarTagEvento(evento));
-                
-                System.out.println("Event Controller:"+evento.getColecaoTags().toString());
                 
                 request.setAttribute("evento", evento);
                 request.getRequestDispatcher("/view/evento/").forward(request, response);
@@ -87,13 +85,14 @@ public class EventoController extends HttpServlet {
             evento.setDuracao(Integer.parseInt(request.getParameter("duracao")));
             evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
             evento.setPalestrante(request.getParameter("palestrante"));
+            System.out.println("Servlet : "+request.getParameter("id"));
             evento.setId(Integer.parseInt(request.getParameter("id")));
             evento.setEmpresa(empresa);
 
             ArrayList<Tag> tags = handleTags(evento, request.getParameterValues("checkbox"));
 
             if (evento.getId() == -1) {
-                request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
+                request.getRequestDispatcher("/horadoevento/dashboard-empresa/").forward(request, response);
 
             } else {
                 evs.inserirTag(tags, evento);
@@ -103,8 +102,7 @@ public class EventoController extends HttpServlet {
                     e.printStackTrace();
                 }
                 session.setAttribute("id", evento.getId());
-                session.setAttribute("acao", "visualizar");
-                request.getRequestDispatcher("../Evento.do").forward(request, response);
+                request.getRequestDispatcher("/evento/edita/").forward(request, response);
             }
             break;
         }
