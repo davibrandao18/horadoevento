@@ -1,9 +1,6 @@
-.yellow-card, .red-card {
-	height: auto;
-}
-
 .yellow-card {
 	background-color: #f2d272;
+	height: 100px;
 	opacity: 0.86;
 }
 
@@ -12,6 +9,7 @@
 	background-color: #d95032;
 	opacity: 0.7;
 	min-width: 60px;
+	height: 100px;
 	text-align: center;
 	margin-top: 10px;
 }

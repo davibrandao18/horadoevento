@@ -83,7 +83,7 @@
         </c:if>
     </div>
 
-
+    <div style="position: relative; bottom: -600px; width: 100%;"></div>
     <c:import url="../components/footer/" />
 
 
