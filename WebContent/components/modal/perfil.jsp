@@ -14,7 +14,7 @@
             <form action="/horadoevento/Remover.do" method="post">
                 <div class="modal-body">
                     <input type="hidden" name="username" value="${sessao_user.userName}">
-                    Voce tem certeza que deseja apagar o seu perfil? Esta acao nao podera ser desfeita.
+                    <p class="text-dark">Voce tem certeza que deseja apagar o seu perfil? Esta acao nao podera ser desfeita.</p>
                     <input type="text" placeholder="cpf" name="cpf">
                     <input type="text" placeholder="senha" name="senha">
                 </div>
