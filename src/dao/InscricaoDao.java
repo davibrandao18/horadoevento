@@ -124,6 +124,21 @@ public class InscricaoDao {
 				e.printStackTrace();
 		}
 	}
+	/**
+     * Metodo para deletar inscricao
+     * @param id
+     */
+    public void deletarInscricaoEvento(int id){
+        String deletar = "DELETE FROM inscricao WHERE fk_evento_id = ?";
+        try (Connection conectar = ConnectionFactory.obtemConexao();
+                PreparedStatement pst = conectar.prepareStatement(deletar)) {
+            pst.setInt(1, id);
+            pst.execute();
+                    
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
+    }
 	
 	
 	/**
