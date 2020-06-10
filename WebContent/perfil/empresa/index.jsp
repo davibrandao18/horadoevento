@@ -92,9 +92,9 @@
 
         </c:if>
     </div>
-    <div style="position: absolute; bottom: 0; width: 100%;">
-	    <c:import url="../../components/footer/" />
-    </div>
+         <div style="position: absolute; bottom: 0; width: 100%;">
+                 <c:import url="../../components/footer/" />
+        </div>
     <c:import url="../../components/modal/perfil.jsp" />
 
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
