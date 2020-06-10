@@ -29,22 +29,22 @@
                 <div class="row">
                     <div class="col-6 col-md-3 mt-2">
                         <button class="card-hde primary-card yellow-card">
-                            EVENTO W <br> <br> <small>[data] | [hora]</small>
+                            Segurança de TI <br><small>20/06/2020 | 10:00</small>
                         </button>
                     </div>
                     <div class="col-6 col-md-3 mt-2">
                         <button class="card-hde primary-card yellow-card">
-                            EVENTO X <br> <br> <small>[data] | [hora]</small>
+                           Campeonato de COD <br><small>05/07/2020 | 15:30</small>
                         </button>
                     </div>
                     <div class="col-6 col-md-3 mt-2">
                         <button class="card-hde primary-card yellow-card">
-                            EVENTO Y <br> <br> <small>[data] | [hora]</small>
+                            Desenvolvimento Mobile <br><small>14/09/2020 | 12:00</small>
                         </button>
                     </div>
                     <div class="col-6 col-md-3 mt-2">
                         <button class="card-hde primary-card yellow-card">
-                            EVENTO Z <br> <br> <small>[data] | [hora]</small>
+                            Procure por mais eventos
                         </button>
                     </div>
                 </div>

@@ -14,8 +14,7 @@
     <c:import url="../../components/navbar/full.jsp" />
     <div class="bodyContent">
         <c:if test='${sessao_user == null}'>
-            <h1>Voc� n�o est� logado</h1>
-            <a href="/horadoevento/inicio/">Voltar ao in�cio</a>
+            <c:import url=""/>
         </c:if>
         <c:if test='${sessao_user != null}'>
             <div class="container container-dados">
@@ -37,7 +36,7 @@
             </div>
             <div class="row eventos-row">
                 <div class="col-12">
-                    <h5>Pr�ximos eventos</h5>
+                    <h5>Proximos eventos</h5>
                     <div class="row">
                         <div class="col-6 col-md-3 mt-2">
                             <button class="card-hde primary-card yellow-card">
@@ -46,7 +45,7 @@
                         </div>
                         <div class="col-6 col-md-3 mt-2">
                             <button class="card-hde primary-card yellow-card">
-                                M�TODO GARAGE NO DESENVOLVIMENTO DE SOFTWARES <br> <br> <small>20/07/2020 |
+                                METODO GARAGE NO DESENVOLVIMENTO DE SOFTWARES <br> <br> <small>20/07/2020 |
                                     10:45</small>
                             </button>
                         </div>
@@ -57,18 +56,16 @@
                         </div>
                         <div class="col-6 col-md-3 mt-2">
                             <button class="card-hde primary-card yellow-card">
-                                TRANSFORM��O AGILE <br> <br> <small>22/06/2020 | 20:30</small>
+                                TRANSFORMCAO AGILE <br> <br> <small>22/06/2020 | 20:30</small>
                             </button>
                         </div>
                     </div>
-                    <%! //TODO exibi��o arraylist bot�es eventos %>
-                    <%! //TODO pesquisa join com eventos %>
                 </div>
             </div>
 
             <div class="row eventos-row">
                 <div class="col-12">
-                    <h5>�ltimos eventos</h5>
+                    <h5>Ultimos eventos</h5>
                     <div class="row">
                         <div class="col-6 col-md-3 mt-2">
                             <button class="card-hde primary-card pink-card">
@@ -82,12 +79,10 @@
                         </div>
                         <div class="col-6 col-md-3 mt-2">
                             <button class="card-hde primary-card pink-card">
-                                WATSON E A REVOLU��O DA IA <br> <br> <small>13/05/2020 | 15:00</small>
+                                WATSON E A REVOLUCAO DA IA <br> <br> <small>13/05/2020 | 15:00</small>
                             </button>
                         </div>
                     </div>
-                    <%! //TODO exibi��o bot�es link evento %>
-                    <%! //TODO %>
                 </div>
             </div>
 

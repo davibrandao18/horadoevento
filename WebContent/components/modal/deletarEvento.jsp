@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">Deseja realmente deletar este evento?</div>
             <div class="modal-footer">
-                <form action="Controller.do" method="post">
+                <form action="/horadoevento/Evento.do" method="post">
                     <input type="hidden" name="id" id="id_excluir" />
                     <button type="submit" class="btn btn-primary" name="acao" value="excluir">Sim</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">

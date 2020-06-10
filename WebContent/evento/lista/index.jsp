@@ -82,6 +82,13 @@
 
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$("#delete-modal").on('show.bs.modal', function(event) {
+			var button = $(event.relatedTarget); //botao que disparou a modal
+			var recipient = button.data('evento');
+			$("#id_excluir").val(recipient);
+		});
+	</script>
 
 </body>
 
