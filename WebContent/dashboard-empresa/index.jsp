@@ -21,7 +21,7 @@
         </c:if>
 
         <c:if test='${sessao_user != null}'>
-            <div class="container" style="position: relative; left: -350px !important;">
+            <div class="container" style="position: relative; left: -150px !important;">
                 <div class="row">Seus proximos 3 eventos:</div>
                 <div class="row">
                     <c:forEach var="tpe" items="${tresProximosEventos}">
