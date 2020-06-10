@@ -44,7 +44,6 @@ input[type=file]:focus + .labelFile, input[type=file] + .labelFile:hover {
     position: absolute;
     right: 180px;
     justify-self: end;
-    width: 139px;
     height: 51px;
     opacity: 0.8;
     border-radius: 7px;
@@ -52,28 +51,31 @@ input[type=file]:focus + .labelFile, input[type=file] + .labelFile:hover {
     background-color: #d95032;
 }
 
-.btnUpdate, .btnCancel, .btnDelete, .btnNewEvento {
-    border-radius: 8px;
+.btnCancel {
+    background-color: #f2d272;
+    width: 139px;
+    height: 51px;
+    opacity: 0.8;
+    border-radius: 7px;
     border: none;
 }
 
-.btnUpdate {
-    background-color: #d95032;
-    color: #000;
-}
-
-.btnCancel {
-    background-color: #f2d272;
-    color: #000;
-}
-
 .btnDelete {
+	align-self: end;
     background-color: #db2d07;
-    color: white;
+    width: 159px;
+    height: 51px;
+    opacity: 0.8;
+    border-radius: 7px;
+    border: none;
 }
 
 .btnNewEvento {
-    background-color: white;
+    width: 139px;
+    height: 51px;
+    opacity: 0.8;
+    border-radius: 7px;
+    border: none;
 }
 
 
@@ -95,11 +97,10 @@ input[type=file]:focus + .labelFile, input[type=file] + .labelFile:hover {
 
 .text-esquerda {
     margin-top: 20px;
-    margin-left: 170px;
+    margin-left: 80px;
 }
 
 .cpf-wrapper {
-    margin-left: 19px;
     margin-bottom: 31px;
     width: 650px;
     height: 51px;
@@ -112,7 +113,7 @@ input[type=file]:focus + .labelFile, input[type=file] + .labelFile:hover {
 }
 
 .username-wrapper {
-    margin-left: 150px;
+    margin-left: 50px;
     margin-bottom: 31px;
     height: 51px;
     width: 650px;
@@ -125,7 +126,7 @@ input[type=file]:focus + .labelFile, input[type=file] + .labelFile:hover {
 }
 
 .items-esquerda {
-    margin-left: 150px;
+    margin-left: 50px;
     margin-bottom: 31px;
     height: 51px;
     width: 650px;

@@ -11,7 +11,7 @@
             <img draggable="false" src="/horadoevento/assets/icons/empresas.svg" />
         </button>
         <button class="btn-search-page" onclick="handleSearchResult('evento')">
-            <img draggable="false" src="/horadoevento/assets/icons/calendario-resultados.svg" />
+            <img draggable="false" src="/horadoevento/assets/icons/calendario-barra.svg" />
         </button>
     </div>
 </nav>
