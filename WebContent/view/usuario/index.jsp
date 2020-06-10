@@ -18,7 +18,7 @@
         <div class="container container-dados">
             <div class="row">
                 <div class="col-lg-6 col-md-3">
-                    <img class="foto-fix" src="/horadoevento/assets/icons/helperCabeca.svg" />
+                    <img draggable="false" class="foto-fix" src="/horadoevento/assets/icons/helperCabeca.svg" />
                 </div>
                 <div class="col-lg-6 col-md-3 text-fix">
                     <div class="row">
@@ -29,14 +29,6 @@
                         <a href="${empresa.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <h5>Tags de interesse</h5>
-                <c:forEach var="tags" items="${lista}"></c:forEach><%! //TODO tem que ver ! %>
-                <%! //TODO pesquisa join com eventos %>
             </div>
         </div>
     </div>

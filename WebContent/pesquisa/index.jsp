@@ -22,7 +22,7 @@
                         <input type="hidden" value="${usuario.userName}" name="username" />
                         <button class="card-result-user" type="submit" value="usuario" name="entidade">
                             <div class="row">
-                                <img src="../assets/icons/user.svg" class="col-lg-2"
+                                <img draggable="false" src="../assets/icons/user.svg" class="col-lg-2"
                                     style="height: 50px; margin-top: 20px;" />
                                 <p class="col-lg-8">${usuario.nome}</p>
                                 <p style="color: black;" class="col-lg-8">${usuario.userName}</p>
@@ -45,7 +45,7 @@
                         <input type="hidden" value="${empresa.userName}" name="username" />
                         <button class="card-result-empresa" type="submit" value="empresa" name="entidade">
                             <div class="row">
-                                <img src="../assets/icons/empresas.svg" class="col-lg-2"
+                                <img draggable="false" src="../assets/icons/empresas.svg" class="col-lg-2"
                                     style="height: 50px; margin-top: 20px;" />
                                 <p class="col-lg-8">${empresa.nome}</p>
                                 <p style="color: black;" class="col-lg-12">${empresa.userName}</p>
@@ -68,8 +68,7 @@
                         <input type="hidden" value="${evento.id}" name="id" />
                         <button class="card-result-evento" type="submit" value="evento" name="entidade">
                             <div class="row">
-                                <img src="../assets/icons/calendario-resultados.svg" class="col-lg-2"
-                                    style="height: 50px;" /> <br>
+                                <img draggable="false" src="../assets/icons/calendario-resultados.svg" draggable="false" class="col-lg-2"style="height: 50px;" />
                                 <p class="col-lg-8">${evento.titulo}</p>
                             </div>
                             <p>${evento.empresa.nome}</p>
@@ -78,8 +77,8 @@
                 </div>
             </c:forEach>
         </c:if>
-        <c:if test="${empty listaEvento}">
-            <p>Nenhum evento encontrado</p>
+        <c:if test="${empty listaUsuario}">
+            <p style="margin-top: 20px; margin-left: 20px;">Nenhum evento encontrado</p>
         </c:if>
     </div>
 

@@ -87,40 +87,6 @@ public class CadastroController extends HttpServlet {
 				} else {
 					response.sendRedirect("/horadoevento/login/");
 				}
-				//TODO es.criarFoto();
-				break;
-			}
-			case "evento": {
-			    Evento evento = new Evento();
-			    EventoService evs = new EventoService();
-			    EmpresaService es = new EmpresaService();
-                Empresa empresa = es.carregar(request.getParameter("empresa"));
-                Date date = converteData(request.getParameter("data-hora"));
-                
-                evento.setTitulo(request.getParameter("titulo"));
-                evento.setDescricao(request.getParameter("descricao"));
-                evento.setDataHora(date);
-                evento.setLocalizacao(request.getParameter("localizacao"));
-                evento.setDuracao(Integer.parseInt(request.getParameter("duracao")));
-                evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
-                evento.setPalestrante(request.getParameter("palestrante"));
-                evento.setEmpresa(empresa);
-                evento.setId(evs.criar(evento));
-                
-                ArrayList<Tag> tags = handleTags(evento, request.getParameterValues("checkbox"));
-                
-				if (evento.getId() == -1) {
-					// tela evento com os dados errados para correcao
-					request.getRequestDispatcher("/horadoevento/perfil/empresa/").forward(request, response);
-				} else {
-					// tela cadastrado com sucesso !
-					evs.inserirTag(tags, evento);
-					HttpSession session = request.getSession();
-					int id = evento.getId();
-					session.setAttribute("id", id);
-					session.setAttribute("acao", "visualizar");
-					request.getRequestDispatcher("../Evento.do").forward(request, response);
-				}
 				break;
 			}
 		}

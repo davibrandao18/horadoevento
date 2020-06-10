@@ -41,7 +41,7 @@ public class CancelarInscricao implements Command {
 
         sessao.setAttribute("inscricoes", inscricoes);
 
-        String mensagem = "Inscri��o cancelada";
+        String mensagem = "Inscricao cancelada";
 
         request.getSession().setAttribute("sessao_mensagem", mensagem);
         response.sendRedirect("/horadoevento/view/inscricao/");

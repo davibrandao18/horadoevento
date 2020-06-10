@@ -17,11 +17,6 @@
 
     <div>
         <c:if test='${sessao_user == null}'>
-<<<<<<< HEAD
-            <h1>Voce nao esta logado</h1>
-            <a href="/horadoevento/inicio/">Voltar ao inicio</a>
-=======
->>>>>>> branch 'master' of https://github.com/davibrandao18/horadoevento.git
             <c:import url="../../components/naoLogadoMensagem/" />
         </c:if>
 
@@ -29,11 +24,11 @@
             <div class="row pt-4">
                 <div class="col-6" style="text-align: end;">
                     <c:if test="${sessao_user.getFoto() != null}">
-                        <img class="img-perfil-hde"
+                        <img draggable="false" class="img-perfil-hde"
                             src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
                     </c:if>
                     <c:if test="${sessao_user.getFoto() == null}">
-                        <img class="foto-fix" src="/horadoevento/assets/icons/helperCabeca.svg" />
+                        <img draggable="false" class="foto-fix" src="/horadoevento/assets/icons/helperCabeca.svg" />
                     </c:if>
                 </div>
                 <div class="col-6 justify-content-start" style="align-self: center;">
@@ -43,7 +38,7 @@
                         <div class="divInputFile">
                             <input type="file" size="50" id="file" name="arquivo" class="inputFile" />
                             <label for="file" class="labelFile">
-                                <img width="30px" src="/horadoevento/assets/logo/upload.svg" />
+                                <img draggable="false" width="30px" src="/horadoevento/assets/logo/upload.svg" />
                             </label>
                         </div>
                         <input type="submit" value="Enviar" class="btnSendPhoto" />

@@ -52,7 +52,7 @@
                                             <c:forEach var="tag" items="${evento.colecaoTags}">
                                                 <tr>
                                                     <c:if test="${tag.checado == 1}">
-                                                        <td>${tag.nome}</td>
+                                                        <td class="tagText">${tag.nome}</td>
                                                     </c:if>
                                                 </tr>
                                             </c:forEach>

@@ -22,11 +22,11 @@
             <div class="row pt-4">
                 <div class="col-6" style="text-align:end;">
                     <c:if test="${sessao_user.getFoto() != null}">
-                        <img class="img-perfil-hde"
+                        <img class="img-perfil-hde" draggable="false"
                             src="/horadoevento/ImageResponse.do?file=${fn:replace(path, '\\', '/')}">
                     </c:if>
                     <c:if test="${sessao_user.getFoto() == null}">
-                        <img class="foto-fix" src="/horadoevento/assets/icons/helperCabeca.svg" />
+                        <img draggable="false" class="foto-fix" src="/horadoevento/assets/icons/helperCabeca.svg" />
                     </c:if>
                 </div>
                 <div class="col-6 justify-content-start">
@@ -79,7 +79,7 @@
                             <button type="submit" class="btnUpdate">Atualizar dados</button>
                         </div>
                         <div class="col-3" style="text-align: start; position: relative; left: 190px;">
-                            <button type="button" onclick="history.go(-1)"naruto  class="btnCancel">Cancelar</button>
+                            <button type="button" onclick="history.go(-1)" class="btnCancel">Cancelar</button>
                         </div>
                         <div class="col-3">
                             <button type="button" style="text-align: center;" class="btnDelete" data-toggle="modal"

@@ -46,7 +46,7 @@
             <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#menuOpcoes"
                 aria-controls="menuOpcoes" aria-expanded="false" aria-label="Alterna navegação"
                 style="border: none!important;">
-                <span><img src="/horadoevento/assets/icons/user.svg"></span>
+                <span><img src="/horadoevento/assets/icons/user.svg" draggable="false"></span>
             </button>
         </div>
     </nav>

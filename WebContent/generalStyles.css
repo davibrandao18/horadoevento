@@ -24,15 +24,15 @@ body {
 }
 
 .theme-dark {
-    --background: url("assets/backgrounds/stars.png");
-    --card-primary: #345923;
-    --card-secondary: #64A646;
+    --background: #212121;
+    --card-primary: #a190da;
+    --card-secondary: #81ddef;
     --card-tertiary: #96F26B;
     --font-color: white;
 }
 
 .bodyCover {
-    background-image: var(--background);
+    background: var(--background);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -60,6 +60,10 @@ body {
 .bginput-hde:focus {
     background-color: #f2d272 !important;
     border: 1px solid #333 !important;
+}
+
+.tagText {
+	color: var(--font-color)
 }
 
 .navHde {
