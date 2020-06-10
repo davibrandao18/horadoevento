@@ -16,8 +16,7 @@
                 <form action="Controller.do" method="post">
                     <input type="hidden" name="id" id="id_excluir" />
                     <button type="submit" class="btn btn-primary" name="acao" value="excluir">Sim</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Nao</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Nao</button>
                 </form>
             </div>
         </div>
