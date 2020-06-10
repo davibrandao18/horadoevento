@@ -35,7 +35,7 @@ public class IniciarCadastroEvento extends HttpServlet {
 		ArrayList<Tag> tags = ts.carregar();
 		
 		request.setAttribute("lista", tags);
-		
+		System.out.println("aaaaaa");
 		request.getRequestDispatcher("../../evento/novo/index.jsp").forward(request, response);
 	}
 
