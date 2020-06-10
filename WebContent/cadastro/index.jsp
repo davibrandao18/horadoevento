@@ -31,7 +31,7 @@
 
         <div class="form-group form-check">
             <input class="form-check-input" type="radio" name="entidade" id="usuario" value="usuario" <%=radioUser%>>
-            <label class="form-check-label" for="usuario"> Usu�rio </label>
+            <label class="form-check-label" for="usuario"> Usuario </label>
         </div>
         <div class="form-group form-check">
             <input class="form-check-input" type="radio" name="entidade" id="empresa" value="empresa" <%=radioEmpr%>>
@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="form-group">
-                        <label for="username">Nome de usu�rio*</label>
+                        <label for="username">Nome de usuario*</label>
                         <input type="text" class="form-control bginput-hde" name="username" id="username" required>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="form-group">
-                        <label for="username">Nome de usu�rio*</label>
+                        <label for="username">Nome de usuario*</label>
                         <input type="text" class="form-control bginput-hde" name="username" id="username" required>
                     </div>
                 </div>

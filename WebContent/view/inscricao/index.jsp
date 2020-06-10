@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="../view/view.css">
 </head>
 
-<body>
+<body class="bodyCover">
     <c:import url="../../components/navbar/full.jsp" />
     <c:import url="../../components/modal/inscricaoView.jsp" />
     <c:import url="../../components/modal/inscricaoDelete.jsp" />
 
-    <div class="bodyCover">
+    <div class="">
         <c:if test='${sessao_user == null}'>
             <h1>Voce nao esta logado</h1>
             <a href="/horadoevento/inicio/">Voltar ao inicio</a>
@@ -71,9 +71,10 @@
             </div>
         </c:if>
     </div>
+    <div style="position: absolute; bottom: 0; width: 100%;">   
 
     <c:import url="../../components/footer/" />
-
+</div>
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript">
