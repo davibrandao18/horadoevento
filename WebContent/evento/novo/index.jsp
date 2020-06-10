@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>Insert title here</title>
+    <title>Novo evento</title>
     <c:import url="/components/links.html" />
 
 </head>
@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <label for="descricao">Descri��o*</label>
+                    <label for="descricao">Descricao</label>
                     <textarea class="form-control bginput-hde" name="descricao" id="descricao" required>
 	    					</textarea>
                 </div>
@@ -46,7 +46,7 @@
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <label for="localizacao">Localiza��o*</label>
+                    <label for="localizacao">Localizacao</label>
                     <input type="text" class="form-control bginput-hde" name="localizacao" id="localizacao" required>
                 </div>
             </div>
@@ -55,7 +55,7 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    <label for="duracao">Dura��o em minutos*</label>
+                    <label for="duracao">Duracao em minutos*</label>
                     <input type="number" class="form-control bginput-hde" name="duracao" id="duracao" required>
                 </div>
             </div>
@@ -100,7 +100,7 @@
             <a type="button" class="btn btn-light border-dark" href="/horadoevento/dashboard-empresa/">
                 <i class="fa fa-chevron-left"></i> Voltar
             </a>
-            <button type="submit" class="btn border-dark redButton">
+            <button type="submit" class="btn btnUpdate" style="background-color: #d95032;">
                 Enviar <i class="fa fa-chevron-right"></i>
             </button>
         </nav>

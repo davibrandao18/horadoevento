@@ -30,12 +30,16 @@
                     </c:if>
                 </div>
                 <div class="col-6 justify-content-start">
-                    <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data">
-                        <div>
-                            <input type="hidden" name="entidade" value="empresa" />
-                            <input type="file" name="arquivo" size="50" id="itemBotao" class="fileField mt-4" /> <br />
-                            <input type="submit" value="Atualizar foto" class="mt-4 botaoFoto" />
+                    <form action="/horadoevento/perfil/UploadArquivo.do" method="post" enctype="multipart/form-data"
+                        style="display: flex;">
+                        <input type='hidden' value='empresa' name='entidade'>
+                        <div class="divInputFile">
+                            <input type="file" size="50" id="file" name="arquivo" class="inputFile" />
+                            <label for="file" class="labelFile">
+                                <img width="30px" src="/horadoevento/assets/logo/upload.svg" />
+                            </label>
                         </div>
+                        <input type="submit" value="Enviar" class="btnSendPhoto" />
                     </form>
                 </div>
             </div>
@@ -63,11 +67,11 @@
                             <input name="linkedin" value="${sessao_user.linkedin}" type="text" class="items-direita">
                             <br>
                             <input type='hidden' value='empresa' name='entidade'>
+                            <input type='hidden' value='${sessao_user.pais }' name='pais'>
                             <h5 class="text-direita">Cidade:</h5>
-                            <input name="cpf" value="${sessao_user.cidade}" type="text" readonly disabled
-                                class="items-direita"> <br>
-                            <h5 class="text-direita">Pais:</h5>
-                            <input name="email" value="${sessao_user.pais}" type="text" class="items-direita"> <br>
+                            <input name="cidade" value="${sessao_user.cidade}" type="text" class="items-direita"> <br>
+                            <h5 class="text-direita">Estado:</h5>
+                            <input name="estado" value="${sessao_user.estado}" type="text" class="items-direita"> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -75,13 +79,7 @@
                             <button type="submit" class="btnUpdate">Atualizar dados</button>
                         </div>
                         <div class="col-3" style="text-align: start; position: relative; left: 190px;">
-                            <button type="button" onclick="history.go(-1)" class="btnCancel">Cancelar</button>
-                        </div>
-                        <div class="col-3">
-
-                            <form action="IniciarCadastroEvento.do" method="post">
-                                <button type="submit" class="btnNewEvento">Novo evento</button>
-                            </form>
+                            <button type="button" onclick="history.go(-1)"naruto  class="btnCancel">Cancelar</button>
                         </div>
                         <div class="col-3">
                             <button type="button" style="text-align: center;" class="btnDelete" data-toggle="modal"
@@ -89,7 +87,9 @@
                         </div>
                     </div>
                 </form>
-
+                <form action="IniciarCadastroEvento.do" method="post">
+                    <button type="submit" class="btnNewEvento">Novo evento</button>
+                </form>
         </c:if>
     </div>
          <div style="position: absolute; bottom: 0; width: 100%;">

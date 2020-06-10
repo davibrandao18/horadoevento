@@ -17,12 +17,7 @@
 
     <div>
         <c:if test='${sessao_user == null}'>
-<<<<<<< HEAD
-            <h1>Voce nao esta logado</h1>
-            <a href="/horadoevento/inicio/">Voltar ao inicio</a>
-=======
             <c:import url="../../components/naoLogadoMensagem/" />
->>>>>>> branch 'master' of https://github.com/davibrandao18/horadoevento.git
         </c:if>
 
         <c:if test='${sessao_user != null}'>
@@ -42,8 +37,9 @@
                         <input type='hidden' value='usuario' name='entidade'>
                         <div class="divInputFile">
                             <input type="file" size="50" id="file" name="arquivo" class="inputFile" />
-                            <label for="file" class="labelFile"><img width="30px"
-                                    src="/horadoevento/assets/logo/upload.svg" /></label>
+                            <label for="file" class="labelFile">
+                                <img width="30px" src="/horadoevento/assets/logo/upload.svg" />
+                            </label>
                         </div>
                         <input type="submit" value="Enviar" class="btnSendPhoto" />
                     </form>
