@@ -17,12 +17,9 @@
 
     <div>
         <c:if test='${sessao_user == null}'>
-<<<<<<< HEAD
             <h1>Voce nao esta logado</h1>
             <a href="/horadoevento/inicio/">Voltar ao inicio</a>
-=======
             <c:import url="../../components/naoLogadoMensagem/" />
->>>>>>> branch 'master' of https://github.com/davibrandao18/horadoevento.git
         </c:if>
 
         <c:if test='${sessao_user != null}'>

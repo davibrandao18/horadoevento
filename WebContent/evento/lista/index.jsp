@@ -12,6 +12,7 @@
 
 <body class="bodyCover">
     <c:import url="../../components/navbar/full.jsp" />
+    <c:import url="../../components/modal/deletarEvento.jsp" />
 
     <div class="bodyContent">
         <c:if test='${sessao_user == null}'>
@@ -52,7 +53,7 @@
 
                                                     <button type="submit"
                                                         class="btn btn-warning btn-xs"
-                                                        name="acao" value="editar">
+                                                        name="acao" value="Pre-editar">
                                                         Editar
                                                     </button>
 

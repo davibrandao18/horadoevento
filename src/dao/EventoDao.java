@@ -285,7 +285,8 @@ public class EventoDao {
 	 * @throws SQLException
 	 */
 	public void atualizarEvento(Evento evento) throws SQLException {
-		String sqlUpdate = "UPDATE evento SET data_hora = ?, localizacao = ?, descricao = ?, duracao = ?, quantidade_vagas = ?, palestrante = ?, titulo = ?, fk_empresa_cnpj = ?";
+		String sqlUpdate = "UPDATE evento SET data_hora = ?, localizacao = ?, descricao = ?, duracao = ?, quantidade_vagas = ?, palestrante = ?, titulo = ?"
+		        + "WHERE id = ?";
 		
 		try (Connection conectar = ConnectionFactory.obtemConexao();
 				PreparedStatement pst = conectar.prepareStatement(sqlUpdate)) {
@@ -296,7 +297,7 @@ public class EventoDao {
 			pst.setInt(5, evento.getQuantidadeVagas());
 			pst.setString(6, evento.getPalestrante());
 			pst.setString(7, evento.getTitulo());
-			pst.setString(8, evento.getEmpresa().getCnpj());
+			pst.setInt(8, evento.getId());
 			
 			pst.executeUpdate();
 		} catch (Exception ex) {
