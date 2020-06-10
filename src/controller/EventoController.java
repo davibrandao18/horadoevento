@@ -49,6 +49,10 @@ public class EventoController extends HttpServlet {
         System.out.println("Acao: "+acao);
         Evento evento = new Evento();
         EventoService evs = new EventoService();
+        EmpresaService es = null;
+        Empresa empresa = null;
+        ArrayList<Tag> tags = null;
+        Date date = null;
 
         switch (acao) {
         case "visualizar":
@@ -72,24 +76,32 @@ public class EventoController extends HttpServlet {
             session.setAttribute("sessao_mensagem", mensagem);
             response.sendRedirect("/horadoevento/dashboard-empresa/");
             break;
+       case "Pre-editar": 
+           evento = evs.carregar(Integer.parseInt(request.getParameter("id")));
+           TagService ts = new TagService();
+           evento.setColecaoTags(ts.carregarTagEvento(evento));
+           
+           request.setAttribute("evento", evento);
+           request.getRequestDispatcher("/evento/edita/").forward(request, response);
+           break;
+       
 
         case "editar":
-            EmpresaService es = new EmpresaService();
-            Date date = converteData(request.getParameter("data-hora"));
-            Empresa empresa = es.carregar(request.getParameter("empresa"));
-
+            es = new EmpresaService();
+            date = converteData(request.getParameter("data-hora"));
+            empresa = es.carregar(request.getParameter("empresa"));
+            evento.setId(Integer.parseInt(request.getParameter("id")));
             evento.setTitulo(request.getParameter("titulo"));
             evento.setDescricao(request.getParameter("descricao"));
             evento.setDataHora(date);
             evento.setLocalizacao(request.getParameter("localizacao"));
+            System.out.println("Servlet : "+request.getParameter("duracao"));
             evento.setDuracao(Integer.parseInt(request.getParameter("duracao")));
             evento.setQuantidadeVagas(Integer.parseInt(request.getParameter("qtd-vagas")));
             evento.setPalestrante(request.getParameter("palestrante"));
-            System.out.println("Servlet : "+request.getParameter("id"));
-            evento.setId(Integer.parseInt(request.getParameter("id")));
             evento.setEmpresa(empresa);
 
-            ArrayList<Tag> tags = handleTags(evento, request.getParameterValues("checkbox"));
+            tags = handleTags(evento, request.getParameterValues("checkbox"));
 
             if (evento.getId() == -1) {
                 request.getRequestDispatcher("/horadoevento/dashboard-empresa/").forward(request, response);
