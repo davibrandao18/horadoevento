@@ -14,7 +14,7 @@
             <form action="/horadoevento/controller.do" method="post">
                 <input type="hidden" name="idEvento" value="${evento.id}">
                 <div class="modal-body">
-                    Voce tem certeza que deseja inscrever-se em: ${evento.titulo}
+                    <p class="text-dark">Voce tem certeza que deseja inscrever-se em: ${evento.titulo}</p>
                     <input type="text" placeholder="cpf" name="cpf" required>
                     <input type="password" class="password-field" placeholder="senha" name="senha" required>
                 </div>

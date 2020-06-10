@@ -6,16 +6,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="inscricaoLabel">Inscri��o</h5>
+                <h5 class="modal-title" id="inscricaoLabel">Inscricao</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Inscri��o <label data-inscricao="titulo"></label>
+                Inscricao <label data-inscricao="titulo"></label>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">N�o</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Nao</button>
                 <button type="submit" class="btn btn-primary" name="command" value="CriarInscricao">Sim</button>
             </div>
         </div>

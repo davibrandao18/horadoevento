@@ -5,7 +5,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="eventoLabel">Inscri��o</h5>
+                <h5 class="modal-title" id="eventoLabel">Inscricao</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,10 +14,10 @@
                 <input type="hidden" name="command" value="CancelarInscricao">
                 <input type="hidden" name="id_i">
                 <div class="modal-body"> <%//TODO continuar modal de deletar, fazer testes %>
-                    Voc� tem certeza que deseja cancelar essa inscri��o?
+                    <p class="text-dark">Voce tem certeza que deseja cancelar essa inscricao?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">N�o</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Nao</button>
                     <button type="submit" class="btn btn-primary" name="acao" value="excluir">Sim</button>
                 </div>
             </form>
