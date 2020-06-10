@@ -64,38 +64,37 @@
                             <br>
                             <input type='hidden' value='empresa' name='entidade'>
                             <h5 class="text-direita">Cidade:</h5>
-                            <input name="cidade" value="${sessao_user.cidade}" type="text" class="items-direita"> <br>
+                            <input name="cpf" value="${sessao_user.cidade}" type="text" readonly disabled
+                                class="items-direita"> <br>
                             <h5 class="text-direita">Pais:</h5>
-                            <input name="pais" value="${sessao_user.pais}" type="text" class="items-direita"> <br>
+                            <input name="email" value="${sessao_user.pais}" type="text" class="items-direita"> <br>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3" style="text-align: end; position: relative; left: 70px;">
-                            <button type="submit" class="botao-attDados">Atualizar dados</button>
+                        <div class="col-3" style="text-align: end; position: relative; left: 110px; width: 200px;">
+                            <button type="submit" class="btnUpdate">Atualizar dados</button>
                         </div>
                         <div class="col-3" style="text-align: start; position: relative; left: 190px;">
-                            <button type="button" onclick="history.go(-1)" class="botao-cancel">Cancelar</button>
+                            <button type="button" onclick="history.go(-1)" class="btnCancel">Cancelar</button>
                         </div>
                         <div class="col-3">
-                            <button type="button" style="text-align: center;" class="botao-delete" data-toggle="modal"
+
+                            <form action="IniciarCadastroEvento.do" method="post">
+                                <button type="submit" class="btnNewEvento">Novo evento</button>
+                            </form>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" style="text-align: center;" class="btnDelete" data-toggle="modal"
                                 data-target="#modalExcluirEmpresa">Excluir perfil</button>
                         </div>
                     </div>
                 </form>
-                <div class="row">
-                    <div class="col-3">
-                        <form action="IniciarCadastroEvento.do" method="post">
-                             <button type="submit" class="botao-novoEv">Novo evento</button>
-                         </form>
-                    </div>
-                </div>
-            </div>
+
         </c:if>
     </div>
-
-    <div style="position: absolute; bottom: 0; width: 100%;">
-        <c:import url="../../components/footer/" />
-    </div>
+         <div style="position: absolute; bottom: 0; width: 100%;">
+                 <c:import url="../../components/footer/" />
+        </div>
     <c:import url="../../components/modal/perfilEmpresa.jsp" />
 
     <script type="text/javascript" src="/horadoevento/components/bootstrap/js/jquery-3.5.1.min.js"></script>
