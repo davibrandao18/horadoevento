@@ -60,8 +60,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <button type="submit" value="editar" name="acao">Deletar
-                                Evento</button>
+                            
                         </c:if>
                     </div>
                 </div>
@@ -99,6 +98,7 @@
                                 <button type="submit" class="btn btn-danger btn-xs" name="acao" value="editar">
                                     Editar evento
                                 </button>
+                                <button type="submit" value="editar" name="acao">Deletar Evento</button>
                             </form>
                         </c:if>
                     </c:forEach>
