@@ -16,14 +16,15 @@ body {
 }
 
 .theme-light {
+    --navbar-footer: #f2937e;
     --background: url("assets/backgrounds/field.jpg");
     --card-primary: #d95032;
     --card-secondary: #f2937e;
     --card-tertiary: #f2d272;
-    /* essa daqui na vdd nem é usada em um card, é a cor do terceiro elemento do carrossel, coloquei uma cor bem nonsense pra testar msm */
 }
 
 .theme-dark {
+	--navbar-footer: #696A6C;
     --background: #212121;
     --card-primary: #a190da;
     --card-secondary: #81ddef;
@@ -37,6 +38,14 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--font-color);
+}
+
+.theme-navbar-footer {
+	background-color: var(--navbar-footer);
+}
+
+.bgfooter {
+	background-color: var(--footer);
 }
 
 .bg-hde {
@@ -162,7 +171,6 @@ body {
     display: flex;
     align-items: center;
     padding: 10px 1% 10px 1%;
-    background-color: #d94e4e;
 }
 
 .fullFooter div {
@@ -175,31 +183,6 @@ body {
 .fullFooter div p {
     max-width: 90%;
     height: 100%;
-}
-
-.fullFooter #companies button {
-    width: 64px;
-    height: 64px;
-    background-color: #fff;
-    border-radius: 50%;
-    border: 1px solid transparent;
-}
-
-.fullFooter #companies button:active, .fullFooter #companies button:focus {
-    border: 1px solid #f2d272;
-}
-
-.fullFooter #companies {
-    text-align: center;
-}
-
-.fullFooter #btnAddCompany {
-    background-color: rgba(255, 255, 255, 0.666) !important;
-    font-size: 24px;
-}
-
-.fullFooter #helper {
-    text-align: end;
 }
 
 .helperDialog {

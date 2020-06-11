@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div class="pos-f-t">
-    <nav class="navbar navbar-dark bg-hde">
+    <nav class="navbar navbar-dark theme-navbar-footer">
         <div class="display-none-mobile col-md-4 d-flex justify-content-start" style="align-items: center;">
             <c:if test='${tipo_entidade.equals("usuario")}'>
                 <a href="/horadoevento/home/member/">
@@ -50,8 +50,8 @@
             </button>
         </div>
     </nav>
-    <div class="collapse" id="menuOpcoes">
-        <div class="bg-hde p-4 d-flex justify-content-end">
+    <div class="collapse " id="menuOpcoes">
+        <div class="bgnavbar p-4 d-flex justify-content-end">
             <ul style="list-style: none;">
                 <li class="text-right"><a href="/horadoevento/perfil/${tipo_entidade}/"
                         style="text-decoration: none;">Perfil</a></li>

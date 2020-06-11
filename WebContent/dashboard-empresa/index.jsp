@@ -25,7 +25,7 @@
                 <div class="row">Seus proximos 3 eventos:</div>
                 <div class="row">
                     <c:forEach var="tpe" items="${tresProximosEventos}">
-                        <form action="/horadoevento/perfil/Perfil.do" method="post">
+                        <form action="/horadoevento/perfil/Perfil.do" method="post" style="margin-right: 10px;">
                             <input type="hidden" value="${tpe.id}" name="id" />
                             <button class="card-result-evento" type="submit" value="evento" name="entidade">
                                 <div class="row">
