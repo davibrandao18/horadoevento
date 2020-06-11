@@ -16,7 +16,7 @@ body {
 }
 
 .theme-light {
-    --navbar-footer: #f2937e;
+    --navbar-footer: #f2937e55;
     --background: url("assets/backgrounds/field.jpg");
     --card-primary: #d95032;
     --card-secondary: #f2937e;
@@ -44,13 +44,25 @@ body {
 	background-color: var(--navbar-footer);
 }
 
-.bgfooter {
-	background-color: var(--footer);
+.collapseNavMenu {
+    width: fit-content;
+    background-color: #696A6C;
+    position: absolute;
+    right: 10px;
+    margin-top: 20px;
+    z-index: 999;
+    color: var(--text-color);
+}
+
+.collapseNavMenu a:link {
+	color: #fff;
 }
 
 .bg-hde {
     background-color: rgba(242, 147, 126, .8);
 }
+
+
 
 .input-search-hde {
     display: inline-block;
