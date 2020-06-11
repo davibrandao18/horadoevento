@@ -104,7 +104,8 @@ body {
 }
 
 .tagText {
-	color: var(--font-color)
+	color: var(--font-color);
+	fill: var(--font-color);
 }
 
 .navHde {
