@@ -48,6 +48,7 @@
         </button>
     </div>
 </nav>
+
 <div class="collapse " id="menuOpcoes">
 	<div class="collapseNavMenu p-4 d-flex justify-content-end">
 	    <ul style="list-style: none;">
@@ -63,22 +64,21 @@
 	            <li class="text-right"><a href="/horadoevento/evento/lista/" style="text-decoration: none;">Todos os
 	                    eventos</a></li>
 	        </c:if>
-	
-	            <li class="text-right">
-	                <img src="/horadoevento/assets/icons/sun.svg" />
-	                <label id="switch" class="switch">
-	                    <input type="checkbox" onchange="toggleTheme()" id="slider">
-	                    <span class="slider round"></span>
-	                </label>
-	                <img src="/horadoevento/assets/icons/moon.svg" />
-	            </li>
-	            <li class="text-right">
-	                <form action="/horadoevento/perfil/Logout.do" method="get"> <button type="submit"> <img
-	                            src="/horadoevento/assets/icons/logout.svg"> Sair</button></form>
-	            </li>
-	        </ul>
-	    </div>
-	</div>
+            <li class="text-right">
+                <img src="/horadoevento/assets/icons/sun.svg" />
+                <label id="switch" class="switch">
+                    <input type="checkbox" onchange="toggleTheme()" id="slider">
+                    <span class="slider round"></span>
+                </label>
+                <img src="/horadoevento/assets/icons/moon.svg" />
+            </li>
+            <li class="text-right">
+                <form action="/horadoevento/perfil/Logout.do" method="get"> <button type="submit"> <img
+                            src="/horadoevento/assets/icons/logout.svg"> Sair</button></form>
+            </li>
+        </ul>
+    </div>
+</div>
 
 
 <script>

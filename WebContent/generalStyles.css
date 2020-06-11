@@ -44,17 +44,28 @@ body {
 	background-color: var(--navbar-footer);
 }
 
-.collapseNavMenu {
-    width: fit-content;
-    background-color: #696A6C;
-    position: absolute;
-    right: 10px;
-    margin-top: 20px;
-    z-index: 999;
-    color: var(--text-color);
+.collapse {
+	transition: none;
 }
 
-.collapseNavMenu a:link {
+.collapsing {
+    position: absolute!important;
+    z-index: 999!important;
+    transition: none;
+}
+
+.collapseNavMenu {
+    width: fit-content;
+    background-color: var(--navbar-footer);
+    position: absolute!important;
+    right: 0;
+    z-index: 999!important;
+    color: var(--text-color) !important;
+    transition: none;
+    border-bottom-left-radius: 10px;
+}
+
+.collapseNavMenu:link {
 	color: #fff;
 }
 
