@@ -63,18 +63,19 @@ body {
 }
 
 .collapseNavMenu {
+	margin-top: -5px;
     width: fit-content;
     background-color: var(--navbar-footer);
     position: absolute!important;
     right: 0;
     z-index: 999!important;
-    color: var(--text-color) !important;
+    color: var(--text-color)!important;
     transition: none;
     border-bottom-left-radius: 10px;
 }
 
-.collapseNavMenu:link {
-	color: #fff;
+.collapseNavMenu a {
+	color: var(--text-color)!important;
 }
 
 .bg-hde {
