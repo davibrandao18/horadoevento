@@ -26,7 +26,7 @@
                     </div>
                     <div class="row">
                         <small>${usuario.email}</small>
-                        <a href="${empresa.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
+                        <a href="${usuario.getLinkedin()}">LINKEDIN</a><%!//TODO icon linkedin /!\%>
                     </div>
                 </div>
             </div>

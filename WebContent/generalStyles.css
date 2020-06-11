@@ -16,11 +16,13 @@ body {
 }
 
 .theme-light {
-    --navbar-footer: #f2937e55;
+    --navbar-footer: #f2937e;
     --background: url("assets/backgrounds/field.jpg");
     --card-primary: #d95032;
     --card-secondary: #f2937e;
     --card-tertiary: #f2d272;
+    --font-color: black;
+    --box-shadow: inset 0px 0px 5px 0px #F0836A;
 }
 
 .theme-dark {
@@ -30,6 +32,7 @@ body {
     --card-secondary: #81ddef;
     --card-tertiary: #96F26B;
     --font-color: white;
+    --box-shadow: inset 0px 0px 5px 0px #2E3744;
 }
 
 .bodyCover {
@@ -37,10 +40,15 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: var(--font-color);
+    color: var(--font-color)!important;
 }
 
-.theme-navbar-footer {
+.theme-navbar {
+	background-color: var(--navbar-footer);
+	box-shadow: var(--box-shadow)!important;
+}
+
+.theme-footer{
 	background-color: var(--navbar-footer);
 }
 
