@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<nav class="navbar navbar-dark theme-navbar-footer">
+<nav class="navbar navbar-dark theme-navbar">
     <div class="display-none-mobile col-md-4 d-flex justify-content-start" style="align-items: center;">
         <c:if test='${tipo_entidade.equals("usuario")}'>
             <a href="/horadoevento/home/member/">
