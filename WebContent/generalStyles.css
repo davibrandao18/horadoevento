@@ -21,6 +21,7 @@ body {
     --card-primary: #d95032;
     --card-secondary: #f2937e;
     --card-tertiary: #f2d272;
+    --font-color: black;
 }
 
 .theme-dark {
@@ -37,7 +38,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: var(--font-color);
+    color: var(--font-color)!important;
 }
 
 .theme-navbar-footer {
