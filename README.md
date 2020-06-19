@@ -93,7 +93,7 @@
     </ul>
 </details>
 
-<h1 style="font-size:15pt!important;">🌙 Temas ☀</h1>
+<h1 style="font-size:15pt !important;">🌙 Temas ☀</h1>
 
 <p>Se você é o tipo de pessoa que curte modo dark não esqueça de deixar habilitado este recurso !</p>
 
