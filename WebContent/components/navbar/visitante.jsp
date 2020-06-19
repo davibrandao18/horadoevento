@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="pos-f-t">
-    <nav class="navbar navbar-dark bg-hde">
+    <nav class="navbar navbar-dark theme-navbar">
         <div class="display-none-mobile col-md-4 d-flex justify-content-start" style="align-items: center;">
             <svg id="Component_2_1" data-name="Component 2 â€“ 1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" width="328" height="36" viewBox="0 0 328 36">
@@ -33,10 +33,13 @@
             </button>
         </div>
     </nav>
-    <div class="collapse" id="menuOpcoes">
-        <div class="bg-hde p-4 d-flex justify-content-end">
-            <ul style="list-style: none;">
-                <li class="text-right"><a href="/horadoevento/login/" style="text-decoration: none;">Login</a></li>
+</div>
+
+
+<div class="collapse " id="menuOpcoes">
+    <div class="collapseNavMenu p-4 d-flex justify-content-end">
+        <ul style="list-style: none;">
+            <li class="text-right"><a href="/horadoevento/login/" style="text-decoration: none;">Login</a></li>
                 <li class="text-right">
                     <i class="fa fa-sun-o" aria-hidden="true"></i>
                     <label id="switch" class="switch">
@@ -47,8 +50,7 @@
                 </li>
                 <li class="text-right"><a href="/horadoevento/cadastro/" style="text-decoration: none;">Cadastre-se</a>
                 </li>
-            </ul>
-        </div>
+        </ul>
     </div>
 </div>
 

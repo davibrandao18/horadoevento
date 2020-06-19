@@ -2,6 +2,7 @@
 
 <h1 style="font-size:17pt;">🖥 Projeto</h1>
 
+<<<<<<< HEAD
 <p>Hora do evento é uma plataforma intermediadora entre empresas e estudantes para cadastro, divulgaçaõ e participação nos mais variados eventos. Este projeto foi desenvolvido para a disciplina de Projetos Integrados do 3º Semetre do curso de Ciência da computação (2020).</p>
 
 <h1 style="font-size:17pt;">⚙ Contruído com:</h1>
@@ -48,3 +49,6 @@
     <li><a href="https://www.oracle.com/java/technologies/javase-jdk13-downloads.html" target="_blank">JDK 13.0.2</a></li>
 </ul>
 
+=======
+<p>Projeto Integrado do 3ºsemetre, sendo uma aplicação intermediadora entre estudantes e empresas para a criação, divulgação e participação nos mais diversos eventos.</p>
+>>>>>>> branch 'master' of https://github.com/davibrandao18/horadoevento.git

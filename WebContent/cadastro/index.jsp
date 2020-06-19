@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="form-group">
-                        <label for="pais">Pa�s*</label>
+                        <label for="pais">Pais*</label>
                         <input type="text" class="form-control bginput-hde" name="pais" id="pais" required>
                     </div>
                 </div>
