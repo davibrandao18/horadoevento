@@ -83,13 +83,13 @@ Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aul
 
 <details>
     <summary>Entendendo a cultura</summary>
-    <ul>teste</ul>
+    <img src="https://github.com/davibrandao18/horadoevento/blob/master/WebContent/assets/logo/culture.png">
 </details>
 
 <details>
      <summary>Cadastro</summary>
      <ul>
-        <li>teste</li>
+        <img src="https://github.com/davibrandao18/horadoevento/blob/master/WebContent/assets/logo/gif2.gif">
     </ul> 
     </details>
 
