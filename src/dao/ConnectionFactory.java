@@ -5,11 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
+    
 	//O metodo statico a seguir tem como funcao encontrar o driver do mysql
 	static {
 		try {
 			//System.out.println("Procurando driver..");
-			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			//System.out.println("Drive encontrado !");
@@ -23,10 +23,15 @@ public class ConnectionFactory {
 	
 	// Obtem conexao com o banco de dados
 	public static Connection obtemConexao() throws SQLException {
+	    
+	    //Prencha os dados a seguir com o seu usuário e senha de acesso ao Banco de dados
+	    String usuario = "";
+	    String password = "";
+	    
 		try {
 		return DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/horadoevento?useTimezone=true&serverTimezone=America/Sao_Paulo"
-						+ "&user=master&password=*Quiki18@");
+						+ "&user="+usuario+"&password="+password);
 		} catch (SQLException e) {
 			//System.out.println("NAO foi estabelecida conexão !");
 			throw new RuntimeException(e);		}
