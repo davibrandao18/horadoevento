@@ -1,5 +1,10 @@
 <h1 align="center">⏰ Hora do Evento ⏰</h1>
 
+<p align="center">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/davibrandao18/horadoevento?color=">
+  <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/davibrandao18/horadoevento?color=">
+  <img alt="Project programing languages count" src="https://img.shields.io/github/languages/count/davibrandao18/horadoevento?color=">
+</p> 
 
 ## :computer: Projeto 
 
