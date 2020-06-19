@@ -1,13 +1,13 @@
-<h1 style="text-align:center;"> ⏰ Hora do Evento ⏰</h1>
+<h1 align="center">⏰ Hora do Evento ⏰</h1>
 
 
 ## :computer: Projeto 
 
-<p>Hora do evento é uma plataforma intermediadora entre empresas e estudantes para cadastro, divulgação e participação nos mais variados eventos. Este projeto foi desenvolvido para a disciplina de Projetos Integrados do 3º Semestre do curso de Ciência da computação (2020).</p>
+Hora do evento é uma plataforma intermediadora entre empresas e estudantes para cadastro, divulgação e participação nos mais variados eventos. Este projeto foi desenvolvido para a disciplina de Projetos Integrados do 3º Semestre do curso de Ciência da computação (2020).
 
-<h1 style="font-size:15px;">⚙ Contruído com:</h1>
+## :gear: Contruído com:
 
-<p>Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aula:</p>
+Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aula:
 
 <details>
     <summary>Backend</summary>
@@ -34,7 +34,8 @@
     <ul><li>CSS 3</li></ul>
     <ul><li>JavaScript</li></ul>
 </details>
-<h1 style="font-size:15px;">✔ Requesitos para funcionamento:</h1>
+
+## :heavy_check_mark: Requesitos para funcionamento
 
 <ul>
     <li><a href="https://git-scm.com/downloads">Git</a></li>
@@ -51,7 +52,7 @@
     <li><a href="https://dev.mysql.com/downloads/" target="_blank">MySQL</a></li>
 </ul>
 
-<h1 style="font-size:15px;">▶ Executando o projeto:</h1>
+## :arrow_forward: Executando o projeto
 
 <details>
     <summary>Banco de dados</summary>
@@ -73,7 +74,7 @@
     </ul>
 </details>
 
-<h1 style="font-size:15px;">❓ Como usar:</h1>
+## :question: Como usar
 
 <details>
     <summary>Entendendo a cultura</summary>
@@ -82,9 +83,9 @@
 
 <details>
      <summary>Cadastro</summary>
-    <ul>
-        <li>teste </li>
-    </ul>
+     <ul>
+        <li>teste</li>
+    </ul> 
     </details>
 
 <details>
@@ -94,8 +95,8 @@
     </ul>
 </details>
 
-<h1 style="font-size:15px;">🌙 Temas ☀</h1>
+## 🌙 Temas ☀
 
-<p>Se você é o tipo de pessoa que curte modo dark não esqueça de deixar habilitado este recurso !</p>
+Se você é o tipo de pessoa que curte modo dark não esqueça de deixar habilitado este recurso !
 
-![](C:\Users\davif\git\horadoevento\WebContent\assets\logo\gif.gif)
+<img src="https://github.com/davibrandao18/horadoevento/blob/master/WebContent/assets/logo/gif.gif">
