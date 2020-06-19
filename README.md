@@ -4,7 +4,7 @@
 
 <p>Hora do evento é uma plataforma intermediadora entre empresas e estudantes para cadastro, divulgação e participação nos mais variados eventos. Este projeto foi desenvolvido para a disciplina de Projetos Integrados do 3º Semestre do curso de Ciência da computação (2020).</p>
 
-<h1 style="font-size:15pt;">⚙ Contruído com:</h1>
+<h1 style="font-size:15px;">⚙ Contruído com:</h1>
 
 <p>Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aula:</p>
 
@@ -33,7 +33,7 @@
     <ul><li>CSS 3</li></ul>
     <ul><li>JavaScript</li></ul>
 </details>
-<h1 style="font-size:15pt;">✔ Requesitos para funcionamento:</h1>
+<h1 style="font-size:15px;">✔ Requesitos para funcionamento:</h1>
 
 <ul>
     <li><a href="https://git-scm.com/downloads">Git</a></li>
@@ -50,7 +50,7 @@
     <li><a href="https://dev.mysql.com/downloads/" target="_blank">MySQL</a></li>
 </ul>
 
-<h1 style="font-size:15pt;">▶ Executando o projeto:</h1>
+<h1 style="font-size:15px;">▶ Executando o projeto:</h1>
 
 <details>
     <summary>Banco de dados</summary>
@@ -72,7 +72,7 @@
     </ul>
 </details>
 
-<h1 style="font-size:15pt;">❓ Como usar:</h1>
+<h1 style="font-size:15px;">❓ Como usar:</h1>
 
 <details>
     <summary>Entendendo a cultura</summary>
@@ -93,7 +93,7 @@
     </ul>
 </details>
 
-<h1 style="font-size:15pt !important;">🌙 Temas ☀</h1>
+<h1 style="font-size:15px;">🌙 Temas ☀</h1>
 
 <p>Se você é o tipo de pessoa que curte modo dark não esqueça de deixar habilitado este recurso !</p>
 
