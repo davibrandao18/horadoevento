@@ -1,12 +1,18 @@
-<h1 style="text-align:center;"> ⏰ Hora do Evento ⏰</h1>
+<h1 align="center">⏰ Hora do Evento ⏰</h1>
 
-<h1 style="font-size:15pt;">🖥 Projeto</h1>
+<p align="center">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/davibrandao18/horadoevento?color=">
+  <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/davibrandao18/horadoevento?color=">
+  <img alt="Project programing languages count" src="https://img.shields.io/github/languages/count/davibrandao18/horadoevento?color=">
+</p> 
 
-<p>Hora do evento é uma plataforma intermediadora entre empresas e estudantes para cadastro, divulgação e participação nos mais variados eventos. Este projeto foi desenvolvido para a disciplina de Projetos Integrados do 3º Semestre do curso de Ciência da computação (2020).</p>
+## :computer: Projeto 
 
-<h1 style="font-size:15pt;">⚙ Contruído com:</h1>
+Hora do evento é uma plataforma intermediadora entre empresas e estudantes para cadastro, divulgação e participação nos mais variados eventos. Este projeto foi desenvolvido para a disciplina de Projetos Integrados do 3º Semestre do curso de Ciência da computação (2020).
 
-<p>Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aula:</p>
+## :gear: Contruído com:
+
+Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aula:
 
 <details>
     <summary>Backend</summary>
@@ -33,7 +39,8 @@
     <ul><li>CSS 3</li></ul>
     <ul><li>JavaScript</li></ul>
 </details>
-<h1 style="font-size:15pt;">✔ Requesitos para funcionamento:</h1>
+
+## :heavy_check_mark: Requesitos para funcionamento
 
 <ul>
     <li><a href="https://git-scm.com/downloads">Git</a></li>
@@ -50,7 +57,7 @@
     <li><a href="https://dev.mysql.com/downloads/" target="_blank">MySQL</a></li>
 </ul>
 
-<h1 style="font-size:15pt;">▶ Executando o projeto:</h1>
+## :arrow_forward: Executando o projeto
 
 <details>
     <summary>Banco de dados</summary>
@@ -72,7 +79,7 @@
     </ul>
 </details>
 
-<h1 style="font-size:15pt;">❓ Como usar:</h1>
+## :question: Como usar
 
 <details>
     <summary>Entendendo a cultura</summary>
@@ -81,9 +88,9 @@
 
 <details>
      <summary>Cadastro</summary>
-    <ul>
-        <li>teste </li>
-    </ul>
+     <ul>
+        <li>teste</li>
+    </ul> 
     </details>
 
 <details>
@@ -93,8 +100,8 @@
     </ul>
 </details>
 
-<h1 style="font-size:15pt;">🌙 Temas ☀</h1>
+## 🌙 Temas ☀
 
-<p>Se você é o tipo de pessoa que curte modo dark não esqueça de deixar habilitado este recurso !</p>
+Se você é o tipo de pessoa que curte modo dark não esqueça de deixar habilitado este recurso !
 
-![](C:\Users\davif\git\horadoevento\WebContent\assets\logo\gif.gif)
+<img src="https://github.com/davibrandao18/horadoevento/blob/master/WebContent/assets/logo/gif.gif">
