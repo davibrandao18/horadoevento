@@ -1,6 +1,7 @@
 <h1 style="text-align:center;"> ⏰ Hora do Evento ⏰</h1>
 
-<h1 style="font-size:15pt;">🖥 Projeto</h1>
+
+## :computer: Projeto 
 
 <p>Hora do evento é uma plataforma intermediadora entre empresas e estudantes para cadastro, divulgação e participação nos mais variados eventos. Este projeto foi desenvolvido para a disciplina de Projetos Integrados do 3º Semestre do curso de Ciência da computação (2020).</p>
 
