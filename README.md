@@ -12,7 +12,7 @@ Hora do evento é uma plataforma intermediadora entre empresas e estudantes para
 
 ## :gear: Contruído com:
 
-Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aula:
+Este projeto foi construído utilizando o conteúdo que aprendemos em sala de aula:
 
 <details>
     <summary>Backend</summary>
@@ -96,7 +96,7 @@ Este projeto foi contruido utilizando o conteúdo que amprendemos em sala de aul
 <details>
      <summary>Login</summary>
     <ul>
-        <li>teste</li>
+        <li> </li>
     </ul>
 </details>
 
